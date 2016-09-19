@@ -35,6 +35,12 @@
     <Content Include="TempFile" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ship.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ship.Designer.cs">
+      <DependentUpon>Ship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -50,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ship.resx">
+      <DependentUpon>Ship.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transport.resx">
       <DependentUpon>Transport.cs</DependentUpon>
     </EmbeddedResource>
