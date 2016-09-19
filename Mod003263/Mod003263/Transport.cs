@@ -16,5 +16,21 @@ namespace Mod003263
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            new Car().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            new Plane().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            new Train().Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            new Ship().Show();
+        }
     }
 }
