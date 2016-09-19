@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>843061E9-5E5D-4211-9117-7B779FF28A19</ProjectGuid>
+    <ProjectGuid>{843061E9-5E5D-4211-9117-7B779FF28A19}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mod003263</RootNamespace>
@@ -33,6 +33,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="TempFile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Plane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plane.Designer.cs">
+      <DependentUpon>Plane.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Plane.resx">
+      <DependentUpon>Plane.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
