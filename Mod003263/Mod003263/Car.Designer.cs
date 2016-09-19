@@ -39,7 +39,7 @@
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.button1_Click);
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // Car
             // 
