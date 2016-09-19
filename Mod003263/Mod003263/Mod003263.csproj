@@ -35,6 +35,7 @@
     <Content Include="TempFile" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Launcher.cs" />
     <Compile Include="Train.cs">
       <SubType>Form</SubType>
     </Compile>
