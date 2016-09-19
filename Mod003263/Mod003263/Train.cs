@@ -12,6 +12,13 @@ namespace Mod003263 {
     public partial class Train : Form {
         public Train() {
             InitializeComponent();
+            cmbEnginetype.Items.Add("Petrol");
+            cmbEnginetype.Items.Add("Deisel");
+            cmbEnginetype.Items.Add("Electric");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }
