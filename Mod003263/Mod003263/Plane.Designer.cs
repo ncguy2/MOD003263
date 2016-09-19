@@ -38,11 +38,11 @@
             this.pinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.whiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.selectRouteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.australiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.towersvilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wisbechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,25 +72,25 @@
             // easyJetToolStripMenuItem
             // 
             this.easyJetToolStripMenuItem.Name = "easyJetToolStripMenuItem";
-            this.easyJetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.easyJetToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.easyJetToolStripMenuItem.Text = "easy jet";
             // 
             // thomasCookToolStripMenuItem
             // 
             this.thomasCookToolStripMenuItem.Name = "thomasCookToolStripMenuItem";
-            this.thomasCookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.thomasCookToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.thomasCookToolStripMenuItem.Text = "thomas cook";
             // 
             // airlinesToolStripMenuItem
             // 
             this.airlinesToolStripMenuItem.Name = "airlinesToolStripMenuItem";
-            this.airlinesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.airlinesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.airlinesToolStripMenuItem.Text = "373 airlines";
             // 
             // hijackAirlinesToolStripMenuItem
             // 
             this.hijackAirlinesToolStripMenuItem.Name = "hijackAirlinesToolStripMenuItem";
-            this.hijackAirlinesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hijackAirlinesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.hijackAirlinesToolStripMenuItem.Text = "hijack airlines";
             // 
             // colourToolStripMenuItem
@@ -106,29 +106,20 @@
             // pinkToolStripMenuItem
             // 
             this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
-            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.pinkToolStripMenuItem.Text = "pink";
             // 
             // blackToolStripMenuItem
             // 
             this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
-            this.blackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.blackToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.blackToolStripMenuItem.Text = "black";
             // 
             // whiteToolStripMenuItem
             // 
             this.whiteToolStripMenuItem.Name = "whiteToolStripMenuItem";
-            this.whiteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.whiteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.whiteToolStripMenuItem.Text = "white";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(140, 289);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 20);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Go Back";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // selectRouteToolStripMenuItem
             // 
@@ -143,20 +134,30 @@
             // australiaToolStripMenuItem
             // 
             this.australiaToolStripMenuItem.Name = "australiaToolStripMenuItem";
-            this.australiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.australiaToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.australiaToolStripMenuItem.Text = "australia";
             // 
             // towersvilleToolStripMenuItem
             // 
             this.towersvilleToolStripMenuItem.Name = "towersvilleToolStripMenuItem";
-            this.towersvilleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.towersvilleToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.towersvilleToolStripMenuItem.Text = "towersville";
             // 
             // wisbechToolStripMenuItem
             // 
             this.wisbechToolStripMenuItem.Name = "wisbechToolStripMenuItem";
-            this.wisbechToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wisbechToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.wisbechToolStripMenuItem.Text = "wisbech";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(140, 289);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 20);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Go Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Plane
             // 
