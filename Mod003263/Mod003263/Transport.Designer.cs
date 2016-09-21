@@ -78,10 +78,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(86, 30);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(86, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 31);
+            this.label1.Size = new System.Drawing.Size(143, 38);
             this.label1.TabIndex = 4;
             this.label1.Text = "Transport";
             // 
