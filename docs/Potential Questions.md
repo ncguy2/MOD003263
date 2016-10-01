@@ -7,3 +7,4 @@
 # USABILITY
 
 * Would the templates need to be categorised at all?
+* Would accessibility options, such as accounting for colour blindness, or text scaling, be necessary?
