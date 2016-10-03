@@ -2,6 +2,9 @@
 
 * How many applications would need to be reviewed in a session?
 * What sort of data would need to be seen when reviewing an application?
+* Where the data came from?
+* What happens to the data post review?
+* Will there need to be an admin control panel?
 
 
 # USABILITY
