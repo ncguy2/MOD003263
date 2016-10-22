@@ -6,12 +6,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Mod003263
-{
+namespace Mod003263 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        private void App_OnStartup(object sender, StartupEventArgs e) {
+
+        }
     }
 }

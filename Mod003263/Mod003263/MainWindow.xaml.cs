@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.animation;
+using TweenEngine;
 
 namespace Mod003263
 {
@@ -20,9 +22,12 @@ namespace Mod003263
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
+        }
+
+        private void AnimationButton_Click(object sender, RoutedEventArgs e) {
+            AnimationManager.Instance().AddManagedLocationAnimation(AnimationButton, new Point(100, 100), 2500, true);
         }
     }
 }
