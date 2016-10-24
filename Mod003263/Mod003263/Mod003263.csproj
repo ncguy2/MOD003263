@@ -62,9 +62,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="TweenEngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\libs\TweenEngineAPI.dll</HintPath>
-    </Reference>
     <Reference Include="Utils">
       <HintPath>..\libs\Utils.dll</HintPath>
     </Reference>
@@ -89,10 +86,16 @@
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
     <Compile Include="controllerview\view\BaseView.cs" />
+    <Compile Include="interview\Answer.cs" />
+    <Compile Include="interview\InterviewFoundation.cs" />
+    <Compile Include="interview\InterviewFoundationInstance.cs" />
+    <Compile Include="interview\metric\MetricCalculator.cs" />
+    <Compile Include="interview\metric\MetricException.cs" />
+    <Compile Include="interview\Question.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="metric\MetricDriver.cs" />
+    <Compile Include="interview\Interview.cs" />
     <Compile Include="model\FlagManager.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
   </ItemGroup>
@@ -105,6 +108,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controllerview\breadcrumb" />
+    <Folder Include="interview" />
+    <Folder Include="interview\metric" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
