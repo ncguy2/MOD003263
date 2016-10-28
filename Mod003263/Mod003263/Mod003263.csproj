@@ -54,6 +54,9 @@
     <Reference Include="LiteDB">
       <HintPath>..\libs\LiteDB.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+      <HintPath>..\libs\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
