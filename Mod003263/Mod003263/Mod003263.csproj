@@ -101,6 +101,10 @@
     <Compile Include="interview\Interview.cs" />
     <Compile Include="model\FlagManager.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
+    <Compile Include="wpf\WPFMessageBoxFactory.cs" />
+    <Compile Include="wpf\WPFMessageBoxForm.xaml.cs">
+      <DependentUpon>WPFMessageBoxForm.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -111,11 +115,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="wpf\WPFMessageBoxForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="controllerview\breadcrumb" />
-    <Folder Include="interview" />
-    <Folder Include="interview\metric" />
+    <Folder Include="controllerview\breadcrumb\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.config" />
