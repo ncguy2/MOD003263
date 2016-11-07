@@ -22,5 +22,18 @@ namespace Mod003263.interview {
             get { return weight; }
             set { weight = value; }
         }
+
+        public string Cat() {
+            return category;
+        }
+
+        public string Text() {
+            return questionText;
+        }
+
+        public string Path() {
+            return Cat() + '|' + Text();
+        }
+
     }
 }

@@ -27,6 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -86,9 +87,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\adapter\AbstractDataAdapter.cs" />
+    <Compile Include="controllerview\adapter\QuestionTreeDataAdapter.cs" />
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
     <Compile Include="controllerview\view\BaseView.cs" />
+    <Compile Include="controllerview\view\OptionsForm.xaml.cs">
+      <DependentUpon>OptionsForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
@@ -100,6 +106,7 @@
     </Compile>
     <Compile Include="interview\Interview.cs" />
     <Compile Include="model\FlagManager.cs" />
+    <Compile Include="PropertiesManager.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
     <Compile Include="wpf\controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
@@ -114,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\OptionsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +139,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="controllerview" />
+    <Folder Include="controllerview\adapter" />
     <Folder Include="controllerview\breadcrumb\" />
   </ItemGroup>
   <ItemGroup>
