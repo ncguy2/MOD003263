@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Mod003263 {
     /// <summary>
@@ -64,6 +65,14 @@ namespace Mod003263 {
         /// <returns>If the property cache contains the provided key</returns>
         public bool HasProperty(string key) {
             return properties.ContainsKey(key);
+        }
+
+        /// <summary>
+        /// Gets the keys from the property cache
+        /// </summary>
+        /// <returns>A <see cref="List{String}"/> of all keys found in the property cache </returns>
+        public List<string> GetKeys() {
+            return properties.Keys.ToList();
         }
 
     }
