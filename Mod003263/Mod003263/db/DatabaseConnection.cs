@@ -56,37 +56,32 @@ namespace Mod003263.DBstuff {
             }
         }
 
+        private void Insert(String q) {
+            //open connection
+            if (this.OpenConnection() != true) return;
+            //create command and assign the query and connection from the constructor
+            MySqlCommand cmd = new MySqlCommand(q, connection);
+            //Execute command
+            cmd.ExecuteNonQuery();
+            //close connection
+            this.CloseConnection();
+        }
+
         //Insert statement
         public void Insert(Applicant applicant) {
             string q = "INSERT INTO Current_JA (First_Name, Last_Name, Dob, EmailAddress, Applying_Position, Picture, Phone_Number)"
                 + $"VALUES('{applicant.First_Name}','{applicant.Last_Name}','{applicant.Dob}','{applicant.Email}',"
                 + $"'{applicant.Applying_Position}','{applicant.Picture}','{applicant.Phone_Number}')";
-
-            //open connection
-            if (this.OpenConnection() == true)
-            {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(q, connection);
-                //Execute command
-                cmd.ExecuteNonQuery();
-                //close connection
-                this.CloseConnection();
-            }
+            Insert(q);
         }
-        public void Insert(Question question)
-        {
-            string q = "INSERT INTO  () VALUES()";
-
-            //open connection
-            if (this.OpenConnection() == true)
-            {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(q, connection);
-                //Execute command
-                cmd.ExecuteNonQuery();
-                //close connection
-                this.CloseConnection();
-            }
+        public void Insert(Question question) {
+            string q = $"INSERT INTO Questions (Question, Category) VALUES('{question.Text()}', '{question.Cat()}')";
+            Insert(q);
+        }
+        public void Insert(int questionId, Answer answer) {
+            string q = $"INSERT INTO Question_Answers (Question_ID, Value, Weight) " +
+                       $"VALUES( '{questionId}','{answer.Text}', '{answer.Weight}')";
+            Insert(q);
         }
 
         //Update statement
@@ -102,10 +97,8 @@ namespace Mod003263.DBstuff {
                 cmd.CommandText = query;
                 //Assign the connection using Connection
                 cmd.Connection = connection;
-
                 //Execute query
                 cmd.ExecuteNonQuery();
-
                 //close connection
                 this.CloseConnection();
             }
