@@ -14,7 +14,12 @@ namespace Mod003263.interview {
 
         private String name;
         private String category;
-        private List<Question> questions;
+        private Dictionary<Question, int> questions;
+
+        public int GetQuestionWeight(Question question) {
+            return questions.ContainsKey(question) ? questions[question] : 0;
+        }
 
     }
+
 }

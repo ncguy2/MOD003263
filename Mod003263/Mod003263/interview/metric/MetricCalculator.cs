@@ -45,7 +45,7 @@ namespace Mod003263.interview.metric {
             }
             answerMap = this.interview.GetFoundationInstance().GetAnswerMap();
             foreach (Question q in answerMap.Keys)
-                this.maxMetric += q.Weight;
+                this.maxMetric += interview.GetFoundationInstance().GetQuestionWeight(q);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Mod003263.interview.metric {
         /// <param name="answer">The provided answer</param>
         /// <returns>The local metric of the provided answer</returns>
         private int CalculateLocalMetric(Question question, Answer answer) {
-            return question.Weight * answer.Weight;
+            return interview.GetFoundationInstance().GetQuestionWeight(question) * answer.Weight;
         }
 
         /// <summary>
