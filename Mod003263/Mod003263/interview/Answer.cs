@@ -14,10 +14,7 @@ namespace Mod003263.interview {
         private String text;
         private int weight;
 
-        public int Weight
-        {
-            get { return weight; }
-            set { weight = value; }
-        }
+        public String Text => text;
+        public int Weight => weight;
     }
 }
