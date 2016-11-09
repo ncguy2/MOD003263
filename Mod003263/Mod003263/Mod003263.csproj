@@ -115,6 +115,8 @@
     <Compile Include="wpf\WPFMessageBoxForm.xaml.cs">
       <DependentUpon>WPFMessageBoxForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db/Applicant.cs" />
+    <Compile Include="db/DatabaseConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

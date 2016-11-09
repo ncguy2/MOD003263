@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mod003263.interview;
 using MySql.Data.MySqlClient;
 
 namespace Mod003263.DBstuff {
@@ -57,7 +58,7 @@ namespace Mod003263.DBstuff {
 
         //Insert statement
         public void Insert(Applicant applicant) {
-            string q = "INSERT INTO Current_JA (First_Name, Last_Name, Dob, EmailAddress, Applying_Position, Picture, Phone_Number) "
+            string q = "INSERT INTO Current_JA (First_Name, Last_Name, Dob, EmailAddress, Applying_Position, Picture, Phone_Number)"
                 + $"VALUES('{applicant.First_Name}','{applicant.Last_Name}','{applicant.Dob}','{applicant.Email}',"
                 + $"'{applicant.Applying_Position}','{applicant.Picture}','{applicant.Phone_Number}')";
 
@@ -66,7 +67,21 @@ namespace Mod003263.DBstuff {
             {
                 //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(q, connection);
+                //Execute command
+                cmd.ExecuteNonQuery();
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        public void Insert(Question question)
+        {
+            string q = "INSERT INTO  () VALUES()";
 
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(q, connection);
                 //Execute command
                 cmd.ExecuteNonQuery();
                 //close connection
