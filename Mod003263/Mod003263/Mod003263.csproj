@@ -95,6 +95,7 @@
     <Compile Include="controllerview\view\OptionsForm.xaml.cs">
       <DependentUpon>OptionsForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
