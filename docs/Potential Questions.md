@@ -5,6 +5,8 @@
 * Where the data came from?
 * What happens to the data post review?
 * Will there need to be an admin control panel?
+* What Platform will you be running the program on?
+* Would the admin need access to the database?
 
 
 # USABILITY
