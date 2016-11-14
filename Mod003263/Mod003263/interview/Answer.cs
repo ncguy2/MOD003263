@@ -11,10 +11,11 @@ namespace Mod003263.interview {
     /// </summary>
     public class Answer {
 
-        private String text;
+        private string text;
         private int weight;
 
-        public String Text => text;
+        public string Text => text;
+
         public int Weight => weight;
     }
 }
