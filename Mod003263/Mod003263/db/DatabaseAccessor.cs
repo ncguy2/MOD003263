@@ -5,7 +5,7 @@
  * Date: 14/11/2016
  * Contains: DatabaseAccessor
  */
-namespace Mod003263.DBstuff
+namespace Mod003263.db
 {
     class DatabaseAccessor
     {

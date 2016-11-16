@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Mod003263.DBstuff {
+namespace Mod003263.db {
     public class Applicant {
         private int m_id;
         public int ID { get { return m_id; } set { m_id = value; } }

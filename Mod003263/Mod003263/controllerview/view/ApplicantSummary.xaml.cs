@@ -1,5 +1,4 @@
-﻿using Mod003263.DBstuff;
-using Mod003263.wpf.controls;
+﻿using Mod003263.wpf.controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.db;
 using Utils.Difference;
 
 namespace Mod003263.controllerview.view

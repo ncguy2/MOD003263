@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Mod003263.DBstuff;
+using Mod003263.db;
 
 namespace Mod003263.wpf.controls
 {

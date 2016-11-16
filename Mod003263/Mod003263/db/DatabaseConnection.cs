@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mod003263.interview;
 using MySql.Data.MySqlClient;
 
-namespace Mod003263.DBstuff {
+namespace Mod003263.db {
     class DatabaseConnection {
         private MySqlConnection connection;
         private string server;
