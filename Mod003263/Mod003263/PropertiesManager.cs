@@ -34,6 +34,7 @@ namespace Mod003263 {
         /// </summary>
         /// <param name="file">The file to check for properties</param>
         private void LoadProperties(string file) {
+            if (!File.Exists(file)) return;
             string[] lines = File.ReadAllLines(file);
             foreach (string line in lines)
                 ProcessPropertyLine(line);

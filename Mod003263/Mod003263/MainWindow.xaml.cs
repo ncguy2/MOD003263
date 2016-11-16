@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.wpf.controls;
 
 namespace Mod003263
 {
@@ -22,6 +23,11 @@ namespace Mod003263
     {
         public MainWindow() {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e) {
+//            test.stack.Children.Add(new ApplicantRow());
+            test.listBox.Items.Add(new ApplicantRow());
         }
     }
 }

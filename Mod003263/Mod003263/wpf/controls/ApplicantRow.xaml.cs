@@ -12,20 +12,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.DBstuff;
 
 namespace Mod003263.wpf.controls
 {
     /// <summary>
     /// Interaction logic for ApplicantRow.xaml
     /// </summary>
-    public partial class ApplicantRow : UserControl {
-        public ApplicantRow() {
+    public partial class ApplicantRow : ListViewItem {
+        public ApplicantRow() : this(null) {}
+
+        public ApplicantRow(Applicant applicant) {
             InitializeComponent();
+            Populate(applicant);
+            Base64Converter base64Converter = new Base64Converter();
+            ((ImageBrush)userImgFrame.Background).ImageSource = base64Converter.Convert(Base64Converter.TEST_IMAGE);
         }
 
-        private void image_Initialized(object sender, EventArgs e) {
+        public void Populate(Applicant applicant) {
+            // Image
             Base64Converter base64Converter = new Base64Converter();
-//            image.Source = base64Converter.Convert(Base64Converter.TEST_IMAGE);
+            ((ImageBrush)this.userImgFrame.Background).ImageSource = base64Converter.Convert(applicant?.Picture);
+            // Name
+            this.usrName.Content = applicant?.Full_Name;
+            // Position
+            this.usrPosition.Content = applicant?.Applying_Position;
+            // Flags
+            // TODO discern icons for each flag
         }
     }
 }

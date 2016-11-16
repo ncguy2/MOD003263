@@ -91,6 +91,9 @@
     <Compile Include="controllerview\adapter\QuestionTreeDataAdapter.cs" />
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
+    <Compile Include="controllerview\view\ApplicantSummary.xaml.cs">
+      <DependentUpon>ApplicantSummary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\BaseView.cs" />
     <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="interview\Answer.cs" />
@@ -125,7 +128,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\ApplicantSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -142,9 +153,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controllerview\breadcrumb\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="app.config" />
   </ItemGroup>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Mod003263.DBstuff {
-    class Applicant {
+    public class Applicant {
         private int m_id;
         public int ID { get { return m_id; } set { m_id = value; } }
 
@@ -32,5 +32,7 @@ namespace Mod003263.DBstuff {
 
         private long m_Dob;
         public long Dob { get { return m_Dob; } set { m_Dob = value; } }
+
+        public String Full_Name => First_Name + " " + Last_Name;
     }
 }
