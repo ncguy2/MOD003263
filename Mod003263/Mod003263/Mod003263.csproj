@@ -60,9 +60,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="sqlite3, PublicKeyToken=null">
-      <HintPath>..\libs\sqlite3.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -95,9 +92,6 @@
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
     <Compile Include="controllerview\view\BaseView.cs" />
-    <Compile Include="controllerview\view\OptionsForm.xaml.cs">
-      <DependentUpon>OptionsForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
@@ -131,10 +125,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="controllerview\view\OptionsForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

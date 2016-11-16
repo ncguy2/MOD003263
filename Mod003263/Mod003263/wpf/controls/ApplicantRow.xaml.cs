@@ -25,7 +25,7 @@ namespace Mod003263.wpf.controls
 
         private void image_Initialized(object sender, EventArgs e) {
             Base64Converter base64Converter = new Base64Converter();
-            image.Source = base64Converter.Convert(Base64Converter.TEST_IMAGE);
+//            image.Source = base64Converter.Convert(Base64Converter.TEST_IMAGE);
         }
     }
 }

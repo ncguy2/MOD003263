@@ -56,7 +56,7 @@ namespace Mod003263.DBstuff {
             }
         }
 
-        public static void Insert(String q) {
+        public void Insert(String q) {
             //open connection
             if (this.OpenConnection() != true) return;
             //create command and assign the query and connection from the constructor
