@@ -25,9 +25,11 @@ namespace Mod003263
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e) {
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
 //            test.stack.Children.Add(new ApplicantRow());
-            test.listBox.Items.Add(new ApplicantRow());
+            double width = test.listBox.Width-30;
+            test.listBox.Items.Add(new ApplicantRow().SetWidth(width));
         }
     }
 }

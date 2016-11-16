@@ -19,7 +19,7 @@ namespace Mod003263.DBstuff {
         }
 
         private void Initialize() {
-            server = "HappyTec Server";
+            server = "HappyTec Server"; // TODO Server means hostname, not a display name
             database = "Applicant";
             uid = "admin";
             password = "123";

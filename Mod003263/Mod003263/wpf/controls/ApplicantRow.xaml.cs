@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.DBstuff;
@@ -27,6 +28,13 @@ namespace Mod003263.wpf.controls
             Populate(applicant);
             Base64Converter base64Converter = new Base64Converter();
             ((ImageBrush)userImgFrame.Background).ImageSource = base64Converter.Convert(Base64Converter.TEST_IMAGE);
+        }
+
+        public ApplicantRow SetWidth(double width) {
+            Width = width;
+            root.Width = width;
+            rootGrid.Width = width;
+            return this;
         }
 
         public void Populate(Applicant applicant) {

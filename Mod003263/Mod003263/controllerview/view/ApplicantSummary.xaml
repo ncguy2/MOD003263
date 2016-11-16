@@ -12,7 +12,7 @@
             <RowDefinition Height="155*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="searchTxt" Margin="10" TextWrapping="Wrap" Text="TextBox" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" TextChanged="searchTxt_TextChanged"/>
-        <ListBox x:Name="listBox" Margin="10" Grid.Row="1">
+        <ListBox x:Name="listBox" Margin="10" Grid.Row="1" ScrollViewer.CanContentScroll="False" Width="361" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
