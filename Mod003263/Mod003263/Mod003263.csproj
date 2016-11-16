@@ -60,6 +60,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="sqlite3, PublicKeyToken=null">
+      <HintPath>..\libs\sqlite3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -109,6 +112,10 @@
     <Compile Include="model\FlagManager.cs" />
     <Compile Include="PropertiesManager.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
+    <Compile Include="wpf\Base64Converter.cs" />
+    <Compile Include="wpf\controls\ApplicantRow.xaml.cs">
+      <DependentUpon>ApplicantRow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wpf\controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
@@ -132,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="wpf\controls\ApplicantRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="wpf\controls\Spinner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,8 +153,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="controllerview" />
-    <Folder Include="controllerview\adapter" />
     <Folder Include="controllerview\breadcrumb\" />
   </ItemGroup>
   <ItemGroup>
