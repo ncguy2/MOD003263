@@ -32,8 +32,9 @@ namespace Mod003263.DBstuff
             //DatabaseConnection.Insert(q);
         }
 
-        public void PullAllData(string table) {
-
+        public void PullAllData(string table)
+        {
+            int i;
         }
     }
 }
