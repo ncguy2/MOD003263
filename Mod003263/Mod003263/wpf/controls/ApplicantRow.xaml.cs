@@ -25,9 +25,9 @@ namespace Mod003263.wpf.controls
 
         public ApplicantRow(Applicant applicant) {
             InitializeComponent();
-            Populate(applicant);
             Base64Converter base64Converter = new Base64Converter();
             ((ImageBrush)userImgFrame.Background).ImageSource = base64Converter.Convert(Base64Converter.TEST_IMAGE);
+            Populate(applicant);
         }
 
         public ApplicantRow SetWidth(double width) {
@@ -47,6 +47,16 @@ namespace Mod003263.wpf.controls
             this.usrPosition.Content = applicant?.Applying_Position;
             // Flags
             // TODO discern icons for each flag
+        }
+
+        private void root_MouseEnter(object sender, MouseEventArgs e) {
+            rootDropShadow.Opacity = 0;
+            imgDropShadow.ShadowDepth = 5;
+        }
+
+        private void root_MouseLeave(object sender, MouseEventArgs e) {
+            rootDropShadow.Opacity = 1;
+            imgDropShadow.ShadowDepth = 2;
         }
     }
 }

@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Mod003263.controllerview.view"
              xmlns:controls="clr-namespace:Mod003263.wpf.controls" x:Class="Mod003263.controllerview.view.ApplicantSummary"
-             mc:Ignorable="d" Height="195.745" Width="390.071">
+             mc:Ignorable="d" Height="486.745" Width="646.571">
     <Grid Background="#FF727272">
         <Grid.RowDefinitions>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="155*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="439*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="searchTxt" Margin="10" TextWrapping="Wrap" Text="TextBox" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" TextChanged="searchTxt_TextChanged"/>
-        <ListBox x:Name="listBox" Margin="10" Grid.Row="1" ScrollViewer.CanContentScroll="False" Width="361" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListBox x:Name="listBox" Margin="10" Grid.Row="1" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">

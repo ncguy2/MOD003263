@@ -4,24 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Mod003263.wpf.controls"
-             mc:Ignorable="d" BorderThickness="1">
-    <Grid x:Name="rootGrid" Background="#FFB9B9B9" Height="59.333" Width="235.667">
-        <Border x:Name="userImgFrame" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,10,0,10" Width="43.333">
-            <Border.Effect>
-                <DropShadowEffect ShadowDepth="1"/>
-            </Border.Effect>
-            <Border.Background>
-                <ImageBrush/>
-            </Border.Background>
-        </Border>
-        <Grid Margin="58.333,10,10,10">
+             mc:Ignorable="d" BorderThickness="1" Background="#FFA2A2A2" MouseEnter="root_MouseEnter" MouseLeave="root_MouseLeave">
+    <ListViewItem.Effect>
+        <DropShadowEffect x:Name="rootDropShadow" ShadowDepth="3"/>
+    </ListViewItem.Effect>
+    <Grid x:Name="rootGrid" Height="132" Width="312.667">
+        <Grid Margin="10,10,0,10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="175*"/>
-                <ColumnDefinition Width="237*"/>
+                <ColumnDefinition Width="112"/>
+                <ColumnDefinition Width="46*"/>
+                <ColumnDefinition Width="145*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="usrName" Content="Label" VerticalAlignment="Top" Height="19.96" Margin="0,0,0.001,0" FontSize="8" d:LayoutOverrides="HorizontalAlignment"/>
-            <Label x:Name="usrPosition" Content="Label" Margin="16.087,0,28.66,-2.337" Height="21.71" VerticalAlignment="Bottom" FontSize="8" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2"/>
-            <Label x:Name="DebugText" Content="Label" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="8"/>
+            <Label x:Name="usrName" Content="Label" VerticalAlignment="Top" Height="33.293" Margin="0.495,0,63.402,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Label x:Name="usrPosition" Content="Label" Margin="0,42.968,-7.71,44.075" Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+            <Label x:Name="DebugText" Content="Label" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="8" Height="20.64" Width="28.66" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+            <Border x:Name="userImgFrame" BorderBrush="Black" BorderThickness="1" Margin="0.999,0,-0.495,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Border.Effect>
+                    <DropShadowEffect x:Name="imgDropShadow" ShadowDepth="2"/>
+                </Border.Effect>
+                <Border.Background>
+                    <ImageBrush/>
+                </Border.Background>
+            </Border>
         </Grid>
         <StackPanel x:Name="flagDisplay" HorizontalAlignment="Right" Width="100" Height="21.333" VerticalAlignment="Top"/>
     </Grid>

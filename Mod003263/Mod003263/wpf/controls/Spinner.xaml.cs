@@ -55,11 +55,9 @@ namespace Mod003263.wpf.controls
             }
 
 
-            if (e.Key == Key.Down)
-            {
-                NUDButtonDown.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                typeof(Button).GetMethod("set_IsPressed", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(NUDButtonDown, new object[] { true });
-            }
+            if (e.Key != Key.Down) return;
+            NUDButtonDown.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            typeof(Button).GetMethod("set_IsPressed", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(NUDButtonDown, new object[] { true });
         }
 
         private void NUDTextBox_PreviewKeyUp(object sender, KeyEventArgs e)
