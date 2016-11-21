@@ -16,22 +16,24 @@ namespace Mod003263.db
         /// Insert statement
         /// </summary>
         /// <param name="applicant"></param>
-        public void Insert(Applicant applicant) {
+        public int Insert(Applicant applicant) {
             string q = "INSERT INTO Current_JA (First_Name, Last_Name, Dob, EmailAddress, Applying_Position, Picture, Phone_Number) "
                        + $"VALUES('{applicant.First_Name}','{applicant.Last_Name}','{applicant.Dob}','{applicant.Email}',"
                        + $"'{applicant.Applying_Position}','{applicant.Picture}','{applicant.Phone_Number}')";
-            //DatabaseConnection.Insert(q);
+            return DatabaseConnection.GetInstance().Insert(q);
         }
-        public void Insert(Question question) {
+        public int Insert(Question question) {
             string q = $"INSERT INTO Questions (Question, Category) VALUES('{question.Text()}', '{question.Cat()}')";
-            //DatabaseConnection.Insert(q);
+            return DatabaseConnection.GetInstance().Insert(q);
         }
-        public void Insert(int questionId, Answer answer) {
+        public int Insert(int questionId, Answer answer) {
             string q = $"INSERT INTO Question_Answers (Question_ID, Value, Weight) " +
                        $"VALUES( '{questionId}','{answer.Text}', '{answer.Weight}')";
-            //DatabaseConnection.Insert(q);
+            return DatabaseConnection.GetInstance().Insert(q);
         }
 
+        // TODO Ian, this is not acceptable for 3 hours of work.
+        // At very least, follow the established coding standards
         public void PullAllData(string table)
         {
             int i;
