@@ -213,7 +213,13 @@
     </UserControl.Triggers>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Rectangle x:Name="interview_Background" Fill="#FFA0A0A0" Margin="10,10,0,154.667" Stroke="#00000000" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="345"/>
+            </Rectangle.Effect>
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -234,6 +240,9 @@
             </Button.RenderTransform>
         </Button>
         <Rectangle x:Name="options_Background" Fill="#FFA0A0A0" Margin="10.333,0,0,38.66" Stroke="#00000000" Width="199.667" Height="105.699" HorizontalAlignment="Left" VerticalAlignment="Bottom" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="345"/>
+            </Rectangle.Effect>
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
