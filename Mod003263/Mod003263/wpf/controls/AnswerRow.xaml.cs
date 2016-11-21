@@ -30,10 +30,6 @@ namespace Mod003263.wpf.controls
 
         private Action<AnswerRow> ButtonClicked;
 
-        private void btn_Click(object sender, RoutedEventArgs e) {
-            ButtonClicked?.Invoke(this);
-        }
-
         public Answer GetAnswer() {
             return this.answer;
         }
@@ -49,6 +45,10 @@ namespace Mod003263.wpf.controls
 
         public void SetButtonClicked(Action<AnswerRow> buttonClicked) {
             this.ButtonClicked = buttonClicked;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e) {
+            ButtonClicked?.Invoke(this);
         }
     }
 }

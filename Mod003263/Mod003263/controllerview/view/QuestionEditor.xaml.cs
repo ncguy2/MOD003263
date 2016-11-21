@@ -28,14 +28,19 @@ namespace Mod003263.controllerview.view {
         }
 
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
-            if (selectedQuestion == null) return;
             AnswerRow row = new AnswerRow();
             row.SetButtonClicked(OnRowBtnClick);
+            AddAnswerRow(row);
+        }
+
+        private void AddAnswerRow(AnswerRow row) {
+            if (selectedQuestion == null) return;
+            selectedQuestion.GetAnswers().Add(row.GetAnswer());
             answerTbl.Items.Add(row);
         }
 
         private void OnRowBtnClick(AnswerRow ansRow) {
-            selectedQuestion.GetAnswers().Remove(ansRow.GetAnswer());
+            selectedQuestion?.GetAnswers().Remove(ansRow.GetAnswer());
             answerTbl.Items.Remove(ansRow);
         }
 
