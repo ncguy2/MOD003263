@@ -31,7 +31,11 @@ namespace Mod003263.interview {
         }
 
         public string Path() {
-            return Cat() + '|' + Text();
+            return Cat() + '/' + Text();
+        }
+
+        public List<Answer> GetAnswers() {
+            return this.answers;
         }
 
     }

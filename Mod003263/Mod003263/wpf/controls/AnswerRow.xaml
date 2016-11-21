@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Slider x:Name="answerWeight" Margin="5,10,0,10" Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" ValueChanged="answerWeight_ValueChanged" Maximum="100"/>
         <TextBox x:Name="answerText" Margin="6.667,10,5,10" TextWrapping="Wrap" Text="TextBox" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.Column="1"/>
-        <Label x:Name="answerPercent" Content="Label" Grid.Column="3" Margin="10" FontSize="8" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <Label x:Name="answerPercent" Content="100%" Grid.Column="3" Margin="5,10,0,10" d:LayoutOverrides="TopMargin, BottomMargin" FontSize="10"/>
         <Button x:Name="button" Content="" Margin="10,10,0,10" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" ToolTip="Remove answer"/>
 
     </Grid>

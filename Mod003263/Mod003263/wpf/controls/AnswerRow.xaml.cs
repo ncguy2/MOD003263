@@ -28,11 +28,10 @@ namespace Mod003263.wpf.controls
             InitializeComponent();
         }
 
-        // Not sure if this needs to be public, but all guides to custom delegates define them as public
-        public event EventHandler ButtonClicked;
+        private Action<AnswerRow> ButtonClicked;
 
         private void btn_Click(object sender, RoutedEventArgs e) {
-            ButtonClicked?.Invoke(sender, e);
+            ButtonClicked?.Invoke(this);
         }
 
         public Answer GetAnswer() {
@@ -46,6 +45,10 @@ namespace Mod003263.wpf.controls
         private void answerWeight_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             this.answer.SetWeight((int)answerWeight.Value);
             answerPercent.Content = answerWeight.Value + "%";
+        }
+
+        public void SetButtonClicked(Action<AnswerRow> buttonClicked) {
+            this.ButtonClicked = buttonClicked;
         }
     }
 }

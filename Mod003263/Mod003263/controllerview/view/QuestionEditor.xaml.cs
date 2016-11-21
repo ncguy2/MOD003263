@@ -12,17 +12,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.interview;
+using Mod003263.wpf.controls;
 
-namespace Mod003263.controllerview.view
-{
+namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for QuestionEditor.xaml
     /// </summary>
-    public partial class QuestionEditor : UserControl
-    {
-        public QuestionEditor()
-        {
+    public partial class QuestionEditor : UserControl {
+
+        private Question selectedQuestion;
+
+        public QuestionEditor() {
             InitializeComponent();
         }
+
+        private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
+            if (selectedQuestion == null) return;
+            AnswerRow row = new AnswerRow();
+            row.SetButtonClicked(OnRowBtnClick);
+            answerTbl.Items.Add(row);
+        }
+
+        private void OnRowBtnClick(AnswerRow ansRow) {
+            selectedQuestion.GetAnswers().Remove(ansRow.GetAnswer());
+            answerTbl.Items.Remove(ansRow);
+        }
+
     }
 }
