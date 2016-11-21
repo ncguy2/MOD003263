@@ -9,82 +9,55 @@
     <UserControl.Resources>
         <Storyboard x:Key="interview_Press">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="interview_Background">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="4.818"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="4.818"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="interview_Background">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.687"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.687"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Background">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="381.75"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="381.75"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="interview_Background">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="69"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="69"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview_Sub">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview_Sub">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview_Back">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview_Back">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Background">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="178.5"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Button">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="178.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-301.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Sub">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-301.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-301.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="175.5"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
-        <Storyboard x:Key="interview_Press_Reverse">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="interview_Background">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="4.818"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="interview_Background">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1.687"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Background">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="381.75"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="interview_Background">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="69"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview_Sub">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview_Sub">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview_Back">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Hidden}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview_Back">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Background">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="178.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Button">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="178.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+
         <Storyboard x:Key="Options_Press">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="interview_Background">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-282"/>
@@ -194,6 +167,200 @@
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="template_Open">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-297"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Sub">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-297"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-297"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Button">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-297"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-297"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-297"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="template_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-223.058"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="160.942"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="template_Sub">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-223.058"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="template_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-223.058"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="template_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="4.84"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="template_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.707"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Background">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="71.25"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="template_Sub">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="template_Back">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="template_Back">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="template_Sub">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="template_Reverse">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-297"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Sub">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-297"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-297"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Button">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-297"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-297"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-297"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="template_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="160.942"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-223.058"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="template_Sub">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-223.058"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="template_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-223.058"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="template_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="4.84"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="template_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="1.707"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="71.25"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="template_Sub">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="template_Back">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="template_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="template_Sub">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="interview_Press_Reverse">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="interview_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="4.818"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="interview_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="1.687"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="interview_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="381.75"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="interview_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="69"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview_Sub">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview_Sub">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview_Back">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="178.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Button">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="178.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Background">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="-301.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Sub">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="-301.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="template_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="-301.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="options_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="1.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="options_Back">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="175.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
 
     </UserControl.Resources>
     <UserControl.Triggers>
@@ -210,13 +377,24 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="options_Back">
             <BeginStoryboard x:Name="Options_Press_Reverse_BeginStoryboard" Storyboard="{StaticResource Options_Press_Reverse_New}"/>
         </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="template_Sub">
+            <BeginStoryboard x:Name="template_Open_BeginStoryboard1" Storyboard="{StaticResource template_Open}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="template_Back">
+            <BeginStoryboard x:Name="template_Reverse_BeginStoryboard" Storyboard="{StaticResource template_Reverse}"/>
+        </EventTrigger>
     </UserControl.Triggers>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="71*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="489*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle x:Name="interview_Background" Fill="#FFA0A0A0" Margin="10,10,0,154.667" Stroke="#00000000" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="options_Background" Fill="#FFA0A0A0" Margin="-0.105,0,0,38.661" Stroke="#00000000" Width="199.667" Height="105.699" HorizontalAlignment="Left" VerticalAlignment="Bottom" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
             <Rectangle.Effect>
                 <DropShadowEffect ShadowDepth="1" Direction="345"/>
             </Rectangle.Effect>
@@ -229,7 +407,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="interview_Sub" Content="Interview" HorizontalAlignment="Left" Margin="12,11,0,154" Width="199.667" Background="{x:Null}" Foreground="Black" FontFamily="Calibri" FontSize="18" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="options_Button" Content="Options" HorizontalAlignment="Left" Height="105.699" Margin="0.228,0,0,38.662" VerticalAlignment="Bottom" Width="199.667" Background="#00DDDDDD" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -239,7 +417,17 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Rectangle x:Name="options_Background" Fill="#FFA0A0A0" Margin="10.333,0,0,38.66" Stroke="#00000000" Width="199.667" Height="105.699" HorizontalAlignment="Left" VerticalAlignment="Bottom" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="options_Back" Content="Back" HorizontalAlignment="Left" Margin="2.419,0,0,41.683" Width="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Height="100" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Rectangle x:Name="template_Background" Fill="#FFA0A0A0" Margin="222.562,-0.438,0,154.668" Stroke="#00000000" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
             <Rectangle.Effect>
                 <DropShadowEffect ShadowDepth="1" Direction="345"/>
             </Rectangle.Effect>
@@ -252,7 +440,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="options_Button" Content="Options" HorizontalAlignment="Left" Height="105.699" Margin="10.666,0,0,38.661" VerticalAlignment="Bottom" Width="199.667" Background="#00DDDDDD" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="template_Sub" Content="Template" HorizontalAlignment="Left" Margin="223.103,0.118,0,0" VerticalAlignment="Top" Width="199.667" Height="200.667" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Black" d:LayoutOverrides="HorizontalAlignment" FontFamily="Calibri" FontSize="18" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -262,7 +450,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="interview_Back" Content="Back" HorizontalAlignment="Left" Margin="10.625,10.535,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Visibility="Hidden">
+        <Button x:Name="template_Back" Content="Back" HorizontalAlignment="Left" Margin="223.187,0.097,0,0" Width="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Height="100" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Visibility="Hidden">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -272,7 +460,30 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="options_Back" Content="Back" HorizontalAlignment="Left" Margin="12.857,0,0,41.682" Width="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Height="100" VerticalAlignment="Bottom">
+        <Rectangle x:Name="interview_Background" Fill="#FFA0A0A0" Margin="-0.438,-0.438,0,154.668" Stroke="#00000000" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="345"/>
+            </Rectangle.Effect>
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Button x:Name="interview_Sub" Content="Interview" HorizontalAlignment="Left" Margin="1.562,0.562,0,154.001" Width="200" Background="{x:Null}" Foreground="Black" FontFamily="Calibri" FontSize="18" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="interview_Back" Content="Back" HorizontalAlignment="Left" Margin="0.187,0.097,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Visibility="Hidden" Grid.Row="1" Grid.Column="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
