@@ -95,6 +95,9 @@
       <DependentUpon>ApplicantSummary.xaml</DependentUpon>
     </Compile>
     <Compile Include="controllerview\view\BaseView.cs" />
+    <Compile Include="controllerview\view\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controllerview\view\ApplicantSummary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,8 +160,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="controllerview\breadcrumb\" />
+    <Folder Include="Design\" />
     <Content Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

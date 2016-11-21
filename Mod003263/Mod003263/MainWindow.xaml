@@ -3,15 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="clr-namespace:Mod003263.wpf.controls"
-        xmlns:view="clr-namespace:Mod003263.controllerview.view"
-        x:Class="Mod003263.MainWindow"
+        xmlns:local="clr-namespace:Mod003263"
+        xmlns:view="clr-namespace:Mod003263.controllerview.view" x:Name="window" x:Class="Mod003263.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="663.931" Width="873.664">
-    <Grid Margin="10">
-        <view:ApplicantSummary x:Name="test" Margin="0,0,106.929,103.255"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Click="button_Click"/>
-        <controls:Spinner x:Name="levenshteinThreshold" HorizontalAlignment="Right" Margin="0,50.915,10,0" VerticalAlignment="Top" Width="138.011" MaxValue="50" MinValue="0" StartValue="5" SpinnerValueChanged="levenshteinThreshold_SpinnerValueChanged"/>
-        <Label x:Name="label" Content="Levenshtein Threshold" HorizontalAlignment="Right" Margin="0,24.955,10,0" VerticalAlignment="Top" Width="138.011"/>
+        Title="MainWindow" Height="396.667" Width="888.334">
+    <Window.Resources>
+        <Storyboard x:Key="interview_Press"/>
+
+        <Storyboard x:Key="interview_Press_Reversed"/>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+    </Window.Triggers>
+    <Grid x:Name="grid" Background="#FF2C2C2C">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <view:MainMenu Grid.ColumnSpan="2" Margin="4,2.5,16,-2.5"/>
+        <Path Grid.ColumnSpan="2" Data="M0,10 L880.33911,10" Fill="#FFFF0074" Height="1" Margin="0,8,-1.005,0" Stretch="Fill" Stroke="#FFFF0074" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+
     </Grid>
 </Window>
