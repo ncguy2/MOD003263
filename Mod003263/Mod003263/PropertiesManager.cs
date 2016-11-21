@@ -56,7 +56,11 @@ namespace Mod003263 {
         /// <param name="key">The key to find and return the associated value</param>
         /// <returns>The property if it was found, an empty string if it was not</returns>
         public string GetProperty(string key) {
-            return HasProperty(key) ? properties[key] : "";
+            return GetPropertyOrDefault(key, "");
+        }
+
+        public string GetPropertyOrDefault(string key, string def) {
+            return HasProperty(key) ? properties[key] : def;
         }
 
         /// <summary>
