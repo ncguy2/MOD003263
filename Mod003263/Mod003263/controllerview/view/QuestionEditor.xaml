@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Mod003263.controllerview.view"
              mc:Ignorable="d" xmlns:controls="clr-namespace:Mod003263.wpf.controls"
              d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
-    <Grid Background="#FF858585">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49*"/>
             <RowDefinition Height="49*"/>
