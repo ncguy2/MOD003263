@@ -17,5 +17,14 @@ namespace Mod003263.interview {
         public string Text => text;
 
         public int Weight => weight;
+
+        public void SetText(string text) {
+            this.text = text;
+        }
+
+        public void SetWeight(int weight) {
+            this.weight = weight;
+        }
+
     }
 }

@@ -98,6 +98,9 @@
     <Compile Include="controllerview\view\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\view\QuestionEditor.xaml.cs">
+      <DependentUpon>QuestionEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="controllerview\view\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
@@ -117,6 +120,9 @@
     <Compile Include="PropertiesManager.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
     <Compile Include="wpf\Base64Converter.cs" />
+    <Compile Include="wpf\controls\AnswerRow.xaml.cs">
+      <DependentUpon>AnswerRow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wpf\controls\ApplicantRow.xaml.cs">
       <DependentUpon>ApplicantRow.xaml</DependentUpon>
     </Compile>
@@ -147,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controllerview\view\QuestionEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +164,10 @@
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="wpf\controls\AnswerRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpf\controls\ApplicantRow.xaml">
       <SubType>Designer</SubType>
@@ -169,8 +183,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="controllerview\breadcrumb\" />
     <Content Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controllerview\breadcrumb\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
