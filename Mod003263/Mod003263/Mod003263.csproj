@@ -169,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllerview\breadcrumb\" />
-    <Folder Include="Design\" />
     <Content Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
