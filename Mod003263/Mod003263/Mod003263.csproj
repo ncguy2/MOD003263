@@ -101,6 +101,9 @@
     <Compile Include="controllerview\view\QuestionEditor.xaml.cs">
       <DependentUpon>QuestionEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\view\TemplateEditor.xaml.cs">
+      <DependentUpon>TemplateEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="controllerview\view\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controllerview\view\QuestionEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controllerview\view\TemplateEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
