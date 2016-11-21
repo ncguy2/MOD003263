@@ -64,7 +64,8 @@ namespace Mod003263.controllerview.view
             List<DistancedPair> distanced = new List<DistancedPair>();
             foreach (KeyValuePair<Applicant, ApplicantRow> pair in this.applicantMap.Where(pair => !matches.Contains(pair))) {
                 String name = pair.Key.Full_Name;
-                name = name.Substring(0, query.Length);
+                if(name.Length < query.Length)
+                    name = name.Substring(0, query.Length);
                 int distance = StringDifferences.DamerauLevenshtein(query, name);
                 if (distance <= this.levenshteinThreshold)
                     distanced.Add(new DistancedPair{Distance=distance, Pair=pair});
