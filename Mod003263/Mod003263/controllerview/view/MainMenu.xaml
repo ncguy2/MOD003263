@@ -856,5 +856,24 @@
                 </TransformGroup>
             </local:QuestionEditor.RenderTransform>
         </local:QuestionEditor>
+        <Rectangle x:Name="options_Background_Copy" Fill="#FFA0A0A0" Margin="222.562,0,0,96.905" Stroke="#00000000" Width="200" Height="47.455" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="345"/>
+            </Rectangle.Effect>
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Ellipse x:Name="email_StatusLight" Grid.Column="1" Fill="#FFFB0000" HorizontalAlignment="Left" Height="12.334" Margin="228.175,0,0,127.015" Grid.Row="1" Stroke="#FF060505" VerticalAlignment="Bottom" Width="12.334" StrokeThickness="0">
+            <Ellipse.Effect>
+                <DropShadowEffect ShadowDepth="0.5"/>
+            </Ellipse.Effect>
+        </Ellipse>
+        <Label x:Name="email_Status" Content="Emails Not Sent" Grid.Column="1" HorizontalAlignment="Left" Margin="228.175,0,0,96.905" Grid.Row="1" VerticalAlignment="Bottom" Height="35.667" Width="162.66" FontFamily="Calibri" FontSize="24"/>
     </Grid>
 </UserControl>
