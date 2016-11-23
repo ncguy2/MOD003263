@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.email;
 
 namespace Mod003263
 {
@@ -22,6 +23,15 @@ namespace Mod003263
     {
         public MainWindow() {
             InitializeComponent();
+//            SendEmail();
+        }
+
+        private async void EmailTask() {
+            await new Task(SendEmail);
+        }
+
+        private void SendEmail() {
+            EmailHandler.GetInstance().Send("HappyTech", "nick.guy@hotmail.co.uk", "Test Email", "testing email sending");
         }
     }
 }

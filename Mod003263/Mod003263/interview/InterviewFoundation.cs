@@ -16,8 +16,16 @@ namespace Mod003263.interview {
         private String category;
         private Dictionary<Question, int> questions;
 
+        public InterviewFoundation() {
+            questions = new Dictionary<Question, Int32>();
+        }
+
         public int GetQuestionWeight(Question question) {
             return questions.ContainsKey(question) ? questions[question] : 0;
+        }
+
+        public Dictionary<Question, int> GetQuestions() {
+            return this.questions;
         }
 
     }

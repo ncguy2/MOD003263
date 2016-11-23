@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Management.Instrumentation;
+using System.Runtime.Remoting.Messaging;
 
 /**
  *  Author: Nick Guy
@@ -14,14 +16,18 @@ namespace Mod003263.interview {
         private object subject; // TODO replace with Subject object when implemented
         private InterviewFoundationInstance foundation;
         private int flag;
-        private int resultMetric;
+        private float resultMetric;
 
-        public Interview SetResultMetric(int metric) {
+        public Interview() {
+            foundation = new InterviewFoundationInstance(new InterviewFoundation());
+        }
+
+        public Interview SetResultMetric(float metric) {
             this.resultMetric = metric;
             return this;
         }
 
-        public int GetResultMetric() {
+        public float GetResultMetric() {
             return this.resultMetric;
         }
 

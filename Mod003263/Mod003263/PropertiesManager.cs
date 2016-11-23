@@ -24,9 +24,11 @@ namespace Mod003263 {
 
         private readonly Dictionary<string, string> properties;
 
-        private PropertiesManager() {
+        private PropertiesManager() : this("properties.dat") {}
+
+        public PropertiesManager(string propPath) {
             properties = new Dictionary<string, string>();
-            LoadProperties("properties.dat");
+            LoadProperties(propPath);
         }
 
         /// <summary>

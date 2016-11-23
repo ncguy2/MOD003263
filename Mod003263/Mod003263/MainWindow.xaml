@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mod003263"
-        xmlns:view="clr-namespace:Mod003263.controllerview.view" x:Name="window" x:Class="Mod003263.MainWindow"
+        xmlns:view="clr-namespace:Mod003263.controllerview.view" xmlns:controls="clr-namespace:Mod003263.wpf.controls" x:Name="window" x:Class="Mod003263.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="396.667" Width="1269.834">
     <Window.Resources>
@@ -27,6 +27,5 @@
                 <DropShadowEffect ShadowDepth="2"/>
             </Rectangle.Effect>
         </Rectangle>
-
     </Grid>
 </Window>

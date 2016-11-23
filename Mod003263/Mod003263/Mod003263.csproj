@@ -109,6 +109,7 @@
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
     <Compile Include="db\DbFactory.cs" />
+    <Compile Include="email\EmailHandler.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
