@@ -38,7 +38,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
-        <Button x:Name="addAnsBtn" Content="Add Answer" Grid.Column="2" Margin="5,10,0,10" Grid.Row="3" HorizontalAlignment="Left" Width="100.001"/>
+        <Button x:Name="addAnsBtn" Content="Add Answer" Grid.Column="2" Margin="5,10,0,10" Grid.Row="3" HorizontalAlignment="Left" Width="100.001" Click="addAnsBtn_Click"/>
 
     </Grid>
 </UserControl>
