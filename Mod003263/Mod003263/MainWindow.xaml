@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Mod003263"
         xmlns:view="clr-namespace:Mod003263.controllerview.view" xmlns:controls="clr-namespace:Mod003263.wpf.controls" x:Name="window" x:Class="Mod003263.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="396.667" Width="1269.834">
+        Title="MainWindow" Height="396.667" Width="1130.334" ResizeMode="NoResize">
     <Window.Resources>
         <Storyboard x:Key="interview_Press"/>
 

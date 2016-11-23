@@ -10,8 +10,8 @@
         <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="10,10,0,73" Width="201"/>
         <TextBox x:Name="textBox" Height="23" Margin="310.957,12.96,10,0" TextWrapping="Wrap" Text="/" VerticalAlignment="Top"/>
         <Label x:Name="label" Content="Category" HorizontalAlignment="Left" Margin="245.247,12.96,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14"/>
-        <TextBox x:Name="textBox1" Height="23" Margin="385,65.66,460.589,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Template Name" HorizontalAlignment="Left" Margin="271.67,60.04,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="textBox1" Height="23" Margin="0,40.96,140.339,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
+        <Label x:Name="label1" Content="Template Name" HorizontalAlignment="Right" Margin="0,35.34,265.338,0" VerticalAlignment="Top" FontSize="14"/>
         <TreeView x:Name="treeView1" Margin="271.67,93.66,460.589,10"/>
         <ListView x:Name="listView" HorizontalAlignment="Right" Margin="0,93.66,108.589,10" Width="267">
             <ListView.View>
@@ -25,6 +25,8 @@
         <Button x:Name="button1" Content="Create Template" HorizontalAlignment="Left" Margin="10,0,0,48.04" VerticalAlignment="Bottom" Width="93.589"/>
         <Button x:Name="button2" Content="Delete Selected" HorizontalAlignment="Left" Margin="10,0,0,23.08" VerticalAlignment="Bottom" Width="93.589"/>
         <Button x:Name="button3" Content="Save" HorizontalAlignment="Left" Margin="108.589,0,0,48.04" VerticalAlignment="Bottom" Width="93.589"/>
+        <Label x:Name="label2" Content="Questions List" HorizontalAlignment="Left" Margin="271.67,67.7,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Questions Selected" HorizontalAlignment="Right" Margin="0,67.7,262.501,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
