@@ -110,6 +110,9 @@
     </Compile>
     <Compile Include="db\DbFactory.cs" />
     <Compile Include="email\EmailHandler.cs" />
+    <Compile Include="events\AbstractEvent.cs" />
+    <Compile Include="events\EventAttribute.cs" />
+    <Compile Include="events\EventBus.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
