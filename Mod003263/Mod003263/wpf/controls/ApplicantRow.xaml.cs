@@ -15,6 +15,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
 
+/**
+ * Author: Nick Guy
+ * Date: 28/11/2016
+ * Contains: ApplicantRow
+ */
 namespace Mod003263.wpf.controls
 {
     /// <summary>

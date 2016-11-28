@@ -10,9 +10,15 @@ using System.Reflection;
  */
 namespace Mod003263.events {
 
+    /// <summary>
+    /// Attribute to identify which methods are events
+    /// </summary>
     [AttributeUsage(AttributeTargets.Method)]
     public class EventAttribute : Attribute {}
 
+    /// <summary>
+    /// Finds all methods that have the <see cref="EventAttribute"/> attached
+    /// </summary>
     public class EventFinder {
 
         public static IEnumerable<MethodInfo> FindEvents(Object obj) {

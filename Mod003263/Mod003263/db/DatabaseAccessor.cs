@@ -1,17 +1,25 @@
-﻿using Mod003263.interview;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using Mod003263.interview;
 
 /**
- * Author: Callum Highley
+ * Author: Callum Highley, Nick Guy
  * Date: 14/11/2016
  * Contains: DatabaseAccessor
  */
-namespace Mod003263.db
-{
-    class DatabaseAccessor
-    {
+namespace Mod003263.db {
+
+    public class DatabaseAccessor {
+
+        private static DatabaseAccessor instance;
+        public static DatabaseAccessor GetInstance() {
+            return instance ?? (instance = new DatabaseAccessor());
+        }
+
+        private DatabaseAccessor() {}
 
         // TODO fix connection insert calls
-
         /// <summary>
         /// Insert statement
         /// </summary>
@@ -32,11 +40,46 @@ namespace Mod003263.db
             return DatabaseConnection.GetInstance().Insert(q);
         }
 
-        // TODO Ian, this is not acceptable for 3 hours of work.
-        // At very least, follow the established coding standards
-        public void PullAllData(string table)
-        {
-            int i;
+        public List<InterviewFoundation> SelectAllInterviewFoundations() {
+            List<InterviewFoundation> foundations = new List<InterviewFoundation>();
+            // TODO replace with actual data
+            foundations.Add(new InterviewFoundation("Test1", "Test/First"));
+            foundations.Add(new InterviewFoundation("Test2", "Test/First"));
+            foundations.Add(new InterviewFoundation("Test3", "Test/Second"));
+            foundations.Add(new InterviewFoundation("Test4", "Test/Second"));
+            foundations.Add(new InterviewFoundation("Test5", "Test/Second/Third"));
+            return foundations;
         }
+
+        // At very least, follow the established coding standards
+        public List<Applicant> PullApplicantData() {
+            DbDataReader applicantReader = DatabaseConnection.GetInstance()
+                .Select("SELECT applicantId, First_Name, Last_Name, Applying_Position, Picture, Flag, Email_Address, " +
+                        "Address, Phone_Number, Date_of_Birth, Date_of_Entry FROM Current_JA");
+            List<Applicant> apps = new List<Applicant>();
+            while (applicantReader.NextResult()) {
+                apps.Add(new Applicant {
+                    ID = (Int32) applicantReader["applicantId"],
+                    First_Name = (String) applicantReader["First_Name"],
+                    Last_Name = (String) applicantReader["Last_Name"],
+                    Applying_Position = (String) applicantReader["Applying_Position"],
+                    Picture = (String) applicantReader["Picture"],
+                    Address = (String) applicantReader["Address"],
+                    Phone_Number = (String) applicantReader["Phone_Number"],
+                    Email = (String) applicantReader["Email_Address"],
+                    Dob = (Int64) applicantReader["Date_of_Birth"],
+                    Doe = (Int64) applicantReader["Date_of_Entry"]
+                });
+            }
+            return apps;
+        }
+
+        public void PullQuestionData() {
+
+        }
+
+        public void PullAnswersFromQuestionId(int questionId) {
+
+        } 
     }
 }

@@ -6,6 +6,11 @@ using System.Drawing.Text;
 using System.Windows.Media;
 using MySql.Data.MySqlClient;
 
+/**
+ * Author: Callum Highley, Nick Guy
+ * Date: 28/11/2016
+ * Contains: DatabaseConnection
+ */
 namespace Mod003263.db {
     class DatabaseConnection {
         private DbConnection connection;
@@ -61,11 +66,11 @@ namespace Mod003263.db {
             return data;
         }
 
-        public int Insert(String q) {
+        public int Insert(string query) {
             //open connection
             if (!OpenConnection()) return -1;
             //create command and assign the query and connection from the constructor
-            DbCommand cmd = factory.CreateCommand(q, connection);
+            DbCommand cmd = factory.CreateCommand(query, connection);
             //Execute command
             int rows = cmd.ExecuteNonQuery();
             //close connection

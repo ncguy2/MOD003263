@@ -1,16 +1,13 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 /**
  * Author: Nick Guy
  * Date: 07/11/2016
  * Contains: PropertiesManager
  */
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
 namespace Mod003263 {
     /// <summary>
     /// Singleton to load and store the properties

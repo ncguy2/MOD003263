@@ -91,6 +91,7 @@
     <Compile Include="controllerview\adapter\QuestionTreeDataAdapter.cs" />
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
+    <Compile Include="controllerview\controller\TemplateSelectionController.cs" />
     <Compile Include="controllerview\view\ApplicantSummary.xaml.cs">
       <DependentUpon>ApplicantSummary.xaml</DependentUpon>
     </Compile>

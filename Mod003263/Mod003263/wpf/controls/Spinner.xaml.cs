@@ -14,15 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mod003263.wpf.controls
-{
+/**
+ * Author: Nick guy
+ * Date: 28/11/2016
+ * Contains: Spinner
+ */
+namespace Mod003263.wpf.controls {
     /// <summary>
     /// Interaction logic for Spinner.xaml
     /// </summary>
-    public partial class Spinner : UserControl
-    {
-        public Spinner()
-        {
+    public partial class Spinner : UserControl {
+        public Spinner() {
             InitializeComponent();
             NUDTextBox.Text = StartValue.ToString();
         }

@@ -16,7 +16,11 @@ namespace Mod003263.interview {
         private String category;
         private Dictionary<Question, int> questions;
 
-        public InterviewFoundation() {
+        public InterviewFoundation() : this("", "") {}
+
+        public InterviewFoundation(String category, String name) {
+            this.category = category;
+            this.name = name;
             questions = new Dictionary<Question, Int32>();
         }
 
@@ -27,6 +31,10 @@ namespace Mod003263.interview {
         public Dictionary<Question, int> GetQuestions() {
             return this.questions;
         }
+
+        public String Name() { return name; }
+        public String Cat() { return category; }
+        public String Path() { return Cat() + "/" + Name(); }
 
     }
 

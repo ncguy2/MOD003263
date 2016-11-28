@@ -16,6 +16,11 @@ using Mod003263.events.test;
 using Mod003263.interview;
 using Mod003263.wpf.controls;
 
+/**
+ * Author: Nick Guy
+ * Date: 28/11/2016
+ * Contains: QuestionEditor
+ */
 namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for QuestionEditor.xaml
@@ -36,6 +41,10 @@ namespace Mod003263.controllerview.view {
             AddAnswerRow(row);
         }
 
+        /// <summary>
+        /// Add answer row to the answer table
+        /// </summary>
+        /// <param name="row"></param>
         private void AddAnswerRow(AnswerRow row) {
             if (selectedQuestion == null) return;
             selectedQuestion.GetAnswers().Add(row.GetAnswer());
