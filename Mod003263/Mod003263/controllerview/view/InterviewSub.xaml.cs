@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,18 +21,16 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for InterviewSub.xaml
     /// </summary>
-    public partial class InterviewSub : UserControl, BackEvent.BackListener
-    {
-        public InterviewSub()
-        {
+    public partial class InterviewSub : UserControl, BackEvent.BackListener {
+
+        public InterviewSub() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
         }
 
         [Event]
-        public void OnBack(BackEvent e)
-        {
-            
+        public void OnBack(BackEvent e) {
+            SubMenu_Proceed_Reverse_BeginStoryboard.Storyboard.Begin();
         }
 
     }
