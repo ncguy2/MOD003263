@@ -51,7 +51,6 @@ namespace Mod003263.db {
             return foundations;
         }
 
-        // At very least, follow the established coding standards
         public List<Applicant> PullApplicantData() {
             DbDataReader applicantReader = DatabaseConnection.GetInstance()
                 .Select("SELECT applicantId, First_Name, Last_Name, Applying_Position, Picture, Flag, Email_Address, " +
@@ -59,7 +58,7 @@ namespace Mod003263.db {
             List<Applicant> apps = new List<Applicant>();
             while (applicantReader.NextResult()) {
                 apps.Add(new Applicant {
-                    ID = (Int32) applicantReader["applicantId"],
+                    Id = (Int32) applicantReader["applicantId"],
                     First_Name = (String) applicantReader["First_Name"],
                     Last_Name = (String) applicantReader["Last_Name"],
                     Applying_Position = (String) applicantReader["Applying_Position"],
@@ -73,13 +72,24 @@ namespace Mod003263.db {
             }
             return apps;
         }
-        public void PullQuestionData() {
 
-
+        public List<Question> PullQuestionData() {
+            DbDataReader questionReader = DatabaseConnection.GetInstance()
+                .Select("SELECT questionId, Question_Text, Category FROM Questions");
+            List<Question> ques = new List<Question>();
+            while (questionReader.NextResult()) {
+                ques.Add(new Question((Int32)questionReader["questionId"]) {
+                    Text = (String) questionReader["Question_Text"],
+                    Cat = (String) questionReader["Category"]                
+                });
+            }
+            return ques;
         }
 
         public void PullAnswersFromQuestionId(int questionId) {
 
-        } 
+        }
+
+
     }
 }
