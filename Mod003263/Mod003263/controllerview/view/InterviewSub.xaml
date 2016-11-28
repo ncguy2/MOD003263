@@ -62,6 +62,7 @@
             <Label x:Name="label4" Content="Date of Entry" Grid.Column="2" HorizontalAlignment="Left" Margin="50.492,7.127,0,12.934" Grid.Row="5" FontSize="14" d:LayoutOverrides="Height"/>
             <Label x:Name="label8" Content="Applicant ID" HorizontalAlignment="Right" Margin="0,8.257,32.068,30.836" Grid.Row="6" FontSize="14" d:LayoutOverrides="Height"/>
             <TextBox x:Name="ApplicantIDTxt" Grid.Column="1" Margin="-28.068,6.877,-6.117,30.784" Grid.Row="6" TextWrapping="Wrap" FontSize="14" Height="30" IsReadOnly="True"/>
+            <Button x:Name="button" Content="Start Interview" Grid.Column="2" Margin="91.87,0,10,10" Grid.Row="6"/>
         </Grid>
     </Grid>
 </UserControl>
