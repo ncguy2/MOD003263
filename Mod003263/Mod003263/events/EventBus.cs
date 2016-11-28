@@ -25,34 +25,34 @@ namespace Mod003263.events {
             return instance ?? (instance = new EventBus());
         }
 
+        private bool threaded = false;
         private List<ThreadStart> eventTasks;
-        private Dictionary<Type, List<KeyValuePair<Object, Delegate>>>  eventSubscribers;
+        private Dictionary<Type, List<KeyValuePair<Object, Action<AbstractEvent>>>>  eventSubscribers;
         private Thread eventThread;
         private bool eventThreadActive;
 
         private EventBus() {
-            this.eventSubscribers = new Dictionary<Type, List<KeyValuePair<object, Delegate>>>();
+            this.eventSubscribers = new Dictionary<Type, List<KeyValuePair<object, Action<AbstractEvent>>>>();
             this.eventTasks = new List<ThreadStart>();
+            if (!threaded) return;
             this.eventThread = ThreadFactory.GetInstance().CreateManagedThread(ThreadLoop, "Event Bus");
             this.eventThreadActive = true;
             this.eventThread.Start();
         }
 
         private void PostTask(ThreadStart task) {
-            eventTasks.Add(task);
+            if(threaded) eventTasks.Add(task);
+            else task();
         }
 
         public void Register(Object subscriber) {
             IEnumerable<MethodInfo> events = EventFinder.FindEvents(subscriber);
             foreach (MethodInfo info in events) {
                 if (info.GetParameters().Length != 1) continue;
-                Type paramType = info.GetParameters()[0].GetType();
-                if (paramType.IsSubclassOf(typeof(AbstractEvent))) {
-                    AddSubscriber(paramType, subscriber, info.CreateDelegate(Expression.GetDelegateType(
-                    (from param in info.GetParameters() select param.ParameterType)
-                    .Concat(new[] { info.ReturnType })
-                    .ToArray())));
-                }
+                Type paramType = info.GetParameters()[0].ParameterType;
+                if (!paramType.IsSubclassOf(typeof(AbstractEvent))) continue;
+                Action<AbstractEvent> e = evt => info.Invoke(subscriber, new object[] {evt});
+                AddSubscriber(paramType, subscriber, e);
             }
         }
 
@@ -60,15 +60,15 @@ namespace Mod003263.events {
             PostTask(() => {
                 Type type = e.GetType();
                 if (!eventSubscribers.ContainsKey(type)) return;
-                foreach (KeyValuePair<object, Delegate> keyValuePair in eventSubscribers[type])
-                    keyValuePair.Value.Method.Invoke(keyValuePair.Key, new object[]{ e });
+                foreach (KeyValuePair<object, Action<AbstractEvent>> keyValuePair in eventSubscribers[type])
+                    keyValuePair.Value(e);
             });
         }
 
-        private void AddSubscriber(Type evt, Object subscriber, Delegate method) {
+        private void AddSubscriber(Type evt, Object subscriber, Action<AbstractEvent> method) {
             if(!eventSubscribers.ContainsKey(evt))
-                eventSubscribers.Add(evt, new List<KeyValuePair<Object, Delegate>>());
-            eventSubscribers[evt].Add(new KeyValuePair<Object, Delegate>(subscriber, method));
+                eventSubscribers.Add(evt, new List<KeyValuePair<Object, Action<AbstractEvent>>>());
+            eventSubscribers[evt].Add(new KeyValuePair<Object, Action<AbstractEvent>>(subscriber, method));
         }
 
         private void ThreadLoop() {
