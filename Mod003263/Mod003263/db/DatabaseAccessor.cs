@@ -1,17 +1,23 @@
-﻿using Mod003263.interview;
+﻿using System.Collections.Generic;
+using Mod003263.interview;
 
 /**
- * Author: Callum Highley
+ * Author: Callum Highley, Nick Guy
  * Date: 14/11/2016
  * Contains: DatabaseAccessor
  */
-namespace Mod003263.db
-{
-    class DatabaseAccessor
-    {
+namespace Mod003263.db {
+
+    public class DatabaseAccessor {
+
+        private static DatabaseAccessor instance;
+        public static DatabaseAccessor GetInstance() {
+            return instance ?? (instance = new DatabaseAccessor());
+        }
+
+        private DatabaseAccessor() {}
 
         // TODO fix connection insert calls
-
         /// <summary>
         /// Insert statement
         /// </summary>
@@ -30,6 +36,17 @@ namespace Mod003263.db
             string q = $"INSERT INTO Question_Answers (Question_ID, Value, Weight) " +
                        $"VALUES( '{questionId}','{answer.Text}', '{answer.Weight}')";
             return DatabaseConnection.GetInstance().Insert(q);
+        }
+
+        public List<InterviewFoundation> SelectAllInterviewFoundations() {
+            List<InterviewFoundation> foundations = new List<InterviewFoundation>();
+            // TODO replace with actual data
+            foundations.Add(new InterviewFoundation("Test1", "Test/First"));
+            foundations.Add(new InterviewFoundation("Test2", "Test/First"));
+            foundations.Add(new InterviewFoundation("Test3", "Test/Second"));
+            foundations.Add(new InterviewFoundation("Test4", "Test/Second"));
+            foundations.Add(new InterviewFoundation("Test5", "Test/Second/Third"));
+            return foundations;
         }
 
         // TODO Ian, this is not acceptable for 3 hours of work.
