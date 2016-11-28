@@ -49,11 +49,17 @@ namespace Mod003263.db {
             return foundations;
         }
 
-        // TODO Ian, this is not acceptable for 3 hours of work.
         // At very least, follow the established coding standards
-        public void PullAllData(string table)
-        {
-            int i;
+        public void PullApplicantData() {
+
         }
+
+        public void PullQuestionData() {
+
+        }
+
+        public void PullAnswersFromQuestionID(int questionId) {
+
+        } 
     }
 }

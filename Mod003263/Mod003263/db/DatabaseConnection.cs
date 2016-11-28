@@ -61,11 +61,11 @@ namespace Mod003263.db {
             return data;
         }
 
-        public int Insert(String q) {
+        public int Insert(string query) {
             //open connection
             if (!OpenConnection()) return -1;
             //create command and assign the query and connection from the constructor
-            DbCommand cmd = factory.CreateCommand(q, connection);
+            DbCommand cmd = factory.CreateCommand(query, connection);
             //Execute command
             int rows = cmd.ExecuteNonQuery();
             //close connection
