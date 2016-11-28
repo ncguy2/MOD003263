@@ -6,6 +6,11 @@ using System.Drawing.Text;
 using System.Windows.Media;
 using MySql.Data.MySqlClient;
 
+/**
+ * Author: Callum Highley, Nick Guy
+ * Date: 28/11/2016
+ * Contains: DatabaseConnection
+ */
 namespace Mod003263.db {
     class DatabaseConnection {
         private DbConnection connection;

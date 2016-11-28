@@ -16,8 +16,16 @@ using System.Windows.Documents;
 using Mod003263.threading;
 using Expression = System.Linq.Expressions.Expression;
 
+/**
+ * Author: Nick Guy
+ * Date: 28/11/2016
+ * Contains: EventBus
+ */
 namespace Mod003263.events {
 
+    /// <summary>
+    /// The singleton event bus for the Pub-Sub event system
+    /// </summary>
     public class EventBus {
 
         private static EventBus instance;
@@ -25,6 +33,9 @@ namespace Mod003263.events {
             return instance ?? (instance = new EventBus());
         }
 
+        /// <summary>
+        /// Allows for the event tasks to be executed on a different thread (doesn't function correctly when working with UI)
+        /// </summary>
         private bool threaded = false;
         private List<ThreadStart> eventTasks;
         private Dictionary<Type, List<KeyValuePair<Object, Action<AbstractEvent>>>>  eventSubscribers;
@@ -40,11 +51,19 @@ namespace Mod003263.events {
             this.eventThread.Start();
         }
 
+        /// <summary>
+        /// Handles a recently posted task, either pushing it to the event thread, or firing it immediately
+        /// </summary>
+        /// <param name="task">The posted task to handle</param>
         private void PostTask(ThreadStart task) {
             if(threaded) eventTasks.Add(task);
             else task();
         }
 
+        /// <summary>
+        /// Registers an object instance, subscribing all valid methods to each event
+        /// </summary>
+        /// <param name="subscriber">The instance to subscribe</param>
         public void Register(Object subscriber) {
             IEnumerable<MethodInfo> events = EventFinder.FindEvents(subscriber);
             foreach (MethodInfo info in events) {
@@ -56,6 +75,10 @@ namespace Mod003263.events {
             }
         }
 
+        /// <summary>
+        /// Publish an event to all listening objects
+        /// </summary>
+        /// <param name="e">The event to publish</param>
         public void Post(AbstractEvent e) {
             PostTask(() => {
                 Type type = e.GetType();
@@ -65,12 +88,21 @@ namespace Mod003263.events {
             });
         }
 
+        /// <summary>
+        /// Internal method to add a subscriber to the subscriber cache
+        /// </summary>
+        /// <param name="evt">The event to subscribe to</param>
+        /// <param name="subscriber">The owning object</param>
+        /// <param name="method">The method to invoke</param>
         private void AddSubscriber(Type evt, Object subscriber, Action<AbstractEvent> method) {
             if(!eventSubscribers.ContainsKey(evt))
                 eventSubscribers.Add(evt, new List<KeyValuePair<Object, Action<AbstractEvent>>>());
             eventSubscribers[evt].Add(new KeyValuePair<Object, Action<AbstractEvent>>(subscriber, method));
         }
 
+        /// <summary>
+        /// Internal working of the threaded version
+        /// </summary>
         private void ThreadLoop() {
             while (eventThreadActive) {
                 if (this.eventTasks.Count <= 0)

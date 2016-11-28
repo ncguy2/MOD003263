@@ -14,6 +14,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/**
+ * Author: Nick Guy
+ * Date: 28/11/2016
+ * Contains: AnswerRow
+ */
 namespace Mod003263.wpf.controls
 {
     /// <summary>

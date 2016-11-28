@@ -29,6 +29,9 @@ namespace Mod003263.db {
         private long m_Dob;
         public long Dob { get { return m_Dob; } set { m_Dob = value; } }
 
+        private long m_Doe;
+        public long Doe { get { return m_Doe; } set { m_Doe = value; } }
+
         public String Full_Name => First_Name + " " + Last_Name;
     }
 }

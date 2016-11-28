@@ -1,15 +1,13 @@
-﻿
+﻿using System;
+using System.ComponentModel;
+using System.Net;
+using System.Net.Mail;
+
 /**
  * Author: Nick Guy
  * Date: 23/11/2016
  * Contains: EmailHandler
  */
-
-using System;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Mail;
-
 namespace Mod003263.email {
 
     /// <summary>
@@ -30,16 +28,10 @@ namespace Mod003263.email {
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential("ssmithtech60@gmail.com", "HappyTech")
             };
-            smtp.SendCompleted += Post;
         }
 
         public void Send(string from, string recipients, string subject, string body) {
             smtp.Send(from, recipients, subject, body);
-        }
-
-        public void Post(object obj, AsyncCompletedEventArgs args) {
-            if(obj == null) obj = "";
-            Console.WriteLine(obj.ToString()+" Complete");
         }
 
     }

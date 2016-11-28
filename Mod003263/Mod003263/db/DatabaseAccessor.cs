@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
 using Mod003263.interview;
 
 /**
@@ -50,15 +52,33 @@ namespace Mod003263.db {
         }
 
         // At very least, follow the established coding standards
-        public void PullApplicantData() {
-
+        public List<Applicant> PullApplicantData() {
+            DbDataReader applicantReader = DatabaseConnection.GetInstance()
+                .Select("SELECT applicantId, First_Name, Last_Name, Applying_Position, Picture, Flag, Email_Address, " +
+                        "Address, Phone_Number, Date_of_Birth, Date_of_Entry FROM Current_JA");
+            List<Applicant> apps = new List<Applicant>();
+            while (applicantReader.NextResult()) {
+                apps.Add(new Applicant {
+                    ID = (Int32) applicantReader["applicantId"],
+                    First_Name = (String) applicantReader["First_Name"],
+                    Last_Name = (String) applicantReader["Last_Name"],
+                    Applying_Position = (String) applicantReader["Applying_Position"],
+                    Picture = (String) applicantReader["Picture"],
+                    Address = (String) applicantReader["Address"],
+                    Phone_Number = (String) applicantReader["Phone_Number"],
+                    Email = (String) applicantReader["Email_Address"],
+                    Dob = (Int64) applicantReader["Date_of_Birth"],
+                    Doe = (Int64) applicantReader["Date_of_Entry"]
+                });
+            }
+            return apps;
         }
 
         public void PullQuestionData() {
 
         }
 
-        public void PullAnswersFromQuestionID(int questionId) {
+        public void PullAnswersFromQuestionId(int questionId) {
 
         } 
     }

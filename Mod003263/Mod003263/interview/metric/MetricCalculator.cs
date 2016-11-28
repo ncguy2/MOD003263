@@ -6,7 +6,6 @@ using System.Linq;
  *  Date: 24/10/2016
  *  Contains: MetricCalculator
  */
-
 namespace Mod003263.interview.metric {
     /// <summary>
     /// Calculates a single metric value from an interview instance

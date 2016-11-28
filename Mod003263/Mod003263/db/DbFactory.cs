@@ -4,9 +4,23 @@ using System.Data.OleDb;
 using System.Text;
 using MySql.Data.MySqlClient;
 
+/**
+ * Author: Nick Guy
+ * Date: 28/11/2016
+ * Contains: DbFactory
+ */
 namespace Mod003263.db {
+
+    /// <summary>
+    /// Factory class to use the correct database objects for each DB provider
+    /// </summary>
     public class DbFactory {
 
+        /// <summary>
+        /// Creates the connection string based on the supplied provider
+        /// </summary>
+        /// <param name="provider">The database provider string</param>
+        /// <returns>A correctly formatted database connection string</returns>
         public string CreateConnectionString(string provider) {
             switch (provider.ToLower()) {
                 case "mysql": return CreateMySQLConnectionString();
@@ -15,6 +29,12 @@ namespace Mod003263.db {
             return "";
         }
 
+        /// <summary>
+        /// Creates the database command for each supported DB provider
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="conn"></param>
+        /// <returns></returns>
         public DbCommand CreateCommand(string query, DbConnection conn) {
             if (conn is MySqlConnection)
                 return new MySqlCommand(query, (MySqlConnection) conn);
@@ -23,6 +43,12 @@ namespace Mod003263.db {
             return null;
         }
 
+        /// <summary>
+        /// Creates the correct connection based upon the provider
+        /// </summary>
+        /// <param name="provider">The Database provider</param>
+        /// <param name="connectionString">The connection string, should be generated using <see cref="CreateConnectionString"/></param>
+        /// <returns>The active Database connection</returns>
         public DbConnection CreateConnection(string provider, string connectionString) {
             switch (provider.ToLower()) {
                 case "mysql": return new MySqlConnection(connectionString);

@@ -6,6 +6,9 @@
  */
 namespace Mod003263.events {
 
+    /// <summary>
+    /// Abstract class for the Pub-Sub event system
+    /// </summary>
     public abstract class AbstractEvent {
 
         public void Fire() {
