@@ -96,6 +96,9 @@
       <DependentUpon>ApplicantSummary.xaml</DependentUpon>
     </Compile>
     <Compile Include="controllerview\view\BaseView.cs" />
+    <Compile Include="controllerview\view\Interview.xaml.cs">
+      <DependentUpon>Interview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\InterviewSub.xaml.cs">
       <DependentUpon>InterviewSub.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,9 @@
     <Compile Include="controllerview\view\TemplateEditor.xaml.cs">
       <DependentUpon>TemplateEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\view\TemplateSelection.xaml.cs">
+      <DependentUpon>TemplateSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db\DatabaseAccessor.cs" />
     <Compile Include="controllerview\view\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
@@ -118,6 +124,7 @@
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
+    <Compile Include="events\ui\BackEvent.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
@@ -153,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\Interview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controllerview\view\InterviewSub.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controllerview\view\TemplateEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controllerview\view\TemplateSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -772,9 +772,6 @@
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="question_Back">
-            <BeginStoryboard x:Name="question_Close_BeginStoryboard1" Storyboard="{StaticResource question_Close}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="question_Back">
             <BeginStoryboard x:Name="question_Close_BeginStoryboard" Storyboard="{StaticResource question_Close}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="interview_Sub">
@@ -898,7 +895,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="interview_Back" Content="Back" HorizontalAlignment="Left" Margin="0.187,0.097,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Visibility="Hidden" Grid.Row="1" Grid.Column="1">
+        <Button x:Name="interview_Back" Content="Back" HorizontalAlignment="Left" Margin="0.187,0.097,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Opacity="0" Visibility="Hidden" Grid.Row="1" Grid.Column="1" Click="interview_Back_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
