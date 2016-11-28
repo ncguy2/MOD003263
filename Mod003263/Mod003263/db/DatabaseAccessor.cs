@@ -78,10 +78,10 @@ namespace Mod003263.db {
                 .Select("SELECT questionId, Question_Text, Category FROM Questions");
             List<Question> ques = new List<Question>();
             while (questionReader.NextResult()) {
-                ques.Add(new Question((Int32)questionReader["questionId"]) {
-                    Text = (String) questionReader["Question_Text"],
-                    Cat = (String) questionReader["Category"]                
-                });
+                Question question = new Question((Int32) questionReader["questionId"]);
+                question.SetText((String) questionReader["Question_Text"]);
+                question.SetCategory((String) questionReader["Category"]);
+                ques.Add(question);
             }
             return ques;
         }
