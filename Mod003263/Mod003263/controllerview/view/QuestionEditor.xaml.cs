@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.events.test;
 using Mod003263.interview;
 using Mod003263.wpf.controls;
 
@@ -28,6 +29,8 @@ namespace Mod003263.controllerview.view {
         }
 
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
+            new StringPayloadEvent("Test payload").Fire();
+            if (selectedQuestion == null) return;
             AnswerRow row = new AnswerRow();
             row.SetButtonClicked(OnRowBtnClick);
             AddAnswerRow(row);
