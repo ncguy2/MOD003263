@@ -1,6 +1,4 @@
-﻿using Mod003263.events;
-using Mod003263.events.ui;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,21 +16,13 @@ using System.Windows.Shapes;
 namespace Mod003263.controllerview.view
 {
     /// <summary>
-    /// Interaction logic for InterviewSub.xaml
+    /// Interaction logic for TemplateSelection.xaml
     /// </summary>
-    public partial class InterviewSub : UserControl, BackEvent.BackListener
+    public partial class TemplateSelection : UserControl
     {
-        public InterviewSub()
+        public TemplateSelection()
         {
-            EventBus.GetInstance().Register(this);
             InitializeComponent();
         }
-
-        [Event]
-        public void OnBack(BackEvent e)
-        {
-            
-        }
-
     }
 }
