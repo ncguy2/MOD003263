@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization.Formatters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mod003263;
@@ -64,6 +66,35 @@ namespace Mod003263_Test {
             Assert.AreEqual(sets[2], wrongSet);
 
         }
+
+        /// <summary>
+        /// Feedback generation is accurate
+        /// </summary>
+        [TestMethod]
+        public void Test4() {
+            FeedbackFactory ff = FeedbackFactory.GetInstance();
+            Dictionary<Question, String> perfect = ff.GenerateMassFeedback(PerfectSet());
+            Dictionary<Question, String> imperfect = ff.GenerateMassFeedback(ImperfectSet());
+            Dictionary<Question, String> wrong = ff.GenerateMassFeedback(WrongSet());
+
+            String file = "feedback.txt";
+            if(File.Exists(file))
+                File.Delete(file);
+            StreamWriter sw = File.CreateText(file);
+            sw.Write("Perfect\n");
+            foreach (KeyValuePair<Question, String> pair in perfect)
+                sw.Write($"\t{pair.Key} => {pair.Value}\n");
+            sw.Write("\n\n\n");
+            sw.Write("Imperfect\n");
+            foreach (KeyValuePair<Question, String> pair in imperfect)
+                sw.Write($"\t{pair.Key} => {pair.Value}\n");
+            sw.Write("\n\n\n");
+            sw.Write("Wrong\n");
+            foreach (KeyValuePair<Question, String> pair in wrong)
+                sw.Write($"\t{pair.Key} => {pair.Value}\n");
+            sw.Close();
+        }
+
 
         private static Interview PerfectSet() {
             Interview interview = new Interview();

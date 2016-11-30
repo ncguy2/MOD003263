@@ -149,17 +149,21 @@
     <Compile Include="events\ui\SelectQuestionEvent.cs" />
     <Compile Include="events\ui\SelectTemplateEvent.cs" />
     <Compile Include="interview\Answer.cs" />
+    <Compile Include="interview\FeedbackFactory.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
     <Compile Include="interview\metric\MetricCalculator.cs" />
     <Compile Include="interview\metric\MetricException.cs" />
     <Compile Include="interview\Question.cs" />
+    <Compile Include="macro\MacroAttribute.cs" />
+    <Compile Include="macro\MacroManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="interview\Interview.cs" />
     <Compile Include="model\FlagManager.cs" />
     <Compile Include="PropertiesManager.cs" />
+    <Compile Include="macro\MacroTemplate.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
     <Compile Include="wpf\Base64Converter.cs" />
     <Compile Include="wpf\controls\AnswerRow.xaml.cs">
