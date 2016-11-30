@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Mod003263.email;
 
 namespace Mod003263 {
     /// <summary>
@@ -13,7 +14,8 @@ namespace Mod003263 {
     public partial class App : Application
     {
         private void App_OnStartup(object sender, StartupEventArgs e) {
-
+            PropertiesManager.GetInstance();
         }
+
     }
 }
