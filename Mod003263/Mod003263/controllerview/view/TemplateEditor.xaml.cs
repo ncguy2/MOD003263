@@ -13,6 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/**
+ *  Author: Ryan Cowell
+ *  Date: 16/11/2016
+ *  Contains: TemplateEditor
+ */
+
+
 namespace Mod003263.controllerview.view
 {
     /// <summary>
