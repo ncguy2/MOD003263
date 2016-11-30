@@ -38,7 +38,7 @@ namespace Mod003263.controllerview.view {
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
             new StringPayloadEvent("Test payload").Fire();
             if (selectedQuestion == null) return;
-            AnswerRow row = new AnswerRow();
+            AnswerRow row = new AnswerRow(new Answer(-1));
             row.SetButtonClicked(OnRowBtnClick);
             AddAnswerRow(row);
         }
