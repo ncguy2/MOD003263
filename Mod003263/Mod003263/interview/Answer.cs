@@ -13,6 +13,7 @@ namespace Mod003263.interview {
 
         private string text;
         private int weight;
+        private int id;
 
         public string Text => text;
 
@@ -27,6 +28,9 @@ namespace Mod003263.interview {
             this.weight = weight;
             return this;
         }
-
+        public Answer(int id)
+        {
+            this.id = id;
+        }
     }
 }

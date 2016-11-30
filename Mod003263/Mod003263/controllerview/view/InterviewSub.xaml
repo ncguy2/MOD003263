@@ -9,150 +9,150 @@
              d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
     <UserControl.Resources>
         <Storyboard x:Key="SubMenu_Proceed">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="listView">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lst_Applicants">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Search">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Applicants">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="b_ApplicantSummary">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_FullName">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FullNameTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_FullName">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Email">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="EmailTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Email">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PhoneNumTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_PhoneNumber">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label3">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_PhoneNumber">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label5">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_ApplyingPosition">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ApplyingPositionTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_ApplyingPosition">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddressTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Address">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label6">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Address">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DateOfEntryTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_EntryDate">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DateOfBirthTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_BirthDate">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label7">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_BirthDate">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label4">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_EntryDate">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label8">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_ApplicantID">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ApplicantIDTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_ApplicantID">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Interview_Proceed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btn_InterviewProceed">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="listView">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lst_Applicants">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Search">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Applicants">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="b_ApplicantSummary">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_FullName">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="FullNameTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_FullName">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label2">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Email">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="EmailTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Email">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PhoneNumTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_PhoneNumber">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label3">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_PhoneNumber">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label5">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_ApplyingPosition">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ApplyingPositionTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_ApplyingPosition">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddressTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Address">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label6">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Address">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DateOfEntryTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_EntryDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DateOfBirthTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_BirthDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label7">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_BirthDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label4">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_EntryDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label8">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_ApplicantID">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ApplicantIDTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_ApplicantID">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Interview_Proceed">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="btn_InterviewProceed">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
@@ -165,171 +165,171 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="SubMenu_Proceed_Reverse">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="listView">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lst_Applicants">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Search">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Applicants">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="b_ApplicantSummary">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_FullName">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FullNameTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_FullName">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Email">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="EmailTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Email">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PhoneNumTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_PhoneNumber">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label3">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_PhoneNumber">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label5">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_ApplyingPosition">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ApplyingPositionTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_ApplyingPosition">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddressTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Address">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label6">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Address">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DateOfEntryTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_EntryDate">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DateOfBirthTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_BirthDate">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label7">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_BirthDate">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label4">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_EntryDate">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label8">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_ApplicantID">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ApplicantIDTxt">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_ApplicantID">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Interview_Proceed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btn_InterviewProceed">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="listView">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lst_Applicants">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Search">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Applicants">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="b_ApplicantSummary">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_FullName">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="FullNameTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_FullName">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label2">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Email">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="EmailTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Email">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PhoneNumTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_PhoneNumber">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label3">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_PhoneNumber">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label5">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_ApplyingPosition">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ApplyingPositionTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_ApplyingPosition">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddressTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Address">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label6">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Address">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DateOfEntryTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_EntryDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DateOfBirthTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_BirthDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label7">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_BirthDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label4">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_EntryDate">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="label8">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_ApplicantID">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ApplicantIDTxt">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_ApplicantID">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Interview_Proceed">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="btn_InterviewProceed">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
@@ -344,7 +344,7 @@
         </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Interview_Proceed">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_InterviewProceed">
             <BeginStoryboard x:Name="SubMenu_Proceed_BeginStoryboard" Storyboard="{StaticResource SubMenu_Proceed}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.GiveFeedback">
@@ -362,7 +362,7 @@
             <RowDefinition Height="25*"/>
             <RowDefinition Height="144*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="listView" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+        <ListView x:Name="lst_Applicants" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -373,8 +373,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
-        <TextBox x:Name="textBox" Margin="10" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
-        <Label x:Name="label" Content="Applicant Name" Margin="10" FontSize="14" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <TextBox x:Name="txt_Search" Margin="10" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <Label x:Name="lbl_Applicants" Content="Applicants" Margin="10" FontSize="14" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
         <Grid Grid.Column="2" Grid.RowSpan="2" Margin="0,3.893,0,-3.893">
             <Grid.RowDefinitions>
                 <RowDefinition Height="43*"/>
@@ -390,24 +390,24 @@
                 <ColumnDefinition Width="107*"/>
                 <ColumnDefinition Width="307*"/>
             </Grid.ColumnDefinitions>
-            <Border x:Name="border" BorderBrush="Black" BorderThickness="1" Margin="7.971,10,5.972,4.214" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="3"/>
-            <Label x:Name="label1" Content="Full Name" FontSize="14" Grid.Column="1" Margin="0,10,-0.001,-10"/>
-            <TextBox x:Name="FullNameTxt" Margin="10.869,10.055,10,3.072" TextWrapping="Wrap" FontSize="14" IsReadOnly="True" Grid.Column="2" Height="30" Width="286"/>
-            <Label x:Name="label2" Content="Email Address" Grid.Row="1" FontSize="14" Grid.Column="1" Margin="0,10.001,0,-10.001"/>
-            <TextBox x:Name="EmailTxt" Margin="10.869,10.054,10,3.072" TextWrapping="Wrap" FontSize="14" IsReadOnly="True" Grid.Column="2" Grid.Row="1" Height="30" Width="286" d:LayoutOverrides="TopMargin, BottomMargin"/>
-            <TextBox x:Name="PhoneNumTxt" Grid.Column="2" Margin="10.869,8.859,10,4.268" Grid.Row="2" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" IsReadOnly="True"/>
-            <Label x:Name="label3" Content="Phone Number" Grid.Column="1" Grid.Row="2" FontSize="14" Margin="0,10,0,-10"/>
-            <Label x:Name="label5" Content="Applying Position" Margin="15.972,9.996,-0.001,6.847" Grid.Row="3" FontSize="14" d:LayoutOverrides="Height"/>
-            <TextBox x:Name="ApplyingPositionTxt" Grid.Column="1" Margin="0,8.617,10,6.851" Grid.Row="3" TextWrapping="Wrap" FontSize="14" Grid.ColumnSpan="2" IsReadOnly="True"/>
-            <TextBox x:Name="AddressTxt" Grid.Column="1" Margin="-56.708,6.682,10,10.406" Grid.Row="4" TextWrapping="Wrap" FontSize="14" Grid.ColumnSpan="2" IsReadOnly="True"/>
-            <Label x:Name="label6" Content="Address" Margin="15.972,8.06,56.707,10.407" Grid.Row="4" FontSize="14" d:LayoutOverrides="Height"/>
-            <TextBox x:Name="DateOfEntryTxt" Grid.Column="2" Margin="146.139,7.124,10,11.558" Grid.Row="5" TextWrapping="Wrap" FontSize="14" IsReadOnly="True"/>
-            <TextBox x:Name="DateOfBirthTxt" Grid.Column="1" Margin="-28.068,7.124,-6.117,11.558" Grid.Row="5" TextWrapping="Wrap" FontSize="14" IsReadOnly="True"/>
-            <Label x:Name="label7" Content="Date of Birth" Margin="15.972,7.118,28.067,12.943" Grid.Row="5" FontSize="14" d:LayoutOverrides="Height"/>
-            <Label x:Name="label4" Content="Date of Entry" Grid.Column="2" HorizontalAlignment="Left" Margin="50.492,7.127,0,12.934" Grid.Row="5" FontSize="14" d:LayoutOverrides="Height"/>
-            <Label x:Name="label8" Content="Applicant ID" HorizontalAlignment="Right" Margin="0,8.257,32.068,30.836" Grid.Row="6" FontSize="14" d:LayoutOverrides="Height"/>
-            <TextBox x:Name="ApplicantIDTxt" Grid.Column="1" Margin="-28.068,6.877,-6.117,30.784" Grid.Row="6" TextWrapping="Wrap" FontSize="14" Height="30" IsReadOnly="True"/>
-            <Button x:Name="Interview_Proceed" Content="Proceed" Grid.Column="2" Margin="91.87,0,10,10" Grid.Row="6"/>
+            <Border x:Name="b_ApplicantSummary" BorderBrush="Black" BorderThickness="1" Margin="7.971,10,5.972,4.214" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="3"/>
+            <Label x:Name="lbl_FullName" Content="Full Name" FontSize="14" Grid.Column="1" Margin="0,10,-0.001,-10"/>
+            <TextBox x:Name="txt_FullName" Margin="10.869,10.055,10,3.072" TextWrapping="Wrap" FontSize="14" IsReadOnly="True" Grid.Column="2" Height="30" Width="286"/>
+            <Label x:Name="lbl_Email" Content="Email Address" Grid.Row="1" FontSize="14" Grid.Column="1" Margin="0,10.001,0,-10.001"/>
+            <TextBox x:Name="txt_Email" Margin="10.869,10.054,10,3.072" TextWrapping="Wrap" FontSize="14" IsReadOnly="True" Grid.Column="2" Grid.Row="1" Height="30" Width="286" d:LayoutOverrides="TopMargin, BottomMargin"/>
+            <TextBox x:Name="txt_PhoneNumber" Grid.Column="2" Margin="10.869,8.859,10,4.268" Grid.Row="2" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" IsReadOnly="True"/>
+            <Label x:Name="lbl_PhoneNumber" Content="Phone Number" Grid.Column="1" Grid.Row="2" FontSize="14" Margin="0,10,0,-10"/>
+            <Label x:Name="lbl_ApplyingPosition" Content="Applying Position" Margin="15.972,9.996,-0.001,6.847" Grid.Row="3" FontSize="14" d:LayoutOverrides="Height"/>
+            <TextBox x:Name="txt_ApplyingPosition" Grid.Column="1" Margin="0,8.617,10,6.851" Grid.Row="3" TextWrapping="Wrap" FontSize="14" Grid.ColumnSpan="2" IsReadOnly="True"/>
+            <TextBox x:Name="txt_Address" Grid.Column="1" Margin="-56.708,6.682,10,10.406" Grid.Row="4" TextWrapping="Wrap" FontSize="14" Grid.ColumnSpan="2" IsReadOnly="True"/>
+            <Label x:Name="lbl_Address" Content="Address" Margin="15.972,8.06,56.707,10.407" Grid.Row="4" FontSize="14" d:LayoutOverrides="Height"/>
+            <TextBox x:Name="txt_EntryDate" Grid.Column="2" Margin="146.139,7.124,10,11.558" Grid.Row="5" TextWrapping="Wrap" FontSize="14" IsReadOnly="True"/>
+            <TextBox x:Name="txt_BirthDate" Grid.Column="1" Margin="-28.068,7.124,-6.117,11.558" Grid.Row="5" TextWrapping="Wrap" FontSize="14" IsReadOnly="True"/>
+            <Label x:Name="lbl_BirthDate" Content="Date of Birth" Margin="15.972,7.118,28.067,12.943" Grid.Row="5" FontSize="14" d:LayoutOverrides="Height"/>
+            <Label x:Name="lbl_EntryDate" Content="Date of Entry" Grid.Column="2" HorizontalAlignment="Left" Margin="50.492,7.127,0,12.934" Grid.Row="5" FontSize="14" d:LayoutOverrides="Height"/>
+            <Label x:Name="lbl_ApplicantID" Content="Applicant ID" HorizontalAlignment="Right" Margin="0,8.257,32.068,30.836" Grid.Row="6" FontSize="14" d:LayoutOverrides="Height"/>
+            <TextBox x:Name="txt_ApplicantID" Grid.Column="1" Margin="-28.068,6.877,-6.117,30.784" Grid.Row="6" TextWrapping="Wrap" FontSize="14" Height="30" IsReadOnly="True"/>
+            <Button x:Name="btn_InterviewProceed" Content="Proceed" Grid.Column="2" Margin="91.87,0,10,10" Grid.Row="6"/>
         </Grid>
         <local:TemplateSelection x:Name="templateSelection" Grid.ColumnSpan="3" Grid.RowSpan="2" Opacity="0" Visibility="Hidden"/>
     </Grid>

@@ -96,6 +96,9 @@
       <DependentUpon>ApplicantSummary.xaml</DependentUpon>
     </Compile>
     <Compile Include="controllerview\view\BaseView.cs" />
+    <Compile Include="controllerview\view\Interview.xaml.cs">
+      <DependentUpon>Interview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\InterviewSub.xaml.cs">
       <DependentUpon>InterviewSub.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\Interview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="controllerview\view\InterviewSub.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
