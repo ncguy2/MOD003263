@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Management.Instrumentation;
 using System.Runtime.Remoting.Messaging;
+using Mod003263.db;
 
 /**
  *  Author: Nick Guy
@@ -13,7 +14,7 @@ namespace Mod003263.interview {
     /// </summary>
     public class Interview {
 
-        private object subject; // TODO replace with Subject object when implemented
+        private Applicant subject;
         private InterviewFoundationInstance foundation;
         private int flag;
         private float resultMetric;

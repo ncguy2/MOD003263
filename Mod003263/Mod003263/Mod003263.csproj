@@ -123,12 +123,16 @@
     <Compile Include="db\DbFactory.cs" />
     <Compile Include="email\EmailHandler.cs" />
     <Compile Include="events\AbstractEvent.cs" />
+    <Compile Include="events\db\SaveInterviewEvent.cs" />
+    <Compile Include="events\db\SaveQuestionEvent.cs" />
+    <Compile Include="events\db\SaveTemplateEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
     <Compile Include="events\ui\BackEvent.cs" />
     <Compile Include="events\ui\SelectApplicantEvent.cs" />
-    <Compile Include="events\ui\SelectTemplate.cs" />
+    <Compile Include="events\ui\SelectQuestionEvent.cs" />
+    <Compile Include="events\ui\SelectTemplateEvent.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />

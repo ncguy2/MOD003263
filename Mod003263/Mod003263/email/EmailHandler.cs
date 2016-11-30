@@ -12,6 +12,8 @@ namespace Mod003263.email {
 
     /// <summary>
     /// Singleton to handle email sending
+    /// <br/>
+    /// TODO Fix this shit
     /// </summary>
     public class EmailHandler {
 
