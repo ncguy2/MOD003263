@@ -58,8 +58,8 @@ namespace Mod003263.controllerview.view {
             tbl_AnswerTable.Items.Remove(ansRow);
         }
 
-        private void QuestionTree_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {
-            Question q = questionTree.SelectedItem as Question;
+        private void tr_Questions_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {
+            Question q = tr_Questions.SelectedItem as Question;
             new SelectQuestionEvent(q, SelectQuestionScopes.QUESTION_EDITOR).Fire();
         }
 

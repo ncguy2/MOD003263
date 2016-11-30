@@ -33,8 +33,8 @@ namespace Mod003263.controllerview.view
             InitializeComponent();
         }
 
-        private void TreeView_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {
-            InterviewFoundation template = treeView.SelectedItem as InterviewFoundation;
+        private void tr_Templates_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {
+            InterviewFoundation template = tr_Templates.SelectedItem as InterviewFoundation;
             if (template == null) return;
             new SelectTemplateEvent(template, SelectTemplateScopes.TEMPLATE_EDITOR).Fire();
         }

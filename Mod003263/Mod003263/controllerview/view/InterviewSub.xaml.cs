@@ -34,8 +34,8 @@ namespace Mod003263.controllerview.view
             SubMenu_Proceed_Reverse_BeginStoryboard.Storyboard.Begin();
         }
 
-        private void ListView_OnSelectionChanged(Object sender, SelectionChangedEventArgs e) {
-            Applicant a = listView.SelectedItem as Applicant;
+        private void lst_Applicants_OnSelectionChanged(Object sender, SelectionChangedEventArgs e) {
+            Applicant a = lst_Applicants.SelectedItem as Applicant;
             new SelectApplicantEvent(a).Fire();
         }
 

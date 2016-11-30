@@ -160,7 +160,7 @@
 
     </UserControl.Triggers>
     <Grid>
-        <TreeView x:Name="tr_TemplateSelect" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261"/>
+        <TreeView x:Name="tr_TemplateSelect" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261" SelectedItemChanged="tr_TemplateSelect_OnSelectedItemChanged"/>
         <Label x:Name="lbl_TemplateSelected" Content="Template:" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_TemplateSelected" Height="23" Margin="382.91,12.96,462.679,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <ListView x:Name="lv_Questions" Margin="316,40.96,117.679,10">
