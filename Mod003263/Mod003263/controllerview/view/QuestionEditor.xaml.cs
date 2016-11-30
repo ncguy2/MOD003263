@@ -36,9 +36,12 @@ namespace Mod003263.controllerview.view {
         }
 
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
-            new StringPayloadEvent("Test payload").Fire();
             if (selectedQuestion == null) return;
-            AnswerRow row = new AnswerRow(new Answer(-1));
+            AddAnswer(new Answer(-1));
+        }
+
+        private void AddAnswer(Answer a) {
+            AnswerRow row = new AnswerRow(a);
             row.SetButtonClicked(OnRowBtnClick);
             AddAnswerRow(row);
         }
@@ -65,7 +68,17 @@ namespace Mod003263.controllerview.view {
 
         [Event]
         public void OnSelectQuestion(SelectQuestionEvent e) {
-            // TODO Ryan to implement here
+            if (!e.Scope.Equals(SelectQuestionScopes.QUESTION_EDITOR)) return;
+            SelectQuestion(e.Question);
+        }
+
+        private void SelectQuestion(Question q) {
+            this.selectedQuestion = q;
+            if (this.selectedQuestion == null) return;
+            txt_Category.Text = q.Cat();
+            txt_Question.Text = q.Text();
+            tbl_AnswerTable.Items.Clear();
+            q.GetAnswers().ForEach(AddAnswer);
         }
     }
 }

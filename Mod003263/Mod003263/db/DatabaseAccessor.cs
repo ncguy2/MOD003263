@@ -86,13 +86,14 @@ namespace Mod003263.db
         public List<Question> PullQuestionData()
         {
             DbDataReader questionReader = DatabaseConnection.GetInstance()
-                .Select("SELECT questionId, Question_Text, Category FROM Questions");
+                .Select("SELECT Question_ID, Question, Category FROM Questions");
             List<Question> ques = new List<Question>();
             while (questionReader.NextResult())
             {
-                Question question = new Question((Int32)questionReader["questionId"]);
-                question.SetText((String)questionReader["Question_Text"]);
+                Question question = new Question((Int32)questionReader["Question_ID"]);
+                question.SetText((String)questionReader["Question"]);
                 question.SetCategory((String)questionReader["Category"]);
+                question.AddAnswers(PullAnswersFromQuestionId(question.Id).ToArray());
                 ques.Add(question);
             }
             return ques;
@@ -102,13 +103,13 @@ namespace Mod003263.db
         public List<Answer> PullAnswersFromQuestionId(int questionId)
         {
             DbDataReader answerReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Answer_ID, Question_ID, value, weight FROM Question_Answers");
+                .Select($"SELECT Answer_ID, Question_ID, Value, Weight FROM Question_Answers WHERE Question_ID={questionId}");
             List<Answer> answ = new List<Answer>();
             while (answerReader.NextResult())
             {
                 Answer answer = new Answer((Int32)answerReader["Answer_ID"]);
-                answer.SetText((string)answerReader["value"]);
-                answer.SetWeight((Int32)answerReader["weight"]);
+                answer.SetText((string)answerReader["Value"]);
+                answer.SetWeight((Int32)answerReader["Weight"]);
                 answ.Add(answer);
             }
             return answ;

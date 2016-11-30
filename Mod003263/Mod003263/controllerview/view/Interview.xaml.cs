@@ -18,9 +18,6 @@ using System.Windows.Shapes;
  *  Date: 28/11/2016
  *  Contains: Interview
  */
-
-
-
 namespace Mod003263.controllerview.view
 {
     /// <summary>
