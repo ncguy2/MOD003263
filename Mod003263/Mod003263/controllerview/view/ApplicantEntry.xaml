@@ -7,26 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
     <Grid>
-        <Border x:Name="img_Applicant" BorderBrush="Black" BorderThickness="1" Margin="10,10,0,0" HorizontalAlignment="Left" Height="114.786" VerticalAlignment="Top" Width="120">
+        <Border x:Name="img_Applicant" BorderBrush="Black" BorderThickness="1" Margin="255,10,0,0" HorizontalAlignment="Left" Height="114.786" VerticalAlignment="Top" Width="120">
             <Border.Background>
                 <ImageBrush/>
             </Border.Background>
         </Border>
-        <Button x:Name="btn_Browse" Content="Browse..." HorizontalAlignment="Left" Height="23.868" Margin="10,129.786,0,0" VerticalAlignment="Top" Width="120" Click="btn_Browse_Click"/>
+        <Button x:Name="btn_Browse" Content="Browse..." HorizontalAlignment="Left" Height="23.868" Margin="255,129.786,0,0" VerticalAlignment="Top" Width="120" Click="btn_Browse_Click"/>
         <TextBox x:Name="txt_FileName" HorizontalAlignment="Left" Margin="213.088,-165.058,0,0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" Height="23" VerticalAlignment="Top"/>
-        <Button x:Name="btn_Upload" Content="Upload" HorizontalAlignment="Left" Margin="10,164.453,0,149.679" Width="120" Click="btn_Upload_Click"/>
-        <TextBox x:Name="txt_FullName" Margin="238.464,10,441.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_Email" Margin="238.464,45,441.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_PhoneNumber" Margin="238.464,80,441.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_BirthDate" Margin="238.464,149.912,0,157.77" TextWrapping="Wrap" FontSize="14" HorizontalAlignment="Left" Width="141.14"/>
-        <TextBox x:Name="txt_ApplicantID" Margin="238.464,0,0,122.77" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141.14"/>
-        <Label x:Name="lbl_FirstName" Content="First Name" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Margin="135,45,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_PhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="135,80,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_Address" Content="Address" HorizontalAlignment="Left" Margin="135,114.912,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_BirthDate" Content="Date of Birth" HorizontalAlignment="Left" Margin="135,149.912,0,162.128" d:LayoutOverrides="Height"/>
-        <Label x:Name="lbl_EntryDate" Content="Date of Entry" HorizontalAlignment="Left" Margin="135,0,0,126.81" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="txt_Address" Margin="238.464,114.912,441.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="btn_Upload" Content="Upload" HorizontalAlignment="Left" Margin="255,164.453,0,149.679" Width="120" Click="btn_Upload_Click"/>
+        <TextBox x:Name="txt_FullName" Margin="0,10,196.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>
+        <TextBox x:Name="txt_Email" Margin="0,45,196.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>
+        <TextBox x:Name="txt_PhoneNumber" Margin="0,80,196.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>
+        <TextBox x:Name="txt_BirthDate" Margin="0,149.912,340.985,157.77" TextWrapping="Wrap" FontSize="14" HorizontalAlignment="Right" Width="141.14"/>
+        <TextBox x:Name="txt_ApplicantID" Margin="0,0,340.985,122.77" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="141.14"/>
+        <Label x:Name="lbl_FirstName" Content="First Name" HorizontalAlignment="Left" Margin="380,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Margin="380,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_PhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="380,80,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Address" Content="Address" HorizontalAlignment="Left" Margin="380,114.912,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_BirthDate" Content="Date of Birth" HorizontalAlignment="Left" Margin="380,149.912,0,162.128" d:LayoutOverrides="Height"/>
+        <Label x:Name="lbl_EntryDate" Content="Date of Entry" HorizontalAlignment="Left" Margin="380,0,0,126.81" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txt_Address" Margin="0,114.912,196.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>
+        <Button x:Name="btn_Save" Content="Add Applicant" Margin="0,0,342.265,87.043" HorizontalAlignment="Right" Width="139.86" Height="30.727" VerticalAlignment="Bottom"/>
+        <ListView x:Name="lv_Applicant" HorizontalAlignment="Left" Margin="10,75.872,0,10" Width="240">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="txt_Search" HorizontalAlignment="Left" Height="23" Margin="10,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
+        <Label x:Name="lbl_Search" Content="Applicant Search" HorizontalAlignment="Left" Margin="10,18.01,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Delete Selected" HorizontalAlignment="Left" Margin="255,0,0,10" VerticalAlignment="Bottom" Width="120"/>
 
     </Grid>
 </UserControl>
