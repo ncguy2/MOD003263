@@ -1,6 +1,7 @@
 ﻿using Mod003263.interview;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,8 +30,8 @@ namespace Mod003263.wpf.controls
         private Answer answer;
 
         public AnswerRow(Answer answer) {
-            this.answer = answer;
             InitializeComponent();
+            this.answer = answer;
         }
 
         private Action<AnswerRow> ButtonClicked;
