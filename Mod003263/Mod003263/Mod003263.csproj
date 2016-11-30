@@ -92,6 +92,9 @@
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
     <Compile Include="controllerview\controller\TemplateSelectionController.cs" />
+    <Compile Include="controllerview\view\ApplicantEntry.xaml.cs">
+      <DependentUpon>ApplicantEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\ApplicantSummary.xaml.cs">
       <DependentUpon>ApplicantSummary.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\ApplicantEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controllerview\view\Interview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
