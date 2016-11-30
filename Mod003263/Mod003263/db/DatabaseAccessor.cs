@@ -86,10 +86,21 @@ namespace Mod003263.db {
             return ques;
         }
 
-        public void PullAnswersFromQuestionId(int questionId) {
+        //pull the answers from question id, 
+        public List<Answer> PullAnswersFromQuestionId(int questionId)
+        {
+            DbDataReader answerReader = DatabaseConnection.GetInstance()
+                .Select("SELECT Answer_ID, Question_ID, value, weight FROM Question_Answers");
+            List<Answer> answ = new List<Answer>();
+            while (answerReader.NextResult())
+            {
+                Answer answer = new Answer((Int32)answerReader["Answer_ID"]);
+                answer.SetText((string)answerReader["value"]);
+                answer.SetWeight((Int32)answerReader["weight"]);
+                answ.Add(answer);
+            }
+            return answ;
+
 
         }
-
-
-    }
 }
