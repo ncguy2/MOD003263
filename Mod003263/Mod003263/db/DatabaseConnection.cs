@@ -66,7 +66,7 @@ namespace Mod003263.db {
             return data;
         }
 
-        public int Insert(string query) {
+        public int ExecuteQuery(string query) {
             //open connection
             if (!OpenConnection()) return -1;
             //create command and assign the query and connection from the constructor
@@ -74,27 +74,6 @@ namespace Mod003263.db {
             //Execute command
             int rows = cmd.ExecuteNonQuery();
             //close connection
-            CloseConnection();
-            return rows;
-        }
-        //Update statement
-        public int Update(string query) {
-            //Open connection
-            if (!OpenConnection()) return -1;
-            //create mysql command
-            DbCommand cmd = factory.CreateCommand(query, connection);
-            //Execute query
-            int rows = cmd.ExecuteNonQuery();
-            //close connection
-            CloseConnection();
-            return rows;
-        }
-
-        //Delete statement
-        public int Delete(string query) {
-            if (!OpenConnection()) return -1;
-            DbCommand cmd = factory.CreateCommand(query, connection);
-            int rows = cmd.ExecuteNonQuery();
             CloseConnection();
             return rows;
         }
