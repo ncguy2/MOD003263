@@ -26,7 +26,7 @@ namespace Mod003263.db {
             switch (provider.ToLower()) {
                 case "mysql": return CreateMySQLConnectionString();
                 case "microsoft.ace.oledb.15.0": return CreateOleConnectionString();
-                case "sqlite": return CreateMySQLConnectionString();
+                case "sqlite": return CreateSQLiteConnectionString();
             }
             return "";
         }
