@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SQLite;
+using System.IO;
 using System.Text;
 using MySql.Data.MySqlClient;
 
@@ -86,15 +87,9 @@ namespace Mod003263.db {
                    "Password=\""+password+"\";";
         }
         private string CreateSQLiteConnectionString() {
-            string host = PropertiesManager.GetInstance().GetPropertyOrDefault("database.hostname", "127.0.0.1");
-            string provider = PropertiesManager.GetInstance().GetPropertyOrDefault("database.provider", "sqlite");
-            string uid = PropertiesManager.GetInstance().GetPropertyOrDefault("database.username", "admin");
-            string password = PropertiesManager.GetInstance().GetPropertyOrDefault("database.password", "123");
+            string host = PropertiesManager.GetInstance().GetPropertyOrDefault("database.hostname", "db.sqlite");
 
-            return "Provider=" + provider + ";" +
-                   "Data Source=\"" + host + "\";" +
-                   "User ID="+uid+";" +
-                   "Password="+password+";";
+            return "Data Source=" + host + ";Version=3";
         }
 
     }

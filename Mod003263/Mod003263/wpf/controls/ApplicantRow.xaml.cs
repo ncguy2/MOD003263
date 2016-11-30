@@ -31,7 +31,7 @@ namespace Mod003263.wpf.controls
         public ApplicantRow(Applicant applicant) {
             InitializeComponent();
             Base64Converter base64Converter = new Base64Converter();
-            ((ImageBrush)userImgFrame.Background).ImageSource = base64Converter.Convert(Base64Converter.TEST_IMAGE);
+            ((ImageBrush)userImgFrame.Background).ImageSource = base64Converter.ConvertToBitmapImage(Base64Converter.TEST_IMAGE);
             Populate(applicant);
         }
 
@@ -45,7 +45,7 @@ namespace Mod003263.wpf.controls
         public void Populate(Applicant applicant) {
             // Image
             Base64Converter base64Converter = new Base64Converter();
-            ((ImageBrush)this.userImgFrame.Background).ImageSource = base64Converter.Convert(applicant?.Picture);
+            ((ImageBrush)this.userImgFrame.Background).ImageSource = base64Converter.ConvertToBitmapImage(applicant?.Picture);
             // Name
             this.usrName.Content = applicant?.Full_Name;
             // Position

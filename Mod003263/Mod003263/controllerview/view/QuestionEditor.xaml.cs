@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.db;
 using Mod003263.events;
 using Mod003263.events.test;
 using Mod003263.events.ui;
 using Mod003263.interview;
 using Mod003263.wpf.controls;
+using Utils.Tree;
+using Utils.Tree.Builder;
 
 /**
  * Author: Nick Guy
@@ -31,8 +35,19 @@ namespace Mod003263.controllerview.view {
 
         private Question selectedQuestion;
 
-        public QuestionEditor() {
+        public QuestionEditor()
+        {
             InitializeComponent();
+            try {
+                PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+                List<Question> qData = DatabaseAccessor.GetInstance().PullQuestionData();
+                VisitableTree<TreeObjectWrapper<Question>> tree =
+                    new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
+                TreePopulator.Populate(tree, qData, '/', q => q.Path());
+                tr_Questions.Items.Add(tree);
+            }catch (Exception e) {
+                File.WriteAllText("Exception.txt", e.Source+": "+e.Message);
+            }
         }
 
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
