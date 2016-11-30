@@ -36,7 +36,7 @@ namespace Mod003263.db {
         private void Initialize() {
             factory = new DbFactory();
 
-            String provider = PropertiesManager.GetInstance().GetPropertyOrDefault("database.provider", "MySQL");
+            String provider = PropertiesManager.GetInstance().GetPropertyOrDefault("database.provider", "SQLite");
             string connectionString = factory.CreateConnectionString(provider);
             connection = factory.CreateConnection(provider, connectionString);
         }
