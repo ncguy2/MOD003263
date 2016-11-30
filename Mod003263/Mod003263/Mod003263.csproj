@@ -127,6 +127,8 @@
     <Compile Include="events\EventBus.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
     <Compile Include="events\ui\BackEvent.cs" />
+    <Compile Include="events\ui\SelectApplicantEvent.cs" />
+    <Compile Include="events\ui\SelectTemplate.cs" />
     <Compile Include="interview\Answer.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
@@ -219,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.config" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllerview\breadcrumb\" />
