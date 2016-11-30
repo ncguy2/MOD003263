@@ -48,12 +48,12 @@ namespace Mod003263.controllerview.view {
         private void AddAnswerRow(AnswerRow row) {
             if (selectedQuestion == null) return;
             selectedQuestion.GetAnswers().Add(row.GetAnswer());
-            answerTbl.Items.Add(row);
+            tbl_AnswerTable.Items.Add(row);
         }
 
         private void OnRowBtnClick(AnswerRow ansRow) {
             selectedQuestion?.GetAnswers().Remove(ansRow.GetAnswer());
-            answerTbl.Items.Remove(ansRow);
+            tbl_AnswerTable.Items.Remove(ansRow);
         }
 
     }
