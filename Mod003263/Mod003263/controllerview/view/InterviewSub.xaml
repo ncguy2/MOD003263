@@ -362,7 +362,7 @@
             <RowDefinition Height="25*"/>
             <RowDefinition Height="144*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="listView" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+        <ListView x:Name="listView" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" SelectionChanged="ListView_OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">

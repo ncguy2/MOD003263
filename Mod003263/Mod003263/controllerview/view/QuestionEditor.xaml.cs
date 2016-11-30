@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.events;
 using Mod003263.events.test;
+using Mod003263.events.ui;
 using Mod003263.interview;
 using Mod003263.wpf.controls;
 
@@ -25,7 +27,7 @@ namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for QuestionEditor.xaml
     /// </summary>
-    public partial class QuestionEditor : UserControl {
+    public partial class QuestionEditor : UserControl, SelectQuestionEvent.SelectQuestionListener {
 
         private Question selectedQuestion;
 
@@ -56,5 +58,14 @@ namespace Mod003263.controllerview.view {
             answerTbl.Items.Remove(ansRow);
         }
 
+        private void QuestionTree_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {
+            Question q = questionTree.SelectedItem as Question;
+            new SelectQuestionEvent(q, SelectQuestionScopes.QUESTION_EDITOR).Fire();
+        }
+
+        [Event]
+        public void OnSelectQuestion(SelectQuestionEvent e) {
+            // TODO Ryan to implement here
+        }
     }
 }

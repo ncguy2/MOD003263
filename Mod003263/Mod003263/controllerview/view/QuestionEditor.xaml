@@ -18,7 +18,7 @@
             <ColumnDefinition Width="89*"/>
             <ColumnDefinition Width="692*"/>
         </Grid.ColumnDefinitions>
-        <TreeView x:Name="questionTree" Margin="10" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="3"/>
+        <TreeView x:Name="questionTree" Margin="10" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="3" SelectedItemChanged="QuestionTree_OnSelectedItemChanged"/>
         <TextBox x:Name="category" Margin="5,10,10,10" TextWrapping="Wrap" Text="/" Grid.Column="2"/>
         <Label x:Name="catLbl" Content="Category" Margin="10,10,5,10" Grid.Column="1" FontSize="14" BorderThickness="0"/>
         <Label x:Name="label" Content="Question" Grid.Column="1" Margin="10,10,5,10" Grid.Row="1" FontSize="14" BorderThickness="0"/>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
     <Grid>
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261"/>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261" SelectedItemChanged="TreeView_OnSelectedItemChanged"/>
         <Label x:Name="label" Content="Template:" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" Height="23" Margin="382.91,12.96,462.679,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <ListView x:Name="listView" Margin="316,40.96,117.679,10">
