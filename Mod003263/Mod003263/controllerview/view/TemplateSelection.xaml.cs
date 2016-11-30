@@ -38,5 +38,10 @@ namespace Mod003263.controllerview.view
             if (template == null) return;
             new SelectTemplateEvent(template, SelectTemplateScopes.TEMPLATE_USAGE).Fire();
         }
+
+        [Event]
+        public void OnBack(BackEvent e) {
+            Interview_Reverse_BeginStoryboard.Storyboard.Begin();
+        }
     }
 }
