@@ -68,11 +68,11 @@ namespace Mod003263_Test {
         private static Interview PerfectSet() {
             Interview interview = new Interview();
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
-            questions.Add(new Question(0).AddAnswers(new Answer().SetWeight(100)), 5);
-            questions.Add(new Question(1).AddAnswers(new Answer().SetWeight(100)), 7);
-            questions.Add(new Question(2).AddAnswers(new Answer().SetWeight(100)), 15);
-            questions.Add(new Question(3).AddAnswers(new Answer().SetWeight(100)), 71);
-            questions.Add(new Question(4).AddAnswers(new Answer().SetWeight(100)), 2);
+            questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(100)), 5);
+            questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(100)), 7);
+            questions.Add(new Question(2).AddAnswers(new Answer(-1).SetWeight(100)), 15);
+            questions.Add(new Question(3).AddAnswers(new Answer(-1).SetWeight(100)), 71);
+            questions.Add(new Question(4).AddAnswers(new Answer(-1).SetWeight(100)), 2);
             foreach (Question q in questions.Keys)
                 interview.GetFoundationInstance().GetAnswerMap().Add(q, q.GetAnswers()[0]);
             return interview;
@@ -81,11 +81,11 @@ namespace Mod003263_Test {
         private static Interview ImperfectSet() {
             Interview interview = new Interview();
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
-            questions.Add(new Question(0).AddAnswers(new Answer().SetWeight(50)), 5);
-            questions.Add(new Question(1).AddAnswers(new Answer().SetWeight(50)), 7);
-            questions.Add(new Question(2).AddAnswers(new Answer().SetWeight(50)), 15);
-            questions.Add(new Question(3).AddAnswers(new Answer().SetWeight(50)), 71);
-            questions.Add(new Question(4).AddAnswers(new Answer().SetWeight(50)), 2);
+            questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(50)), 5);
+            questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(50)), 7);
+            questions.Add(new Question(2).AddAnswers(new Answer(-1).SetWeight(50)), 15);
+            questions.Add(new Question(3).AddAnswers(new Answer(-1).SetWeight(50)), 71);
+            questions.Add(new Question(4).AddAnswers(new Answer(-1).SetWeight(50)), 2);
             foreach (Question q in questions.Keys)
                 interview.GetFoundationInstance().GetAnswerMap().Add(q, q.GetAnswers()[0]);
             return interview;
@@ -94,11 +94,11 @@ namespace Mod003263_Test {
         private static Interview WrongSet() {
             Interview interview = new Interview();
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
-            questions.Add(new Question(0).AddAnswers(new Answer().SetWeight(0)), 5);
-            questions.Add(new Question(1).AddAnswers(new Answer().SetWeight(0)), 7);
-            questions.Add(new Question(2).AddAnswers(new Answer().SetWeight(0)), 15);
-            questions.Add(new Question(3).AddAnswers(new Answer().SetWeight(0)), 71);
-            questions.Add(new Question(4).AddAnswers(new Answer().SetWeight(0)), 2);
+            questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(0)), 5);
+            questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(0)), 7);
+            questions.Add(new Question(2).AddAnswers(new Answer(-1).SetWeight(0)), 15);
+            questions.Add(new Question(3).AddAnswers(new Answer(-1).SetWeight(0)), 71);
+            questions.Add(new Question(4).AddAnswers(new Answer(-1).SetWeight(0)), 2);
             foreach (Question q in questions.Keys)
                 interview.GetFoundationInstance().GetAnswerMap().Add(q, q.GetAnswers()[0]);
             return interview;
