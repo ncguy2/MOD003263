@@ -26,31 +26,25 @@ namespace Mod003263.controllerview.view
     /// </summary>
     public partial class ApplicantEntry : UserControl
     {
-        public ApplicantEntry()
-        {
+        public ApplicantEntry() {
             InitializeComponent();
         }
 
-        private void btn_Browse_Click(object sender, RoutedEventArgs e)
-        {
+        private void btn_Browse_Click(object sender, RoutedEventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog();
             Nullable<bool> result = ofd.ShowDialog();
             ofd.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
 
-            if (result == true)
-            {
+            if (result == true) {
                 txt_FileName.Text = ofd.FileName;
             }
         }
 
-        private void btn_Upload_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
+        private void btn_Upload_Click(object sender, RoutedEventArgs e) {
+            try {
 
 
-                if (txt_FileName.Text.Trim().Length != 0)
-                {
+                if (txt_FileName.Text.Trim().Length != 0) {
                     BitmapImage src = new BitmapImage();
                     src.BeginInit();
                     src.UriSource = new Uri(txt_FileName.Text.Trim(), UriKind.Relative);
@@ -61,8 +55,7 @@ namespace Mod003263.controllerview.view
 
                 }
             }
-            catch (Exception exc)
-            {
+            catch (Exception exc) {
             }
         }
     }
