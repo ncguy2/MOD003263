@@ -45,7 +45,7 @@ namespace Mod003263.db {
                 return new OleDbCommand(query, (OleDbConnection) conn);
             if (conn is SQLiteConnection)
                 return new SQLiteCommand(query, (SQLiteConnection) conn);
-            return null;
+            return null;P
         }
 
         /// <summary>

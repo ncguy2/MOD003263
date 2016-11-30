@@ -15,9 +15,8 @@ namespace Mod003263_Test {
         [TestMethod]
         public void Test1()
         {
-            string propfile = "properties.dat";
             string fileData = "";
-            using (StreamReader sr = new StreamReader(propfile))
+            using (StreamReader sr = new StreamReader("properties.dat"))
             {
                 fileData = sr.ReadToEnd().Replace("\r", "");
             }
@@ -27,9 +26,8 @@ namespace Mod003263_Test {
             {
                 kvp = record.Split("=".ToCharArray());
             }
-            records.ToList().ForEach(i => Console.WriteLine(i.ToString()));
+            Assert.AreEqual();
         }
-
         /// <summary>
         /// Connect to database and load details
         /// </summary>
