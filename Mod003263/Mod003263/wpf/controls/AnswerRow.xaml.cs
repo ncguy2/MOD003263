@@ -28,8 +28,8 @@ namespace Mod003263.wpf.controls
 
         private Answer answer;
 
-        public AnswerRow() {
-            answer = new Answer();
+        public AnswerRow(Answer answer) {
+            this.answer = answer;
             InitializeComponent();
         }
 
