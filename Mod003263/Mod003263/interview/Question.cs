@@ -45,5 +45,12 @@ namespace Mod003263.interview {
             return this.answers;
         }
 
+        public void SetText(String text) {
+            this.questionText = text;
+        }
+        public void SetCategory(String cat) {
+            this.category = cat;
+        }
+
     }
 }

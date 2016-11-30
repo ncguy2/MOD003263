@@ -3,7 +3,7 @@
 namespace Mod003263.db {
     public class Applicant {
         private int m_id;
-        public int ID { get { return m_id; } set { m_id = value; } }
+        public int Id { get { return m_id; } set { m_id = value; } }
 
         private String m_First_Name;
         public String First_Name { get { return m_First_Name; } set { m_First_Name = value; } }
