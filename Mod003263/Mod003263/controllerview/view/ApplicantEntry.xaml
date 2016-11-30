@@ -13,8 +13,20 @@
             </Border.Background>
         </Border>
         <Button x:Name="btn_Browse" Content="Browse..." HorizontalAlignment="Left" Height="23.868" Margin="10,129.786,0,0" VerticalAlignment="Top" Width="120" Click="btn_Browse_Click"/>
-        <TextBox x:Name="txt_FileName" HorizontalAlignment="Left" Margin="10,0,0,121.679" TextWrapping="Wrap" Width="120" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" Height="23" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txt_FileName" HorizontalAlignment="Left" Margin="213.088,-165.058,0,0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" Height="23" VerticalAlignment="Top"/>
         <Button x:Name="btn_Upload" Content="Upload" HorizontalAlignment="Left" Margin="10,164.453,0,149.679" Width="120" Click="btn_Upload_Click"/>
+        <TextBox x:Name="txt_FullName" Margin="238.464,10,441.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Email" Margin="238.464,45,441.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_PhoneNumber" Margin="238.464,80,441.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_BirthDate" Margin="238.464,149.912,0,157.77" TextWrapping="Wrap" FontSize="14" HorizontalAlignment="Left" Width="141.14"/>
+        <TextBox x:Name="txt_ApplicantID" Margin="238.464,0,0,122.77" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141.14"/>
+        <Label x:Name="lbl_FirstName" Content="First Name" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Margin="135,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_PhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="135,80,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Address" Content="Address" HorizontalAlignment="Left" Margin="135,114.912,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_BirthDate" Content="Date of Birth" HorizontalAlignment="Left" Margin="135,149.912,0,162.128" d:LayoutOverrides="Height"/>
+        <Label x:Name="lbl_EntryDate" Content="Date of Entry" HorizontalAlignment="Left" Margin="135,0,0,126.81" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txt_Address" Margin="238.464,114.912,441.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
