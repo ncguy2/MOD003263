@@ -35,19 +35,16 @@ namespace Mod003263.controllerview.view {
 
         private Question selectedQuestion;
 
-        public QuestionEditor()
-        {
+        public QuestionEditor() {
+            EventBus.GetInstance().Register(this);
             InitializeComponent();
-            try {
-                PropertiesManager propertiesManager = PropertiesManager.GetInstance();
-                List<Question> qData = DatabaseAccessor.GetInstance().PullQuestionData();
-                VisitableTree<TreeObjectWrapper<Question>> tree =
-                    new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
-                TreePopulator.Populate(tree, qData, '/', q => q.Path());
-                tr_Questions.Items.Add(tree);
-            }catch (Exception e) {
-                File.WriteAllText("Exception.txt", e.Source+": "+e.Message);
-            }
+            PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+            List<Question> qData = DatabaseAccessor.GetInstance().PullQuestionData();
+            VisitableTree<TreeObjectWrapper<Question>> tree =
+                new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
+            TreePopulator.Populate(tree, qData, '/', q => q.Path());
+//            tr_Questions.Items.Add(tree);
+            qData.ForEach(q => tr_Questions.Items.Add(q));
         }
 
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {
@@ -93,7 +90,9 @@ namespace Mod003263.controllerview.view {
             txt_Category.Text = q.Cat();
             txt_Question.Text = q.Text();
             tbl_AnswerTable.Items.Clear();
-            q.GetAnswers().ForEach(AddAnswer);
+            foreach (Answer answer in q.GetAnswers().ToArray()) {
+                AddAnswer(answer);
+            }
         }
     }
 }

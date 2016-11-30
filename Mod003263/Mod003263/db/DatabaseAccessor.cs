@@ -85,33 +85,42 @@ namespace Mod003263.db
 
         public List<Question> PullQuestionData()
         {
+            DatabaseConnection.GetInstance().OpenLongConnection();
             DbDataReader questionReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Question_ID, Question, Category FROM Questions");
+                .SelectLong("SELECT Question_ID, Question, Category FROM Questions");
             List<Question> ques = new List<Question>();
-            while (questionReader.NextResult())
-            {
-                Question question = new Question((Int32)questionReader["Question_ID"]);
-                question.SetText((String)questionReader["Question"]);
-                question.SetCategory((String)questionReader["Category"]);
+            if (!questionReader.HasRows) return ques;
+            while (questionReader.Read()) {
+                Question question = new Question((Int32) questionReader["Question_ID"]);
+                question.SetText((String) questionReader["Question"]);
+                question.SetCategory((String) questionReader["Category"]);
                 question.AddAnswers(PullAnswersFromQuestionId(question.Id).ToArray());
                 ques.Add(question);
             }
+            DatabaseConnection.GetInstance().CloseLongConnection();
             return ques;
         }
 
         //pull the answers from question id, 
         public List<Answer> PullAnswersFromQuestionId(int questionId)
         {
+            bool openHere = false;
+            if (!DatabaseConnection.GetInstance().isLongOpen()) {
+                openHere = true;
+                DatabaseConnection.GetInstance().OpenLongConnection();
+            }
             DbDataReader answerReader = DatabaseConnection.GetInstance()
-                .Select($"SELECT Answer_ID, Question_ID, Value, Weight FROM Question_Answers WHERE Question_ID={questionId}");
+                .SelectLong($"SELECT Answer_ID, Question_ID, Value, Weight FROM Question_Answers WHERE Question_ID={questionId}");
             List<Answer> answ = new List<Answer>();
-            while (answerReader.NextResult())
+            while (answerReader.Read())
             {
                 Answer answer = new Answer((Int32)answerReader["Answer_ID"]);
                 answer.SetText((string)answerReader["Value"]);
                 answer.SetWeight((Int32)answerReader["Weight"]);
                 answ.Add(answer);
             }
+            if (openHere)
+                DatabaseConnection.GetInstance().CloseLongConnection();
             return answ;
 
 

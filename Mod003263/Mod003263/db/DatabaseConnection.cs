@@ -82,6 +82,12 @@ namespace Mod003263.db {
             return OpenConnection();
         }
 
+        public DbDataReader SelectLong(String q) {
+            DbCommand cmd = factory.CreateCommand(q, connection);
+            DbDataReader data = cmd.ExecuteReader();
+            return data;
+        }
+
         public int InsertCollection<T>(List<T> collection, Func<T, String> toSql) {
             int rows = 0;
             collection.ForEach(t => rows += InsertLong(toSql(t)));
@@ -109,6 +115,10 @@ namespace Mod003263.db {
             //close connection
             CloseConnection();
             return rows;
+        }
+
+        public bool isLongOpen() {
+            return longConnectionOpen;
         }
     }
 }
