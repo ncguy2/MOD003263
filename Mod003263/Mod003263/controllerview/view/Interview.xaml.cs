@@ -13,6 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/**
+ *  Author: Ryan Cowell
+ *  Date: 28/11/2016
+ *  Contains: Interview
+ */
+
+
+
 namespace Mod003263.controllerview.view
 {
     /// <summary>

@@ -16,6 +16,14 @@ using Mod003263.events.ui;
 using System.Windows.Media.Animation;
 using Mod003263.events;
 
+/**
+ *  Author: Ryan Cowell
+ *  Date: 26/10/2016
+ *  Contains: MainMenu
+ */
+
+
+
 namespace Mod003263.controllerview.view
 {
     /// <summary>
