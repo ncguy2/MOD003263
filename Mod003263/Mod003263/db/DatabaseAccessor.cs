@@ -93,7 +93,7 @@ namespace Mod003263.db
                 new InterviewFoundation(interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
 
             }
-
+            interviewFoundationReader.Close();
             return ifound;
 
         }
