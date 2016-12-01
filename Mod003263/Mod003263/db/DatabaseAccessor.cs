@@ -90,8 +90,10 @@ namespace Mod003263.db
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
             while (interviewFoundationReader.Read())
             {
-
+                new InterviewFoundation(interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
             }
+            return ifound;
+
         }
 
         public List<Question> PullQuestionData()
