@@ -102,10 +102,17 @@ namespace Mod003263.db
             DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
                 .Select("SELECT Foundation_ID, Name, Category FROM interview_foundation");
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
-            while (interviewFoundationReader.Read()) {
-                new InterviewFoundation((int) interviewFoundationReader["Foundation_ID"], interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
+            while (interviewFoundationReader.Read())
+            {
+             InterviewFoundation interviewFoundation =  new InterviewFoundation(interviewFoundationReader["Category"].ToString()
+                 , interviewFoundationReader["Name"].ToString());
+                ifound.Add(interviewFoundation);
             }
             interviewFoundationReader.Close();
+            foreach (InterviewFoundation interviewFoundation in ifound)
+            {
+                interviewFoundation.GetQuestions();
+            }
             return ifound;
 
         }
