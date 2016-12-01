@@ -26,6 +26,7 @@ namespace Mod003263.controllerview.view {
         }
 
         public void Init() {
+            lst_appSummary.Items.Clear();
             List<Applicant> apps = DatabaseAccessor.GetInstance().PullApplicantData();
             foreach (Applicant applicant in apps) {
                 ApplicantRow applicantRow = new ApplicantRow(applicant);
