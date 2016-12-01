@@ -16,6 +16,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Utils.Tree.Builder;
+using Utils.Tree;
+using Mod003263.wpf;
+
+/**
+ * Author: Ryan Cowell
+ * Date: 01/12/2016
+ * Contains: InterviewSub
+ */
 
 namespace Mod003263.controllerview.view
 {
@@ -24,9 +33,16 @@ namespace Mod003263.controllerview.view
     /// </summary>
     public partial class InterviewSub : UserControl, BackEvent.BackListener, SelectApplicantEvent.SelectApplicantListener {
 
+        private Applicant selectedApplicant;
+
+
         public InterviewSub() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+            PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+            List<Applicant> aData = DatabaseAccessor.GetInstance().PullApplicantData();           
+            aData.ForEach(a => lst_Applicants.Items.Add(a));
+
         }
 
         [Event]
@@ -39,8 +55,30 @@ namespace Mod003263.controllerview.view
             new SelectApplicantEvent(a).Fire();
         }
 
+        [Event]
         public void OnSelectApplicant(SelectApplicantEvent e) {
-            // TODO Ryan to implement here
+            if (!e.Scope.Equals("applicant.usage")) return;
+            SelectApplicant(e.Selected);
+        }
+
+        private void SelectApplicant(Applicant a)
+        {
+            this.selectedApplicant = a;
+            if (this.selectedApplicant == null) return;
+            txt_Address.Text = a.Address;
+            txt_ApplicantID.Text = a.Id + "";
+            txt_ApplyingPosition.Text = a.Applying_Position;
+            txt_BirthDate.Text = a.Dob + "";
+            txt_EntryDate.Text = a.Doe + "";
+            txt_Email.Text = a.Email;
+            txt_PhoneNumber.Text = a.Phone_Number + "";
+            txt_FullName.Text = a.Full_Name;
+            ImageBrush brush = b_ApplicantSummary.Background as ImageBrush;
+            if (brush != null)
+                brush.ImageSource = Base64Converter.GetInstance().ConvertToBitmapImage(a?.Picture);
+
+
+
         }
     }
 }
