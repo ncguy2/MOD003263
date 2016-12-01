@@ -181,6 +181,7 @@
     <Compile Include="PropertiesManager.cs" />
     <Compile Include="macro\MacroTemplate.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
+    <Compile Include="utils\ConversionUtils.cs" />
     <Compile Include="wpf\Base64Converter.cs" />
     <Compile Include="wpf\controls\AnswerRow.xaml.cs">
       <DependentUpon>AnswerRow.xaml</DependentUpon>
