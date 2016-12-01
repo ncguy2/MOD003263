@@ -61,23 +61,22 @@ namespace Mod003263.db
         public List<Applicant> PullApplicantData()
         {
             DbDataReader applicantReader = DatabaseConnection.GetInstance()
-                .Select("SELECT applicantId, First_Name, Last_Name, Applying_Position, Picture, Flag, Email_Address, " +
-                        "Address, Phone_Number, Date_of_Birth, Date_of_Entry FROM Current_JA");
+                .Select("SELECT ApplicantId, FirstName, LastNAme, ApplyingPosition, PictureCode, Address, Flag, " +
+                        "EmailAddress, PhoneNumber, DateOfBirth, DateOfEntry FROM applicants");
             List<Applicant> apps = new List<Applicant>();
-            while (applicantReader.NextResult())
-            {
-                apps.Add(new Applicant
-                {
-                    Id = (Int32)applicantReader["applicantId"],
-                    First_Name = (String)applicantReader["First_Name"],
-                    Last_Name = (String)applicantReader["Last_Name"],
-                    Applying_Position = (String)applicantReader["Applying_Position"],
-                    Picture = (String)applicantReader["Picture"],
-                    Address = (String)applicantReader["Address"],
-                    Phone_Number = (String)applicantReader["Phone_Number"],
-                    Email = (String)applicantReader["Email_Address"],
-                    Dob = (Int64)applicantReader["Date_of_Birth"],
-                    Doe = (Int64)applicantReader["Date_of_Entry"]
+            while (applicantReader.Read()) {
+                apps.Add(new Applicant {
+                    Id = (int)applicantReader["ApplicantId"],
+                    First_Name = (string)applicantReader["FirstName"],
+                    Last_Name = (string)applicantReader["LastName"],
+                    Applying_Position = (string)applicantReader["ApplyingPosition"],
+                    Picture = (string)applicantReader["PictureCode"],
+                    Address = (string)applicantReader["Address"],
+                    Flag = (int) applicantReader["Flag"],
+                    Phone_Number = (string)applicantReader["PhoneNumber"],
+                    Email = (string)applicantReader["EmailAddress"],
+                    Dob = applicantReader["DateOfBirth"] as long? ?? 0,
+                    Doe = applicantReader["DateOfEntry"] as long? ?? 0
                 });
             }
             return apps;

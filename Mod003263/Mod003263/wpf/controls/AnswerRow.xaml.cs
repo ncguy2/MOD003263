@@ -29,6 +29,8 @@ namespace Mod003263.wpf.controls
 
         private Answer answer;
 
+        public AnswerRow() : this(null) {}
+
         public AnswerRow(Answer answer) {
             InitializeComponent();
             this.answer = answer;

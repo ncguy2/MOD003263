@@ -26,6 +26,9 @@ namespace Mod003263.db {
         private String m_email;
         public String Email { get { return m_email; } set { m_email = value; } }
 
+        private int m_flag;
+        public int Flag { get { return m_flag;  } set { m_flag = value;  } }
+
         private long m_Dob;
         public long Dob { get { return m_Dob; } set { m_Dob = value; } }
 
