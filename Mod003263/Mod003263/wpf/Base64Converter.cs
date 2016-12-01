@@ -34,6 +34,12 @@ namespace Mod003263.wpf {
             return errorImage ?? (errorImage = new Base64Converter().ConvertToBitmapImage(ERROR_IMAGE));
         }
 
+        private static Base64Converter instance;
+
+        public static Base64Converter GetInstance() {
+            return instance ?? (instance = new Base64Converter());
+        }
+
         /// <summary>
         /// Helper method to reduce source-code footprint and to handle casting
         /// </summary>
@@ -41,6 +47,9 @@ namespace Mod003263.wpf {
         /// <returns>Bitmap image of the provided base64</returns>
         public BitmapImage ConvertToBitmapImage(String base64) {
             return ConvertToBitmapImage(base64, null, null, null) as BitmapImage;
+        }
+        public String ConvertToBase64(BitmapImage img) {
+            return ConvertToBase64(img, null, null, null) as String;
         }
 
         /// <summary>

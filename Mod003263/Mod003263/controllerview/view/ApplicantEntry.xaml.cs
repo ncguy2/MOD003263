@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.db;
+using Mod003263.wpf;
 
 /**
  * Author: Ryan Cowell
@@ -24,8 +26,10 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for ApplicantEntry.xaml
     /// </summary>
-    public partial class ApplicantEntry : UserControl
-    {
+    public partial class ApplicantEntry : UserControl {
+
+        private Applicant app;
+
         public ApplicantEntry() {
             InitializeComponent();
         }
@@ -33,7 +37,7 @@ namespace Mod003263.controllerview.view
         private void btn_SelectPicture_Click(object sender, RoutedEventArgs e) {
 
             OpenFileDialog ofd = new OpenFileDialog();
-            Nullable<bool> result = ofd.ShowDialog();
+            bool? result = ofd.ShowDialog();
             ofd.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
 
             if (result == true) {
@@ -41,21 +45,21 @@ namespace Mod003263.controllerview.view
             }
 
             try {
-
-
-                if (txt_FileName.Text.Trim().Length != 0) {
-                    BitmapImage src = new BitmapImage();
-                    src.BeginInit();
-                    src.UriSource = new Uri(txt_FileName.Text.Trim(), UriKind.Relative);
-                    src.CacheOption = BitmapCacheOption.OnLoad;
-                    src.EndInit();
-                    ((ImageBrush)img_Applicant.Background).ImageSource = src;
-
-
-                }
+                if (txt_FileName.Text.Trim().Length == 0) return;
+                BitmapImage src = new BitmapImage();
+                src.BeginInit();
+                src.UriSource = new Uri(txt_FileName.Text.Trim(), UriKind.Relative);
+                src.CacheOption = BitmapCacheOption.OnLoad;
+                src.EndInit();
+                ((ImageBrush)img_Applicant.Background).ImageSource = src;
+                app.Picture = Base64Converter.GetInstance().ConvertToBase64(src);
             }
             catch (Exception exc) {
             }
+        }
+
+        private void btn_newApp_Click(object sender, RoutedEventArgs e) {
+            app = new Applicant{Id = -1};
         }
     }
 }
