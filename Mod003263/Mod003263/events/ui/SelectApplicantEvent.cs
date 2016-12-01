@@ -16,6 +16,7 @@ namespace Mod003263.events.ui {
         }
 
         public Applicant Selected { get; set; }
+        public string Scope { get; set; }
 
         public interface SelectApplicantListener {
             [Event]
