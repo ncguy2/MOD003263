@@ -125,6 +125,9 @@
     <Compile Include="controllerview\view\InterviewSub.xaml.cs">
       <DependentUpon>InterviewSub.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\view\Leaderboard.xaml.cs">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -204,6 +207,10 @@
     <Page Include="controllerview\view\InterviewSub.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="controllerview\view\Leaderboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controllerview\view\MainMenu.xaml">
       <SubType>Designer</SubType>

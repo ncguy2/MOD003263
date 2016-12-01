@@ -30,7 +30,8 @@ namespace Mod003263.controllerview.view
             InitializeComponent();
         }
 
-        private void btn_Browse_Click(object sender, RoutedEventArgs e) {
+        private void btn_SelectPicture_Click(object sender, RoutedEventArgs e) {
+
             OpenFileDialog ofd = new OpenFileDialog();
             Nullable<bool> result = ofd.ShowDialog();
             ofd.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
@@ -38,9 +39,7 @@ namespace Mod003263.controllerview.view
             if (result == true) {
                 txt_FileName.Text = ofd.FileName;
             }
-        }
 
-        private void btn_Upload_Click(object sender, RoutedEventArgs e) {
             try {
 
 

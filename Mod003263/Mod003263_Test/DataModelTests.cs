@@ -26,7 +26,6 @@ namespace Mod003263_Test {
             {
                 kvp = record.Split("=".ToCharArray());
             }
-            Assert.AreEqual();
         }
         /// <summary>
         /// Connect to database and load details
