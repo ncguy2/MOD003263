@@ -169,6 +169,7 @@
     <Compile Include="interview\InterviewFoundationInstance.cs" />
     <Compile Include="interview\metric\MetricCalculator.cs" />
     <Compile Include="interview\metric\MetricException.cs" />
+    <Compile Include="interview\AvailablePosition.cs" />
     <Compile Include="interview\Question.cs" />
     <Compile Include="macro\MacroAttribute.cs" />
     <Compile Include="macro\MacroManager.cs" />

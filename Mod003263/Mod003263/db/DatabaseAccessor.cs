@@ -136,8 +136,32 @@ namespace Mod003263.db
 //                DatabaseConnection.GetInstance().CloseLongConnection();
             answerReader.Close();
             return answ;
+        }
 
+        public List<AvailablePosition> GetAvailablePositions() {
+            List<AvailablePosition> availablePositions = new List<AvailablePosition>();
+            DbDataReader posReader = DatabaseConnection.GetInstance()
+                .Select("SELECT ID, Position, Seats FROM positions WHERE Seats > 0");
+            while (posReader.Read())
+                availablePositions.Add(new AvailablePosition {
+                    ID = (int) posReader["ID"],
+                    Position = posReader["Position"].ToString(),
+                    Seats = (int) posReader["Seats"]
+                });
+            return availablePositions;
+        }
 
+        public List<AvailablePosition> GetAllPositions() {
+            List<AvailablePosition> positions = new List<AvailablePosition>();
+            DbDataReader posReader = DatabaseConnection.GetInstance()
+                .Select("SELECT ID, Position, Seats FROM positions");
+            while (posReader.Read())
+                positions.Add(new AvailablePosition {
+                    ID = (int) posReader["ID"],
+                    Position = posReader["Position"].ToString(),
+                    Seats = (int) posReader["Seats"]
+                });
+            return positions;
         }
     }
 }
