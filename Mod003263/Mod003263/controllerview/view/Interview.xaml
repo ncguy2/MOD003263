@@ -32,7 +32,7 @@
         </RichTextBox>
         <Label x:Name="lbl_Answer" Content="Answer Selected" HorizontalAlignment="Left" Margin="373.5,80.5,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
         <Button x:Name="btn_Confirm" Content="Confirm Selected Answer" Margin="373.5,0,441.939,120.04" VerticalAlignment="Bottom" Height="39.96"/>
-        <Button x:Name="btn_Abort" Content="Abort Interview" Margin="0,0,225.939,120.04" VerticalAlignment="Bottom" Height="39.96" HorizontalAlignment="Right" Width="150.15"/>
+        <Button x:Name="btn_Abort" Content="Abort Interview" Margin="0,0,225.939,120.04" VerticalAlignment="Bottom" Height="39.96" HorizontalAlignment="Right" Width="150.15" Click="btn_Abort_Click"/>
         <Label x:Name="lbl_QuestionCounter" Content="" Margin="373.5,0,225.939,10" VerticalAlignment="Bottom" Height="56.96"/>
     </Grid>
 </UserControl>

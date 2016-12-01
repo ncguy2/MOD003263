@@ -87,16 +87,20 @@ namespace Mod003263.db
         public List<InterviewFoundation> PullInterviewFoundation()
         {
             DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Foundation_ID, Name, Category FROM interview_foundation");
+                .Select("SELECT Foundation_ID, Name, Category, Question_ID FROM interview_foundation, interview_questions");
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
             while (interviewFoundationReader.Read())
             {
-                new InterviewFoundation(interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
-
+             InterviewFoundation interviewFoundation =  new InterviewFoundation(interviewFoundationReader["Category"].ToString()
+                 , interviewFoundationReader["Name"].ToString());
+                ifound.Add(interviewFoundation);
             }
             interviewFoundationReader.Close();
+            foreach (InterviewFoundation interviewFoundation in ifound)
+            {
+                interviewFoundation.GetQuestions();
+            }
             return ifound;
-
         }
 
         public List<Question> PullQuestionData()
