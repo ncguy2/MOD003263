@@ -39,6 +39,7 @@ namespace Mod003263.wpf.controls
             if (brush != null)
                 brush.ImageSource = converter.ConvertToBitmapImage(applicant?.Picture);
             lbl_FullName.Content = applicant != null ? applicant.Full_Name : "";
+            lbl_position.Content = applicant != null ? applicant.Applying_Position : "";
         }
 
     }

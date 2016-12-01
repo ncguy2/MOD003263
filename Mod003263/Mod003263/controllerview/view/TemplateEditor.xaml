@@ -29,6 +29,5 @@
         <Label x:Name="lbl_InsertQuestion" Content="Questions Selected" HorizontalAlignment="Right" Margin="0,67.7,262.501,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93.589" Margin="0,0,10,62.99"/>
         <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93.589" Margin="0,0,10,13.07"/>
-
     </Grid>
 </UserControl>
