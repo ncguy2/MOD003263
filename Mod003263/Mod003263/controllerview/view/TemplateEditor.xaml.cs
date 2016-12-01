@@ -58,18 +58,20 @@ namespace Mod003263.controllerview.view
             SelectTemplate(e.Template);
         }
 
-        private void SelectTemplate(InterviewFoundation t){
+        private void SelectTemplate(InterviewFoundation t) {
 
             this.selectedTemplate = t;
             if (this.selectedTemplate == null) return;
             txt_Category.Text = t.Cat();
-            txt_TemplateName.Text = t.Text();
+            txt_TemplateName.Text = t.Name();
             tr_InsertQuestions.Items.Clear();
-            foreach (Question question in t.GetQuestions().ToArray())
-            {
-                
+            foreach (KeyValuePair<Question, int> pair in t.GetQuestions()) {
+                Question question = pair.Key;
             }
 
+        }
+
+        private void btn_Create_Click(object sender, RoutedEventArgs e) {
 
         }
     }
