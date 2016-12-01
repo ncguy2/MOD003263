@@ -86,12 +86,14 @@ namespace Mod003263.db
         public List<InterviewFoundation> PullInterviewFoundation()
         {
             DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Foundation_ID, Name, Category ");
+                .Select("SELECT Foundation_ID, Name, Category FROM interview_foundation");
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
             while (interviewFoundationReader.Read())
             {
                 new InterviewFoundation(interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
+
             }
+
             return ifound;
 
         }
@@ -99,7 +101,7 @@ namespace Mod003263.db
         public List<Question> PullQuestionData()
         {
             DbDataReader questionReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Question_ID, Question, Category FROM Questions");
+                .Select("SELECT Question_ID, Question, Category FROM questions");
             List<Question> ques = new List<Question>();
             if (!questionReader.HasRows) return ques;
             while (questionReader.Read()) {
