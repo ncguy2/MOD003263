@@ -22,6 +22,7 @@ namespace Mod003263.db {
         private string password;
         private DbFactory factory;
         private bool longConnectionOpen;
+        private bool connectionOpen = false;
 
         private static DatabaseConnection instance;
 
@@ -42,8 +43,10 @@ namespace Mod003263.db {
         }
         //open connection to database
         private bool OpenConnection() {
+            if (connectionOpen) return true;
             try {
                 connection.Open();
+                connectionOpen = true;
                 return true;
             }catch (DbException ex) {
                 Console.WriteLine(ex.Message);
@@ -53,8 +56,10 @@ namespace Mod003263.db {
 
         //Close connection
         private bool CloseConnection() {
+            if (!connectionOpen) return true;
             try {
                 connection.Close();
+                connectionOpen = false;
                 return true;
             }catch (DbException ex) {
                 Console.WriteLine(ex.Message);

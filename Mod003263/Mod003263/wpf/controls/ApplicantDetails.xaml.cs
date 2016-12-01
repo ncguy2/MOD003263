@@ -10,14 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mod003263.controllerview.view {
+namespace Mod003263.wpf.controls
+{
     /// <summary>
-    /// Interaction logic for Leaderboard.xaml
+    /// Interaction logic for ApplicantDetails.xaml
     /// </summary>
-    public partial class Leaderboard : UserControl {
-        public Leaderboard() {
+    public partial class ApplicantDetails : UserControl
+    {
+        public ApplicantDetails()
+        {
             InitializeComponent();
         }
     }

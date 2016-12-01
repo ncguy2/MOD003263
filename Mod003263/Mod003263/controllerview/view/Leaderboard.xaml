@@ -1,12 +1,41 @@
-﻿<Window x:Class="Mod003263.controllerview.view.Leaderboard"
+﻿<UserControl x:Class="Mod003263.controllerview.view.Leaderboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mod003263.controllerview.view"
-        mc:Ignorable="d"
-        Title="Leaderboard" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
-</Window>
+             xmlns:controls="clr-namespace:Mod003263.wpf.controls"
+             mc:Ignorable="d"
+        Height="336" Width="965.589" Foreground="{x:Null}" BorderBrush="Black">
+    <Canvas>
+        <Grid Height="336" Width="966">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="786"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="lst_positions" Margin="10"/>
+            <ListView x:Name="lst_appSummary" Grid.Column="1" Margin="10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <ContentControl>
+                                <controls:ApplicantRow/>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+        <controls:ApplicantDetails HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="786" Canvas.Left="180">
+            <controls:ApplicantDetails.Effect>
+                <DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="2"/>
+            </controls:ApplicantDetails.Effect>
+        </controls:ApplicantDetails>
+    </Canvas>
+</UserControl>

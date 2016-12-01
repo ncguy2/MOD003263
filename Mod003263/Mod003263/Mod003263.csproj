@@ -180,6 +180,9 @@
     <Compile Include="wpf\controls\AnswerRow.xaml.cs">
       <DependentUpon>AnswerRow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wpf\controls\ApplicantDetails.xaml.cs">
+      <DependentUpon>ApplicantDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wpf\controls\ApplicantRow.xaml.cs">
       <DependentUpon>ApplicantRow.xaml</DependentUpon>
     </Compile>
@@ -245,6 +248,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="wpf\controls\AnswerRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpf\controls\ApplicantDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
