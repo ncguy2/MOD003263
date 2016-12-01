@@ -21,10 +21,7 @@ namespace Mod003263.controllerview.view {
     /// </summary>
     public partial class Leaderboard : UserControl{
 
-        private Base64Converter converter;
-
         public Leaderboard() {
-            converter = new Base64Converter();
             InitializeComponent();
         }
 
@@ -37,23 +34,11 @@ namespace Mod003263.controllerview.view {
             }
         }
 
-        private void PopulateDetails(Applicant applicant) {
-            ImageBrush brush = bdr_Picture.Background as ImageBrush;
-            if (brush != null)
-                brush.ImageSource = converter.ConvertToBitmapImage(applicant?.Picture);
-            lbl_FullName.Content = applicant != null ? applicant.Full_Name : "";
-        }
-
         private void applicantRow_DblClick(object sender, RoutedEventArgs e) {
             ApplicantRow row = sender as ApplicantRow;
             if (row == null) return;
-            PopulateDetails(row.Applicant);
+            app_details.PopulateDetails(row.Applicant);
             OpenApplicantDetails();
-        }
-
-        private void btn_hideDetails_Click(object sender, RoutedEventArgs e) {
-            PopulateDetails(null);
-            CloseApplicantDetails();
         }
 
         private void OpenApplicantDetails() {
@@ -66,6 +51,11 @@ namespace Mod003263.controllerview.view {
 
         private void btn_init_Click(object sender, RoutedEventArgs e) {
             Init();
+        }
+
+        private void app_details_CallbackButtonClicked(object sender, EventArgs e) {
+            app_details.PopulateDetails(null);
+            CloseApplicantDetails();
         }
     }
 }

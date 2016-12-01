@@ -106,18 +106,11 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="786" Grid.ColumnSpan="2">
+            <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="786" Grid.ColumnSpan="2" CallbackButtonClicked="app_details_CallbackButtonClicked">
                 <controls:ApplicantDetails.Effect>
                     <DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="2"/>
                 </controls:ApplicantDetails.Effect>
             </controls:ApplicantDetails>
-            <Button x:Name="btn_hideDetails" Content="Back" Margin="10,10,10,0" Click="btn_hideDetails_Click" Height="23" VerticalAlignment="Top"/>
-            <Border x:Name="bdr_Picture" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
-                <Border.Background>
-                    <ImageBrush/>
-                </Border.Background>
-            </Border>
-            <Label x:Name="lbl_FullName" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
     </Canvas>
 </UserControl>

@@ -7,6 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="336" d:DesignWidth="786">
     <Grid Background="#FFAAAAAA">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="353*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="bdr_Picture" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+            <Border.Background>
+                <ImageBrush/>
+            </Border.Background>
+        </Border>
+        <Label x:Name="lbl_FullName" Content="Label" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Height="26"/>
+        <Button x:Name="btn_callback" Content="Back" Margin="10,10,10,0" Height="23" VerticalAlignment="Top" Click="btn_callback_Click"/>
+
     </Grid>
 </UserControl>
