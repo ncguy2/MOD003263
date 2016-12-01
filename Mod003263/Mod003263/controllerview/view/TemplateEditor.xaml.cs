@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using Mod003263.events;
 using Mod003263.events.ui;
 using Mod003263.interview;
+using Mod003263.db;
+using Utils.Tree.Builder;
+using Utils.Tree;
 
 /**
  *  Author: Ryan Cowell
@@ -28,9 +31,19 @@ namespace Mod003263.controllerview.view
     /// </summary>
     public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener {
 
+        private InterviewFoundation selectedTemplate;
+
         public TemplateEditor() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+            PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+            List<InterviewFoundation> tData = DatabaseAccessor.GetInstance().PullInterviewFoundationData();
+            VisitableTree<TreeObjectWrapper<InterviewFoundation>> tree =
+                    new VisitableTree<TreeObjectWrapper<InterviewFoundation>>(new TreeObjectWrapper<InterviewFoundation>(""));
+            TreePopulator.Populate(tree, tData, '/', t => t.Path());
+            //          tr_Templates.Items.Add(tree);
+            tData.ForEach(t => tr_Templates.Items.Add(t));
+
         }
 
         private void tr_Templates_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {
@@ -41,7 +54,23 @@ namespace Mod003263.controllerview.view
 
         [Event]
         public void OnSelectTemplate(SelectTemplateEvent e) {
-            // TODO Ryan to implement here
+            if (!e.Scope.Equals(SelectTemplateScopes.TEMPLATE_EDITOR)) return;
+            SelectTemplate(e.Template);
+        }
+
+        private void SelectTemplate(InterviewFoundation t){
+
+            this.selectedTemplate = t;
+            if (this.selectedTemplate == null) return;
+            txt_Category.Text = t.Cat();
+            txt_TemplateName.Text = t.Text();
+            tr_InsertQuestions.Items.Clear();
+            foreach (Question question in t.GetQuestions().ToArray())
+            {
+                
+            }
+
+
         }
     }
 }
