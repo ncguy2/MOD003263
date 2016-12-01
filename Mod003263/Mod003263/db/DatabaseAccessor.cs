@@ -79,6 +79,7 @@ namespace Mod003263.db
                     Doe = applicantReader["DateOfEntry"] as long? ?? 0
                 });
             }
+            applicantReader.Close();
             return apps;
         }
 
@@ -148,6 +149,7 @@ namespace Mod003263.db
                     Position = posReader["Position"].ToString(),
                     Seats = (int) posReader["Seats"]
                 });
+            posReader.Close();
             return availablePositions;
         }
 
@@ -161,6 +163,7 @@ namespace Mod003263.db
                     Position = posReader["Position"].ToString(),
                     Seats = (int) posReader["Seats"]
                 });
+            posReader.Close();
             return positions;
         }
     }

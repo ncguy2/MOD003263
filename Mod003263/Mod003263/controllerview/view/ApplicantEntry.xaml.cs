@@ -14,8 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.interview;
 using Mod003263.utils;
 using Mod003263.wpf;
+using Mod003263.wpf.controls;
 
 /**
  * Author: Ryan Cowell, Nick Guy
@@ -32,6 +34,23 @@ namespace Mod003263.controllerview.view {
 
         public ApplicantEntry() {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init() {
+            try {
+                List<AvailablePosition> positions = DatabaseAccessor.GetInstance().GetAllPositions();
+                sel_ApplyingPosition.Items.Clear();
+                foreach (AvailablePosition pos in positions)
+                    sel_ApplyingPosition.Items.Add(pos);
+
+                List<Applicant> applicants = DatabaseAccessor.GetInstance().PullApplicantData();
+                lv_Applicant.Items.Clear();
+                foreach (Applicant app in applicants)
+                    sel_ApplyingPosition.Items.Add(new ApplicantRow(app));
+            } catch (Exception e) {
+                WPFMessageBoxFactory.Create("Error", e.Message, 0).Show();
+            }
         }
 
         private void btn_SelectPicture_Click(object sender, RoutedEventArgs e) {
