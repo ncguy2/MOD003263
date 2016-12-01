@@ -15,12 +15,25 @@ namespace Mod003263.db
     {
 
         private static DatabaseAccessor instance;
-        public static DatabaseAccessor GetInstance()
-        {
+        public static DatabaseAccessor GetInstance() {
             return instance ?? (instance = new DatabaseAccessor());
         }
 
-        private DatabaseAccessor() { }
+        private DatabaseAccessor() {
+            DatabaseAccessorListeners.GetInstance(this);
+        }
+
+        // 3 identical methods to aid readability
+        public int Update(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
+        public int Insert(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
+        public int Delete(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
+
+        public int InsertBatch<T>(List<T> list, Func<T, string> queryBuilder) {
+            return DatabaseConnection.GetInstance().InsertCollection(list, queryBuilder);
+        }
+        public int InsertBatch<T, U>(Dictionary<T, U> list, Func<KeyValuePair<T, U>, string> queryBuilder) {
+            return DatabaseConnection.GetInstance().InsertCollection(list, queryBuilder);
+        }
 
         // TODO fix connection insert calls
         /// <summary>
@@ -50,22 +63,21 @@ namespace Mod003263.db
         {
             List<InterviewFoundation> foundations = new List<InterviewFoundation>();
             // TODO replace with actual data
-            foundations.Add(new InterviewFoundation("Test1", "Test/First"));
-            foundations.Add(new InterviewFoundation("Test2", "Test/First"));
-            foundations.Add(new InterviewFoundation("Test3", "Test/Second"));
-            foundations.Add(new InterviewFoundation("Test4", "Test/Second"));
-            foundations.Add(new InterviewFoundation("Test5", "Test/Second/Third"));
+            foundations.Add(new InterviewFoundation(-1, "Test1", "Test/First"));
+            foundations.Add(new InterviewFoundation(-1, "Test2", "Test/First"));
+            foundations.Add(new InterviewFoundation(-1, "Test3", "Test/Second"));
+            foundations.Add(new InterviewFoundation(-1, "Test4", "Test/Second"));
+            foundations.Add(new InterviewFoundation(-1, "Test5", "Test/Second/Third"));
             return foundations;
         }
 
-        public List<Applicant> PullApplicantData()
-        {
+        public List<Applicant> PullApplicantData() {
             DbDataReader applicantReader = DatabaseConnection.GetInstance()
-                .Select("SELECT ApplicantId, FirstName, LastNAme, ApplyingPosition, PictureCode, Address, Flag, " +
+                .Select("SELECT ApplicantId, FirstName, LastName, ApplyingPosition, PictureCode, Address, Flag, " +
                         "EmailAddress, PhoneNumber, DateOfBirth, DateOfEntry FROM applicants");
             List<Applicant> apps = new List<Applicant>();
             while (applicantReader.Read()) {
-                apps.Add(new Applicant {
+                Applicant app = new Applicant {
                     Id = (int)applicantReader["ApplicantId"],
                     First_Name = (string)applicantReader["FirstName"],
                     Last_Name = (string)applicantReader["LastName"],
@@ -75,9 +87,10 @@ namespace Mod003263.db
                     Flag = (int) applicantReader["Flag"],
                     Phone_Number = (string)applicantReader["PhoneNumber"],
                     Email = (string)applicantReader["EmailAddress"],
-                    Dob = applicantReader["DateOfBirth"] as long? ?? 0,
-                    Doe = applicantReader["DateOfEntry"] as long? ?? 0
-                });
+                    Dob = applicantReader.GetInt64(applicantReader.GetOrdinal("DateOfBirth")),
+                    Doe = applicantReader.GetInt64(applicantReader.GetOrdinal("DateOfEntry"))
+                };
+                apps.Add(app);
             }
             applicantReader.Close();
             return apps;
@@ -89,10 +102,8 @@ namespace Mod003263.db
             DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
                 .Select("SELECT Foundation_ID, Name, Category FROM interview_foundation");
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
-            while (interviewFoundationReader.Read())
-            {
-                new InterviewFoundation(interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
-
+            while (interviewFoundationReader.Read()) {
+                new InterviewFoundation((int) interviewFoundationReader["Foundation_ID"], interviewFoundationReader["Category"].ToString(), interviewFoundationReader["Name"].ToString());
             }
             interviewFoundationReader.Close();
             return ifound;
@@ -145,7 +156,7 @@ namespace Mod003263.db
                 .Select("SELECT ID, Position, Seats FROM positions WHERE Seats > 0");
             while (posReader.Read())
                 availablePositions.Add(new AvailablePosition {
-                    ID = (int) posReader["ID"],
+                    Id = (int) posReader["ID"],
                     Position = posReader["Position"].ToString(),
                     Seats = (int) posReader["Seats"]
                 });
@@ -159,7 +170,7 @@ namespace Mod003263.db
                 .Select("SELECT ID, Position, Seats FROM positions");
             while (posReader.Read())
                 positions.Add(new AvailablePosition {
-                    ID = (int) posReader["ID"],
+                    Id = (int) posReader["ID"],
                     Position = posReader["Position"].ToString(),
                     Seats = (int) posReader["Seats"]
                 });

@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.events.io;
+using Mod003263.events.ui;
 using Mod003263.interview;
 using Mod003263.utils;
 using Mod003263.wpf;
@@ -46,11 +48,14 @@ namespace Mod003263.controllerview.view {
 
                 List<Applicant> applicants = DatabaseAccessor.GetInstance().PullApplicantData();
                 lv_Applicant.Items.Clear();
-                foreach (Applicant app in applicants)
-                    sel_ApplyingPosition.Items.Add(new ApplicantRow(app));
+//                GridView gridView = lv_Applicant.View as GridView;
+                foreach (Applicant app in applicants) {
+                    lv_Applicant.Items.Add(app);
+                }
             } catch (Exception e) {
                 WPFMessageBoxFactory.Create("Error", e.Message, 0).Show();
             }
+            PopulateFields(null);
         }
 
         private void btn_SelectPicture_Click(object sender, RoutedEventArgs e) {
@@ -75,8 +80,9 @@ namespace Mod003263.controllerview.view {
         }
 
         private void btn_newApp_Click(object sender, RoutedEventArgs e) {
+            lv_Applicant.UnselectAll();
             app = new Applicant{Id = -1};
-
+            PopulateFields(app);
         }
 
         public void PopulateFields(Applicant app) {
@@ -87,9 +93,25 @@ namespace Mod003263.controllerview.view {
             txt_LastName.Text = app?.Last_Name ?? "";
             txt_Email.Text = app?.Email ?? "";
             txt_PhoneNumber.Text = app?.Phone_Number ?? "";
-            txt_Address.Text = app?.First_Name ?? "";
+            txt_Address.Text = app?.Address ?? "";
 
-            dat_DoB.Text = app != null ? ConversionUtils.ToDateTimeFromEpoch(app.Dob).ToLongDateString() : "";
+            int targetIndex = -1;
+            for (int i = 0; i < sel_ApplyingPosition.Items.Count; i++) {
+                AvailablePosition pos = sel_ApplyingPosition.Items[i] as AvailablePosition;
+                if(pos == null) continue;
+                if (!pos.Position.Equals(app?.Applying_Position, StringComparison.OrdinalIgnoreCase)) continue;
+                targetIndex = i;
+                i += sel_ApplyingPosition.Items.Count;
+            }
+            if (targetIndex >= 0)
+                sel_ApplyingPosition.SelectedIndex = targetIndex;
+
+            if (app != null) {
+                DateTime t = ConversionUtils.ToDateTimeFromEpoch(app.Dob);
+                String s = t.ToLongDateString();
+                dat_DoB.Text = s;
+            }
+//            dat_DoB.Text = app != null ? ConversionUtils.ToDateTimeFromEpoch(app.Dob).ToLongDateString() : "";
             txt_FirstName.Text = app?.First_Name ?? "";
         }
 
@@ -107,5 +129,29 @@ namespace Mod003263.controllerview.view {
             btn_Save.IsEnabled = enabled;
         }
 
+        public void CascadeData() {
+            if (this.app == null) return;
+            this.app.First_Name = txt_FirstName.Text;
+            this.app.Last_Name = txt_LastName.Text;
+            this.app.Email = txt_Email.Text;
+            AvailablePosition pos = sel_ApplyingPosition.SelectedItem as AvailablePosition;
+            this.app.Applying_Position = pos?.Position;
+            this.app.Phone_Number = txt_PhoneNumber.Text;
+            this.app.Address = txt_Address.Text;
+            this.app.Dob = ConversionUtils.ToEpochTime(dat_DoB.DisplayDate);
+        }
+
+        private void lv_Applicant_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            Applicant applicant = lv_Applicant.SelectedItem as Applicant;
+            this.app = applicant;
+            if(applicant != null)
+                PopulateFields(applicant);
+        }
+
+        private void Btn_Save_OnClick(object sender, RoutedEventArgs e) {
+            if (this.app == null) return;
+            CascadeData();
+            new SaveApplicantEvent(this.app).Fire();
+        }
     }
 }

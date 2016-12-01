@@ -12,13 +12,15 @@ namespace Mod003263.interview {
     /// </summary>
     public class InterviewFoundation {
 
+        private int id;
         private String name;
         private String category;
         private Dictionary<Question, int> questions;
 
-        public InterviewFoundation() : this("", "") {}
+        public InterviewFoundation() : this(-1, "", "") {}
 
-        public InterviewFoundation(String category, String name) {
+        public InterviewFoundation(int id, String category, String name){
+            this.id = id;
             this.category = category;
             this.name = name;
             questions = new Dictionary<Question, Int32>();
@@ -35,6 +37,11 @@ namespace Mod003263.interview {
         public String Name() { return name; }
         public String Cat() { return category; }
         public String Path() { return Cat() + "/" + Name(); }
+
+        public void SetName(string n) { name = n; }
+        public void SetCat(string c) { category = c; }
+
+        public int Id() { return id; }
 
     }
 

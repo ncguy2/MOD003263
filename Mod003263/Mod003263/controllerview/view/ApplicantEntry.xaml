@@ -29,11 +29,12 @@
         <Label x:Name="lbl_Address" Content="Address" HorizontalAlignment="Left" Margin="10,193,0,119" Grid.Column="2" Width="53"/>
         <Label x:Name="lbl_BirthDate" Content="Date of Birth" HorizontalAlignment="Left" Margin="10,0,0,83" VerticalAlignment="Bottom" Grid.Column="2" Height="26" Width="77"/>
         <TextBox x:Name="txt_Address" Margin="0,189,151,119" TextWrapping="Wrap" FontSize="14" Width="286" HorizontalAlignment="Right" Grid.Column="3"/>
-        <Button x:Name="btn_Save" Content="Save Applicant" Margin="0,0,151,10" HorizontalAlignment="Right" Width="287" Height="31" VerticalAlignment="Bottom" Grid.Column="3"/>
-        <ListView x:Name="lv_Applicant" HorizontalAlignment="Left" Margin="10,76,0,42" Width="240">
+        <Button x:Name="btn_Save" Content="Save Applicant" Margin="0,0,151,10" HorizontalAlignment="Right" Width="287" Height="31" VerticalAlignment="Bottom" Grid.Column="3" Click="Btn_Save_OnClick"/>
+        <ListView x:Name="lv_Applicant" HorizontalAlignment="Left" Margin="10,76,0,42" Width="240" SelectionChanged="lv_Applicant_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Full_Name}"/>
+                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Applying_Position}"/>
                 </GridView>
             </ListView.View>
         </ListView>

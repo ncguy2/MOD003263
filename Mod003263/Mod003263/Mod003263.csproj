@@ -64,6 +64,9 @@
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
       <HintPath>..\libs\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SQLite.Interop, PublicKeyToken=null">
@@ -149,6 +152,7 @@
     <Compile Include="controllerview\view\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db\DatabaseAccessorListeners.cs" />
     <Compile Include="db\DatabaseConnection.cs" />
     <Compile Include="db\DbFactory.cs" />
     <Compile Include="email\EmailHandler.cs" />
@@ -158,6 +162,10 @@
     <Compile Include="events\db\SaveTemplateEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
+    <Compile Include="events\io\SaveApplicantEvent.cs" />
+    <Compile Include="events\io\SaveFoundationEvent.cs" />
+    <Compile Include="events\io\SaveInterviewEvent.cs" />
+    <Compile Include="events\io\SaveQuestionEvent.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
     <Compile Include="events\ui\BackEvent.cs" />
     <Compile Include="events\ui\SelectApplicantEvent.cs" />
@@ -182,6 +190,7 @@
     <Compile Include="macro\MacroTemplate.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
     <Compile Include="utils\ConversionUtils.cs" />
+    <Compile Include="utils\FixedSizedQueue.cs" />
     <Compile Include="wpf\Base64Converter.cs" />
     <Compile Include="wpf\controls\AnswerRow.xaml.cs">
       <DependentUpon>AnswerRow.xaml</DependentUpon>
@@ -280,6 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllerview\breadcrumb\" />
+    <Folder Include="events\ui" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

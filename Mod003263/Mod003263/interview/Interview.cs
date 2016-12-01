@@ -14,6 +14,7 @@ namespace Mod003263.interview {
     /// </summary>
     public class Interview {
 
+        private int Id;
         private Applicant subject;
         private InterviewFoundationInstance foundation;
         private int flag;
@@ -35,6 +36,12 @@ namespace Mod003263.interview {
         public InterviewFoundationInstance GetFoundationInstance() {
             return this.foundation;
         }
+
+        public Applicant Subject => subject;
+
+        public int Flag => flag;
+
+        public int ID => Id;
 
         public static class Flags {
             public const int COMPLETE = 1;

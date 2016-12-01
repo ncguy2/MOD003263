@@ -18,6 +18,7 @@ namespace Mod003263.interview {
         public string Text => text;
 
         public int Weight => weight;
+        public int Id { get; private set; }
 
         public Answer SetText(string text) {
             this.text = text;

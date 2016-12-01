@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Common;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.Linq;
 using System.Windows.Markup;
 using System.Windows.Media;
 using MySql.Data.MySqlClient;
@@ -93,9 +94,20 @@ namespace Mod003263.db {
             return data;
         }
 
+        public int InsertCollectionLong<T>(List<T> collection, Func<T, String> toSql) {
+            int rows = collection.Sum(t => InsertLong(toSql(t)));
+            return rows;
+        }
         public int InsertCollection<T>(List<T> collection, Func<T, String> toSql) {
-            int rows = 0;
-            collection.ForEach(t => rows += InsertLong(toSql(t)));
+            OpenLongConnection();
+            int rows = collection.Sum(t => InsertLong(toSql(t)));
+            CloseLongConnection();
+            return rows;
+        }
+        public int InsertCollection<T, U>(Dictionary<T, U> collection, Func<KeyValuePair<T, U>, String> toSql) {
+            OpenLongConnection();
+            int rows = collection.Sum(pair => InsertLong(toSql(pair)));
+            CloseLongConnection();
             return rows;
         }
 
