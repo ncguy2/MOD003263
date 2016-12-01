@@ -82,6 +82,18 @@ namespace Mod003263.db
             return apps;
         }
 
+
+        public List<InterviewFoundation> PullInterviewFoundation()
+        {
+            DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
+                .Select("SELECT Foundation_ID, Name, Category ");
+            List<InterviewFoundation> ifound = new List<InterviewFoundation>();
+            while (interviewFoundationReader.Read())
+            {
+
+            }
+        }
+
         public List<Question> PullQuestionData()
         {
             DbDataReader questionReader = DatabaseConnection.GetInstance()
