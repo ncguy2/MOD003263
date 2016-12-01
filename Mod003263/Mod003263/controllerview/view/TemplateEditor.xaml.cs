@@ -36,14 +36,19 @@ namespace Mod003263.controllerview.view
         public TemplateEditor() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
-            PropertiesManager propertiesManager = PropertiesManager.GetInstance();
-            List<InterviewFoundation> tData = DatabaseAccessor.GetInstance().PullInterviewFoundationData();
-            VisitableTree<TreeObjectWrapper<InterviewFoundation>> tree =
-                    new VisitableTree<TreeObjectWrapper<InterviewFoundation>>(new TreeObjectWrapper<InterviewFoundation>(""));
-            TreePopulator.Populate(tree, tData, '/', t => t.Path());
-            //          tr_Templates.Items.Add(tree);
-            tData.ForEach(t => tr_Templates.Items.Add(t));
+            try
+            {
+                PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+                List<InterviewFoundation> tData = DatabaseAccessor.GetInstance().PullInterviewFoundation();
+                VisitableTree<TreeObjectWrapper<InterviewFoundation>> tree =
+                    new VisitableTree<TreeObjectWrapper<InterviewFoundation>>(
+                        new TreeObjectWrapper<InterviewFoundation>(""));
+                TreePopulator.Populate(tree, tData, '/', t => t.Path());
+                //          tr_Templates.Items.Add(tree);
+                tData.ForEach(t => tr_Templates.Items.Add(t));
+            }catch (Exception e) {
 
+            }
         }
 
         private void tr_Templates_OnSelectedItemChanged(Object sender, RoutedPropertyChangedEventArgs<Object> e) {

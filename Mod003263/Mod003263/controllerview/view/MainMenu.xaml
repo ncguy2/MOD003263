@@ -1149,6 +1149,24 @@
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="tmp_canvasOverlay">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tmp_canvas">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-376.5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="tmp_canvas">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 
 
 
@@ -1185,6 +1203,9 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_ApplicationBack">
             <BeginStoryboard x:Name="ApplicantEntry_Close_BeginStoryboard" Storyboard="{StaticResource ApplicantEntry_Close}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_leaderboard">
+            <BeginStoryboard Storyboard="{StaticResource tmp_canvasOverlay}"/>
         </EventTrigger>
     </UserControl.Triggers>
 
@@ -1448,5 +1469,19 @@
                 </TransformGroup>
             </local:ApplicantEntry.RenderTransform>
         </local:ApplicantEntry>
+        <Button x:Name="btn_leaderboard" Content="Leaderboards" HorizontalAlignment="Left" Margin="452,272,0,0" VerticalAlignment="Top" Width="215" Height="53" Background="#FFA0A0A0" FontFamily="Calibri" FontSize="18"/>
+        <Canvas x:Name="tmp_canvas" Margin="0,377,0,-330" VerticalAlignment="Top" Height="367" Background="#FF838383" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Grid Height="336" Canvas.Left="10" Canvas.Top="10" Width="961.5">
+                <local:Leaderboard HorizontalAlignment="Left"/>
+            </Grid>
+        </Canvas>
     </Grid>
 </UserControl>

@@ -91,7 +91,6 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button x:Name="btn_init" Content="Button" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click"/>
-
         </Grid>
         <Grid x:Name="grd_overlay" Height="336" Width="786" Canvas.Left="971" RenderTransformOrigin="0.5,0.5">
             <Grid.ColumnDefinitions>
