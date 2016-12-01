@@ -75,9 +75,10 @@ namespace Mod003263.controllerview.view
             }
 
         }
-
         private void btn_Create_Click(object sender, RoutedEventArgs e) {
-
+            SelectTemplate(new InterviewFoundation("", ""));
         }
+
+        // TODO Implement Save button when DB is finished -Ryan
     }
 }
