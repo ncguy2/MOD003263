@@ -7,14 +7,74 @@
              xmlns:controls="clr-namespace:Mod003263.wpf.controls"
              mc:Ignorable="d"
         Height="336" Width="965.589" Foreground="{x:Null}" BorderBrush="Black">
+    <UserControl.Resources>
+        <Storyboard x:Key="app_details_show">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-791.399">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.255">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="app_details_hide">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-791.399">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.255">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.GiveFeedback">
+            <BeginStoryboard x:Name="app_details_show_BeginStoryboard" Storyboard="{StaticResource app_details_show}"/>
+            <BeginStoryboard x:Name="app_details_hide_BeginStoryboard" Storyboard="{StaticResource app_details_hide}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Canvas>
         <Grid Height="336" Width="966">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="786"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="lst_positions" Margin="10"/>
-            <ListView x:Name="lst_appSummary" Grid.Column="1" Margin="10">
+            <ListBox x:Name="lst_positions" Margin="10,10,5,35"/>
+            <ListView x:Name="lst_appSummary" Grid.Column="1" Margin="5,10,10,10">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn/>
@@ -30,12 +90,34 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button x:Name="btn_init" Content="Button" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click"/>
 
         </Grid>
-        <controls:ApplicantDetails HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="786" Canvas.Left="180">
-            <controls:ApplicantDetails.Effect>
-                <DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="2"/>
-            </controls:ApplicantDetails.Effect>
-        </controls:ApplicantDetails>
+        <Grid x:Name="grd_overlay" Height="336" Width="786" Canvas.Left="971" RenderTransformOrigin="0.5,0.5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="117*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="786" Grid.ColumnSpan="2">
+                <controls:ApplicantDetails.Effect>
+                    <DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="2"/>
+                </controls:ApplicantDetails.Effect>
+            </controls:ApplicantDetails>
+            <Button x:Name="btn_hideDetails" Content="Back" Margin="10,10,10,0" Click="btn_hideDetails_Click" Height="23" VerticalAlignment="Top"/>
+            <Border x:Name="bdr_Picture" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                <Border.Background>
+                    <ImageBrush/>
+                </Border.Background>
+            </Border>
+            <Label x:Name="lbl_FullName" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
     </Canvas>
 </UserControl>

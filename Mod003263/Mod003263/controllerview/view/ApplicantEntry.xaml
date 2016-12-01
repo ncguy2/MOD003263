@@ -13,7 +13,7 @@
             </Border.Background>
         </Border>
         <TextBox x:Name="txt_FileName" HorizontalAlignment="Left" Margin="213.088,-165.058,0,0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" Height="23" VerticalAlignment="Top"/>
-        <Button x:Name="btn_SelectPicture" Content="Select Picture" HorizontalAlignment="Left" Margin="255,129.786,0,0" Width="120" Click="btn_Upload_Click" Height="23.868" VerticalAlignment="Top"/>
+        <Button x:Name="btn_SelectPicture" Content="Select Picture" HorizontalAlignment="Left" Margin="255,129.786,0,0" Width="120" Height="23.868" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_FullName" Margin="0,10,196.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>
         <TextBox x:Name="txt_Email" Margin="0,45,196.125,0" TextWrapping="Wrap" FontSize="14" Height="30" Width="286" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>
         <TextBox x:Name="txt_PhoneNumber" Margin="0,115,196.125,0" TextWrapping="Wrap" FontSize="14" Width="286" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width"/>

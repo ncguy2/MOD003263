@@ -52,7 +52,7 @@ namespace Mod003263.wpf {
         /// <param name="culture">[Not used]</param>
         /// <returns>Bitmap image of the provided base64</returns>
         public object ConvertToBitmapImage(object value, Type targetType, object parameter, CultureInfo culture) {
-            if (value == null) return ErrorImage();
+            if (value == null || value.ToString().Length <= 8) return ErrorImage();
             String s = value.ToString();
             BitmapImage img = new BitmapImage();
             try{

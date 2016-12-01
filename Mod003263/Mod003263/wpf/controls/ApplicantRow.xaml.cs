@@ -29,11 +29,14 @@ namespace Mod003263.wpf.controls
         public ApplicantRow() : this(null) {}
 
         public ApplicantRow(Applicant applicant) {
+            this.Applicant = applicant;
             InitializeComponent();
             Base64Converter base64Converter = new Base64Converter();
             ((ImageBrush)userImgFrame.Background).ImageSource = base64Converter.ConvertToBitmapImage(Base64Converter.TEST_IMAGE);
             Populate(applicant);
         }
+
+        public Applicant Applicant { get; private set; }
 
         public ApplicantRow SetWidth(double width) {
             Width = width;
