@@ -40,9 +40,12 @@ namespace Mod003263.controllerview.view
             EventBus.GetInstance().Register(this);
             InitializeComponent();
             PropertiesManager propertiesManager = PropertiesManager.GetInstance();
-            List<Applicant> aData = DatabaseAccessor.GetInstance().PullApplicantData();           
-            aData.ForEach(a => lst_Applicants.Items.Add(a));
-
+            try {
+                List<Applicant> aData = DatabaseAccessor.GetInstance().PullApplicantData();
+                aData.ForEach(a => lst_Applicants.Items.Add(a));
+            }catch (Exception e) {
+                WPFMessageBoxFactory.Create("Exception", e.Message, 0).Show();
+            }
         }
 
         [Event]
