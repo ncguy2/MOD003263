@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,7 +19,8 @@ using System.Windows.Shapes;
 using Mod003263.events;
 using Mod003263.events.test;
  using Mod003263.interview;
- using Mod003263.wpf;
+using Mod003263.threading;
+using Mod003263.wpf;
  using Utils.Tree;
  using Utils.Tree.Builder;
  using Utils.Tree.Visitor;
@@ -33,12 +35,13 @@ namespace Mod003263
         public MainWindow() {
             InitializeComponent();
 //            SendEmail();
+            ThreadFactory.GetInstance().CreateManagedThread(SendEmail, "Email").Start();
             EventBus.GetInstance().Register(this);
 
-            VisitableTree<TreeObjectWrapper<InterviewFoundation>> visitableTree = new TemplateSelectionController().PopulateTree().GetTemplates();
-            StringBuilder sb = new StringBuilder();
-            visitableTree.Accept(new PrintIndentedVisitor<TreeObjectWrapper<InterviewFoundation>>(0, s => sb.Append(s)));
-            File.WriteAllText("test.txt", sb.ToString());
+//            VisitableTree<TreeObjectWrapper<InterviewFoundation>> visitableTree = new TemplateSelectionController().PopulateTree().GetTemplates();
+//            StringBuilder sb = new StringBuilder();
+//            visitableTree.Accept(new PrintIndentedVisitor<TreeObjectWrapper<InterviewFoundation>>(0, s => sb.Append(s)));
+//            File.WriteAllText("test.txt", sb.ToString());
         }
 
         private async void EmailTask() {
@@ -46,7 +49,7 @@ namespace Mod003263
         }
 
         private void SendEmail() {
-            EmailHandler.GetInstance().Send("HappyTech", "nick.guy@hotmail.co.uk", "Test Email", "testing email sending");
+            EmailHandler.GetInstance().Send("ssmithtech60@gmail.com", "nick.guy@hotmail.co.uk", "Test Email", "testing email sending");
         }
 
         [Event]

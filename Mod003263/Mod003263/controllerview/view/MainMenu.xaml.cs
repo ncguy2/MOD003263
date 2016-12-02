@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Mod003263.events.ui;
 using System.Windows.Media.Animation;
 using Mod003263.events;
+using Mod003263.events.email;
 
 /**
  *  Author: Ryan Cowell
@@ -29,7 +30,7 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainMenu : UserControl, BackEvent.BackListener
+    public partial class MainMenu : UserControl, BackEvent.BackListener, EmailEvent.EmailListener
     {
         public MainMenu()
         {
@@ -52,6 +53,11 @@ namespace Mod003263.controllerview.view
 
         private void button_Click(object sender, RoutedEventArgs e) {
             tmp_canvas2.Visibility = Visibility.Visible;
+        }
+
+        [Event]
+        public void OnEmail(EmailEvent e) {
+            shp_EmailLight.Fill = Brushes.Green;
         }
     }
 }

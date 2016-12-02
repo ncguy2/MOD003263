@@ -21,8 +21,7 @@ using Mod003263.interview;
  *  Date: 26/10/2016
  *  Contains: TemplateSelection
  */
-namespace Mod003263.controllerview.view
-{
+namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for TemplateSelection.xaml
     /// </summary>

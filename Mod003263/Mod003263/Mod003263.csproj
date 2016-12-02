@@ -163,6 +163,7 @@
     <Compile Include="events\db\SaveInterviewEvent.cs" />
     <Compile Include="events\db\SaveQuestionEvent.cs" />
     <Compile Include="events\db\SaveTemplateEvent.cs" />
+    <Compile Include="events\email\EmailEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
     <Compile Include="events\io\SaveApplicantEvent.cs" />
@@ -208,6 +209,9 @@
     </Compile>
     <Compile Include="wpf\controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpf\WPFMessageBoxErrorForm.xaml.cs">
+      <DependentUpon>WPFMessageBoxErrorForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="wpf\WPFMessageBoxFactory.cs" />
     <Compile Include="wpf\WPFMessageBoxForm.xaml.cs">
@@ -284,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpf\controls\Spinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpf\WPFMessageBoxErrorForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

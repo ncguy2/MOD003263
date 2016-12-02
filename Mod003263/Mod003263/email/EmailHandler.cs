@@ -1,7 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
+using System.Windows;
+using Mod003263.events.email;
+using Mod003263.wpf;
 
 /**
  * Author: Nick Guy
@@ -25,15 +30,26 @@ namespace Mod003263.email {
         private readonly SmtpClient smtp;
 
         private EmailHandler() {
-            smtp = new SmtpClient("smtp.gmail.com") {
-                Port = 465,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("ssmithtech60@gmail.com", "HappyTech")
+            smtp = new SmtpClient("smtp.gmail.com");
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("ssmithtech60@gmail.com", "HappyTech");
+
+            smtp.SendCompleted += (sender, args) => {
+                new EmailEvent().Fire();
             };
         }
 
         public void Send(string from, string recipients, string subject, string body) {
-            smtp.Send(from, recipients, subject, body);
+            try {
+                MailMessage msg = new MailMessage(from, recipients);
+                msg.Subject = subject;
+                msg.Body = body;
+                smtp.Send(msg);
+            }catch (Exception e) {
+                Application.Current.Dispatcher.Invoke(() => WPFMessageBoxFactory.CreateErrorAndShow(e));
+            }
         }
 
     }

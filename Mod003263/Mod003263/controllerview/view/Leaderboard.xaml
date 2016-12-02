@@ -7,7 +7,7 @@
         xmlns:db="clr-namespace:Mod003263.db"
              xmlns:controls="clr-namespace:Mod003263.wpf.controls"
              mc:Ignorable="d"
-        Height="336" Width="965.589" Foreground="{x:Null}" BorderBrush="Black">
+        Height="336" Width="965.589" Foreground="{x:Null}" BorderBrush="Black" >
     <UserControl.Resources>
         <Storyboard x:Key="app_details_show">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_overlay">
