@@ -138,6 +138,9 @@
     <Compile Include="controllerview\view\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\view\Positions.xaml.cs">
+      <DependentUpon>Positions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\QuestionEditor.xaml.cs">
       <DependentUpon>QuestionEditor.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,7 @@
     <Compile Include="events\io\SaveApplicantEvent.cs" />
     <Compile Include="events\io\SaveFoundationEvent.cs" />
     <Compile Include="events\io\SaveInterviewEvent.cs" />
+    <Compile Include="events\io\SavePositionEvent.cs" />
     <Compile Include="events\io\SaveQuestionEvent.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
     <Compile Include="events\ui\BackEvent.cs" />
@@ -243,6 +247,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controllerview\view\Positions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controllerview\view\QuestionEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -290,7 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllerview\breadcrumb\" />
-    <Folder Include="events\ui" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

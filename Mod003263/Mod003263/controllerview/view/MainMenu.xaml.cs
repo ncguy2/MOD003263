@@ -49,5 +49,9 @@ namespace Mod003263.controllerview.view
         {
             new BackEvent().Fire();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e) {
+            tmp_canvas2.Visibility = Visibility.Visible;
+        }
     }
 }

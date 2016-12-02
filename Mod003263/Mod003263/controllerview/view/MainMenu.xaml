@@ -1439,5 +1439,10 @@
             </Grid>
         </Canvas>
         <local:TemplateSelection x:Name="templateSelection" Margin="100.598,-4.45,398.313,33.45" Opacity="0" Visibility="Hidden"/>
+        <Button x:Name="button" Content="Button" Width="362.713" HorizontalAlignment="Right" Margin="0,181.993,149.739,49.536" RenderTransformOrigin="0.5,0.5" Click="button_Click">
+        </Button>
+        <Canvas x:Name="tmp_canvas2" HorizontalAlignment="Left" Height="371" Margin="7,-4,0,0" VerticalAlignment="Top" Width="1457" Background="#FF979797" Visibility="Hidden">
+            <local:Positions Canvas.Left="0" Canvas.Top="0"/>
+        </Canvas>
     </Grid>
 </UserControl>

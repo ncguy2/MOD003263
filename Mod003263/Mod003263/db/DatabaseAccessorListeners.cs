@@ -20,7 +20,7 @@ namespace Mod003263.db {
 
     public class DatabaseAccessorListeners : SaveApplicantEvent.SaveApplicantListener,
         SaveFoundationEvent.SaveFoundationListener, SaveQuestionEvent.SaveQuestionListener,
-    SaveInterviewEvent.SaveInterviewListener {
+    SaveInterviewEvent.SaveInterviewListener, SavePositionEvent.SavePositionListener {
 
         private static DatabaseAccessorListeners instance;
         public static DatabaseAccessorListeners GetInstance() {
@@ -78,6 +78,16 @@ namespace Mod003263.db {
                 else InsertInterview(e.Interview);
             }catch (Exception exc) {
                 WPFMessageBoxFactory.Create("Exception from OnSaveInterview", exc.Message, 0).Show();
+            }
+        }
+
+        [Event]
+        public void OnSavePosition(SavePositionEvent e) {
+            try {
+                if (e.Position.Id > 0) UpdatePosition(e.Position);
+                else InsertPosition(e.Position);
+            }catch (Exception exc) {
+                WPFMessageBoxFactory.Create("Exception from OnSavePosition", exc.Message, 0).Show();
             }
         }
 
@@ -224,6 +234,26 @@ namespace Mod003263.db {
             sb.Append("INSERT INTO interview (Foundation_ID, Applicant_Id, Flag, Result, Answers) VALUES ");
             sb.Append($"('{fId}', '{i.Subject.Id}', '{i.Flag}', '{i.GetResultMetric()}', '{answerJson}'");
             accessor.Insert(sb.ToString());
+        }
+
+        // Position
+
+        private void UpdatePosition(AvailablePosition pos) {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATE positions SET ");
+            sb.Append($"Position='{pos.Position}', ");
+            sb.Append($"Seats='{pos.Seats}' ");
+            sb.Append($"WHERE ID='{pos.Id}'");
+            string s = sb.ToString();
+            accessor.Update(s);
+        }
+
+        private void InsertPosition(AvailablePosition pos) {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("INSERT INTO positions (Position, Seats) VALUES ");
+            sb.Append($"('{pos.Position}', '{pos.Seats}')");
+            string s = sb.ToString();
+            accessor.Insert(s);
         }
 
         #endregion
