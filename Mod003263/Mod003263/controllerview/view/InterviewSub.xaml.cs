@@ -76,9 +76,8 @@ namespace Mod003263.controllerview.view
             ImageBrush brush = b_ApplicantSummary.Background as ImageBrush;
             if (brush != null)
                 brush.ImageSource = Base64Converter.GetInstance().ConvertToBitmapImage(a?.Picture);
-
-
-
         }
+
+
     }
 }

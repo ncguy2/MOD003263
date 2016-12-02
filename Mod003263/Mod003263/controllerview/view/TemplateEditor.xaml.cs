@@ -18,6 +18,7 @@ using Mod003263.interview;
 using Mod003263.db;
 using Utils.Tree.Builder;
 using Utils.Tree;
+using Mod003263.events.io;
 
 /**
  *  Author: Ryan Cowell
@@ -29,9 +30,12 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for TemplateEditor.xaml
     /// </summary>
-    public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener {
+    public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener, 
+        SaveFoundationEvent.SaveFoundationListener{
 
-        private InterviewFoundation selectedTemplate;
+        private InterviewFoundation selectedTemplate, foundation;
+        
+
 
         public TemplateEditor() {
             EventBus.GetInstance().Register(this);
@@ -76,7 +80,13 @@ namespace Mod003263.controllerview.view
 
         }
         private void btn_Create_Click(object sender, RoutedEventArgs e) {
-            SelectTemplate(new InterviewFoundation("", ""));
+            SelectTemplate(new InterviewFoundation(-1, "", ""));
+        }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e) {
+            
+            
+            
         }
 
         // TODO Implement Save button when DB is finished -Ryan
