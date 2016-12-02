@@ -30,18 +30,14 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for TemplateEditor.xaml
     /// </summary>
-    public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener, 
-        SaveFoundationEvent.SaveFoundationListener{
+    public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener {
 
         private InterviewFoundation selectedTemplate, foundation;
-        
-
 
         public TemplateEditor() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
-            try
-            {
+            try {
                 PropertiesManager propertiesManager = PropertiesManager.GetInstance();
                 List<InterviewFoundation> tData = DatabaseAccessor.GetInstance().PullInterviewFoundation();
                 VisitableTree<TreeObjectWrapper<InterviewFoundation>> tree =
@@ -68,7 +64,6 @@ namespace Mod003263.controllerview.view
         }
 
         private void SelectTemplate(InterviewFoundation t) {
-
             this.selectedTemplate = t;
             if (this.selectedTemplate == null) return;
             txt_Category.Text = t.Cat();
@@ -77,18 +72,15 @@ namespace Mod003263.controllerview.view
             foreach (KeyValuePair<Question, int> pair in t.GetQuestions()) {
                 Question question = pair.Key;
             }
-
         }
+
         private void btn_Create_Click(object sender, RoutedEventArgs e) {
-            SelectTemplate(new InterviewFoundation(-1, "", ""));
+            new SelectTemplateEvent(new InterviewFoundation(-1, "", ""), SelectTemplateScopes.TEMPLATE_EDITOR).Fire();
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e) {
-            
-            
-            
+            if(this.selectedTemplate != null)
+                new SaveFoundationEvent(this.selectedTemplate).Fire();
         }
-
-        // TODO Implement Save button when DB is finished -Ryan
     }
 }
