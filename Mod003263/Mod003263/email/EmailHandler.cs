@@ -30,11 +30,15 @@ namespace Mod003263.email {
         private readonly SmtpClient smtp;
 
         private EmailHandler() {
+
+            string user = PropertiesManager.GetInstance().GetPropertyOrDefault("email.username", "");
+            string pass = PropertiesManager.GetInstance().GetPropertyOrDefault("email.password", "");
+
             smtp = new SmtpClient("smtp.gmail.com");
             smtp.Port = 587;
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;
-            smtp.Credentials = new NetworkCredential("ssmithtech60@gmail.com", "HappyTech");
+            smtp.Credentials = new NetworkCredential(user, pass);
 
             smtp.SendCompleted += (sender, args) => {
                 new EmailEvent().Fire();
