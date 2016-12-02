@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Mod003263.wpf;
 
 namespace Mod003263.db {
     public class Applicant {
@@ -36,5 +39,6 @@ namespace Mod003263.db {
         public long Doe { get { return m_Doe; } set { m_Doe = value; } }
 
         public String Full_Name => First_Name + " " + Last_Name;
+
     }
 }

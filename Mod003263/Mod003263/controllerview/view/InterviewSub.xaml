@@ -362,18 +362,24 @@
             <RowDefinition Height="25*"/>
             <RowDefinition Height="144*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="lst_Applicants" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" SelectionChanged="lst_Applicants_OnSelectionChanged">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <ContentControl>
-                            <controls:ApplicantRow/>
-                        </ContentControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+        <ListView x:Name="lst_Applicants" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" SelectionChanged="lst_Applicants_OnSelectionChanged" SelectionMode="Single" ScrollViewer.CanContentScroll="False">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Image" Width="{Binding ElementName=helper_col1, Path=ActualWidth}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="local:ApplicantRowData">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Image}" Width="32" Height="32"></Image>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Full_Name}" Width="{Binding ElementName=helper_col2, Path=ActualWidth}"/>
+                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Applying_Position}" Width="{Binding ElementName=helper_col3, Path=ActualWidth}"/>
+                </GridView>
+            </ListView.View>
         </ListView>
-        <TextBox x:Name="txt_Search" Margin="10" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <TextBox x:Name="txt_Search" Margin="10" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" TextChanged="txt_Search_TextChanged"/>
         <Label x:Name="lbl_Applicants" Content="Applicants" Margin="10" FontSize="14" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
         <Grid Grid.Column="2" Grid.RowSpan="2" Margin="0,3.893,0,-3.893">
             <Grid.RowDefinitions>
@@ -410,5 +416,15 @@
             <Button x:Name="btn_InterviewProceed" Content="Proceed" Grid.Column="2" Margin="91.87,0,10,10" Grid.Row="6"/>
         </Grid>
         <local:TemplateSelection x:Name="templateSelection" Grid.ColumnSpan="3" Grid.RowSpan="2" Opacity="0" Visibility="Hidden"/>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lst_Applicants, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+            <Grid Grid.Column="2" x:Name="helper_col3"/>
+        </Grid>
     </Grid>
 </UserControl>

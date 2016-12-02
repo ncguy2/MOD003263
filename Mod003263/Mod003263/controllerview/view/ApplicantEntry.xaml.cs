@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,12 +21,13 @@ using Mod003263.interview;
 using Mod003263.utils;
 using Mod003263.wpf;
 using Mod003263.wpf.controls;
+using Utils.Difference;
 
 /**
  * Author: Ryan Cowell, Nick Guy
  * Date: 30/11/2016
  * Contains: ApplicantEntry
- */ 
+ */
 namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for ApplicantEntry.xaml
@@ -33,6 +35,7 @@ namespace Mod003263.controllerview.view {
     public partial class ApplicantEntry : UserControl {
 
         private Applicant app;
+        private List<Applicant> applicants;
 
         public ApplicantEntry() {
             InitializeComponent();
@@ -46,12 +49,8 @@ namespace Mod003263.controllerview.view {
                 foreach (AvailablePosition pos in positions)
                     sel_ApplyingPosition.Items.Add(pos);
 
-                List<Applicant> applicants = DatabaseAccessor.GetInstance().PullApplicantData();
-                lv_Applicant.Items.Clear();
-//                GridView gridView = lv_Applicant.View as GridView;
-                foreach (Applicant app in applicants) {
-                    lv_Applicant.Items.Add(app);
-                }
+                applicants = DatabaseAccessor.GetInstance().PullApplicantData();
+                RebuildListView();
             } catch (Exception e) {
                 WPFMessageBoxFactory.Create("Error", e.Message, 0).Show();
             }
@@ -151,7 +150,67 @@ namespace Mod003263.controllerview.view {
         private void Btn_Save_OnClick(object sender, RoutedEventArgs e) {
             if (this.app == null) return;
             CascadeData();
+            lv_Applicant.Items.Add(this.app);
             new SaveApplicantEvent(this.app).Fire();
+        }
+
+        private void btn_refresh_Click(object sender, RoutedEventArgs e) {
+            Init();
+        }
+
+        private void RebuildListView() {
+            RebuildListView(this.applicants);
+        }
+
+        private void RebuildListView(List<Applicant> apps) {
+            lv_Applicant.Items.Clear();
+            foreach (Applicant app in apps)
+                lv_Applicant.Items.Add(app);
+        }
+
+        private void txt_Search_TextChanged(object sender, TextChangedEventArgs e) {
+            string q = txt_Search.Text.ToLower();
+            if (q.Length <= 0) {
+                RebuildListView();
+                return;
+            }
+
+            SmartSearchEntity<Applicant>[] entities = {
+                new SmartSearchEntity<Applicant>("forename:", CheckFirstName),
+                new SmartSearchEntity<Applicant>("surname:",  CheckLastName),
+                new SmartSearchEntity<Applicant>("name:",     CheckName, true),
+                new SmartSearchEntity<Applicant>("position:", CheckPosition)
+            };
+
+            List<Applicant> valids = SmartSearch.Search(q, applicants, entities);
+            valids.Sort((a1, a2) => String.Compare(a1.Full_Name, a2.Full_Name, StringComparison.Ordinal));
+            RebuildListView(valids);
+        }
+
+        private bool CheckPosition(string q, Applicant a) {
+            string pos = a.Applying_Position;
+            if(pos.Length > q.Length)
+                pos = pos.Substring(0, q.Length);
+            return q.Equals(pos, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool CheckName(string q, Applicant a) {
+            return CheckFirstName(q, a) || CheckLastName(q, a);
+        }
+
+        private bool CheckFirstName(string q, Applicant a) {
+            string fName = a.First_Name;
+            if(fName.Length > q.Length)
+                fName = fName.Substring(0, q.Length);
+            return q.Equals(fName, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool CheckLastName(string q, Applicant a) {
+            string lName = a.Last_Name;
+            if(lName.Length > q.Length)
+                lName = lName.Substring(0, q.Length);
+
+            return q.Equals(lName, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
