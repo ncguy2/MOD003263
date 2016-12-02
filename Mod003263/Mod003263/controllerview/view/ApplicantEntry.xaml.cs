@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.events;
 using Mod003263.events.io;
 using Mod003263.events.ui;
 using Mod003263.interview;
@@ -32,12 +33,13 @@ namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for ApplicantEntry.xaml
     /// </summary>
-    public partial class ApplicantEntry : UserControl {
+    public partial class ApplicantEntry : UserControl, SelectApplicantEvent.SelectApplicantListener {
 
         private Applicant app;
         private List<Applicant> applicants;
 
         public ApplicantEntry() {
+            EventBus.GetInstance().Register(this);
             InitializeComponent();
             Init();
         }
@@ -142,9 +144,7 @@ namespace Mod003263.controllerview.view {
 
         private void lv_Applicant_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             Applicant applicant = lv_Applicant.SelectedItem as Applicant;
-            this.app = applicant;
-            if(applicant != null)
-                PopulateFields(applicant);
+            new SelectApplicantEvent(applicant, SelectApplicantScopes.APPLICANT_EDITOR).Fire();
         }
 
         private void Btn_Save_OnClick(object sender, RoutedEventArgs e) {
@@ -175,42 +175,18 @@ namespace Mod003263.controllerview.view {
                 return;
             }
 
-            SmartSearchEntity<Applicant>[] entities = {
-                new SmartSearchEntity<Applicant>("forename:", CheckFirstName),
-                new SmartSearchEntity<Applicant>("surname:",  CheckLastName),
-                new SmartSearchEntity<Applicant>("name:",     CheckName, true),
-                new SmartSearchEntity<Applicant>("position:", CheckPosition)
-            };
 
-            List<Applicant> valids = SmartSearch.Search(q, applicants, entities);
+            List<Applicant> valids = SmartSearch.Search(q, applicants, Applicant.GetEntities());
             valids.Sort((a1, a2) => String.Compare(a1.Full_Name, a2.Full_Name, StringComparison.Ordinal));
             RebuildListView(valids);
         }
 
-        private bool CheckPosition(string q, Applicant a) {
-            string pos = a.Applying_Position;
-            if(pos.Length > q.Length)
-                pos = pos.Substring(0, q.Length);
-            return q.Equals(pos, StringComparison.OrdinalIgnoreCase);
-        }
-
-        private bool CheckName(string q, Applicant a) {
-            return CheckFirstName(q, a) || CheckLastName(q, a);
-        }
-
-        private bool CheckFirstName(string q, Applicant a) {
-            string fName = a.First_Name;
-            if(fName.Length > q.Length)
-                fName = fName.Substring(0, q.Length);
-            return q.Equals(fName, StringComparison.OrdinalIgnoreCase);
-        }
-
-        private bool CheckLastName(string q, Applicant a) {
-            string lName = a.Last_Name;
-            if(lName.Length > q.Length)
-                lName = lName.Substring(0, q.Length);
-
-            return q.Equals(lName, StringComparison.OrdinalIgnoreCase);
+        [Event]
+        public void OnSelectApplicant(SelectApplicantEvent e) {
+            if (!e.Scope.Equals(SelectApplicantScopes.APPLICANT_EDITOR)) return;
+            this.app = e.Selected;
+            if(this.app != null)
+                PopulateFields(this.app);
         }
     }
 }

@@ -3,16 +3,21 @@
 /**
  * Author: Nick Guy
  * Date: 30/11/2016
- * Contains: SelectApplicantEvent, SelectApplicantListener
+ * Contains: SelectApplicantEvent, SelectApplicantListener, SelectApplicantScopes
  */
 namespace Mod003263.events.ui {
 
     public class SelectApplicantEvent : AbstractEvent {
 
-        public SelectApplicantEvent() : this(null) {}
+        public SelectApplicantEvent() : this(null, "") {}
 
-        public SelectApplicantEvent(Applicant selected) {
-            this.Selected = selected;
+        public SelectApplicantEvent(Applicant selected) : this(selected, "") {}
+
+        public SelectApplicantEvent(string scope) : this(null, scope) {}
+
+        public SelectApplicantEvent(Applicant selected, string scope) {
+            Selected = selected;
+            Scope = scope;
         }
 
         public Applicant Selected { get; set; }
@@ -24,4 +29,11 @@ namespace Mod003263.events.ui {
         }
 
     }
+
+    public class SelectApplicantScopes {
+        public const string APPLICANT_EDITOR = "applicant.editor";
+        public const string APPLICANT_USAGE = "applicant.usage";
+        public const string APPLICANT_RANKING = "applicant.ranking";
+    }
+
 }
