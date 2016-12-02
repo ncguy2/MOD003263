@@ -35,7 +35,7 @@ namespace Mod003263
         public MainWindow() {
             InitializeComponent();
 //            SendEmail();
-            ThreadFactory.GetInstance().CreateManagedThread(SendEmail, "Email").Start();
+//            ThreadFactory.GetInstance().CreateManagedThread(SendEmail, "Email").Start();
             EventBus.GetInstance().Register(this);
 
 //            VisitableTree<TreeObjectWrapper<InterviewFoundation>> visitableTree = new TemplateSelectionController().PopulateTree().GetTemplates();
