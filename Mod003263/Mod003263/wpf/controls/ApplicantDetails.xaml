@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Mod003263.wpf.controls.ApplicantDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mod003263.wpf.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="336" d:DesignWidth="786">
+    <Grid Background="#FFAAAAAA">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="353*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="bdr_Picture" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="128" Margin="10,10,0,0" VerticalAlignment="Top" Width="128" Grid.Column="1">
+            <Border.Background>
+                <ImageBrush/>
+            </Border.Background>
+        </Border>
+        <Label x:Name="lbl_FullName" Content="{}{Full__Name}" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="128" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Height="26"/>
+        <Button x:Name="btn_callback" Content="Back" Margin="10,10,10,0" Height="23" VerticalAlignment="Top" Click="btn_callback_Click"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="25.96" Margin="10,0,0,136.04" VerticalAlignment="Bottom" Width="208.542">
+            <Label x:Name="label" Content="Applying for the position of" Margin="0,0,52.315,0" d:LayoutOverrides="Width, Height"/>
+            <Label x:Name="lbl_position" Content="{}{Position}" HorizontalAlignment="Right" d:LayoutOverrides="Height"/>
+        </Grid>
+    </Grid>
+</UserControl>

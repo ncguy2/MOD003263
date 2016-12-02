@@ -6,14 +6,13 @@ using System.Linq;
  *  Date: 24/10/2016
  *  Contains: MetricCalculator
  */
-
 namespace Mod003263.interview.metric {
     /// <summary>
     /// Calculates a single metric value from an interview instance
     /// </summary>
     public class MetricCalculator {
 
-        private int maxMetric = -1;
+        private float maxMetric = -1;
         private Interview interview;
         private Dictionary<Question, Answer> answerMap;
 
@@ -22,14 +21,21 @@ namespace Mod003263.interview.metric {
         /// </summary>
         /// <param name="i">Interview instance to calculate the metric for</param>
         /// <returns>The calculated metric, also stored in i.<see cref="Interview.resultMetric"/></returns>
-        public int CalculateMetric(Interview i) {
+        public float CalculateMetric(Interview i) {
             this.interview = i;
+            this.answerMap = i.GetFoundationInstance().GetAnswerMap();
             CalculateMaxMetric();
             AssertValues();
 
-            int metric = answerMap.Sum(CalculateLocalMetric);
+//            int metric = answerMap.Sum(CalculateLocalMetric);
+            float metric = 0;
+            answerMap.Keys.ToList().ForEach(q => {
+                float m = CalculateLocalMetric(q, answerMap[q]);
+                metric += m;
+            });
 
-            metric = maxMetric / metric;
+            if (metric > 0)
+                metric = metric / maxMetric;
 
             CleanValues();
             return i.SetResultMetric(metric).GetResultMetric();
@@ -43,9 +49,17 @@ namespace Mod003263.interview.metric {
                 this.maxMetric = -1;
                 return;
             }
-            answerMap = this.interview.GetFoundationInstance().GetAnswerMap();
-            foreach (Question q in answerMap.Keys)
-                this.maxMetric += q.Weight;
+            this.maxMetric = CalculateMaxMetric(this.interview);
+        }
+
+        /// <summary>
+        /// Public variant of internal <see cref="CalculateMaxMetric()"/>
+        /// </summary>
+        /// <param name="interview">The interview instance to use</param>
+        /// <returns>the max possible metric attainable for the interview</returns>
+        public float CalculateMaxMetric(Interview interview) {
+            answerMap = interview.GetFoundationInstance().GetAnswerMap();
+            return answerMap.Keys.Sum(q => interview.GetFoundationInstance().GetQuestionWeight(q));
         }
 
         /// <summary>
@@ -53,7 +67,7 @@ namespace Mod003263.interview.metric {
         /// </summary>
         /// <param name="pair">Pair of question and provided answer</param>
         /// <returns>The local metric of the provided answer</returns>
-        private int CalculateLocalMetric(KeyValuePair<Question, Answer> pair) {
+        private float CalculateLocalMetric(KeyValuePair<Question, Answer> pair) {
             return CalculateLocalMetric(pair.Key, pair.Value);
         }
 
@@ -63,8 +77,10 @@ namespace Mod003263.interview.metric {
         /// <param name="question">The owning question</param>
         /// <param name="answer">The provided answer</param>
         /// <returns>The local metric of the provided answer</returns>
-        private int CalculateLocalMetric(Question question, Answer answer) {
-            return question.Weight * answer.Weight;
+        private float CalculateLocalMetric(Question question, Answer answer) {
+            float weight = interview.GetFoundationInstance().GetQuestionWeight(question);
+            float w = (weight * (answer.Weight / 100f));
+            return w;
         }
 
         /// <summary>

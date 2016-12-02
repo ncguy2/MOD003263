@@ -11,13 +11,27 @@ namespace Mod003263.interview {
     /// </summary>
     public class Answer {
 
-        private String text;
+        private string text;
         private int weight;
+        private int id;
 
-        public int Weight
+        public string Text => text;
+
+        public int Weight => weight;
+        public int Id { get; private set; }
+
+        public Answer SetText(string text) {
+            this.text = text;
+            return this;
+        }
+
+        public Answer SetWeight(int weight) {
+            this.weight = weight;
+            return this;
+        }
+        public Answer(int id)
         {
-            get { return weight; }
-            set { weight = value; }
+            this.id = id;
         }
     }
 }

@@ -12,17 +12,42 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mod003263.events.ui;
+using System.Windows.Media.Animation;
+using Mod003263.events;
+
+/**
+ *  Author: Ryan Cowell
+ *  Date: 26/10/2016
+ *  Contains: MainMenu
+ */
+
+
 
 namespace Mod003263.controllerview.view
 {
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainMenu : UserControl
+    public partial class MainMenu : UserControl, BackEvent.BackListener
     {
         public MainMenu()
         {
+            EventBus.GetInstance().Register(this);
             InitializeComponent();
+        }
+
+        [Event]
+        public void OnBack(BackEvent e)
+        {
+            interview_Press_BeginStoryboard.Storyboard.Seek(TimeSpan.Zero, TimeSeekOrigin.BeginTime);
+            interview_Press_BeginStoryboard.Storyboard.Stop();
+
+        }
+
+        private void interview_Back_Click(object sender, RoutedEventArgs e)
+        {
+            new BackEvent().Fire();
         }
     }
 }

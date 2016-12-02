@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mod003263"
-        xmlns:view="clr-namespace:Mod003263.controllerview.view" x:Name="window" x:Class="Mod003263.MainWindow"
+        xmlns:view="clr-namespace:Mod003263.controllerview.view" xmlns:controls="clr-namespace:Mod003263.wpf.controls" x:Name="window" x:Class="Mod003263.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="396.667" Width="888.334">
+        Title="MainWindow" Height="396.667" Width="1130.334" ResizeMode="NoResize">
     <Window.Resources>
         <Storyboard x:Key="interview_Press"/>
 
@@ -21,12 +21,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <view:MainMenu Grid.ColumnSpan="2" Margin="4,6.5,16,-6.5"/>
+        <view:MainMenu Grid.ColumnSpan="2" Margin="4,6.5,10,-6.5"/>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFFF0074" Height="5.167" Margin="0,6.5,0,0" Stroke="#FFFF0074" VerticalAlignment="Top">
             <Rectangle.Effect>
                 <DropShadowEffect ShadowDepth="2"/>
             </Rectangle.Effect>
         </Rectangle>
-
     </Grid>
 </Window>

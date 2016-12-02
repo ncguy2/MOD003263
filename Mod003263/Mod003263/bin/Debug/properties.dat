@@ -1,0 +1,5 @@
+database.provider=MySql
+database.hostname=ncguy2.ddns.net
+database.schema=se
+database.username=admin
+database.password=password

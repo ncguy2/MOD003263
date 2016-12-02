@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Management.Instrumentation;
+using System.Runtime.Remoting.Messaging;
+using Mod003263.db;
 
 /**
  *  Author: Nick Guy
@@ -11,23 +14,34 @@ namespace Mod003263.interview {
     /// </summary>
     public class Interview {
 
-        private object subject; // TODO replace with Subject object when implemented
+        private int Id;
+        private Applicant subject;
         private InterviewFoundationInstance foundation;
         private int flag;
-        private int resultMetric;
+        private float resultMetric;
 
-        public Interview SetResultMetric(int metric) {
+        public Interview() {
+            foundation = new InterviewFoundationInstance(new InterviewFoundation());
+        }
+
+        public Interview SetResultMetric(float metric) {
             this.resultMetric = metric;
             return this;
         }
 
-        public int GetResultMetric() {
+        public float GetResultMetric() {
             return this.resultMetric;
         }
 
         public InterviewFoundationInstance GetFoundationInstance() {
             return this.foundation;
         }
+
+        public Applicant Subject => subject;
+
+        public int Flag => flag;
+
+        public int ID => Id;
 
         public static class Flags {
             public const int COMPLETE = 1;

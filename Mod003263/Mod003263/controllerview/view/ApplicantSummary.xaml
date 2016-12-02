@@ -1,0 +1,27 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mod003263.controllerview.view"
+             xmlns:controls="clr-namespace:Mod003263.wpf.controls" x:Class="Mod003263.controllerview.view.ApplicantSummary"
+             mc:Ignorable="d" Height="486.745" Width="646.571">
+    <Grid Background="#FF727272">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="439*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="searchTxt" Margin="10" TextWrapping="Wrap" Text="TextBox" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" TextChanged="searchTxt_TextChanged"/>
+        <ListBox x:Name="listBox" Margin="10" Grid.Row="1" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <ContentControl>
+                            <controls:ApplicantRow/>
+                        </ContentControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>
