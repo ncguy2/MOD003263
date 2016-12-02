@@ -41,12 +41,13 @@ namespace Mod003263.controllerview.view {
             InitializeComponent();
             PropertiesManager propertiesManager = PropertiesManager.GetInstance();
             try {
-                List<Question> qData = DatabaseAccessor.GetInstance().PullQuestionData();
-                VisitableTree<TreeObjectWrapper<Question>> tree =
-                    new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
-                TreePopulator.Populate(tree, qData, '/', q => q.Path());
+                DatabaseAccessor.GetInstance().UsingQuestionData(list => {
+                    VisitableTree<TreeObjectWrapper<Question>> tree =
+                        new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
+                    TreePopulator.Populate(tree, list, '/', q => q.Path());
 //            tr_Questions.Items.Add(tree);
-                qData.ForEach(q => tr_Questions.Items.Add(q));
+                    list.ForEach(q => tr_Questions.Items.Add(q));
+                });
             }catch(Exception e) {}
         }
 

@@ -30,11 +30,10 @@ namespace Mod003263.controllerview.view {
 
         public void Init() {
             lst_appSummary.Items.Clear();
-            List<Applicant> apps = DatabaseAccessor.GetInstance().PullApplicantData();
-            foreach (Applicant applicant in apps) {
-                ApplicantRowData row = new ApplicantRowData(applicant);
-                lst_appSummary.Items.Add(row);
-            }
+            DatabaseAccessor.GetInstance().UsingApplicantData(apps => {
+                foreach (Applicant applicant in apps)
+                    lst_appSummary.Items.Add(new ApplicantRowData(applicant));
+            });
         }
 
         private void OpenApplicantDetails() {

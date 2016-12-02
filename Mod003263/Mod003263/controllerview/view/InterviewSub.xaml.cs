@@ -43,8 +43,10 @@ namespace Mod003263.controllerview.view
             InitializeComponent();
             PropertiesManager propertiesManager = PropertiesManager.GetInstance();
             try {
-                aData = DatabaseAccessor.GetInstance().PullApplicantData();
-                Rebuild();
+                DatabaseAccessor.GetInstance().UsingApplicantData(list => {
+                    aData = list;
+                    Rebuild();
+                });
             }catch (Exception e) {
                 WPFMessageBoxFactory.Create("Exception", e.Message, 0).Show();
             }

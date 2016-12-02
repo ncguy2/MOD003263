@@ -39,13 +39,14 @@ namespace Mod003263.controllerview.view
             InitializeComponent();
             try {
                 PropertiesManager propertiesManager = PropertiesManager.GetInstance();
-                List<InterviewFoundation> tData = DatabaseAccessor.GetInstance().PullInterviewFoundation();
-                VisitableTree<TreeObjectWrapper<InterviewFoundation>> tree =
-                    new VisitableTree<TreeObjectWrapper<InterviewFoundation>>(
-                        new TreeObjectWrapper<InterviewFoundation>(""));
-                TreePopulator.Populate(tree, tData, '/', t => t.Path());
-                //          tr_Templates.Items.Add(tree);
-                tData.ForEach(t => tr_Templates.Items.Add(t));
+                DatabaseAccessor.GetInstance().UsingInterviewFoundations(tData => {
+                    VisitableTree<TreeObjectWrapper<InterviewFoundation>> tree =
+                        new VisitableTree<TreeObjectWrapper<InterviewFoundation>>(
+                            new TreeObjectWrapper<InterviewFoundation>(""));
+                    TreePopulator.Populate(tree, tData, '/', t => t.Path());
+                    //          tr_Templates.Items.Add(tree);
+                    tData.ForEach(t => tr_Templates.Items.Add(t));
+                });
             }catch (Exception e) {
 
             }

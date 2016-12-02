@@ -1,26 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Documents;
 using Mod003263.interview;
+using Mod003263.threading;
 
 /**
  * Author: Callum Highley, Nick Guy
  * Date: 14/11/2016
  * Contains: DatabaseAccessor
  */
-namespace Mod003263.db
-{
+namespace Mod003263.db {
 
-    public class DatabaseAccessor
-    {
+    public class DatabaseAccessor {
 
         private static DatabaseAccessor instance;
         public static DatabaseAccessor GetInstance() {
             return instance ?? (instance = new DatabaseAccessor());
         }
 
+        private Thread dbThread;
+        private bool dbThreadAlive;
+        private List<ThreadStart> dbThreadTasks;
+
         private DatabaseAccessor() {
+            dbThreadTasks = new List<ThreadStart>();
+            dbThread = ThreadFactory.GetInstance().CreateManagedDaemonThread(100, ThreadLoop);
+            dbThread.Start();
             DatabaseAccessorListeners.GetInstance(this);
+        }
+
+        private void ThreadLoop() {
+            if (dbThreadTasks.Count <= 0) return;
+            ThreadStart dbThreadTask = dbThreadTasks[0];
+            dbThreadTask();
+            dbThreadTasks.RemoveAt(0);
         }
 
         // 3 identical methods to aid readability
@@ -138,10 +155,6 @@ namespace Mod003263.db
 
         //pull the answers from question id, 
         public List<Answer> PullAnswersFromQuestionId(int questionId) {
-            bool openHere = false;
-            if (!DatabaseConnection.GetInstance().isLongOpen()) {
-                openHere = true;
-            }
             DbDataReader answerReader = DatabaseConnection.GetInstance()
                 .Select($"SELECT Answer_ID, Question_ID, Value, Weight FROM Question_Answers WHERE Question_ID={questionId}");
             List<Answer> answ = new List<Answer>();
@@ -185,5 +198,41 @@ namespace Mod003263.db
             posReader.Close();
             return positions;
         }
+
+        // Concurrent
+
+        // TODO Possibly move these 2 methods to a more suitable class
+        private void InvokeOnMainThread<T>(Action<T> action, Func<T> argSupplier) {
+            InvokeOnMainThread(action, argSupplier());
+        }
+
+        private void InvokeOnMainThread<T>(Action<T> action, T arg) {
+            Application.Current.Dispatcher.Invoke(action, arg);
+        }
+
+        public void UsingInterviewFoundations(Action<List<InterviewFoundation>> action) {
+            InvokeOnMainThread(action, PullInterviewFoundation);
+        }
+
+        public void UsingApplicantData(Action<List<Applicant>> action) {
+            InvokeOnMainThread(action, PullApplicantData);
+        }
+
+        public void UsingQuestionData(Action<List<Question>> action) {
+            InvokeOnMainThread(action, PullQuestionData);
+        }
+
+        public void UsingAnswerData(int questionId, Action<List<Answer>> action) {
+            InvokeOnMainThread(action, PullAnswersFromQuestionId(questionId));
+        }
+
+        public void UsingAvailablePositions(Action<List<AvailablePosition>> action) {
+            InvokeOnMainThread(action, GetAvailablePositions);
+        }
+
+        public void UsingAllPositions(Action<List<AvailablePosition>> action) {
+            InvokeOnMainThread(action, GetAllPositions);
+        }
+
     }
 }

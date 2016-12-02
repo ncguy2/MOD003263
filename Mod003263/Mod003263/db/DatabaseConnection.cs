@@ -28,7 +28,8 @@ namespace Mod003263.db {
         private static DatabaseConnection instance;
 
         public static DatabaseConnection GetInstance() {
-            return instance ?? (instance = new DatabaseConnection());
+//            return instance ?? (instance = new DatabaseConnection());
+            return new DatabaseConnection();
         }
 
         private DatabaseConnection() {

@@ -31,11 +31,13 @@ namespace Mod003263.controllerview.view
         }
 
         private void LoadPositions() {
-            lst_Positions.Items.Clear();
-            List<AvailablePosition> positions = DatabaseAccessor.GetInstance().GetAllPositions();
-            foreach (AvailablePosition pos in positions)
-                lst_Positions.Items.Add(pos);
-            lst_Positions.Items.Add(new AvailablePosition{Id=-1, Position = "[New Position]", Seats=0});
+            DatabaseAccessor.GetInstance().UsingAllPositions(list => {
+                lst_Positions.Items.Clear();
+                foreach (AvailablePosition pos in list)
+                    lst_Positions.Items.Add(pos);
+                lst_Positions.Items.Add(new AvailablePosition{Id=-1, Position = "[New Position]", Seats=0});
+            });
+
         }
 
         private void SelectPosition(AvailablePosition pos) {

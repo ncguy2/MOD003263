@@ -46,13 +46,16 @@ namespace Mod003263.controllerview.view {
 
         private void Init() {
             try {
-                List<AvailablePosition> positions = DatabaseAccessor.GetInstance().GetAllPositions();
-                sel_ApplyingPosition.Items.Clear();
-                foreach (AvailablePosition pos in positions)
-                    sel_ApplyingPosition.Items.Add(pos);
+                DatabaseAccessor.GetInstance().UsingAllPositions(list => {
+                    sel_ApplyingPosition.Items.Clear();
+                    foreach (AvailablePosition pos in list)
+                        sel_ApplyingPosition.Items.Add(pos);
+                });
 
-                applicants = DatabaseAccessor.GetInstance().PullApplicantData();
-                RebuildListView();
+                DatabaseAccessor.GetInstance().UsingApplicantData(list => {
+                    applicants = list;
+                    RebuildListView();
+                });
             } catch (Exception e) {
                 WPFMessageBoxFactory.Create("Error", e.Message, 0).Show();
             }

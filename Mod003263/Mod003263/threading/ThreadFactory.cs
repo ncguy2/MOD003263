@@ -24,6 +24,17 @@ namespace Mod003263.threading {
             managedThreads = new List<ManagedThreadWrapper>();
         }
 
+        public Thread CreateManagedDaemonThread(int iterDelay, ThreadStart threadRef) {
+            Thread thread = new Thread(threadRef) {IsBackground = true};
+            managedThreads.Add(new ManagedThreadWrapper(() => {
+                while (true) {
+                    threadRef();
+                    Thread.Sleep(iterDelay);
+                }
+            }, thread));
+            return thread;
+        }
+
         /// <summary>
         /// Creates a thread with the provided function and stores it in a local collection.
         /// </summary>
