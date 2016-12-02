@@ -112,7 +112,7 @@ namespace Mod003263.db {
                 "DateOfBirth, DateOfEntry) ");
             sb.Append("VALUES (");
             sb.Append($"'{app.First_Name}', '{app.Last_Name}', '{app.Applying_Position}', '{app.Picture}', " +
-                      $"'{app.Address}', '{app.Flag}', '{app.Email}', '{app.Phone_Number}', '{app.Dob}', UNIX_TIMESTAMP(NOW())");
+                      $"'{app.Address}', '{app.Flag}', '{app.Email}', '{app.Phone_Number}', '{app.Dob}', UNIX_TIMESTAMP(NOW()))");
             string s = sb.ToString();
             accessor.Insert(s);
         }
