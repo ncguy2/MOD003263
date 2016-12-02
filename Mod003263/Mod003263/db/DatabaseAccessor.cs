@@ -104,7 +104,8 @@ namespace Mod003263.db
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
             while (interviewFoundationReader.Read())
             {
-             InterviewFoundation interviewFoundation =  new InterviewFoundation(interviewFoundationReader["Category"].ToString()
+             InterviewFoundation interviewFoundation =  new InterviewFoundation((Int32) interviewFoundationReader["Foundation_ID"]
+                 ,interviewFoundationReader["Category"].ToString()
                  , interviewFoundationReader["Name"].ToString());
                 ifound.Add(interviewFoundation);
             }
