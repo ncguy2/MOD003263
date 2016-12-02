@@ -1424,6 +1424,20 @@
                 </TransformGroup>
             </local:InterviewSub.RenderTransform>
         </local:InterviewSub>
+        <Button x:Name="btn_leaderboard" Content="Leaderboards" HorizontalAlignment="Left" Margin="452,272,0,0" VerticalAlignment="Top" Width="215" Height="53" Background="#FFA0A0A0" FontFamily="Calibri" FontSize="18"/>
+        <Canvas x:Name="tmp_canvas" Margin="0,377,0,-330" VerticalAlignment="Top" Height="367" Background="#FF838383" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Grid Height="336" Canvas.Left="10" Canvas.Top="10" Width="961.5">
+                <local:Leaderboard HorizontalAlignment="Left"/>
+            </Grid>
+        </Canvas>
         <Grid Margin="230,206,0,42" Width="215" HorizontalAlignment="Left">
             <Rectangle x:Name="shp_ApplicantBackground" Fill="#FFA0A0A0" Margin="0" RenderTransformOrigin="0.5,0.5" Width="215" StrokeThickness="0">
                 <Rectangle.Effect>
@@ -1469,19 +1483,5 @@
                 </TransformGroup>
             </local:ApplicantEntry.RenderTransform>
         </local:ApplicantEntry>
-        <Button x:Name="btn_leaderboard" Content="Leaderboards" HorizontalAlignment="Left" Margin="452,272,0,0" VerticalAlignment="Top" Width="215" Height="53" Background="#FFA0A0A0" FontFamily="Calibri" FontSize="18"/>
-        <Canvas x:Name="tmp_canvas" Margin="0,377,0,-330" VerticalAlignment="Top" Height="367" Background="#FF838383" RenderTransformOrigin="0.5,0.5">
-            <Canvas.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Canvas.RenderTransform>
-            <Grid Height="336" Canvas.Left="10" Canvas.Top="10" Width="961.5">
-                <local:Leaderboard HorizontalAlignment="Left"/>
-            </Grid>
-        </Canvas>
     </Grid>
 </UserControl>

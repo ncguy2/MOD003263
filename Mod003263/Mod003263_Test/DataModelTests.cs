@@ -45,7 +45,7 @@ namespace Mod003263_Test {
         /// </summary>
         [TestMethod]
         public void Test1() {
-
+            // TODO SQL: "DELETE FROM applicants WHERE DateOfEntry < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 2 YEAR))"
         }
 
     }

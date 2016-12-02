@@ -175,7 +175,5 @@
         <Label x:Name="lbl_TemplateSelect" Content="Choose a Template" HorizontalAlignment="Left" Margin="10,12.96,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Start" Content="Start Interview" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="102.679" Height="36.96"/>
         <local:Interview x:Name="interview" Opacity="0" Visibility="Hidden"/>
-
-
     </Grid>
 </UserControl>
