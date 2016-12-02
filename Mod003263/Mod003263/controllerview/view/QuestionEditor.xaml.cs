@@ -40,12 +40,14 @@ namespace Mod003263.controllerview.view {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
             PropertiesManager propertiesManager = PropertiesManager.GetInstance();
-            List<Question> qData = DatabaseAccessor.GetInstance().PullQuestionData();
-            VisitableTree<TreeObjectWrapper<Question>> tree =
-                new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
-            TreePopulator.Populate(tree, qData, '/', q => q.Path());
+            try {
+                List<Question> qData = DatabaseAccessor.GetInstance().PullQuestionData();
+                VisitableTree<TreeObjectWrapper<Question>> tree =
+                    new VisitableTree<TreeObjectWrapper<Question>>(new TreeObjectWrapper<Question>(""));
+                TreePopulator.Populate(tree, qData, '/', q => q.Path());
 //            tr_Questions.Items.Add(tree);
-            qData.ForEach(q => tr_Questions.Items.Add(q));
+                qData.ForEach(q => tr_Questions.Items.Add(q));
+            }catch(Exception e) {}
         }
 
         private void addAnsBtn_Click(object sender, RoutedEventArgs e) {

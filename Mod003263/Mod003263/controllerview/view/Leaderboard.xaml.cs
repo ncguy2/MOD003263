@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.events;
+using Mod003263.events.ui;
 using Mod003263.wpf;
 using Mod003263.wpf.controls;
 
@@ -19,9 +21,10 @@ namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for Leaderboard.xaml
     /// </summary>
-    public partial class Leaderboard : UserControl{
+    public partial class Leaderboard : UserControl, SelectApplicantEvent.SelectApplicantListener {
 
         public Leaderboard() {
+            EventBus.GetInstance().Register(this);
             InitializeComponent();
         }
 
@@ -29,17 +32,9 @@ namespace Mod003263.controllerview.view {
             lst_appSummary.Items.Clear();
             List<Applicant> apps = DatabaseAccessor.GetInstance().PullApplicantData();
             foreach (Applicant applicant in apps) {
-                ApplicantRow applicantRow = new ApplicantRow(applicant);
-                applicantRow.MouseDoubleClick += applicantRow_DblClick;
-                lst_appSummary.Items.Add(applicantRow);
+                ApplicantRowData row = new ApplicantRowData(applicant);
+                lst_appSummary.Items.Add(row);
             }
-        }
-
-        private void applicantRow_DblClick(object sender, RoutedEventArgs e) {
-            ApplicantRow row = sender as ApplicantRow;
-            if (row == null) return;
-            app_details.PopulateDetails(row.Applicant);
-            OpenApplicantDetails();
         }
 
         private void OpenApplicantDetails() {
@@ -57,6 +52,19 @@ namespace Mod003263.controllerview.view {
         private void app_details_CallbackButtonClicked(object sender, EventArgs e) {
             app_details.PopulateDetails(null);
             CloseApplicantDetails();
+        }
+
+        private void Lst_appSummary_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+            ApplicantRowData data = lst_appSummary.SelectedItem as ApplicantRowData;
+            if (data == null) return;
+            new SelectApplicantEvent(data.Applicant, SelectApplicantScopes.APPLICANT_RANKING).Fire();
+        }
+
+        [Event]
+        public void OnSelectApplicant(SelectApplicantEvent e) {
+            if (!e.Scope.Equals(SelectApplicantScopes.APPLICANT_RANKING)) return;
+            app_details.PopulateDetails(e.Selected);
+            OpenApplicantDetails();
         }
     }
 }

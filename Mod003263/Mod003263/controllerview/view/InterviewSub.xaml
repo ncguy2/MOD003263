@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Mod003263.controllerview.view"
              xmlns:controls="clr-namespace:Mod003263.wpf.controls"
+             xmlns:db="clr-namespace:Mod003263.db"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
     <UserControl.Resources>
@@ -367,7 +368,7 @@
                 <GridView>
                     <GridViewColumn Header="Image" Width="{Binding ElementName=helper_col1, Path=ActualWidth}">
                         <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="local:ApplicantRowData">
+                            <DataTemplate DataType="db:ApplicantRowData">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{Binding Image}" Width="32" Height="32"></Image>
                                 </StackPanel>
@@ -379,7 +380,22 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="txt_Search" Margin="10" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" TextChanged="txt_Search_TextChanged"/>
+        <TextBox x:Name="txt_Search" Margin="10" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" TextChanged="txt_Search_TextChanged">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Margin="0,0,0,5">Smart Search</TextBlock>
+                    <TextBlock>Use key prefixes to search specific properties</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock><TextBlock FontWeight="Bold">name:</TextBlock> searches for your query in the full name of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">forename:</TextBlock> searches for your query in the first name of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">surname:</TextBlock> searches for your query in the last name of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">position:</TextBlock> searches for your query in the applying position of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">email:</TextBlock> searches for your query in the email address of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">address:</TextBlock> searches for your query in the address of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">phone:</TextBlock> searches for your query in the phone number of the applicant</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Label x:Name="lbl_Applicants" Content="Applicants" Margin="10" FontSize="14" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
         <Grid Grid.Column="2" Grid.RowSpan="2" Margin="0,3.893,0,-3.893">
             <Grid.RowDefinitions>

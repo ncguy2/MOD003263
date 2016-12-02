@@ -49,6 +49,9 @@
                     <TextBlock><TextBlock FontWeight="Bold">forename:</TextBlock> searches for your query in the first name of the applicant</TextBlock>
                     <TextBlock><TextBlock FontWeight="Bold">surname:</TextBlock> searches for your query in the last name of the applicant</TextBlock>
                     <TextBlock><TextBlock FontWeight="Bold">position:</TextBlock> searches for your query in the applying position of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">email:</TextBlock> searches for your query in the email address of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">address:</TextBlock> searches for your query in the address of the applicant</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">phone:</TextBlock> searches for your query in the phone number of the applicant</TextBlock>
                 </StackPanel>
             </TextBox.ToolTip>
         </TextBox>
