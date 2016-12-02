@@ -25,7 +25,7 @@
         <TextBox x:Name="txt_Question" Margin="5,10,10,10" TextWrapping="Wrap" Grid.Column="2" Grid.Row="1" SpellCheck.IsEnabled="True"/>
         <Button x:Name="btn_SaveExit" Content="Save and exit" Grid.Column="2" Margin="0,10,135,10" Grid.Row="3" HorizontalAlignment="Right" Width="100"/>
         <Button x:Name="btn_AddQuestion" Content="New Question" Margin="10" Grid.Row="3"/>
-        <Button x:Name="btn_Save" Content="Save changes" Grid.Column="2" Margin="0,10,240,10" Grid.Row="3" HorizontalAlignment="Right" Width="100"/>
+        <Button x:Name="btn_Save" Content="Save changes" Grid.Column="2" Margin="0,10,240,10" Grid.Row="3" HorizontalAlignment="Right" Width="100" Click="btn_Save_Click"/>
         <Button x:Name="btn_Exit" Content="Exit without saving" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,10" Grid.Row="3" Width="120"/>
         <ListView x:Name="tbl_AnswerTable" Grid.Column="1" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>

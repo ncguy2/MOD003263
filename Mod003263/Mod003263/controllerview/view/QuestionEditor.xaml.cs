@@ -21,6 +21,7 @@ using Mod003263.interview;
 using Mod003263.wpf.controls;
 using Utils.Tree;
 using Utils.Tree.Builder;
+using Mod003263.events.db;
 
 /**
  * Author: Nick Guy
@@ -93,6 +94,12 @@ namespace Mod003263.controllerview.view {
             foreach (Answer answer in q.GetAnswers().ToArray()) {
                 AddAnswer(answer);
             }
+        }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.selectedQuestion != null)
+                new SaveQuestionEvent(this.selectedQuestion).Fire();
         }
     }
 }
