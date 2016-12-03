@@ -36,8 +36,10 @@ namespace Mod003263.macro {
             String[] lines = GetLines();
             foreach (KeyValuePair<string, Func<string>> pair in MacroManager.Instance().RegisteredMacros) {
                 String query = "{" + pair.Key + "}";
-                for (int i = 0; i < lines.Length; i++)
-                    lines[i] = lines[i].Replace(query, pair.Value());
+                for (int i = 0; i < lines.Length; i++) {
+                    if(lines[i].Contains(query))
+                        lines[i] = lines[i].Replace(query, pair.Value());
+                }
             }
             StringBuilder sb = new StringBuilder();
             int consecutiveBlankLines = 0;

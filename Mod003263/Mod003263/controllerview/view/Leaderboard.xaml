@@ -157,7 +157,7 @@
                 </ListView.View>
                 <TextBox x:Name="textBox" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120"/>
             </ListView>
-            <Button x:Name="btn_init" Content="Button" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click" Grid.Row="1"/>
+            <Button x:Name="btn_init" Content="Finish" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click" Grid.Row="1"/>
             <TextBox x:Name="txt_search" Grid.Column="1" Margin="5,10,10,5" TextWrapping="Wrap" TextChanged="Txt_search_OnTextChanged">
                 <TextBox.ToolTip>
                     <StackPanel>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Mod003263.wpf;
 
 /**
  * Author: Nick Guy
@@ -24,7 +25,14 @@ namespace Mod003263.macro {
                 foreach (MethodInfo info in FindInClass(domain)) {
                     MacroAttribute macroAttr = info.GetCustomAttribute(typeof(MacroAttribute)) as MacroAttribute;
                     if (macroAttr != null)
-                        MacroManager.Instance().RegisterMacro(macroAttr.key, () => info.Invoke(null, null)?.ToString());
+                        MacroManager.Instance().RegisterMacro(macroAttr.key, () => {
+                            try {
+                                return info.Invoke(null, null)?.ToString();
+                            }catch (Exception e) {
+                                WPFMessageBoxFactory.CreateErrorAndShow(e);
+                                return "ERROR";
+                            }
+                        });
                 }
             }
         }

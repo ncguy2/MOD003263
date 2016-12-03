@@ -29,16 +29,22 @@ namespace Mod003263.db {
 
         private DatabaseAccessor() {
             dbThreadTasks = new List<ThreadStart>();
-            dbThread = ThreadFactory.GetInstance().CreateManagedDaemonThread(100, ThreadLoop);
+            dbThreadAlive = true;
+            dbThread = ThreadFactory.GetInstance().CreateManagedDaemonThread(ThreadLoop);
             dbThread.Start();
             DatabaseAccessorListeners.GetInstance(this);
         }
 
         private void ThreadLoop() {
-            if (dbThreadTasks.Count <= 0) return;
-            ThreadStart dbThreadTask = dbThreadTasks[0];
-            dbThreadTask();
-            dbThreadTasks.RemoveAt(0);
+            while (dbThreadAlive) {
+                if (dbThreadTasks.Count <= 0) {
+                    Thread.Sleep(100);
+                    continue;
+                }
+                ThreadStart dbThreadTask = dbThreadTasks[0];
+                dbThreadTask();
+                dbThreadTasks.RemoveAt(0);
+            }
         }
 
         // 3 identical methods to aid readability
@@ -299,27 +305,31 @@ namespace Mod003263.db {
         }
 
         public void UsingInterviewFoundations(Action<List<InterviewFoundation>> action) {
-            InvokeOnMainThread(action, PullInterviewFoundation);
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, PullInterviewFoundation));
         }
 
         public void UsingApplicantData(Action<List<Applicant>> action) {
-            InvokeOnMainThread(action, PullApplicantData);
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, PullApplicantData));
         }
 
         public void UsingQuestionData(Action<List<Question>> action) {
-            InvokeOnMainThread(action, PullQuestionData);
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, PullQuestionData));
         }
 
         public void UsingAnswerData(int questionId, Action<List<Answer>> action) {
-            InvokeOnMainThread(action, PullAnswersFromQuestionId(questionId));
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, PullAnswersFromQuestionId(questionId)));
         }
 
         public void UsingAvailablePositions(Action<List<AvailablePosition>> action) {
-            InvokeOnMainThread(action, GetAvailablePositions);
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, GetAvailablePositions));
         }
 
         public void UsingAllPositions(Action<List<AvailablePosition>> action) {
-            InvokeOnMainThread(action, GetAllPositions);
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, GetAllPositions));
+        }
+
+        public void UsingInterviewForApplicant(Applicant app, Action<Interview> action) {
+            dbThreadTasks.Add(() => InvokeOnMainThread(action, GetInterviewForApplicant(app)));
         }
 
     }

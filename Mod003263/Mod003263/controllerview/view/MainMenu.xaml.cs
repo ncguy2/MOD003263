@@ -30,10 +30,8 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainMenu : UserControl, BackEvent.BackListener, EmailEvent.EmailListener
-    {
-        public MainMenu()
-        {
+    public partial class MainMenu : UserControl, BackEvent.BackListener, EmailSuccessEvent.EmailSuccessEventListener {
+        public MainMenu() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
         }
@@ -55,7 +53,7 @@ namespace Mod003263.controllerview.view
         }
 
         [Event]
-        public void OnEmail(EmailEvent e) {
+        public void OnEmailSuccess(EmailSuccessEvent e) {
             shp_EmailLight.Fill = Brushes.Green;
         }
     }

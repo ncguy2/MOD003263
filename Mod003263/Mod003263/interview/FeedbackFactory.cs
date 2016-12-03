@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Mod003263.macro;
+using Mod003263.wpf;
 
 /**
  * Author: Nick Guy
@@ -57,9 +58,12 @@ namespace Mod003263.interview {
 
         public Dictionary<Question, String> GenerateMassFeedback(Interview interview) {
             interviewRef.Payload = interview;
-            Dictionary<Question, String> dictionary = interview.GetFoundationInstance()
-                .GetAnswerMap()
-                .ToDictionary(entry => entry.Key, GenerateFeedback);
+            Dictionary<Question, String> dictionary = null;
+            try {
+                dictionary = interview.GetFoundationInstance()
+                    .GetAnswerMap()
+                    .ToDictionary(entry => entry.Key, GenerateFeedback);
+            }catch (Exception e) {}
             interviewRef.Payload = null;
             return dictionary;
         }

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Windows;
+using Mod003263.events;
 using Mod003263.events.email;
 using Mod003263.wpf;
 
@@ -20,9 +21,11 @@ namespace Mod003263.email {
     /// <br/>
     /// TODO Fix this shit
     /// </summary>
-    public class EmailHandler {
+    public class EmailHandler : EmailEvent.EmailListener {
 
         private static EmailHandler instance;
+        public string From { get; private set; }
+
         public static EmailHandler GetInstance() {
             return instance ?? (instance = new EmailHandler());
         }
@@ -31,8 +34,12 @@ namespace Mod003263.email {
 
         private EmailHandler() {
 
+            EventBus.GetInstance().Register(this);
+
             string user = PropertiesManager.GetInstance().GetPropertyOrDefault("email.username", "");
             string pass = PropertiesManager.GetInstance().GetPropertyOrDefault("email.password", "");
+
+            From = user;
 
             smtp = new SmtpClient("smtp.gmail.com");
             smtp.Port = 587;
@@ -41,20 +48,29 @@ namespace Mod003263.email {
             smtp.Credentials = new NetworkCredential(user, pass);
 
             smtp.SendCompleted += (sender, args) => {
-                new EmailEvent().Fire();
+                new EmailSuccessEvent().Fire();
             };
         }
 
         public void Send(string from, string recipients, string subject, string body) {
+            MailMessage msg = new MailMessage(from, recipients) {
+                Subject = subject,
+                Body = body
+            };
+            Send(msg);
+        }
+
+        public void Send(MailMessage msg) {
             try {
-                MailMessage msg = new MailMessage(from, recipients);
-                msg.Subject = subject;
-                msg.Body = body;
                 smtp.Send(msg);
             }catch (Exception e) {
                 Application.Current.Dispatcher.Invoke(() => WPFMessageBoxFactory.CreateErrorAndShow(e));
             }
         }
 
+        [Event]
+        public void OnEmail(EmailEvent e) {
+            Send(e.Message);
+        }
     }
 }

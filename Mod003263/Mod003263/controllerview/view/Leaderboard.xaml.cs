@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,10 +13,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.email;
 using Mod003263.events;
+using Mod003263.events.email;
 using Mod003263.events.io;
 using Mod003263.events.ui;
 using Mod003263.interview;
+using Mod003263.macro;
 using Mod003263.model;
 using Mod003263.utils;
 using Mod003263.wpf;
@@ -33,6 +37,10 @@ namespace Mod003263.controllerview.view {
         private List<Applicant> hired;
         private List<Applicant> denied;
 
+        private Applicant macroTarget;
+
+        private Dictionary<Applicant, interview.Interview> interviewMap;
+
         public Leaderboard() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
@@ -42,23 +50,36 @@ namespace Mod003263.controllerview.view {
         public void Init() {
             hired = new List<Applicant>();
             denied = new List<Applicant>();
+            interviewMap = new Dictionary<Applicant, interview.Interview>();
             FlagManager fm = FlagManager.GetInstance();
+            MacroManager.Instance().RegisterMacro("app.name", () => macroTarget?.Full_Name);
+            MacroManager.Instance().RegisterMacro("app.forename", () => macroTarget?.First_Name);
+            MacroManager.Instance().RegisterMacro("app.surname", () => macroTarget?.Last_Name);
             DatabaseAccessor.GetInstance().UsingApplicantData(apps => {
                 this.apps = new List<Applicant>();
                 foreach (Applicant app in apps) {
                     // Has completed their interview
-                    if (fm.IsFlagged(app.Flag, ApplicantFlags.COMPLETE)) {
-                        // But no decision has been made
-                        if (!fm.IsFlagged(app.Flag, ApplicantFlags.FINISHED))
-                            this.apps.Add(app);
-                    }
+                    if (!fm.IsFlagged(app.Flag, ApplicantFlags.COMPLETE)) continue;
+                    // But no decision has been made
+                    if (!fm.IsFlagged(app.Flag, ApplicantFlags.FINISHED))
+                        this.apps.Add(app);
                 }
+                PopulateInterviewMap();
                 RebuildList();
             });
             DatabaseAccessor.GetInstance().UsingAvailablePositions(poss => {
                 this.poss = poss;
                 RebuildPositionsList();
             });
+        }
+
+        private void PopulateInterviewMap() {
+            DatabaseAccessor db = DatabaseAccessor.GetInstance();
+            foreach (Applicant app in apps) {
+                db.UsingInterviewForApplicant(app, interview => {
+                    interviewMap.Add(app, interview);
+                });
+            }
         }
 
         private void RebuildPositionsList() {
@@ -77,8 +98,12 @@ namespace Mod003263.controllerview.view {
 
         private void RebuildList(IEnumerable<Applicant> apps) {
             lst_appSummary.Items.Clear();
-            foreach (Applicant applicant in apps)
-                lst_appSummary.Items.Add(new ApplicantRowData(applicant));
+            foreach (Applicant applicant in apps) {
+                int metric = -1;
+                if (interviewMap.ContainsKey(applicant))
+                    metric = (int) interviewMap[applicant].GetResultMetric();
+                lst_appSummary.Items.Add(new ApplicantRowData(applicant) {Metric = metric});
+            }
         }
 
         private void OpenApplicantDetails() {
@@ -90,7 +115,38 @@ namespace Mod003263.controllerview.view {
         }
 
         private void btn_init_Click(object sender, RoutedEventArgs e) {
-            Init();
+            FeedbackFactory ff = FeedbackFactory.GetInstance();
+            MacroTemplate macroTemplate = new MacroTemplate("Dear {app.name},\n");
+            HandleCollection(ff, hired, "Congratulations, you're hired", macroTemplate);
+            HandleCollection(ff, denied, "Sorry, you were not accepted", macroTemplate);
+        }
+
+        private void HandleCollection(FeedbackFactory ff, List<Applicant> apps, string subject, MacroTemplate header) {
+            foreach (Applicant app in apps) {
+                macroTarget = app;
+                HandleEmail(ff, app, subject, header.Populate());
+            }
+            macroTarget = null;
+        }
+
+        private void HandleEmail(FeedbackFactory ff, Applicant app, string subject, string header = "") {
+            Dictionary<Question, string> feedback = ff.GenerateMassFeedback(interviewMap[app]);
+            StringBuilder sb = new StringBuilder();
+            if (header.Length > 0)
+                sb.Append(header).Append("\n\n");
+            if (feedback != null) {
+                foreach (string feedbackValue in feedback.Values)
+                    sb.Append(feedbackValue).Append("\n");
+            }else sb.Append("No feedback to provide\n");
+            MailMessage msg = new MailMessage(EmailHandler.GetInstance().From, app.Email) {
+                Subject = subject,
+                Body = sb.ToString()
+            };
+            try {
+                new EmailEvent(msg).Fire();
+            }catch (Exception exc) {
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
+            }
         }
 
         private void app_details_CallbackButtonClicked(object sender, EventArgs e) {

@@ -24,14 +24,9 @@ namespace Mod003263.threading {
             managedThreads = new List<ManagedThreadWrapper>();
         }
 
-        public Thread CreateManagedDaemonThread(int iterDelay, ThreadStart threadRef) {
+        public Thread CreateManagedDaemonThread(ThreadStart threadRef) {
             Thread thread = new Thread(threadRef) {IsBackground = true};
-            managedThreads.Add(new ManagedThreadWrapper(() => {
-                while (true) {
-                    threadRef();
-                    Thread.Sleep(iterDelay);
-                }
-            }, thread));
+            managedThreads.Add(new ManagedThreadWrapper(threadRef, thread));
             return thread;
         }
 
