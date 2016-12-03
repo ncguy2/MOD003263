@@ -51,6 +51,7 @@ namespace Mod003263.interview {
         public void SetCat(string c) { category = c; }
 
         public int Id() { return id; }
+        public void Id(int id) { this.id = id; }
 
         protected bool Equals(InterviewFoundation other) {
             return id == other.id;

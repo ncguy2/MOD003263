@@ -138,5 +138,14 @@ namespace Mod003263.db {
         public bool isLongOpen() {
             return longConnectionOpen;
         }
+
+        public int GetLatestId(string table, string idColumn = "ID") {
+            if (!OpenConnection()) return -1;
+            DbCommand cmd = factory.CreateCommand($"SELECT MAX({idColumn}) FROM {table}", connection);
+            object id = cmd.ExecuteScalar();
+            CloseConnection();
+            return id as int? ?? 0;
+        }
+
     }
 }

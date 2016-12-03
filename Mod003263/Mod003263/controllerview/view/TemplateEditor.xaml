@@ -26,7 +26,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate DataType="local:RowData">
                                 <StackPanel Orientation="Vertical" >
-                                    <controls:Spinner StartValue="{Binding Metric}" Width="{Binding ElementName=helper_col3, Path=ActualWidth,
+                                    <controls:Spinner Loaded="FrameworkElement_OnRequestBringIntoView" Width="{Binding ElementName=helper_col3, Path=ActualWidth,
                                         Converter={wpf:MathsConverter}, ConverterParameter=x-12}" MinValue="0" MaxValue="128" SpinnerValueChanged="Spinner_OnSpinnerValueChanged" />
                                 </StackPanel>
                             </DataTemplate>
@@ -43,11 +43,11 @@
         <Label x:Name="lbl_InsertQuestion" Content="Questions Selected" HorizontalAlignment="Right" Margin="0,67.7,262.501,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="94" Margin="0,0,109,10" Click="btn_Save_Click" Height="23"/>
         <Button x:Name="btn_Exit" Content="Save and Exit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="94" Margin="0,0,10,10" Height="23"/>
-        <Grid Visibility="Hidden" Width="{Binding ElementName=tr_InsertQuestions, Path=ActualWidth}">
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lst_InsertQuestions, Path=ActualWidth}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30*"/>
-                <ColumnDefinition Width="60*"/>
-                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" x:Name="helper_col1"/>
             <Grid Grid.Column="1" x:Name="helper_col2"/>

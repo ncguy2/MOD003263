@@ -132,6 +132,12 @@ namespace Mod003263.controllerview.view
             new SelectTemplateEvent(template, SelectTemplateScopes.TEMPLATE_EDITOR).Fire();
         }
 
+        private void CascadeData() {
+            if (selectedTemplate == null) return;
+            selectedTemplate.SetCat(txt_Category.Text);
+            selectedTemplate.SetName(txt_TemplateName.Text);
+        }
+
         [Event]
         public void OnSelectTemplate(SelectTemplateEvent e) {
             if (!e.Scope.Equals(SelectTemplateScopes.TEMPLATE_EDITOR)) return;
@@ -151,6 +157,7 @@ namespace Mod003263.controllerview.view
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e) {
+            CascadeData();
             if(this.selectedTemplate != null)
                 new SaveFoundationEvent(this.selectedTemplate).Fire();
             SelectTemplate(null);
@@ -184,9 +191,16 @@ namespace Mod003263.controllerview.view
             RowData d = s?.DataContext as RowData;
             if (d == null) return;
             d.Metric = s.GetNumericValue();
-            selectedTemplate.GetQuestions().Add(d.Question, d.Metric);
+            Dictionary<Question, int> qs = selectedTemplate.GetQuestions();
+            qs[d.Question] = d.Metric;
         }
 
+        private void FrameworkElement_OnRequestBringIntoView(object sender, RoutedEventArgs routedEventArgs) {
+            Spinner s = sender as Spinner;
+            RowData d = s?.DataContext as RowData;
+            if (d == null) return;
+            s.NUDTextBox.Text = d.Metric + "";
+        }
     }
 
 }

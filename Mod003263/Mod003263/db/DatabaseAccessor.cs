@@ -44,6 +44,7 @@ namespace Mod003263.db {
         public int Update(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
         public int Insert(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
         public int Delete(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
+        public int LatestId(string query, string id = "ID") { return DatabaseConnection.GetInstance().GetLatestId(query, id); }
 
         public int InsertBatch<T>(List<T> list, Func<T, string> queryBuilder) {
             return DatabaseConnection.GetInstance().InsertCollection(list, queryBuilder);
@@ -127,14 +128,30 @@ namespace Mod003263.db {
                 ifound.Add(interviewFoundation);
             }
             interviewFoundationReader.Close();
-            foreach (InterviewFoundation interviewFoundation in ifound)
-                interviewFoundation.GetQuestions();
-
-//             TODO remove once db is populated
-//            ifound.AddRange(SelectAllInterviewFoundations());
+            foreach (InterviewFoundation f in ifound) {
+                int id = f.Id();
+                foreach (KeyValuePair<Question, int> pair in PullQuestionDataFromFoundation(id))
+                    f.GetQuestions().Add(pair.Key, pair.Value);
+            }
 
             return ifound;
+        }
 
+        public List<KeyValuePair<Question, int>> PullQuestionDataFromFoundation(int id) {
+            DbDataReader questionReader = DatabaseConnection.GetInstance()
+                .Select("SELECT q.Question_ID, q.Question, q.Category, i.Weight FROM interview_questions i, questions q " +
+                       $"WHERE i.Question_ID=q.Question_ID AND i.Foundation_ID={id}");
+            List<KeyValuePair<Question, int>> ques = new List<KeyValuePair<Question, int>>();
+            if (!questionReader.HasRows) return ques;
+            while (questionReader.Read()) {
+                Question question = new Question((Int32) questionReader["Question_ID"]);
+                question.SetText((String) questionReader["Question"]);
+                question.SetCategory((String) questionReader["Category"]);
+                ques.Add(new KeyValuePair<Question, int>(question, questionReader.GetInt16(questionReader.GetOrdinal("Weight"))));
+            }
+            questionReader.Close();
+            ques.ForEach(pair => pair.Key.AddAnswers(PullAnswersFromQuestionId(pair.Key.Id).ToArray()));
+            return ques;
         }
 
         public List<Question> PullQuestionData()

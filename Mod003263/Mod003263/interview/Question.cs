@@ -17,7 +17,7 @@ namespace Mod003263.interview {
         private String questionText;
         private List<Answer> answers;
 
-        public int Id { get; }
+        public int Id { get; set;  }
 
         public Question(int id) {
             Id = id;

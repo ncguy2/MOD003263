@@ -150,6 +150,8 @@ namespace Mod003263.db {
             sb.Append($"('{f.Name()}', '{f.Cat()}')");
             String s = sb.ToString();
             accessor.Insert(s);
+            int newId = accessor.LatestId("interview_foundation", "Foundation_ID");
+            f.Id(newId);
             InsertFoundationQuestions(f);
         }
 
@@ -191,6 +193,8 @@ namespace Mod003263.db {
             sb.Append($"('{q.Text()}', '{q.Cat()}')");
             String s = sb.ToString();
             accessor.Insert(s);
+            int newId = accessor.LatestId("questions", "Question_ID");
+            q.Id = newId;
             InsertQuestionAnswers(q);
         }
 
