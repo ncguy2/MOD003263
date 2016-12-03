@@ -16,7 +16,17 @@
             <ColumnDefinition Width="47*"/>
             <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txt_search" Margin="10,20,10,5" TextChanged="Txt_search_OnTextChanged"/>
+        <TextBox x:Name="txt_search" Margin="10,20,10,5" TextChanged="Txt_search_OnTextChanged">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Margin="0,0,0,5">Smart Search</TextBlock>
+                    <TextBlock>Use key prefixes to search specific properties</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock><TextBlock FontWeight="Bold">position:</TextBlock> searches through all positions</TextBlock>
+                    <TextBlock><TextBlock FontWeight="Bold">forename:</TextBlock> searches through the records of seats in each position</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <ListView x:Name="lst_Positions" Margin="10,5,10,10" SelectionChanged="Lst_Positions_OnSelectionChanged" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.View>
                 <GridView>

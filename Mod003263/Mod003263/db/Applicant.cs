@@ -88,6 +88,12 @@ namespace Mod003263.db {
 
     }
 
+    public class ApplicantFlags {
+
+        public const int HIRED = 1;
+
+    }
+
     public class ApplicantRowData {
 
         public Applicant Applicant { get; set; }

@@ -163,6 +163,7 @@
     <Compile Include="events\email\EmailEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
+    <Compile Include="events\HireEvent.cs" />
     <Compile Include="events\io\DeleteFoundationEvent.cs" />
     <Compile Include="events\io\DeletePositionEvent.cs" />
     <Compile Include="events\io\DeleteQuestionEvent.cs" />
@@ -308,7 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllerview\breadcrumb\" />
-    <Folder Include="events\db" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

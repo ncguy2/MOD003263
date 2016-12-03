@@ -122,12 +122,23 @@
     </UserControl.Triggers>
     <Canvas>
         <Grid Height="336" Width="966">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="786"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="lst_positions" Margin="10,10,5,35"/>
-            <ListView x:Name="lst_appSummary" Grid.Column="1" Margin="5,10,10,10" SelectionChanged="Lst_appSummary_OnSelectionChanged">
+            <ListView x:Name="lst_positions" Margin="10,10,5,35" Grid.RowSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Position}" Width="{Binding ElementName=helperLeft_col1, Path=ActualWidth}"/>
+                        <GridViewColumn Header="Seats" DisplayMemberBinding="{Binding Seats}" Width="{Binding ElementName=helperLeft_col2, Path=ActualWidth}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="lst_appSummary" Grid.Column="1" Margin="5,5,10,10" SelectionChanged="Lst_appSummary_OnSelectionChanged" Grid.Row="1">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Image" Width="{Binding ElementName=helper_col1, Path=ActualWidth}">
@@ -145,7 +156,23 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button x:Name="btn_init" Content="Button" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click"/>
+            <Button x:Name="btn_init" Content="Button" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click" Grid.Row="1"/>
+            <TextBox x:Name="txt_search" Grid.Column="1" Margin="10,10,10,5" TextWrapping="Wrap" TextChanged="Txt_search_OnTextChanged">
+                <TextBox.ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Margin="0,0,0,5">Smart Search</TextBlock>
+                        <TextBlock>Use key prefixes to search specific properties</TextBlock>
+                        <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                        <TextBlock><TextBlock FontWeight="Bold">name:</TextBlock> searches for your query in the full name of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">forename:</TextBlock> searches for your query in the first name of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">surname:</TextBlock> searches for your query in the last name of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">position:</TextBlock> searches for your query in the applying position of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">email:</TextBlock> searches for your query in the email address of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">address:</TextBlock> searches for your query in the address of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">phone:</TextBlock> searches for your query in the phone number of the applicant</TextBlock>
+                    </StackPanel>
+                </TextBox.ToolTip>
+            </TextBox>
         </Grid>
         <Grid x:Name="grd_underlay" Height="418.5" Width="786" Canvas.Left="971" RenderTransformOrigin="0.5,0.5" Background="Black" Canvas.Top="-37.5">
             <Grid.RenderTransform>
@@ -173,7 +200,9 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="786" Grid.ColumnSpan="2" CallbackButtonClicked="app_details_CallbackButtonClicked" d:IsHidden="True" />
+            <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top"
+                Width="786" Grid.ColumnSpan="2" CallbackButtonClicked="app_details_CallbackButtonClicked"
+                HireButtonClicked="App_details_OnHireButtonClicked" d:IsHidden="True" />
         </Grid>
         <Grid Visibility="Hidden" Width="{Binding ElementName=lst_appSummary, Path=ActualWidth}">
             <Grid.ColumnDefinitions>
@@ -186,6 +215,14 @@
             <Grid Grid.Column="1" x:Name="helper_col2"/>
             <Grid Grid.Column="2" x:Name="helper_col3"/>
             <Grid Grid.Column="3" x:Name="helper_col4"/>
+        </Grid>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lst_positions, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helperLeft_col1"/>
+            <Grid Grid.Column="1" x:Name="helperLeft_col2"/>
         </Grid>
     </Canvas>
 </UserControl>
