@@ -97,7 +97,7 @@ namespace Mod003263_Test {
 
 
         private static Interview PerfectSet() {
-            Interview interview = new Interview();
+            Interview interview = new Interview(-1, new InterviewFoundation());
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
             questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(100)), 5);
             questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(100)), 7);
@@ -110,7 +110,7 @@ namespace Mod003263_Test {
         }
 
         private static Interview ImperfectSet() {
-            Interview interview = new Interview();
+            Interview interview = new Interview(-1, new InterviewFoundation());
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
             questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(50)), 5);
             questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(50)), 7);
@@ -123,7 +123,7 @@ namespace Mod003263_Test {
         }
 
         private static Interview WrongSet() {
-            Interview interview = new Interview();
+            Interview interview = new Interview(-1, new InterviewFoundation());
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
             questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(0)), 5);
             questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(0)), 7);

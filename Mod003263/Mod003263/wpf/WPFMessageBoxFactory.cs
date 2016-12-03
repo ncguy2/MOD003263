@@ -20,6 +20,9 @@ namespace Mod003263.wpf {
             WPFMessageBoxForm form = new WPFMessageBoxForm();
             form.SetHeader(data.Header).SetContent(data.Content).SetBtnMask(data.Mask);
             form.SetBtnActions(data.OnLeft, data.OnMid, data.OnRight);
+            form.SetLeftBtnText(data.Left);
+            form.SetMidBtnText(data.Mid);
+            form.SetRightBtnText(data.Right);
             return form;
         }
 
@@ -68,6 +71,9 @@ namespace Mod003263.wpf {
         public Action<WPFMessageBoxForm> OnLeft { get; set; }
         public Action<WPFMessageBoxForm> OnMid { get; set; }
         public Action<WPFMessageBoxForm> OnRight { get; set; }
+        public string Left { get; set; }
+        public string Mid { get; set; }
+        public string Right { get; set; }
     }
 
 }

@@ -33,7 +33,8 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for TemplateEditor.xaml
     /// </summary>
-    public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener {
+    public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener,
+        DeleteFoundationEvent.DeleteFoundationListener {
 
         private List<InterviewFoundation> foundations;
         private VisitableTree<TreeObjectWrapper<InterviewFoundation>> foundationsTree;
@@ -200,6 +201,35 @@ namespace Mod003263.controllerview.view
             RowData d = s?.DataContext as RowData;
             if (d == null) return;
             s.NUDTextBox.Text = d.Metric + "";
+        }
+
+        private void Delete(InterviewFoundation f) {
+            SelectTemplate(null);
+            new DeleteFoundationEvent(f).Fire();
+        }
+
+        private void Btn_Delete_OnClick(object sender, RoutedEventArgs e) {
+            if (selectedTemplate == null) return;
+            WPFMessageBoxFactoryData data = new WPFMessageBoxFactoryData {
+                Header = $"Deleting template {selectedTemplate.Name()}",
+                Content = "Are you sure you wish to delete this template. This operation is irreversable.",
+                Mask = WPFMessageBoxForm.MID | WPFMessageBoxForm.RIGHT,
+                OnMid = form => form.Hide(),
+                OnRight = form => {
+                    Delete(selectedTemplate);
+                    form.Hide();
+                },
+                Mid = "Cancel",
+                Right = "Delete"
+            };
+            WPFMessageBoxFactory.CreateAndShow(data);
+        }
+
+        [Event]
+        public void OnDeleteFoundation(DeleteFoundationEvent e) {
+            if (e.Foundation == null) return;
+            foundations.Remove(e.Foundation);
+            BuildTree();
         }
     }
 

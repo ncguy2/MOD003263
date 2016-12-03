@@ -13,21 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.events;
 using Mod003263.events.io;
 using Mod003263.interview;
 using Mod003263.utils;
+using Mod003263.wpf;
 
 namespace Mod003263.controllerview.view
 {
     /// <summary>
     /// Interaction logic for Positions.xaml
     /// </summary>
-    public partial class Positions : UserControl {
+    public partial class Positions : UserControl, DeletePositionEvent.DeletePositionListener {
 
         private AvailablePosition pos;
         private List<AvailablePosition> positions;
 
         public Positions() {
+            EventBus.GetInstance().Register(this);
             InitializeComponent();
             LoadPositions();
         }
@@ -84,6 +87,34 @@ namespace Mod003263.controllerview.view
                 return;
             }
             RebuildList(SmartSearch.Search(q, positions, AvailablePosition.GetEntities()));
+        }
+
+        private void Delete(AvailablePosition pos) {
+            new DeletePositionEvent(pos).Fire();
+        }
+
+        private void Btn_Delete_OnClick(object sender, RoutedEventArgs e) {
+            if (pos == null) return;
+            if (pos.Id == -1) return;
+            WPFMessageBoxFactoryData data = new WPFMessageBoxFactoryData {
+                Header = $"Deleting Position {pos.Position}",
+                Content = "Are you sure you wish to delete this template. This operation is irreversable.",
+                Mask = WPFMessageBoxForm.MID | WPFMessageBoxForm.RIGHT,
+                OnMid = form => form.Hide(),
+                OnRight = form => {
+                    Delete(pos);
+                    form.Hide();
+                },
+                Mid = "Cancel",
+                Right = "Delete"
+            };
+            WPFMessageBoxFactory.CreateAndShow(data);
+        }
+
+        [Event]
+        public void OnDeletePosition(DeletePositionEvent e) {
+            this.positions.Remove(e.Position);
+            RebuildList();
         }
     }
 }

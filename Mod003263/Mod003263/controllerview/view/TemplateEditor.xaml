@@ -38,7 +38,7 @@
         <Button x:Name="btn_AddQuestion" Content="-&gt;" Margin="0,0,380.589,124" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="Btn_AddQuestion_OnClick"/>
         <Button x:Name="btn_RemoveQuestion" Content="&lt;-" Margin="0,0,380.589,99.04" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="Btn_RemoveQuestion_OnClick"/>
         <Button x:Name="btn_Create" Content="Create Template" HorizontalAlignment="Left" Margin="10,0,0,48.04" VerticalAlignment="Bottom" Width="93.589" Click="btn_Create_Click"/>
-        <Button x:Name="btn_Delete" Content="Delete Selected" HorizontalAlignment="Left" Margin="117.411,0,0,48.04" VerticalAlignment="Bottom" Width="93.589"/>
+        <Button x:Name="btn_Delete" Content="Delete Selected" HorizontalAlignment="Left" Margin="117.411,0,0,48.04" VerticalAlignment="Bottom" Width="93.589" Click="Btn_Delete_OnClick"/>
         <Label x:Name="lbl_Questions" Content="Questions List" HorizontalAlignment="Left" Margin="271.67,67.7,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_InsertQuestion" Content="Questions Selected" HorizontalAlignment="Right" Margin="0,67.7,262.501,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="94" Margin="0,0,109,10" Click="btn_Save_Click" Height="23"/>

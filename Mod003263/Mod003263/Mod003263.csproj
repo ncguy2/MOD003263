@@ -163,6 +163,9 @@
     <Compile Include="events\email\EmailEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
+    <Compile Include="events\io\DeleteFoundationEvent.cs" />
+    <Compile Include="events\io\DeletePositionEvent.cs" />
+    <Compile Include="events\io\DeleteQuestionEvent.cs" />
     <Compile Include="events\io\SaveApplicantEvent.cs" />
     <Compile Include="events\io\SaveFoundationEvent.cs" />
     <Compile Include="events\io\SaveInterviewEvent.cs" />

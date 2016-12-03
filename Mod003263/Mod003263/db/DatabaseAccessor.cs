@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Documents;
 using Mod003263.interview;
 using Mod003263.threading;
+using Newtonsoft.Json;
 
 /**
  * Author: Callum Highley, Nick Guy
@@ -77,16 +78,28 @@ namespace Mod003263.db {
             return DatabaseConnection.GetInstance().ExecuteQuery(q);
         }
 
-        public List<InterviewFoundation> SelectAllInterviewFoundations()
-        {
-            List<InterviewFoundation> foundations = new List<InterviewFoundation>();
-            // TODO replace with actual data
-            foundations.Add(new InterviewFoundation(-1, "Test1", "Test/First"));
-            foundations.Add(new InterviewFoundation(-2, "Test2", "Test/First"));
-            foundations.Add(new InterviewFoundation(-3, "Test3", "Test/Second"));
-            foundations.Add(new InterviewFoundation(-4, "Test4", "Test/Second"));
-            foundations.Add(new InterviewFoundation(-5, "Test5", "Test/Second/Third"));
-            return foundations;
+        public Interview GetInterviewForApplicant(Applicant app) {
+            int appId = app.Id;
+            String query = $"SELECT * FROM interview WHERE Applicant_Id={appId} ORDER BY Interview_ID ASC LIMIT 1";
+            DbDataReader reader = DatabaseConnection.GetInstance().Select(query);
+            if (!reader.Read()) return null;
+            Interview interview = null;
+            InterviewFoundation f =
+                PullInterviewFoundationFromId(reader.GetInt32(reader.GetOrdinal("Foundation_ID")));
+            interview = new Interview(reader.GetInt32(reader.GetOrdinal("Interview_ID")), f);
+            interview.Subject = app;
+            interview.Flag = reader.GetInt32(reader.GetOrdinal("Flag"));
+            interview.SetResultMetric(reader.GetInt16(reader.GetOrdinal("Result")));
+            String answersJson = reader.GetString(reader.GetOrdinal("Answers"));
+            Dictionary<int, int> answersMap = JsonConvert.DeserializeObject<Dictionary<int, int>>(answersJson);
+            Dictionary<Question, Answer> answers = interview.GetFoundationInstance().GetAnswerMap();
+            foreach (KeyValuePair<int, int> pair in answersMap) {
+                Question q = PullSingleQuestionData(pair.Key);
+                Answer a = q?.GetAnswers().Find(ans => ans.Id == pair.Value);
+                if (a == null) continue;
+                answers.Add(q, a);
+            }
+            return interview;
         }
 
         public List<Applicant> PullApplicantData() {
@@ -114,9 +127,32 @@ namespace Mod003263.db {
             return apps;
         }
 
+        public Applicant PullSingleApplicantData(int appId) {
+            DbDataReader applicantReader = DatabaseConnection.GetInstance()
+                .Select("SELECT ApplicantId, FirstName, LastName, ApplyingPosition, PictureCode, Address, Flag, " +
+                        "EmailAddress, PhoneNumber, DateOfBirth, DateOfEntry FROM applicants");
+            while (applicantReader.Read()) {
+                Applicant app = new Applicant {
+                    Id = (int)applicantReader["ApplicantId"],
+                    First_Name = (string)applicantReader["FirstName"],
+                    Last_Name = (string)applicantReader["LastName"],
+                    Applying_Position = (string)applicantReader["ApplyingPosition"],
+                    Picture = (string)applicantReader["PictureCode"],
+                    Address = (string)applicantReader["Address"],
+                    Flag = (int) applicantReader["Flag"],
+                    Phone_Number = (string)applicantReader["PhoneNumber"],
+                    Email = (string)applicantReader["EmailAddress"],
+                    Dob = applicantReader.GetInt64(applicantReader.GetOrdinal("DateOfBirth")),
+                    Doe = applicantReader.GetInt64(applicantReader.GetOrdinal("DateOfEntry"))
+                };
+                applicantReader.Close();
+                return app;
+            }
+            return null;
+        }
 
-        public List<InterviewFoundation> PullInterviewFoundation()
-        {
+
+        public List<InterviewFoundation> PullInterviewFoundation() {
             DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
                 .Select("SELECT Foundation_ID, Name, Category FROM interview_foundation");
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
@@ -135,6 +171,25 @@ namespace Mod003263.db {
             }
 
             return ifound;
+        }
+
+        public InterviewFoundation PullInterviewFoundationFromId(int i) {
+            DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
+                .Select($"SELECT Foundation_ID, Name, Category FROM interview_foundation WHERE Foundation_ID={i}");
+            InterviewFoundation foundation;
+            if(interviewFoundationReader.Read()) {
+                foundation = new InterviewFoundation(
+                    (Int32) interviewFoundationReader["Foundation_ID"],
+                    interviewFoundationReader["Category"].ToString(),
+                    interviewFoundationReader["Name"].ToString());
+            }else return null;
+
+            interviewFoundationReader.Close();
+            int id = foundation.Id();
+            foreach (KeyValuePair<Question, int> pair in PullQuestionDataFromFoundation(id))
+                foundation.GetQuestions().Add(pair.Key, pair.Value);
+
+            return foundation;
         }
 
         public List<KeyValuePair<Question, int>> PullQuestionDataFromFoundation(int id) {
@@ -170,6 +225,20 @@ namespace Mod003263.db {
             foreach (Question question in ques)
                 question.AddAnswers(PullAnswersFromQuestionId(question.Id).ToArray());
             return ques;
+        }
+
+        public Question PullSingleQuestionData(int id) {
+            DbDataReader questionReader = DatabaseConnection.GetInstance()
+                .Select("SELECT Question_ID, Question, Category FROM questions");
+            Question q;
+            if (questionReader.Read()) {
+                q = new Question((Int32) questionReader["Question_ID"]);
+                q.SetText((String) questionReader["Question"]);
+                q.SetCategory((String) questionReader["Category"]);
+            }else return null;
+            questionReader.Close();
+                q.AddAnswers(PullAnswersFromQuestionId(q.Id).ToArray());
+            return q;
         }
 
         //pull the answers from question id, 

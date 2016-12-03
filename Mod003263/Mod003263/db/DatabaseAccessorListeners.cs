@@ -20,7 +20,9 @@ namespace Mod003263.db {
 
     public class DatabaseAccessorListeners : SaveApplicantEvent.SaveApplicantListener,
         SaveFoundationEvent.SaveFoundationListener, SaveQuestionEvent.SaveQuestionListener,
-    SaveInterviewEvent.SaveInterviewListener, SavePositionEvent.SavePositionListener {
+        SaveInterviewEvent.SaveInterviewListener, SavePositionEvent.SavePositionListener,
+        DeleteFoundationEvent.DeleteFoundationListener, DeleteQuestionEvent.DeleteQuestionListener,
+        DeletePositionEvent.DeletePositionListener {
 
         private static DatabaseAccessorListeners instance;
         public static DatabaseAccessorListeners GetInstance() {
@@ -88,6 +90,33 @@ namespace Mod003263.db {
                 else InsertPosition(e.Position);
             }catch (Exception exc) {
                 WPFMessageBoxFactory.Create("Exception from OnSavePosition", exc.Message, 0).Show();
+            }
+        }
+
+        [Event]
+        public void OnDeleteFoundation(DeleteFoundationEvent e) {
+            try {
+                DeleteFoundation(e.Foundation);
+            }catch (Exception exc){
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
+            }
+        }
+
+        [Event]
+        public void OnDeleteQuestion(DeleteQuestionEvent e) {
+            try {
+                DeleteQuestion(e.Question);
+            }catch (Exception exc){
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
+            }
+        }
+
+        [Event]
+        public void OnDeletePosition(DeletePositionEvent e) {
+            try {
+                DeletePosition(e.Position);
+            }catch (Exception exc){
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
             }
         }
 
@@ -170,6 +199,13 @@ namespace Mod003263.db {
 //            }
         }
 
+        private void DeleteFoundation(InterviewFoundation f) {
+            String d1 = $"DELETE FROM interview_foundation WHERE Foundation_ID='{f.Id()}'";
+            String d2 = $"DELETE FROM interview_questions WHERE Foundation_ID='{f.Id()}'";
+            accessor.Delete(d2);
+            accessor.Delete(d1);
+        }
+
         // Question
 
 
@@ -206,6 +242,13 @@ namespace Mod003263.db {
                 string sql = sb.ToString();
                 return sql;
             });
+        }
+
+        private void DeleteQuestion(Question q) {
+            String d1 = $"DELETE FROM questions WHERE Question_ID='{q.Id}'";
+            String d2 = $"DELETE FROM question_answers WHERE Question_ID='{q.Id}'";
+            accessor.Delete(d2);
+            accessor.Delete(d1);
         }
 
         // Interview
@@ -259,6 +302,11 @@ namespace Mod003263.db {
             sb.Append($"('{pos.Position}', '{pos.Seats}')");
             string s = sb.ToString();
             accessor.Insert(s);
+        }
+
+        private void DeletePosition(AvailablePosition pos) {
+            String del = $"DELETE FROM positions WHERE ID='{pos.Id}'";
+            accessor.Delete(del);
         }
 
         #endregion
