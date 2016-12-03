@@ -20,10 +20,11 @@ namespace Mod003263.wpf.controls
     /// <summary>
     /// Interaction logic for ApplicantDetails.xaml
     /// </summary>
-    public partial class ApplicantDetails : UserControl, HireEvent.HireListener {
+    public partial class ApplicantDetails : UserControl, HireEvent.HireListener, DenyEvent.DenyListener {
 
         public event EventHandler CallbackButtonClicked;
         public event EventHandler HireButtonClicked;
+        public event EventHandler DenyButtonClicked;
 
         public Applicant Applicant { get; set; }
 
@@ -40,11 +41,7 @@ namespace Mod003263.wpf.controls
             HireButtonClicked?.Invoke(this, e);
         }
 
-        public void PopulateDetails(Applicant applicant) {
-            PopulateDetails(applicant, false);
-        }
-
-        public void PopulateDetails(Applicant applicant, bool isHired) {
+        public void PopulateDetails(Applicant applicant, bool isHired = false, bool isDenied = false) {
             this.Applicant = applicant;
             if (applicant == null)
                 isHired = true;
@@ -53,14 +50,27 @@ namespace Mod003263.wpf.controls
                 brush.ImageSource = Base64Converter.GetInstance().ConvertToBitmapImage(applicant?.Picture);
             lbl_FullName.Content = applicant != null ? applicant.Full_Name : "";
             lbl_position.Content = applicant != null ? applicant.Applying_Position : "";
-            btn_hire.IsEnabled = !isHired;
             btn_callback.IsEnabled = applicant != null;
+            btn_hire.IsEnabled = !isHired && !isDenied;
+            btn_deny.IsEnabled = !isHired && !isDenied;
+        }
+
+        private void Btn_deny_OnClick(object sender, RoutedEventArgs e) {
+            DenyButtonClicked?.Invoke(this, e);
         }
 
         [Event]
         public void OnHire(HireEvent e) {
-            if (e.Applicant == Applicant)
-                btn_hire.IsEnabled = false;
+            if (e.Applicant != Applicant) return;
+            btn_hire.IsEnabled = false;
+            btn_deny.IsEnabled = false;
+        }
+
+        [Event]
+        public void OnDeny(DenyEvent e) {
+            if (e.Applicant != Applicant) return;
+            btn_hire.IsEnabled = false;
+            btn_deny.IsEnabled = false;
         }
     }
 }

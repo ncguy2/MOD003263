@@ -19,6 +19,7 @@
         <Label x:Name="lbl_FullName" Content="{}{Full__Name}" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="128" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Height="26"/>
         <Button x:Name="btn_callback" Content="Back" Margin="10,10,10,0" Height="23" VerticalAlignment="Top" Click="btn_callback_Click"/>
         <Button x:Name="btn_hire" Content="Hire" Margin="10,43,10,0" Height="23" VerticalAlignment="Top" Click="Btn_hire_OnClick"/>
+        <Button x:Name="btn_deny" Content="Deny" Margin="10,76,10,0" Height="23" VerticalAlignment="Top" Click="Btn_deny_OnClick"/>
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="25.96" Margin="10,0,0,136.04" VerticalAlignment="Bottom" Width="208.542">
             <Label x:Name="label" Content="Applying for the position of" Margin="0,0,52.315,0" d:LayoutOverrides="Width, Height"/>
             <Label x:Name="lbl_position" Content="{}{Position}" HorizontalAlignment="Right" d:LayoutOverrides="Height"/>

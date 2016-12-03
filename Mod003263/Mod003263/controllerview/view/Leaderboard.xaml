@@ -203,7 +203,7 @@
             </Grid.RenderTransform>
             <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top"
                 Width="786" Grid.ColumnSpan="2" CallbackButtonClicked="app_details_CallbackButtonClicked"
-                HireButtonClicked="App_details_OnHireButtonClicked" d:IsHidden="True" />
+                HireButtonClicked="App_details_OnHireButtonClicked" DenyButtonClicked="App_details_OnDenyButtonClicked" d:IsHidden="True" />
         </Grid>
         <Grid Visibility="Hidden" Width="{Binding ElementName=lst_appSummary, Path=ActualWidth}">
             <Grid.ColumnDefinitions>

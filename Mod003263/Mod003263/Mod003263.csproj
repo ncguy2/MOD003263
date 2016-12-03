@@ -160,6 +160,7 @@
     <Compile Include="db\DbFactory.cs" />
     <Compile Include="email\EmailHandler.cs" />
     <Compile Include="events\AbstractEvent.cs" />
+    <Compile Include="events\DenyEvent.cs" />
     <Compile Include="events\email\EmailEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />

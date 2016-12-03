@@ -26,11 +26,12 @@ namespace Mod003263.controllerview.view {
     /// Interaction logic for Leaderboard.xaml
     /// </summary>
     public partial class Leaderboard : UserControl, SelectApplicantEvent.SelectApplicantListener,
-        HireEvent.HireListener {
+        HireEvent.HireListener, DenyEvent.DenyListener {
 
         private List<Applicant> apps;
         private List<AvailablePosition> poss;
         private List<Applicant> hired;
+        private List<Applicant> denied;
 
         public Leaderboard() {
             EventBus.GetInstance().Register(this);
@@ -40,6 +41,7 @@ namespace Mod003263.controllerview.view {
 
         public void Init() {
             hired = new List<Applicant>();
+            denied = new List<Applicant>();
             FlagManager fm = FlagManager.GetInstance();
             DatabaseAccessor.GetInstance().UsingApplicantData(apps => {
                 this.apps = new List<Applicant>();
@@ -106,7 +108,7 @@ namespace Mod003263.controllerview.view {
         [Event]
         public void OnSelectApplicant(SelectApplicantEvent e) {
             if (!e.Scope.Equals(SelectApplicantScopes.APPLICANT_RANKING)) return;
-            app_details.PopulateDetails(e.Selected, hired.Contains(e.Selected));
+            app_details.PopulateDetails(e.Selected, hired.Contains(e.Selected), denied.Contains(e.Selected));
             OpenApplicantDetails();
         }
 
@@ -133,9 +135,22 @@ namespace Mod003263.controllerview.view {
                 return;
             }
             pos.Seats--;
-            app.Flag = app.Flag | ApplicantFlags.HIRED;
+            app.Flag = app.Flag | ApplicantFlags.FINISHED | ApplicantFlags.HIRED;
             new SavePositionEvent(pos).Fire();
+            new SaveApplicantEvent(app).Fire();
             new HireEvent(app, pos).Fire();
+        }
+
+        private void App_details_OnDenyButtonClicked(object sender, EventArgs e) {
+            ApplicantDetails details = sender as ApplicantDetails;
+            Applicant app = details?.Applicant;
+            if (app == null) {
+                WPFMessageBoxFactory.CreateAndShow("Error", "Unable to find applicant", 0);
+                return;
+            }
+            app.Flag = app.Flag | ApplicantFlags.FINISHED;
+            new SaveApplicantEvent(app).Fire();
+            new DenyEvent(app).Fire();
         }
 
         [Event]
@@ -144,6 +159,11 @@ namespace Mod003263.controllerview.view {
             if (e.Position.Seats <= 0)
                 this.poss.Remove(e.Position);
             RebuildPositionsList();
+        }
+
+        [Event]
+        public void OnDeny(DenyEvent e) {
+            denied.Add(e.Applicant);
         }
     }
 }
