@@ -52,6 +52,12 @@ namespace Mod003263.utils {
             return def;
         }
 
+        public static bool CheckProperty(string q, string p) {
+            if(p.Length > q.Length)
+                p = p.Substring(0, q.Length);
+            return q.Equals(p, StringComparison.OrdinalIgnoreCase);
+        }
+
     }
 
     /// <summary>

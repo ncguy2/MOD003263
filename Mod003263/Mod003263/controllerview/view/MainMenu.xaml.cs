@@ -39,11 +39,10 @@ namespace Mod003263.controllerview.view
         }
 
         [Event]
-        public void OnBack(BackEvent e)
-        {
+        public void OnBack(BackEvent e) {
             interview_Press_BeginStoryboard.Storyboard.Seek(TimeSpan.Zero, TimeSeekOrigin.BeginTime);
             interview_Press_BeginStoryboard.Storyboard.Stop();
-
+            question_Close_BeginStoryboard.Storyboard.Begin();
         }
 
         private void interview_Back_Click(object sender, RoutedEventArgs e)

@@ -58,38 +58,32 @@ namespace Mod003263.db {
                    });
         }
 
-        private static bool CheckProperty(string q, string p) {
-            if(p.Length > q.Length)
-                p = p.Substring(0, q.Length);
-            return q.Equals(p, StringComparison.OrdinalIgnoreCase);
-        }
-
         public static bool CheckName(string q, Applicant a) {
             return CheckFirstName(q, a) || CheckLastName(q, a);
         }
 
         public static bool CheckFirstName(string q, Applicant a) {
-            return CheckProperty(q, a.First_Name);
+            return SmartSearch.CheckProperty(q, a.First_Name);
         }
 
         public static bool CheckLastName(string q, Applicant a) {
-            return CheckProperty(q, a.Last_Name);
+            return SmartSearch.CheckProperty(q, a.Last_Name);
         }
 
         public static bool CheckPosition(string q, Applicant a) {
-            return CheckProperty(q, a.Applying_Position);
+            return SmartSearch.CheckProperty(q, a.Applying_Position);
         }
 
         public static bool CheckEmail(string q, Applicant a) {
-            return CheckProperty(q, a.Email);
+            return SmartSearch.CheckProperty(q, a.Email);
         }
 
         public static bool CheckAddress(string q, Applicant a) {
-            return CheckProperty(q, a.Address);
+            return SmartSearch.CheckProperty(q, a.Address);
         }
 
         public static bool CheckPhoneNumber(string q, Applicant a) {
-            return CheckProperty(q, a.Phone_Number);
+            return SmartSearch.CheckProperty(q, a.Phone_Number);
         }
 
     }

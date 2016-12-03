@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Mod003263.db;
 using Mod003263.events.io;
 using Mod003263.interview;
+using Mod003263.utils;
 
 namespace Mod003263.controllerview.view
 {
@@ -24,6 +25,7 @@ namespace Mod003263.controllerview.view
     public partial class Positions : UserControl {
 
         private AvailablePosition pos;
+        private List<AvailablePosition> positions;
 
         public Positions() {
             InitializeComponent();
@@ -32,12 +34,21 @@ namespace Mod003263.controllerview.view
 
         private void LoadPositions() {
             DatabaseAccessor.GetInstance().UsingAllPositions(list => {
-                lst_Positions.Items.Clear();
-                foreach (AvailablePosition pos in list)
-                    lst_Positions.Items.Add(pos);
-                lst_Positions.Items.Add(new AvailablePosition{Id=-1, Position = "[New Position]", Seats=0});
+                positions = list;
+                RebuildList();
             });
+        }
 
+        private void RebuildList() {
+            RebuildList(this.positions);
+        }
+
+        private void RebuildList(IEnumerable<AvailablePosition> positions) {
+            lst_Positions.UnselectAll();
+            lst_Positions.Items.Clear();
+            foreach (AvailablePosition pos in positions)
+                lst_Positions.Items.Add(pos);
+            lst_Positions.Items.Add(new AvailablePosition{Id=-1, Position = "[New Position]", Seats=0});
         }
 
         private void SelectPosition(AvailablePosition pos) {
@@ -53,8 +64,26 @@ namespace Mod003263.controllerview.view
             SelectPosition(pos);
         }
 
+        private void CascadeData() {
+            if (this.pos == null) return;
+            this.pos.Position = txt_Position.Text;
+            this.pos.Seats = spn_Seats.GetNumericValue();
+        }
+
         private void Btn_SavePosition_OnClick(object sender, RoutedEventArgs e) {
+            if (this.pos == null) return;
+            CascadeData();
             new SavePositionEvent(this.pos).Fire();
+            LoadPositions();
+        }
+
+        private void Txt_search_OnTextChanged(object sender, TextChangedEventArgs e) {
+            string q = txt_search.Text.ToLower();
+            if (q.Length <= 0) {
+                RebuildList();
+                return;
+            }
+            RebuildList(SmartSearch.Search(q, positions, AvailablePosition.GetEntities()));
         }
     }
 }

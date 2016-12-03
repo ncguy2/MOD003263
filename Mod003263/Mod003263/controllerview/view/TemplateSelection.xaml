@@ -160,13 +160,15 @@
 
     </UserControl.Triggers>
     <Grid>
-        <TreeView x:Name="tr_TemplateSelect" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261" SelectedItemChanged="tr_TemplateSelect_OnSelectedItemChanged"/>
+        <TreeView x:Name="tr_TemplateSelect" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261"
+            SelectedItemChanged="tr_TemplateSelect_OnSelectedItemChanged" />
         <Label x:Name="lbl_TemplateSelected" Content="Template:" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_TemplateSelected" Height="23" Margin="382.91,12.96,462.679,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <ListView x:Name="lv_Questions" Margin="316,40.96,117.679,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Question" DisplayMemberBinding="{Binding QuestionText}" Width="{Binding ElementName=helper_col1, Path=ActualWidth}"/>
+                    <GridViewColumn Header="Metric" DisplayMemberBinding="{Binding Metric}" Width="{Binding ElementName=helper_col2, Path=ActualWidth}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -175,5 +177,13 @@
         <Label x:Name="lbl_TemplateSelect" Content="Choose a Template" HorizontalAlignment="Left" Margin="10,12.96,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Start" Content="Start Interview" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="102.679" Height="36.96"/>
         <local:Interview x:Name="interview" Opacity="0" Visibility="Hidden"/>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lv_Questions, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+        </Grid>
     </Grid>
 </UserControl>

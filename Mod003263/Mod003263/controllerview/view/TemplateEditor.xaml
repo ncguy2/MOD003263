@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Mod003263.controllerview.view"
+             xmlns:wpf="clr-namespace:Mod003263.wpf"
+             xmlns:controls="clr-namespace:Mod003263.wpf.controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Height="338" Width="965.589">
     <Grid>
@@ -12,22 +14,44 @@
         <Label x:Name="lbl_Category" Content="Category" HorizontalAlignment="Left" Margin="245.247,12.96,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14"/>
         <TextBox x:Name="txt_TemplateName" Height="23" Margin="0,40.96,140.339,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
         <Label x:Name="lbl_TemplateName" Content="Template Name" HorizontalAlignment="Right" Margin="0,35.34,265.338,0" VerticalAlignment="Top" FontSize="14"/>
-        <TreeView x:Name="tr_Questions" Margin="271.67,93.66,460.589,10"/>
-        <ListView x:Name="tr_InsertQuestions" HorizontalAlignment="Right" Margin="0,93.66,108.589,10" Width="267">
+        <TreeView x:Name="tr_Questions" Margin="272,94,461,38"/>
+        <ListView x:Name="lst_InsertQuestions" HorizontalAlignment="Right" Margin="0,94,10,38" Width="366">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
+                <GridView >
+                    <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}"
+                                    Width="{Binding ElementName=helper_col1, Path=ActualWidth}"/>
+                    <GridViewColumn Header="Question" DisplayMemberBinding="{Binding QuestionText}"
+                        Width="{Binding ElementName=helper_col2, Path=ActualWidth}"/>
+                    <GridViewColumn Header="Weight" Width="{Binding ElementName=helper_col3, Path=ActualWidth}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="local:RowData">
+                                <StackPanel Orientation="Vertical" >
+                                    <controls:Spinner StartValue="{Binding Metric}" Width="{Binding ElementName=helper_col3, Path=ActualWidth,
+                                        Converter={wpf:MathsConverter}, ConverterParameter=x-12}" MinValue="0" MaxValue="128" SpinnerValueChanged="Spinner_OnSpinnerValueChanged" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btn_AddQuestion" Content="-&gt;" Margin="0,0,380.589,124" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
-        <Button x:Name="btn_RemoveQuestion" Content="&lt;-" Margin="0,0,380.589,99.04" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+        <Button x:Name="btn_AddQuestion" Content="-&gt;" Margin="0,0,380.589,124" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="Btn_AddQuestion_OnClick"/>
+        <Button x:Name="btn_RemoveQuestion" Content="&lt;-" Margin="0,0,380.589,99.04" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="Btn_RemoveQuestion_OnClick"/>
         <Button x:Name="btn_Create" Content="Create Template" HorizontalAlignment="Left" Margin="10,0,0,48.04" VerticalAlignment="Bottom" Width="93.589" Click="btn_Create_Click"/>
         <Button x:Name="btn_Delete" Content="Delete Selected" HorizontalAlignment="Left" Margin="117.411,0,0,48.04" VerticalAlignment="Bottom" Width="93.589"/>
-        <Button x:Name="btn_SaveExit" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,0,10,38.03" VerticalAlignment="Bottom" Width="93.589"/>
         <Label x:Name="lbl_Questions" Content="Questions List" HorizontalAlignment="Left" Margin="271.67,67.7,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_InsertQuestion" Content="Questions Selected" HorizontalAlignment="Right" Margin="0,67.7,262.501,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93.589" Margin="0,0,10,62.99" Click="btn_Save_Click"/>
-        <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93.589" Margin="0,0,10,13.07"/>
+        <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="94" Margin="0,0,109,10" Click="btn_Save_Click" Height="23"/>
+        <Button x:Name="btn_Exit" Content="Save and Exit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="94" Margin="0,0,10,10" Height="23"/>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=tr_InsertQuestions, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+            <Grid Grid.Column="2" x:Name="helper_col3"/>
+        </Grid>
     </Grid>
 </UserControl>

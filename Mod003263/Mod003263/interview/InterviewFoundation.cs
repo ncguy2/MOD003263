@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /**
  *  Author: Nick Guy
@@ -19,10 +20,10 @@ namespace Mod003263.interview {
 
         public InterviewFoundation() : this(-1, "", "") {}
 
-        public InterviewFoundation(int id, String category, String name){
+        public InterviewFoundation(int id, String name, String category){
             this.id = id;
-            this.category = category;
             this.name = name;
+            this.category = category;
             questions = new Dictionary<Question, Int32>();
         }
 
@@ -34,6 +35,14 @@ namespace Mod003263.interview {
             return this.questions;
         }
 
+        public int GetQuestionsWeight() {
+            return GetQuestions().Sum(pair => pair.Value);
+        }
+
+        public override string ToString() {
+            return Name();
+        }
+
         public String Name() { return name; }
         public String Cat() { return category; }
         public String Path() { return Cat() + "/" + Name(); }
@@ -43,6 +52,22 @@ namespace Mod003263.interview {
 
         public int Id() { return id; }
 
+        protected bool Equals(InterviewFoundation other) {
+            return id == other.id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((InterviewFoundation) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return id;
+        }
     }
 
 }

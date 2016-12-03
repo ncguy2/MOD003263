@@ -81,10 +81,10 @@ namespace Mod003263.db {
             List<InterviewFoundation> foundations = new List<InterviewFoundation>();
             // TODO replace with actual data
             foundations.Add(new InterviewFoundation(-1, "Test1", "Test/First"));
-            foundations.Add(new InterviewFoundation(-1, "Test2", "Test/First"));
-            foundations.Add(new InterviewFoundation(-1, "Test3", "Test/Second"));
-            foundations.Add(new InterviewFoundation(-1, "Test4", "Test/Second"));
-            foundations.Add(new InterviewFoundation(-1, "Test5", "Test/Second/Third"));
+            foundations.Add(new InterviewFoundation(-2, "Test2", "Test/First"));
+            foundations.Add(new InterviewFoundation(-3, "Test3", "Test/Second"));
+            foundations.Add(new InterviewFoundation(-4, "Test4", "Test/Second"));
+            foundations.Add(new InterviewFoundation(-5, "Test5", "Test/Second/Third"));
             return foundations;
         }
 
@@ -128,9 +128,11 @@ namespace Mod003263.db {
             }
             interviewFoundationReader.Close();
             foreach (InterviewFoundation interviewFoundation in ifound)
-            {
                 interviewFoundation.GetQuestions();
-            }
+
+//             TODO remove once db is populated
+//            ifound.AddRange(SelectAllInterviewFoundations());
+
             return ifound;
 
         }

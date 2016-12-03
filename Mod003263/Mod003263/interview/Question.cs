@@ -52,5 +52,9 @@ namespace Mod003263.interview {
             this.category = cat;
         }
 
+        public override string ToString()
+        {
+            return Text();
+        }
     }
 }

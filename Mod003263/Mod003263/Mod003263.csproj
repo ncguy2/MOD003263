@@ -160,9 +160,6 @@
     <Compile Include="db\DbFactory.cs" />
     <Compile Include="email\EmailHandler.cs" />
     <Compile Include="events\AbstractEvent.cs" />
-    <Compile Include="events\db\SaveInterviewEvent.cs" />
-    <Compile Include="events\db\SaveQuestionEvent.cs" />
-    <Compile Include="events\db\SaveTemplateEvent.cs" />
     <Compile Include="events\email\EmailEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
@@ -197,6 +194,7 @@
     <Compile Include="utils\ConversionUtils.cs" />
     <Compile Include="utils\FixedSizedQueue.cs" />
     <Compile Include="utils\SearchUtils.cs" />
+    <Compile Include="visitor\TreeViewPopulator.cs" />
     <Compile Include="wpf\Base64Converter.cs" />
     <Compile Include="wpf\controls\AnswerRow.xaml.cs">
       <DependentUpon>AnswerRow.xaml</DependentUpon>
@@ -210,6 +208,7 @@
     <Compile Include="wpf\controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wpf\MathsConverter.cs" />
     <Compile Include="wpf\WPFMessageBoxErrorForm.xaml.cs">
       <DependentUpon>WPFMessageBoxErrorForm.xaml</DependentUpon>
     </Compile>
@@ -306,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllerview\breadcrumb\" />
+    <Folder Include="events\db" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -64,8 +64,8 @@ namespace Mod003263.db {
         [Event]
         public void OnSaveQuestion(SaveQuestionEvent e) {
             try {
-                if (e.Question.Id > 0) UpdateQuestion(e.Question);
-                else InsertQuestion(e.Question);
+                if (e.Payload.Id > 0) UpdateQuestion(e.Payload);
+                else InsertQuestion(e.Payload);
             }catch (Exception exc) {
                 WPFMessageBoxFactory.Create("Exception from OnSaveQuestion", exc.Message, 0).Show();
             }
@@ -199,7 +199,8 @@ namespace Mod003263.db {
                 StringBuilder sb = new StringBuilder();
                 sb.Append("INSERT INTO question_answers (Question_ID, Value, Weight) ");
                 sb.Append($"VALUES ('{q.Id}', '{a.Text}', '{a.Weight}')");
-                return sb.ToString();
+                string sql = sb.ToString();
+                return sql;
             });
         }
 
