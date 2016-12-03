@@ -90,7 +90,9 @@ namespace Mod003263.db {
 
     public class ApplicantFlags {
 
-        public const int HIRED = 1;
+        public const int COMPLETE = 1;
+        public const int FINISHED = 2;
+        public const int HIRED = 4;
 
     }
 

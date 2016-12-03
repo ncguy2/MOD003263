@@ -16,6 +16,7 @@ using Mod003263.events;
 using Mod003263.events.io;
 using Mod003263.events.ui;
 using Mod003263.interview;
+using Mod003263.model;
 using Mod003263.utils;
 using Mod003263.wpf;
 using Mod003263.wpf.controls;
@@ -39,8 +40,17 @@ namespace Mod003263.controllerview.view {
 
         public void Init() {
             hired = new List<Applicant>();
+            FlagManager fm = FlagManager.GetInstance();
             DatabaseAccessor.GetInstance().UsingApplicantData(apps => {
-                this.apps = apps;
+                this.apps = new List<Applicant>();
+                foreach (Applicant app in apps) {
+                    // Has completed their interview
+                    if (fm.IsFlagged(app.Flag, ApplicantFlags.COMPLETE)) {
+                        // But no decision has been made
+                        if (!fm.IsFlagged(app.Flag, ApplicantFlags.FINISHED))
+                            this.apps.Add(app);
+                    }
+                }
                 RebuildList();
             });
             DatabaseAccessor.GetInstance().UsingAvailablePositions(poss => {
