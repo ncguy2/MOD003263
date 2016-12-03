@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Mod003263.db;
 using Mod003263.events;
+using Mod003263.events.io;
 using Mod003263.events.ui;
 using Mod003263.interview;
 using Mod003263.utils;
@@ -123,6 +124,7 @@ namespace Mod003263.controllerview.view {
             }
             pos.Seats--;
             app.Flag = app.Flag | ApplicantFlags.HIRED;
+            new SavePositionEvent(pos).Fire();
             new HireEvent(app, pos).Fire();
         }
 
