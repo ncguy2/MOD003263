@@ -147,16 +147,14 @@ namespace Mod003263.db {
             return id as int? ?? 0;
         }
 
-        public string Escape(string q) {
-
-        }
-
-        public int ExecuteParameterQuery(string query, params object[] args) {
+        public int ExecuteParameterQuery(string query, params KeyValuePair<string, object>[] args) {
             //open connection
             if (!OpenConnection()) return -1;
             //create command and assign the query and connection from the constructor
             DbCommand cmd = factory.CreateCommand(query, connection);
-            cmd.Parameters.Add(args);
+            foreach (KeyValuePair<string, object> o in args)
+                cmd.Parameters.Add(factory.CreateParameter(o.Key, o.Value, connection));
+            cmd.Prepare();
             //Execute command
             int rows = cmd.ExecuteNonQuery();
             //close connection

@@ -202,6 +202,7 @@
     <Compile Include="threading\ThreadFactory.cs" />
     <Compile Include="utils\ConversionUtils.cs" />
     <Compile Include="utils\FixedSizedQueue.cs" />
+    <Compile Include="utils\RegexUtilities.cs" />
     <Compile Include="utils\SearchUtils.cs" />
     <Compile Include="visitor\TreeViewPopulator.cs" />
     <Compile Include="wpf\Base64Converter.cs" />

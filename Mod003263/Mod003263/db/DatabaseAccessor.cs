@@ -55,8 +55,8 @@ namespace Mod003263.db {
 
         public int LatestId(string query, string id = "ID") { return DatabaseConnection.GetInstance().GetLatestId(query, id); }
 
-        public string Escape(string q) {
-            return DatabaseConnection.GetInstance().Escape(q);
+        public int NonQueryParameters(string q, params KeyValuePair<string, object>[] args) {
+            return DatabaseConnection.GetInstance().ExecuteParameterQuery(q, args);
         }
 
         public int InsertBatch<T>(List<T> list, Func<T, string> queryBuilder) {
@@ -105,6 +105,7 @@ namespace Mod003263.db {
             String answersJson = reader.GetString(reader.GetOrdinal("Answers"));
             Dictionary<int, int> answersMap = JsonConvert.DeserializeObject<Dictionary<int, int>>(answersJson);
             Dictionary<Question, Answer> answers = interview.GetFoundationInstance().GetAnswerMap();
+
             foreach (KeyValuePair<int, int> pair in answersMap) {
                 Question q = PullSingleQuestionData(pair.Key);
                 Answer a = q?.GetAnswers().Find(ans => ans.Id == pair.Value);
@@ -243,7 +244,7 @@ namespace Mod003263.db {
 
         public Question PullSingleQuestionData(int id) {
             DbDataReader questionReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Question_ID, Question, Category FROM questions");
+                .Select($"SELECT Question_ID, Question, Category FROM questions WHERE Question_ID={id}");
             Question q;
             if (questionReader.Read()) {
                 q = new Question((Int32) questionReader["Question_ID"]);

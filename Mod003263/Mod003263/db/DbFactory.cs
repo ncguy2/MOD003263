@@ -93,5 +93,14 @@ namespace Mod003263.db {
             return "Data Source=" + host + ";Version=3";
         }
 
+        public DbParameter CreateParameter(string name, object o, DbConnection conn) {
+            if (conn is MySqlConnection)
+                return new MySqlParameter(name, o);
+            if(conn is OleDbConnection)
+                return new OleDbParameter(name, o);
+            if (conn is SQLiteConnection)
+                return new SQLiteParameter(name, o);
+            return null;
+        }
     }
 }

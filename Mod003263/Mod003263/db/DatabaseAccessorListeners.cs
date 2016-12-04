@@ -267,9 +267,9 @@ namespace Mod003263.db {
             sb.Append($"Applicant_Id='{i.Subject.Id}', ");
             sb.Append($"Flag='{i.Flag}', ");
             sb.Append($"Result='{i.GetResultMetric()}', ");
-            sb.Append($"Answers='{answerJson}' ");
+            sb.Append($"Answers=@answers ");
             sb.Append($"WHERE Question_ID='{i.ID}'");
-            accessor.Update(sb.ToString());
+            accessor.NonQueryParameters(sb.ToString(), new KeyValuePair<string, object>("@answers", answerJson));
         }
 
         private void InsertInterview(Interview i) {
@@ -281,9 +281,11 @@ namespace Mod003263.db {
 
             StringBuilder sb = new StringBuilder();
             sb.Append("INSERT INTO interview (Foundation_ID, Applicant_Id, Flag, Result, Answers) VALUES ");
-            sb.Append($"('{fId}', '{i.Subject.Id}', '{i.Flag}', '{i.GetResultMetric()}', '{answerJson}'");
+            sb.Append($"('{fId}', '{i.Subject.Id}', '{i.Flag}', '{i.GetResultMetric()}', @answers)");
 
-            accessor.Insert(sb.ToString());
+            string sql = sb.ToString();
+            WPFMessageBoxFactory.CreateAndShow("Query", sql, 0);
+            accessor.NonQueryParameters(sql, new KeyValuePair<string, object>("@answers", answerJson));
         }
 
         // Position

@@ -17,6 +17,7 @@ using Mod003263.db;
 using Mod003263.events;
 using Mod003263.events.io;
 using Mod003263.interview;
+using Mod003263.interview.metric;
 using Mod003263.wpf;
 
 /**
@@ -49,6 +50,8 @@ namespace Mod003263.controllerview.view
         }
 
         private void btn_Confirm_Click(object sender, RoutedEventArgs e) {
+            Dictionary<Question, Answer> m = interview.GetFoundationInstance().GetAnswerMap();
+            m.Add(currentQuestion, currentAnswer);
             Advance();
         }
 
@@ -98,6 +101,7 @@ namespace Mod003263.controllerview.view
                 OnMid = AnotherInterview_DifferentSet,
                 OnRight = ReviewInterviews
             };
+            new MetricCalculator().CalculateMetric(interview);
             new SaveInterviewEvent(interview).Fire();
             new SaveApplicantEvent(applicant).Fire();
             WPFMessageBoxFactory.CreateAndShow(d);
@@ -138,6 +142,7 @@ namespace Mod003263.controllerview.view
         }
 
         private void SetCurrentAnswer(Answer a) {
+            currentAnswer = a;
             btn_Confirm.Content = $"Confirm Selected Answer: {a?.Text}";
         }
 

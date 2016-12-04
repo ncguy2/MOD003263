@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
 using Mod003263.interview;
+using Mod003263.model;
 using Mod003263.utils;
 using Utils.Tree.Builder;
 using Utils.Tree;
@@ -54,6 +55,7 @@ namespace Mod003263.controllerview.view
                     aData = list;
                     Rebuild();
                 });
+                new SelectApplicantEvent(SelectApplicantScopes.APPLICANT_USAGE).Fire();
             }catch (Exception e) {
                 WPFMessageBoxFactory.Create("Exception", e.Message, 0).Show();
             }
@@ -67,6 +69,7 @@ namespace Mod003263.controllerview.view
             try {
                 lst_Applicants.Items.Clear();
                 foreach (Applicant applicant in applicants) {
+                    if (FlagManager.GetInstance().IsFlagged(applicant.Flag, ApplicantFlags.COMPLETE)) continue;
                     if (selectedTemplate.Position.Equals(applicant.Applying_Position))
                         AddApplicantRow(applicant);
                 }
@@ -99,15 +102,14 @@ namespace Mod003263.controllerview.view
 
         private void SelectApplicant(Applicant a) {
             this.selectedApplicant = a;
-            if (this.selectedApplicant == null) return;
-            txt_Address.Text = a.Address;
-            txt_ApplicantID.Text = a.Id + "";
-            txt_ApplyingPosition.Text = a.Applying_Position;
-            txt_BirthDate.Text = a.Dob + "";
-            txt_EntryDate.Text = a.Doe + "";
-            txt_Email.Text = a.Email;
-            txt_PhoneNumber.Text = a.Phone_Number + "";
-            txt_FullName.Text = a.Full_Name;
+            txt_Address.Text = a?.Address+"";
+            txt_ApplicantID.Text = a?.Id + "";
+            txt_ApplyingPosition.Text = a?.Applying_Position+"";
+            txt_BirthDate.Text = a?.Dob + "";
+            txt_EntryDate.Text = a?.Doe + "";
+            txt_Email.Text = a?.Email+"";
+            txt_PhoneNumber.Text = a?.Phone_Number + "";
+            txt_FullName.Text = a?.Full_Name+"";
             ImageBrush brush = b_ApplicantSummary.Background as ImageBrush;
             if (brush == null)
                 b_ApplicantSummary.Background = brush = new ImageBrush();
@@ -137,11 +139,13 @@ namespace Mod003263.controllerview.view
         [Event]
         public void OnInterviewToTemplate(InterviewToTemplateEvent e) {
             SubMenu_Proceed_Reverse_BeginStoryboard.Storyboard.Begin();
+            OnInitialization();
         }
 
         [Event]
         public void OnInterviewToApplicant(InterviewToApplicantEvent e) {
             SubMenu_Proceed_Reverse_BeginStoryboard.Storyboard.Begin();
+            OnInitialization();
         }
     }
 

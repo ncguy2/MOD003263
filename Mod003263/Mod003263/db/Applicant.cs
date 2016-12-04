@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Mod003263.controllerview.view;
 using Mod003263.utils;
 using Mod003263.wpf;
 
@@ -40,7 +41,12 @@ namespace Mod003263.db {
         public long Doe { get { return m_Doe; } set { m_Doe = value; } }
 
         public String Full_Name => First_Name + " " + Last_Name;
-        
+
+        private interview.Interview interview;
+
+        public interview.Interview GetInterview() {
+            return interview ?? (interview = DatabaseAccessor.GetInstance().GetInterviewForApplicant(this));
+        }
 
         // Applicant SmartSearch entity methods
 

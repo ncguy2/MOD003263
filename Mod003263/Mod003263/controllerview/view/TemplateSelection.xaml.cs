@@ -120,6 +120,7 @@ namespace Mod003263.controllerview.view {
         [Event]
         public void OnInterviewToTemplate(InterviewToTemplateEvent e) {
             Interview_Reverse_BeginStoryboard.Storyboard.Begin();
+            OnInitialization();
         }
     }
 

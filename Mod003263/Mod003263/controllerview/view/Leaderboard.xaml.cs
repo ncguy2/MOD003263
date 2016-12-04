@@ -39,8 +39,6 @@ namespace Mod003263.controllerview.view {
 
         private Applicant macroTarget;
 
-        private Dictionary<Applicant, interview.Interview> interviewMap;
-
         public Leaderboard() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
@@ -56,7 +54,6 @@ namespace Mod003263.controllerview.view {
         public void Init() {
             hired = new List<Applicant>();
             denied = new List<Applicant>();
-            interviewMap = new Dictionary<Applicant, interview.Interview>();
             FlagManager fm = FlagManager.GetInstance();
             DatabaseAccessor.GetInstance().UsingApplicantData(apps => {
                 this.apps = new List<Applicant>();
@@ -78,11 +75,8 @@ namespace Mod003263.controllerview.view {
 
         private void PopulateInterviewMap() {
             DatabaseAccessor db = DatabaseAccessor.GetInstance();
-            foreach (Applicant app in apps) {
-                db.UsingInterviewForApplicant(app, interview => {
-                    interviewMap.Add(app, interview);
-                });
-            }
+            foreach (Applicant app in apps)
+                app.GetInterview();
         }
 
         private void RebuildPositionsList() {
@@ -103,8 +97,8 @@ namespace Mod003263.controllerview.view {
             lst_appSummary.Items.Clear();
             foreach (Applicant applicant in apps) {
                 int metric = -1;
-                if (interviewMap.ContainsKey(applicant))
-                    metric = (int) interviewMap[applicant].GetResultMetric();
+                float? resultMetric = applicant?.GetInterview().GetResultMetric();
+                if (resultMetric != null) metric = (int) resultMetric;
                 lst_appSummary.Items.Add(new ApplicantRowData(applicant) {Metric = metric});
             }
         }
@@ -133,7 +127,7 @@ namespace Mod003263.controllerview.view {
         }
 
         private void HandleEmail(FeedbackFactory ff, Applicant app, string subject, string header = "") {
-            Dictionary<Question, string> feedback = ff.GenerateMassFeedback(interviewMap[app]);
+            Dictionary<Question, string> feedback = ff.GenerateMassFeedback(app.GetInterview());
             StringBuilder sb = new StringBuilder();
             if (header.Length > 0)
                 sb.Append(header).Append("\n\n");
@@ -141,11 +135,16 @@ namespace Mod003263.controllerview.view {
                 foreach (string feedbackValue in feedback.Values)
                     sb.Append(feedbackValue).Append("\n");
             }else sb.Append("No feedback to provide\n");
-            MailMessage msg = new MailMessage(EmailHandler.GetInstance().From, app.Email) {
-                Subject = subject,
-                Body = sb.ToString()
-            };
+            if (!RegexUtilities.IsEmailValid(app.Email)) {
+                WPFMessageBoxFactory.CreateAndShow("Email Error",
+                    $"Invalid email address for {app.Full_Name} [{app.Email}]", 0);
+                return;
+            }
             try {
+                MailMessage msg = new MailMessage(EmailHandler.GetInstance().From, app.Email){
+                    Subject = subject,
+                    Body = sb.ToString()
+                };
                 new EmailEvent(msg).Fire();
             }catch (Exception exc) {
                 WPFMessageBoxFactory.CreateErrorAndShow(exc);
