@@ -1,5 +1,6 @@
 database.provider=MySql
 database.hostname=ncguy2.ddns.net
+database.port=3306
 database.schema=se
 database.username=admin
 database.password=password

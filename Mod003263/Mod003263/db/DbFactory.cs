@@ -69,8 +69,10 @@ namespace Mod003263.db {
             string database = PropertiesManager.GetInstance().GetPropertyOrDefault("database.schema", "Applicant");
             string uid = PropertiesManager.GetInstance().GetPropertyOrDefault("database.username", "admin");
             string password = PropertiesManager.GetInstance().GetPropertyOrDefault("database.password", "123");
+            string port = PropertiesManager.GetInstance().GetPropertyOrDefault("database.port", "3306");
 
             return "SERVER=" + server + ";" +
+                   "PORT=" + port + ";" +
                    "DATABASE=" + database + ";" +
                    "UserID=" + uid + ";" +
                    "PASSWORD=" + password+";";
