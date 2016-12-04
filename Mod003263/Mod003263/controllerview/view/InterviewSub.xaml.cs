@@ -35,7 +35,8 @@ namespace Mod003263.controllerview.view
     /// Interaction logic for InterviewSub.xaml
     /// </summary>
     public partial class InterviewSub : UserControl, BackEvent.BackListener, SelectApplicantEvent.SelectApplicantListener,
-        IInitializable, SelectTemplateEvent.SelectTemplateListener {
+        IInitializable, SelectTemplateEvent.SelectTemplateListener, InterviewToTemplateEvent.InterviewToTemplateListener,
+        InterviewToApplicantEvent.InterviewToApplicantListener {
 
         private Applicant selectedApplicant;
         private List<Applicant> aData;
@@ -127,6 +128,20 @@ namespace Mod003263.controllerview.view
         public void OnSelectTemplate(SelectTemplateEvent e) {
             if (!e.Scope.Equals(SelectTemplateScopes.TEMPLATE_USAGE)) return;
             selectedTemplate = e.Template;
+        }
+
+        private void Btn_InterviewProceed_OnClick(object sender, RoutedEventArgs e) {
+            interview.OnInitialization();
+        }
+
+        [Event]
+        public void OnInterviewToTemplate(InterviewToTemplateEvent e) {
+            SubMenu_Proceed_Reverse_BeginStoryboard.Storyboard.Begin();
+        }
+
+        [Event]
+        public void OnInterviewToApplicant(InterviewToApplicantEvent e) {
+            SubMenu_Proceed_Reverse_BeginStoryboard.Storyboard.Begin();
         }
     }
 

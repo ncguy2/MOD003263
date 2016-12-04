@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -32,7 +33,9 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainMenu : UserControl, BackEvent.BackListener, EmailSuccessEvent.EmailSuccessEventListener {
+    public partial class MainMenu : UserControl, BackEvent.BackListener, EmailSuccessEvent.EmailSuccessEventListener,
+        OpenLeaderboardEvent.OpenLeaderboardListener {
+
         public MainMenu() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
@@ -40,9 +43,15 @@ namespace Mod003263.controllerview.view
 
         [Event]
         public void OnBack(BackEvent e) {
-            interview_Press_BeginStoryboard.Storyboard.Seek(TimeSpan.Zero, TimeSeekOrigin.BeginTime);
-            interview_Press_BeginStoryboard.Storyboard.Stop();
+//            interview_Press_BeginStoryboard.Storyboard.Seek(TimeSpan.Zero, TimeSeekOrigin.BeginTime);
+//            interview_Press_BeginStoryboard.Storyboard.Stop();
+//            question_Close_BeginStoryboard.Storyboard.Begin();
+            ApplicantEntry_Close_BeginStoryboard.Storyboard.Begin();
+            Options_Press_Reverse_BeginStoryboard.Storyboard.Begin();
+            template_Close_BeginStoryboard.Storyboard.Begin();
             question_Close_BeginStoryboard.Storyboard.Begin();
+            interview_Press_Reverse_BeginStoryboard.Storyboard.Begin();
+            tmp_canvasOverlay_Reverse_BeginStoryboard.Storyboard.Begin();
         }
 
         private void interview_Back_Click(object sender, RoutedEventArgs e) {
@@ -89,5 +98,9 @@ namespace Mod003263.controllerview.view
             i?.OnInitialization();
         }
 
+        [Event]
+        public void OnOpenLeaderboard(OpenLeaderboardEvent e) {
+            btn_leaderboard.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+        }
     }
 }

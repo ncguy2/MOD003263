@@ -18,6 +18,8 @@ namespace Mod003263.interview {
         private InterviewFoundationInstance foundation;
         private float resultMetric;
 
+        public String Feedback { get; set; }
+
         public Interview(int id, InterviewFoundation foundation) {
             this.id = id;
             this.foundation = new InterviewFoundationInstance(foundation);

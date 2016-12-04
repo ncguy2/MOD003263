@@ -282,6 +282,7 @@ namespace Mod003263.db {
             StringBuilder sb = new StringBuilder();
             sb.Append("INSERT INTO interview (Foundation_ID, Applicant_Id, Flag, Result, Answers) VALUES ");
             sb.Append($"('{fId}', '{i.Subject.Id}', '{i.Flag}', '{i.GetResultMetric()}', '{answerJson}'");
+
             accessor.Insert(sb.ToString());
         }
 

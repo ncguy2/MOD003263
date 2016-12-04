@@ -157,6 +157,15 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="SubMenu_Proceed_Reverse">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lst_Applicants">
@@ -414,7 +423,7 @@
             <Label x:Name="lbl_EntryDate" Content="Date of Entry" Grid.Column="2" HorizontalAlignment="Left" Margin="50.492,7.127,0,12.934" Grid.Row="5" FontSize="14" d:LayoutOverrides="Height"/>
             <Label x:Name="lbl_ApplicantID" Content="Applicant ID" HorizontalAlignment="Right" Margin="0,8.257,32.068,30.836" Grid.Row="6" FontSize="14" d:LayoutOverrides="Height"/>
             <TextBox x:Name="txt_ApplicantID" Grid.Column="1" Margin="-28.068,6.877,-6.117,30.784" Grid.Row="6" TextWrapping="Wrap" FontSize="14" Height="30" IsReadOnly="True"/>
-            <Button x:Name="btn_InterviewProceed" Content="Proceed" Grid.Column="2" Margin="91.87,0,10,10" Grid.Row="6"/>
+            <Button x:Name="btn_InterviewProceed" Content="Proceed" Grid.Column="2" Margin="91.87,0,10,10" Grid.Row="6" Click="Btn_InterviewProceed_OnClick"/>
         </Grid>
         <Grid Visibility="Hidden" Width="{Binding ElementName=lst_Applicants, Path=ActualWidth}">
             <Grid.ColumnDefinitions>
@@ -426,5 +435,6 @@
             <Grid Grid.Column="1" x:Name="helper_col2"/>
             <Grid Grid.Column="2" x:Name="helper_col3"/>
         </Grid>
+        <local:Interview x:Name="interview" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden" Opacity="0"/>
     </Grid>
 </UserControl>

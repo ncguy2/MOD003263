@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Navigation;
 using Mod003263.interview;
 using Mod003263.threading;
 using Newtonsoft.Json;
@@ -51,7 +52,12 @@ namespace Mod003263.db {
         public int Update(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
         public int Insert(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
         public int Delete(String query) { return DatabaseConnection.GetInstance().ExecuteQuery(query); }
+
         public int LatestId(string query, string id = "ID") { return DatabaseConnection.GetInstance().GetLatestId(query, id); }
+
+        public string Escape(string q) {
+            return DatabaseConnection.GetInstance().Escape(q);
+        }
 
         public int InsertBatch<T>(List<T> list, Func<T, string> queryBuilder) {
             return DatabaseConnection.GetInstance().InsertCollection(list, queryBuilder);

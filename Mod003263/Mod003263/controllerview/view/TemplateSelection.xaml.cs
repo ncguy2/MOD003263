@@ -31,7 +31,8 @@ namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for TemplateSelection.xaml
     /// </summary>
-    public partial class TemplateSelection : UserControl, SelectTemplateEvent.SelectTemplateListener, IInitializable {
+    public partial class TemplateSelection : UserControl, SelectTemplateEvent.SelectTemplateListener, IInitializable,
+        BackEvent.BackListener, InterviewToTemplateEvent.InterviewToTemplateListener {
 
         private VisitableTree<TreeObjectWrapper<InterviewFoundation>> foundations;
         private InterviewFoundation selected;
@@ -114,6 +115,11 @@ namespace Mod003263.controllerview.view {
 
         private void Btn_Start_OnClick(object sender, RoutedEventArgs e) {
             interviewSub.OnInitialization();
+        }
+
+        [Event]
+        public void OnInterviewToTemplate(InterviewToTemplateEvent e) {
+            Interview_Reverse_BeginStoryboard.Storyboard.Begin();
         }
     }
 

@@ -176,6 +176,9 @@
     <Compile Include="events\io\SaveQuestionEvent.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
     <Compile Include="events\ui\BackEvent.cs" />
+    <Compile Include="events\ui\InterviewToApplicantEvent.cs" />
+    <Compile Include="events\ui\InterviewToTemplateEvent.cs" />
+    <Compile Include="events\ui\OpenLeaderboardEvent.cs" />
     <Compile Include="events\ui\SelectApplicantEvent.cs" />
     <Compile Include="events\ui\SelectQuestionEvent.cs" />
     <Compile Include="events\ui\SelectTemplateEvent.cs" />
