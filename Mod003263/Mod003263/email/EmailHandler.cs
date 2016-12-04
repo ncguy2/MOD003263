@@ -47,9 +47,7 @@ namespace Mod003263.email {
             smtp.EnableSsl = true;
             smtp.Credentials = new NetworkCredential(user, pass);
 
-            smtp.SendCompleted += (sender, args) => {
-                new EmailSuccessEvent().Fire();
-            };
+            smtp.SendCompleted += (sender, args) => new EmailSuccessEvent().Fire();
         }
 
         public void Send(string from, string recipients, string subject, string body) {
