@@ -57,15 +57,6 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="180"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="180"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="180"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="shp_InterviewBackground">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="5.1"/>
             </DoubleAnimationUsingKeyFrames>
@@ -96,6 +87,16 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="templateSelection">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="184"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -169,15 +170,6 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="btn_QuestionBack">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-322.5"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="238.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="238.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="238.5"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_ApplicantBackground">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="381"/>
             </DoubleAnimationUsingKeyFrames>
@@ -189,6 +181,16 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="applicantEntry">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="381"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="184"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -269,15 +271,6 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="questionEditor">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-288"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="240"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="240"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="240"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_ApplicantBackground">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="244.5"/>
             </DoubleAnimationUsingKeyFrames>
@@ -289,6 +282,16 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="applicantEntry">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="244.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="184"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -368,15 +371,6 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="247.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="247.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="247.5"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_ApplicantBackground">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="238.5"/>
             </DoubleAnimationUsingKeyFrames>
@@ -388,6 +382,16 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="applicantEntry">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="238.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="184"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -437,15 +441,6 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="questionEditor">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-304.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="376.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="376.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="376.5"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="shp_ApplicantBackground">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-222"/>
@@ -497,6 +492,16 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="applicantEntry">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="184"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="ApplicantEntry_Close">
@@ -554,18 +559,6 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="questionEditor">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-304.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="376.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="376.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="376.5"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="shp_ApplicantBackground">
@@ -629,6 +622,16 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="applicantEntry">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="184"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -719,18 +722,6 @@
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-322.5"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="238.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="238.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="238.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_ApplicantBackground">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="381"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
@@ -746,6 +737,16 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="applicantEntry">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="381"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="184"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="template_Close">
@@ -843,18 +844,6 @@
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="-288"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="240"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="240"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="240"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_ApplicantBackground">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="244.5"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
@@ -870,6 +859,16 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="applicantEntry">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="244.5"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="184"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="question_Close">
@@ -967,18 +966,6 @@
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="247.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="247.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="247.5"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_ApplicantBackground">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="238.5"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
@@ -995,6 +982,16 @@
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="238.5"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="184"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="tmp_canvasOverlay">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tmp_canvas">
@@ -1010,8 +1007,16 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="tmp_canvas">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="interview_Press_Reverse">
@@ -1079,18 +1084,6 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="180"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="shp_EmailLight">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="180"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lbl_EmailStatus">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="180"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="shp_InterviewBackground">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="5.1"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
@@ -1130,6 +1123,42 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="templateSelection">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="184"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="92"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_posRank">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="tmp_canvasOverlay_Reverse">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tmp_canvas">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-376.5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="tmp_canvas">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -1172,6 +1201,9 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_leaderboard">
             <BeginStoryboard Storyboard="{StaticResource tmp_canvasOverlay}"/>
         </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_LeaderboardBack">
+            <BeginStoryboard x:Name="tmp_canvasOverlay_Reverse_BeginStoryboard" Storyboard="{StaticResource tmp_canvasOverlay_Reverse}"/>
+        </EventTrigger>
     </UserControl.Triggers>
 
     <Grid Height="367">
@@ -1195,7 +1227,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Button x:Name="btn_Options" Content="Options" Margin="0" Background="#00DDDDDD" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" FontSize="18" FontFamily="Calibri" Height="120" Width="213">
+            <Button x:Name="btn_Options" Content="Options" Margin="0" Background="#00DDDDDD" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" FontSize="18" FontFamily="Calibri" Height="120" Width="213" Click="btn_Options_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1230,7 +1262,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Button x:Name="btn_Template" Content="Template Editor" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Black" FontFamily="Calibri" FontSize="18" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="btn_Template" Content="Template Editor" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Black" FontFamily="Calibri" FontSize="18" RenderTransformOrigin="0.5,0.5" Click="btn_Template_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1265,7 +1297,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Button x:Name="btn_Interview" Content="Interview" Background="{x:Null}" Foreground="Black" FontFamily="Calibri" FontSize="18" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Button x:Name="btn_Interview" Content="Interview" Background="{x:Null}" Foreground="Black" FontFamily="Calibri" FontSize="18" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Btn_Interview_OnClick" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1310,7 +1342,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Button x:Name="btn_Questions" Content="Question Editor" Margin="0" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Black" FontFamily="Calibri" FontSize="18" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="btn_Questions" Content="Question Editor" Margin="0" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Black" FontFamily="Calibri" FontSize="18" RenderTransformOrigin="0.5,0.5" Click="btn_Questions_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1341,44 +1373,6 @@
                 </TransformGroup>
             </local:QuestionEditor.RenderTransform>
         </local:QuestionEditor>
-        <Grid Margin="452,0,797,100" Height="60" Width="215" VerticalAlignment="Bottom">
-            <Rectangle x:Name="shp_EmailStatus" Fill="#FFA0A0A0" Margin="0" Stroke="#00000000" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.Effect>
-                    <DropShadowEffect ShadowDepth="1" Direction="345"/>
-                </Rectangle.Effect>
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-            <Ellipse x:Name="shp_EmailLight" Fill="#FFFB0000" HorizontalAlignment="Left" Margin="5,5,0,0" Stroke="#FF060505" Width="12" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top">
-                <Ellipse.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Ellipse.RenderTransform>
-                <Ellipse.Effect>
-                    <DropShadowEffect ShadowDepth="0.5"/>
-                </Ellipse.Effect>
-            </Ellipse>
-            <Label x:Name="lbl_EmailStatus" Content="Emails Not Sent" HorizontalAlignment="Left" Margin="6,0,0,1" VerticalAlignment="Bottom" Height="35" Width="162" FontFamily="Calibri" FontSize="24" RenderTransformOrigin="0.5,0.5">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-        </Grid>
         <Grid Margin="230,206,0,42" Width="215" HorizontalAlignment="Left">
             <Rectangle x:Name="shp_ApplicantBackground" Fill="#FFA0A0A0" Margin="0" RenderTransformOrigin="0.5,0.5" Width="215" StrokeThickness="0">
                 <Rectangle.Effect>
@@ -1393,7 +1387,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Button x:Name="btn_ApplicantEntry" Content="Applicant Entry" Background="#00DDDDDD" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" FontSize="18" FontFamily="Calibri" Margin="0" >
+            <Button x:Name="btn_ApplicantEntry" Content="Applicant Entry" Background="#00DDDDDD" BorderBrush="#00707070" RenderTransformOrigin="0.5,0.5" FontSize="18" FontFamily="Calibri" Margin="0" Click="btn_ApplicantEntry_Click" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1424,7 +1418,31 @@
                 </TransformGroup>
             </local:ApplicantEntry.RenderTransform>
         </local:ApplicantEntry>
-        <Button x:Name="btn_leaderboard" Content="Leaderboards" HorizontalAlignment="Left" Margin="452,272,0,0" VerticalAlignment="Top" Width="215" Height="53" Background="#FFA0A0A0" FontFamily="Calibri" FontSize="18"/>
+        <Grid x:Name="grd_posRank" Margin="452,206,797,41" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btn_leaderboard" Content="Leaderboards" Margin="0,3,0,0" Background="#FFA0A0A0" FontFamily="Calibri" FontSize="18" Click="btn_leaderboard_Click" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="btn_Positions" Content="Available Positions" Margin="0,0,0,3" RenderTransformOrigin="0.5,0.5" Click="button_Click" Background="#FFA0A0A0" FontFamily="Calibri" FontSize="18"/>
+        </Grid>
         <Canvas x:Name="tmp_canvas" Margin="0,377,0,-330" VerticalAlignment="Top" Height="367" Background="#FF838383" RenderTransformOrigin="0.5,0.5">
             <Canvas.RenderTransform>
                 <TransformGroup>
@@ -1434,15 +1452,44 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Canvas.RenderTransform>
-            <Grid Height="336" Canvas.Left="10" Canvas.Top="10" Width="961.5">
-                <local:Leaderboard HorizontalAlignment="Left"/>
+            <Grid x:Name="grid" Height="336" Canvas.Left="10" Canvas.Top="10" Width="1072.5" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60*"/>
+                    <ColumnDefinition Width="493*"/>
+                </Grid.ColumnDefinitions>
+                <local:Leaderboard x:Name="leaderboard" Margin="0" Width="Auto" Grid.Column="1" d:LayoutOverrides="TopMargin, BottomMargin" RenderTransformOrigin="0.5,0.5">
+                    <local:Leaderboard.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </local:Leaderboard.RenderTransform>
+                </local:Leaderboard>
+                <Button x:Name="btn_LeaderboardBack" Content="Back" Margin="10,10,10,0" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Height="100" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
             </Grid>
         </Canvas>
         <local:TemplateSelection x:Name="templateSelection" Margin="100.598,-4.45,398.313,33.45" Opacity="0" Visibility="Hidden"/>
-        <Button x:Name="button" Content="Button" Width="362.713" HorizontalAlignment="Right" Margin="0,181.993,149.739,49.536" RenderTransformOrigin="0.5,0.5" Click="button_Click">
-        </Button>
         <Canvas x:Name="tmp_canvas2" HorizontalAlignment="Left" Height="371" Margin="7,-4,0,0" VerticalAlignment="Top" Width="1457" Background="#FF979797" Visibility="Hidden">
-            <local:Positions Canvas.Left="0" Canvas.Top="0"/>
+            <local:Positions x:Name="positions" Canvas.Left="0" Canvas.Top="0"/>
         </Canvas>
     </Grid>
 </UserControl>

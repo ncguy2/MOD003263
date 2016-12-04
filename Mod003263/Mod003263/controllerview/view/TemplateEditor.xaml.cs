@@ -34,9 +34,10 @@ namespace Mod003263.controllerview.view
     /// Interaction logic for TemplateEditor.xaml
     /// </summary>
     public partial class TemplateEditor : UserControl, SelectTemplateEvent.SelectTemplateListener,
-        DeleteFoundationEvent.DeleteFoundationListener {
+        DeleteFoundationEvent.DeleteFoundationListener, IInitializable {
 
         private List<InterviewFoundation> foundations;
+        private List<AvailablePosition> positions;
         private VisitableTree<TreeObjectWrapper<InterviewFoundation>> foundationsTree;
         private InterviewFoundation selectedTemplate;
         private List<Question> questions;
@@ -44,6 +45,9 @@ namespace Mod003263.controllerview.view
         public TemplateEditor() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+        }
+
+        public void OnInitialization() {
             try {
                 DatabaseAccessor.GetInstance().UsingInterviewFoundations(tData => {
                     foundations = tData;
@@ -53,9 +57,15 @@ namespace Mod003263.controllerview.view
                     questions = qData;
                     PopulateQuestionLists();
                 });
-            }catch (Exception e) {
+                DatabaseAccessor.GetInstance().UsingAllPositions(pData => {
+                    positions = pData;
+                    PopulatePositions();
+                });
+            }catch (Exception e) {}
+        }
 
-            }
+        private void PopulatePositions() {
+            positions.ForEach(pos => cmb_Position.Items.Add(pos));
         }
 
         private void BuildTree() {
@@ -137,6 +147,7 @@ namespace Mod003263.controllerview.view
             if (selectedTemplate == null) return;
             selectedTemplate.SetCat(txt_Category.Text);
             selectedTemplate.SetName(txt_TemplateName.Text);
+            selectedTemplate.Position = (cmb_Position.SelectedItem as AvailablePosition)?.Position;
         }
 
         [Event]
@@ -150,6 +161,10 @@ namespace Mod003263.controllerview.view
             if (this.selectedTemplate == null) return;
             txt_Category.Text = t.Cat();
             txt_TemplateName.Text = t.Name();
+            foreach (AvailablePosition pos in positions) {
+                if (pos.Position.Equals(t?.Position))
+                    cmb_Position.SelectedItem = pos;
+            }
             PopulateSelectedQuestionList();
         }
 
@@ -159,8 +174,11 @@ namespace Mod003263.controllerview.view
 
         private void btn_Save_Click(object sender, RoutedEventArgs e) {
             CascadeData();
-            if(this.selectedTemplate != null)
+            if (this.selectedTemplate != null) {
                 new SaveFoundationEvent(this.selectedTemplate).Fire();
+                foundations.Add(this.selectedTemplate);
+                BuildTree();
+            }
             SelectTemplate(null);
         }
 

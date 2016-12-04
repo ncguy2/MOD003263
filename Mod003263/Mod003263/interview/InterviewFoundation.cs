@@ -17,15 +17,17 @@ namespace Mod003263.interview {
         private String name;
         private String category;
         private Dictionary<Question, int> questions;
+        public String Position { get; set; }
 
         public InterviewFoundation() : this(-1, "", "") {}
 
-        public InterviewFoundation(int id, String name, String category){
+        public InterviewFoundation(int id, String name, String category) {
             this.id = id;
             this.name = name;
             this.category = category;
             questions = new Dictionary<Question, Int32>();
         }
+
 
         public int GetQuestionWeight(Question question) {
             return questions.ContainsKey(question) ? questions[question] : 0;

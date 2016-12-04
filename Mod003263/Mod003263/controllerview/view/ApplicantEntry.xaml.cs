@@ -33,7 +33,7 @@ namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for ApplicantEntry.xaml
     /// </summary>
-    public partial class ApplicantEntry : UserControl, SelectApplicantEvent.SelectApplicantListener {
+    public partial class ApplicantEntry : UserControl, SelectApplicantEvent.SelectApplicantListener, IInitializable {
 
         private Applicant app;
         private List<Applicant> applicants;
@@ -41,6 +41,9 @@ namespace Mod003263.controllerview.view {
         public ApplicantEntry() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+        }
+
+        public void OnInitialization() {
             Init();
         }
 

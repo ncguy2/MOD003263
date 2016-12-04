@@ -31,7 +31,7 @@ namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for TemplateSelection.xaml
     /// </summary>
-    public partial class TemplateSelection : UserControl, SelectTemplateEvent.SelectTemplateListener {
+    public partial class TemplateSelection : UserControl, SelectTemplateEvent.SelectTemplateListener, IInitializable {
 
         private VisitableTree<TreeObjectWrapper<InterviewFoundation>> foundations;
         private InterviewFoundation selected;
@@ -39,11 +39,18 @@ namespace Mod003263.controllerview.view {
         public TemplateSelection() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+        }
 
+        public void OnInitialization() {
             DatabaseAccessor.GetInstance().UsingInterviewFoundations(list => {
                 foundations = new VisitableTree<TreeObjectWrapper<InterviewFoundation>>
                     (new TreeObjectWrapper<InterviewFoundation>(""));
-                TreePopulator.Populate(foundations, list, '/', f => f.Path(), (f, s) => {
+
+                List<InterviewFoundation> l2 = new List<InterviewFoundation>(list);
+                foreach (InterviewFoundation f in l2) {
+                    f.SetCat(f.Position+"/"+f.Cat());
+                }
+                TreePopulator.Populate(foundations, l2, '/', f => f.Path(), (f, s) => {
                     if(s.Equals(f.Name())) return new TreeObjectWrapper<InterviewFoundation>(f, s);
                     return new TreeObjectWrapper<InterviewFoundation>(s.Replace("/", "_")+"/");
                 });
@@ -61,7 +68,6 @@ namespace Mod003263.controllerview.view {
                 }catch (Exception e) {
                     WPFMessageBoxFactory.CreateErrorAndShow(e);
                 }
-
             });
         }
 
@@ -87,6 +93,7 @@ namespace Mod003263.controllerview.view {
             if (selected == null) return;
             txt_TemplateSelected.Text = selected.Name();
             txt_Metric.Text = selected.GetQuestionsWeight().ToString();
+            txt_Position.Text = selected.Position;
             lv_Questions.Items.Clear();
             foreach (KeyValuePair<Question, int> pair in selected.GetQuestions()) {
                 RowData data = new RowData{Question = pair.Key, Metric = pair.Value};
@@ -103,6 +110,10 @@ namespace Mod003263.controllerview.view {
         public void OnSelectTemplate(SelectTemplateEvent e) {
             if (!e.Scope.Equals(SelectTemplateScopes.TEMPLATE_USAGE)) return;
             Select(e.Template);
+        }
+
+        private void Btn_Start_OnClick(object sender, RoutedEventArgs e) {
+            interviewSub.OnInitialization();
         }
     }
 

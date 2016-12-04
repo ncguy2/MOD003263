@@ -24,14 +24,19 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for Positions.xaml
     /// </summary>
-    public partial class Positions : UserControl, DeletePositionEvent.DeletePositionListener {
+    public partial class Positions : UserControl, DeletePositionEvent.DeletePositionListener, IInitializable {
 
         private AvailablePosition pos;
         private List<AvailablePosition> positions;
 
+        public event EventHandler OnButtonClick;
+
         public Positions() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+        }
+
+        public void OnInitialization() {
             LoadPositions();
         }
 
@@ -115,6 +120,10 @@ namespace Mod003263.controllerview.view
         public void OnDeletePosition(DeletePositionEvent e) {
             this.positions.Remove(e.Position);
             RebuildList();
+        }
+
+        private void Btn_Back_OnClick(object sender, RoutedEventArgs e) {
+            OnButtonClick?.Invoke(this, e);
         }
     }
 }

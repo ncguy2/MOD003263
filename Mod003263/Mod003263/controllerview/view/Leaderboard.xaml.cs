@@ -30,7 +30,7 @@ namespace Mod003263.controllerview.view {
     /// Interaction logic for Leaderboard.xaml
     /// </summary>
     public partial class Leaderboard : UserControl, SelectApplicantEvent.SelectApplicantListener,
-        HireEvent.HireListener, DenyEvent.DenyListener {
+        HireEvent.HireListener, DenyEvent.DenyListener, IInitializable {
 
         private List<Applicant> apps;
         private List<AvailablePosition> poss;
@@ -44,6 +44,12 @@ namespace Mod003263.controllerview.view {
         public Leaderboard() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
+            MacroManager.Instance().RegisterMacro("app.name", () => macroTarget?.Full_Name);
+            MacroManager.Instance().RegisterMacro("app.forename", () => macroTarget?.First_Name);
+            MacroManager.Instance().RegisterMacro("app.surname", () => macroTarget?.Last_Name);
+        }
+
+        public void OnInitialization() {
             Init();
         }
 
@@ -52,9 +58,6 @@ namespace Mod003263.controllerview.view {
             denied = new List<Applicant>();
             interviewMap = new Dictionary<Applicant, interview.Interview>();
             FlagManager fm = FlagManager.GetInstance();
-            MacroManager.Instance().RegisterMacro("app.name", () => macroTarget?.Full_Name);
-            MacroManager.Instance().RegisterMacro("app.forename", () => macroTarget?.First_Name);
-            MacroManager.Instance().RegisterMacro("app.surname", () => macroTarget?.Last_Name);
             DatabaseAccessor.GetInstance().UsingApplicantData(apps => {
                 this.apps = new List<Applicant>();
                 foreach (Applicant app in apps) {

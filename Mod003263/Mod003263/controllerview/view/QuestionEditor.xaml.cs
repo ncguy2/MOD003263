@@ -35,7 +35,7 @@ namespace Mod003263.controllerview.view {
     /// Interaction logic for QuestionEditor.xaml
     /// </summary>
     public partial class QuestionEditor : UserControl, SelectQuestionEvent.SelectQuestionListener,
-        BackEvent.BackListener, SaveQuestionEvent.SaveQuestionListener {
+        BackEvent.BackListener, SaveQuestionEvent.SaveQuestionListener, IInitializable {
 
         private Question selectedQuestion;
         private List<Question> questions;
@@ -44,7 +44,9 @@ namespace Mod003263.controllerview.view {
         public QuestionEditor() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
-            PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+        }
+
+        public void OnInitialization() {
             try {
                 DatabaseAccessor.GetInstance().UsingQuestionData(list => {
                     questions = list;

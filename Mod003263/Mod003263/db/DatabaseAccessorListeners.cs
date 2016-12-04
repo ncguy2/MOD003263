@@ -49,7 +49,7 @@ namespace Mod003263.db {
                 if (e.Applicant.Id > 0) UpdateApplicant(e.Applicant);
                 else InsertApplicant(e.Applicant);
             }catch (Exception exc) {
-                WPFMessageBoxFactory.Create("Exception from OnSaveApplicant", exc.Message, 0).Show();
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
             }
         }
 
@@ -59,7 +59,7 @@ namespace Mod003263.db {
                 if (e.Foundation.Id() > 0) UpdateFoundation(e.Foundation);
                 else InsertFoundation(e.Foundation);
             }catch (Exception exc) {
-                WPFMessageBoxFactory.Create("Exception from OnSaveFoundation", exc.Message, 0).Show();
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Mod003263.db {
                 if (e.Payload.Id > 0) UpdateQuestion(e.Payload);
                 else InsertQuestion(e.Payload);
             }catch (Exception exc) {
-                WPFMessageBoxFactory.Create("Exception from OnSaveQuestion", exc.Message, 0).Show();
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Mod003263.db {
                 if (e.Interview.ID > 0) UpdateInterview(e.Interview);
                 else InsertInterview(e.Interview);
             }catch (Exception exc) {
-                WPFMessageBoxFactory.Create("Exception from OnSaveInterview", exc.Message, 0).Show();
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
             }
         }
 
@@ -89,7 +89,7 @@ namespace Mod003263.db {
                 if (e.Position.Id > 0) UpdatePosition(e.Position);
                 else InsertPosition(e.Position);
             }catch (Exception exc) {
-                WPFMessageBoxFactory.Create("Exception from OnSavePosition", exc.Message, 0).Show();
+                WPFMessageBoxFactory.CreateErrorAndShow(exc);
             }
         }
 
@@ -163,7 +163,8 @@ namespace Mod003263.db {
             StringBuilder sb = new StringBuilder();
             sb.Append("UPDATE interview_foundation SET ");
             sb.Append($"Name='{f.Name()}', ");
-            sb.Append($"Category='{f.Cat()}' ");
+            sb.Append($"Category='{f.Cat()}', ");
+            sb.Append($"Position='{f.Position}' ");
             sb.Append($"WHERE Foundation_ID='{f.Id()}'");
             String s = sb.ToString();
             accessor.Update(s);
@@ -175,8 +176,8 @@ namespace Mod003263.db {
         private void InsertFoundation(InterviewFoundation f) {
             StringBuilder sb = new StringBuilder();
             sb.Append("INSERT INTO interview_foundation ");
-            sb.Append("(Name, Category) VALUES ");
-            sb.Append($"('{f.Name()}', '{f.Cat()}')");
+            sb.Append("(Name, Category, Position) VALUES ");
+            sb.Append($"('{f.Name()}', '{f.Cat()}', '{f.Position}')");
             String s = sb.ToString();
             accessor.Insert(s);
             int newId = accessor.LatestId("interview_foundation", "Foundation_ID");

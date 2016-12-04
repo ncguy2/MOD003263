@@ -6,17 +6,18 @@
              xmlns:local="clr-namespace:Mod003263.controllerview.view"
              xmlns:controls="clr-namespace:Mod003263.wpf.controls" x:Class="Mod003263.controllerview.view.Positions"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
+             d:DesignHeight="300" Width="1070.242" Height="338">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="28*"/>
             <RowDefinition Height="141*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="607*"/>
+            <ColumnDefinition Width="341*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txt_search" Margin="10,20,10,5" TextChanged="Txt_search_OnTextChanged">
+        <TextBox x:Name="txt_search" Margin="10,20,10.001,5" TextChanged="Txt_search_OnTextChanged" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <TextBox.ToolTip>
                 <StackPanel>
                     <TextBlock FontWeight="Bold" Margin="0,0,0,5">Smart Search</TextBlock>
@@ -27,7 +28,7 @@
                 </StackPanel>
             </TextBox.ToolTip>
         </TextBox>
-        <ListView x:Name="lst_Positions" Margin="10,5,10,10" SelectionChanged="Lst_Positions_OnSelectionChanged" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView x:Name="lst_Positions" Margin="10,5,10.001,10" SelectionChanged="Lst_Positions_OnSelectionChanged" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Position}" Width="{Binding ElementName=helper_col1, Path=ActualWidth}"/>
@@ -35,7 +36,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Grid Grid.Column="1" Margin="5,10,10,10" Grid.RowSpan="2">
+        <Grid Grid.Column="2" Margin="4.999,10,10.001,10" Grid.RowSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70*"/>
                 <ColumnDefinition Width="143*"/>
@@ -53,7 +54,7 @@
             <Button x:Name="btn_SavePosition" Content="Save changes" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" Click="Btn_SavePosition_OnClick"/>
             <Button x:Name="btn_Delete" Content="Delete selected" Margin="10,0,10,10" Grid.Row="2" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Bottom" Click="Btn_Delete_OnClick"/>
         </Grid>
-        <Grid Visibility="Hidden" Margin="10,0" Grid.RowSpan="2">
+        <Grid Visibility="Hidden" Margin="0.1,0,10.001,0" Grid.RowSpan="2" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="50*"/>
@@ -61,5 +62,15 @@
             <Grid Grid.Column="0" x:Name="helper_col1"/>
             <Grid Grid.Column="1" x:Name="helper_col2"/>
         </Grid>
+        <Button x:Name="btn_Back" Content="Back" Margin="8.658,-49.97,4.9,0" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Height="100" Grid.Row="1" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="Btn_Back_OnClick">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </UserControl>

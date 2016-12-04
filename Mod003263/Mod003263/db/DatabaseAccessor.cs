@@ -159,17 +159,19 @@ namespace Mod003263.db {
 
 
         public List<InterviewFoundation> PullInterviewFoundation() {
-            DbDataReader interviewFoundationReader = DatabaseConnection.GetInstance()
-                .Select("SELECT Foundation_ID, Name, Category FROM interview_foundation");
+            DbDataReader reader = DatabaseConnection.GetInstance()
+                .Select("SELECT Foundation_ID, Name, Category, Position FROM interview_foundation");
             List<InterviewFoundation> ifound = new List<InterviewFoundation>();
-            while (interviewFoundationReader.Read())
-            {
-             InterviewFoundation interviewFoundation =  new InterviewFoundation((Int32) interviewFoundationReader["Foundation_ID"]
-                 ,interviewFoundationReader["Category"].ToString()
-                 , interviewFoundationReader["Name"].ToString());
+            while (reader.Read()) {
+                InterviewFoundation interviewFoundation = new InterviewFoundation(
+                    reader.GetInt32(reader.GetOrdinal("Foundation_ID")),
+                    reader.GetString(reader.GetOrdinal("Name")),
+                    reader.GetString(reader.GetOrdinal("Category"))
+                );
+                interviewFoundation.Position = reader.GetString(reader.GetOrdinal("Position"));
                 ifound.Add(interviewFoundation);
             }
-            interviewFoundationReader.Close();
+            reader.Close();
             foreach (InterviewFoundation f in ifound) {
                 int id = f.Id();
                 foreach (KeyValuePair<Question, int> pair in PullQuestionDataFromFoundation(id))

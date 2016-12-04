@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mod003263.db;
+using Mod003263.interview;
 using Mod003263.utils;
 using Utils.Tree.Builder;
 using Utils.Tree;
@@ -33,15 +34,20 @@ namespace Mod003263.controllerview.view
     /// <summary>
     /// Interaction logic for InterviewSub.xaml
     /// </summary>
-    public partial class InterviewSub : UserControl, BackEvent.BackListener, SelectApplicantEvent.SelectApplicantListener {
+    public partial class InterviewSub : UserControl, BackEvent.BackListener, SelectApplicantEvent.SelectApplicantListener,
+        IInitializable, SelectTemplateEvent.SelectTemplateListener {
 
         private Applicant selectedApplicant;
         private List<Applicant> aData;
 
+        private InterviewFoundation selectedTemplate;
+
         public InterviewSub() {
             EventBus.GetInstance().Register(this);
             InitializeComponent();
-            PropertiesManager propertiesManager = PropertiesManager.GetInstance();
+        }
+
+        public void OnInitialization() {
             try {
                 DatabaseAccessor.GetInstance().UsingApplicantData(list => {
                     aData = list;
@@ -57,9 +63,15 @@ namespace Mod003263.controllerview.view
         }
 
         public void Rebuild(List<Applicant> applicants) {
-            lst_Applicants.Items.Clear();
-            foreach (Applicant applicant in applicants)
-                AddApplicantRow(applicant);
+            try {
+                lst_Applicants.Items.Clear();
+                foreach (Applicant applicant in applicants) {
+                    if (selectedTemplate.Position.Equals(applicant.Applying_Position))
+                        AddApplicantRow(applicant);
+                }
+            }catch (Exception e) {
+                WPFMessageBoxFactory.CreateErrorAndShow(e);
+            }
         }
 
         private void AddApplicantRow(Applicant app) {
@@ -111,6 +123,11 @@ namespace Mod003263.controllerview.view
             Rebuild(applicants);
         }
 
+        [Event]
+        public void OnSelectTemplate(SelectTemplateEvent e) {
+            if (!e.Scope.Equals(SelectTemplateScopes.TEMPLATE_USAGE)) return;
+            selectedTemplate = e.Template;
+        }
     }
 
 }

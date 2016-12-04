@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ using Mod003263.events.ui;
 using System.Windows.Media.Animation;
 using Mod003263.events;
 using Mod003263.events.email;
+using Mod003263.wpf;
 
 /**
  *  Author: Ryan Cowell
@@ -43,18 +45,49 @@ namespace Mod003263.controllerview.view
             question_Close_BeginStoryboard.Storyboard.Begin();
         }
 
-        private void interview_Back_Click(object sender, RoutedEventArgs e)
-        {
+        private void interview_Back_Click(object sender, RoutedEventArgs e) {
             new BackEvent().Fire();
         }
 
         private void button_Click(object sender, RoutedEventArgs e) {
             tmp_canvas2.Visibility = Visibility.Visible;
+            InitializeObject(positions);
         }
 
         [Event]
         public void OnEmailSuccess(EmailSuccessEvent e) {
-            shp_EmailLight.Fill = Brushes.Green;
         }
+
+        private void Btn_Interview_OnClick(object sender, RoutedEventArgs e) {
+            InitializeObject(templateSelection);
+        }
+
+        private void btn_Template_Click(object sender, RoutedEventArgs e) {
+            InitializeObject(templateEditor);
+        }
+
+        private void btn_Questions_Click(object sender, RoutedEventArgs e) {
+            InitializeObject(questionEditor);
+        }
+
+        private void btn_Options_Click(object sender, RoutedEventArgs e) {
+//            InitializeObject(options);
+        }
+
+        private void btn_ApplicantEntry_Click(object sender, RoutedEventArgs e) {
+            InitializeObject(applicantEntry);
+        }
+
+        private void btn_leaderboard_Click(object sender, RoutedEventArgs e) {
+            InitializeObject(leaderboard);
+        }
+
+        private void InitializeObject(object o) {
+            InitializeObject(o as IInitializable);
+        }
+        private void InitializeObject(IInitializable i) {
+            i?.OnInitialization();
+        }
+
     }
 }

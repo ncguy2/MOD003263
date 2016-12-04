@@ -214,6 +214,7 @@
     <Compile Include="wpf\controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wpf\IInitializable.cs" />
     <Compile Include="wpf\MathsConverter.cs" />
     <Compile Include="wpf\WPFMessageBoxErrorForm.xaml.cs">
       <DependentUpon>WPFMessageBoxErrorForm.xaml</DependentUpon>
