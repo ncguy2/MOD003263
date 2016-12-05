@@ -259,7 +259,7 @@ namespace Mod003263.db {
         //pull the answers from question id, 
         public List<Answer> PullAnswersFromQuestionId(int questionId) {
             DbDataReader answerReader = DatabaseConnection.GetInstance()
-                .Select($"SELECT Answer_ID, Question_ID, Value, Weight FROM Question_Answers WHERE Question_ID={questionId}");
+                .Select($"SELECT Answer_ID, Question_ID, Value, Weight FROM question_answers WHERE Question_ID={questionId}");
             List<Answer> answ = new List<Answer>();
             while (answerReader.Read())
             {
@@ -295,7 +295,7 @@ namespace Mod003263.db {
             while (posReader.Read())
                 positions.Add(new AvailablePosition {
                     Id = (int) posReader["ID"],
-                    Position = posReader["Position"].ToString(),
+                    Position = posReader.GetString(posReader.GetOrdinal("Position")),
                     Seats = (int) posReader["Seats"]
                 });
             posReader.Close();
