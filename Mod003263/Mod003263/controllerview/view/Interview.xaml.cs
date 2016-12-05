@@ -21,7 +21,7 @@ using Mod003263.interview.metric;
 using Mod003263.wpf;
 
 /**
- *  Author: Ryan Cowell
+ *  Author: Ryan Cowell, Nick Guy
  *  Date: 28/11/2016
  *  Contains: Interview
  */

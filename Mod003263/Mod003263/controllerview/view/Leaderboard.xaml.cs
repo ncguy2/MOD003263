@@ -25,6 +25,12 @@ using Mod003263.utils;
 using Mod003263.wpf;
 using Mod003263.wpf.controls;
 
+/**
+ * Author: Nick Guy
+ * Date: 30/11/2016
+ * Contents: Leaderboard
+ */
+
 namespace Mod003263.controllerview.view {
     /// <summary>
     /// Interaction logic for Leaderboard.xaml

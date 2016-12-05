@@ -19,8 +19,15 @@ using Mod003263.interview;
 using Mod003263.utils;
 using Mod003263.wpf;
 
-namespace Mod003263.controllerview.view
-{
+/**
+ * Author: Nick Guy
+ * Date: 30/11/2016
+ * Contents: Positions
+ */
+
+
+
+namespace Mod003263.controllerview.view{
     /// <summary>
     /// Interaction logic for Positions.xaml
     /// </summary>

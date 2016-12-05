@@ -13,15 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mod003263.controllerview.view
-{
+namespace Mod003263.controllerview.view{
     /// <summary>
     /// Interaction logic for Options.xaml
     /// </summary>
-    public partial class Options : UserControl
-    {
-        public Options()
-        {
+    public partial class Options : UserControl{
+        public Options(){
             InitializeComponent();
         }
     }

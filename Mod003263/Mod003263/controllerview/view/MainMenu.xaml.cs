@@ -28,8 +28,7 @@ using Mod003263.wpf;
 
 
 
-namespace Mod003263.controllerview.view
-{
+namespace Mod003263.controllerview.view{
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>

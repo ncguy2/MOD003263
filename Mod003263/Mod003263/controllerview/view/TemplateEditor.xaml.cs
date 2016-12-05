@@ -28,8 +28,7 @@ using Mod003263.wpf.controls;
  *  Date: 16/11/2016
  *  Contains: TemplateEditor
  */
-namespace Mod003263.controllerview.view
-{
+namespace Mod003263.controllerview.view{
     /// <summary>
     /// Interaction logic for TemplateEditor.xaml
     /// </summary>
