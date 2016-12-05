@@ -3,7 +3,7 @@ CREATE TABLE applicants (
     FirstName VARCHAR(32),
     LastName VARCHAR(32),
     ApplyingPosition VARCHAR(32),
-    PictureCode VARCHAR(16384),
+    PictureCode LONGTEXT,
     Address VARCHAR(300),
     Flag INT(11),
     EmailAddress VARCHAR(64),
@@ -32,7 +32,8 @@ CREATE TABLE interview_questions (
     RowIndex INT(11) PRIMARY KEY AUTO_INCREMENT,
     Foundation_ID INT(11),
     Question_ID INT(11),
-    Weight INT(11)
+    Weight INT(11),
+	Position VARCHAR(64)
 );
 
 CREATE TABLE positions (

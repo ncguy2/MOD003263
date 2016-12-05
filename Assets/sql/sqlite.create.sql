@@ -1,9 +1,9 @@
 CREATE TABLE applicants (
-    ApplicantId INT(11) PRIMARY KEY AUTOINCREMENT,
+    ApplicantId INTEGER PRIMARY KEY AUTOINCREMENT,
     FirstName VARCHAR(32),
     LastName VARCHAR(32),
     ApplyingPosition VARCHAR(32),
-    PictureCode VARCHAR(16384),
+    PictureCode LONGTEXT,
     Address VARCHAR(300),
     Flag INT(11),
     EmailAddress VARCHAR(64),
@@ -13,7 +13,7 @@ CREATE TABLE applicants (
 );
 
 CREATE TABLE interview (
-    Interview_ID INT(11) PRIMARY KEY AUTOINCREMENT,
+    Interview_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Foundation_ID INT(11),
     Flag INT(11),
     Result INT(11),
@@ -22,33 +22,35 @@ CREATE TABLE interview (
 );
 
 CREATE TABLE interview_foundation (
-    Foundation_ID INT(11) PRIMARY KEY AUTOINCREMENT,
+    Foundation_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Name VARCHAR(16),
-    Category VARCHAR(64)
+    Category VARCHAR(64),
+    Position VARCHAR(64)
 );
 
 CREATE TABLE interview_questions (
-    RowIndex INT(11) PRIMARY KEY AUTOINCREMENT,
+    RowIndex INTEGER PRIMARY KEY AUTOINCREMENT,
     Foundation_ID INT(11),
     Question_ID INT(11),
-    Weight INT(11)
+    Weight INT(11),
+	Position VARCHAR(64)
 );
 
 CREATE TABLE positions (
-    ID INT(11) PRIMARY KEY AUTOINCREMENT,
+    ID INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
     Position TEXT,
     Seats INT(11)
 );
 
 CREATE TABLE question_answers (
-    Answer_ID INT(11) PRIMARY KEY AUTOINCREMENT,
+    Answer_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Question_ID INT(11),
     Value VARCHAR(32),
     Weight INT(11)
 );
 
 CREATE TABLE questions (
-    Question_ID INT(11) PRIMARY KEY AUTOINCREMENT,
+    Question_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Question VARCHAR(64),
     Category VARCHAR(64)
 );
