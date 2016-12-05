@@ -29,8 +29,6 @@ namespace Mod003263.controllerview.controller {
         /// </summary>
         /// <returns>Self instance for the purpose of method chaining</returns>
         public TemplateSelectionController PopulateTree() {
-            List<InterviewFoundation> foundations = DatabaseAccessor.GetInstance().SelectAllInterviewFoundations();
-            TreePopulator.Populate(templateTree, foundations, '/', f => f.Path());
             return this;
         }
 

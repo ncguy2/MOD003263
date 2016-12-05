@@ -1,0 +1,8 @@
+database.provider=MySql
+database.hostname=192.168.12.20
+database.port=3306
+database.schema=chighley
+database.username=chighley
+database.password=password
+email.username=ssmithtech60@gmail.com
+email.password=zghv rxvd ayjh biim

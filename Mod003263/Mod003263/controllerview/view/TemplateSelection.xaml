@@ -11,19 +11,7 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tr_TemplateSelect">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_TemplateSelected">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_TemplateSelected">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lv_Questions">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Metric">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Metric">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_TemplateSelect">
@@ -36,23 +24,7 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_TemplateSelected">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_TemplateSelected">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
-            </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lv_Questions">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Metric">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Metric">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
@@ -64,36 +36,30 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interviewSub">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interviewSub">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Interview_Reverse">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tr_TemplateSelect">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_TemplateSelected">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_TemplateSelected">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lv_Questions">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Metric">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="lbl_Metric">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
@@ -109,23 +75,7 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_TemplateSelected">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_TemplateSelected">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lv_Questions">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="txt_Metric">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lbl_Metric">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
@@ -137,14 +87,26 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interview">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="interviewSub">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interview">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="interviewSub">
                 <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
                 <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
@@ -160,22 +122,57 @@
 
     </UserControl.Triggers>
     <Grid>
-        <TreeView x:Name="tr_TemplateSelect" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261" SelectedItemChanged="tr_TemplateSelect_OnSelectedItemChanged"/>
-        <Label x:Name="lbl_TemplateSelected" Content="Template:" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_TemplateSelected" Height="23" Margin="382.91,12.96,462.679,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TreeView x:Name="tr_TemplateSelect" HorizontalAlignment="Left" Margin="10,40.96,0,10" Width="261"
+            SelectedItemChanged="tr_TemplateSelect_OnSelectedItemChanged" />
         <ListView x:Name="lv_Questions" Margin="316,40.96,117.679,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Question" DisplayMemberBinding="{Binding QuestionText}" Width="{Binding ElementName=helper_col1, Path=ActualWidth}"/>
+                    <GridViewColumn Header="Metric" DisplayMemberBinding="{Binding Metric}" Width="{Binding ElementName=helper_col2, Path=ActualWidth}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="txt_Metric" HorizontalAlignment="Right" Height="23" Margin="0,10,117.679,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lbl_Metric" Content="Max Metric" HorizontalAlignment="Right" Margin="0,10,242.679,0" VerticalAlignment="Top"/>
+        <Grid x:Name="grid" Height="26" Margin="316,7,118,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="183*"/>
+                <ColumnDefinition Width="184*"/>
+                <ColumnDefinition Width="165*"/>
+            </Grid.ColumnDefinitions>
+            <Grid d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32*"/>
+                    <ColumnDefinition Width="68*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lbl_TemplateSelected" Content="Template" Margin="0" d:LayoutOverrides="Height"/>
+                <TextBox x:Name="txt_TemplateSelected" TextWrapping="Wrap" IsReadOnly="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0" Grid.Column="1"/>
+            </Grid>
+            <Grid Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lbl_Position" Content="Position" Margin="0" d:LayoutOverrides="Height"/>
+                <TextBox x:Name="txt_Position" TextWrapping="Wrap" IsReadOnly="True" Grid.Column="1"/>
+            </Grid>
+            <Grid Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="55*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lbl_Metric" Content="Max Metric" Margin="0" d:LayoutOverrides="Height"/>
+                <TextBox x:Name="txt_Metric" TextWrapping="Wrap" IsReadOnly="True" Grid.Column="1"/>
+            </Grid>
+        </Grid>
         <Label x:Name="lbl_TemplateSelect" Content="Choose a Template" HorizontalAlignment="Left" Margin="10,12.96,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_Start" Content="Start Interview" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="102.679" Height="36.96"/>
-        <local:Interview x:Name="interview" Opacity="0" Visibility="Hidden"/>
-
-
+        <Button x:Name="btn_Start" Content="Start Interview" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="102.679" Height="36.96" Click="Btn_Start_OnClick"/>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lv_Questions, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+        </Grid>
+        <local:InterviewSub x:Name="interviewSub" Opacity="0" Visibility="Hidden"/>
     </Grid>
 </UserControl>

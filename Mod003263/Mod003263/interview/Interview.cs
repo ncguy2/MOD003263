@@ -14,13 +14,15 @@ namespace Mod003263.interview {
     /// </summary>
     public class Interview {
 
-        private Applicant subject;
+        private int id;
         private InterviewFoundationInstance foundation;
-        private int flag;
         private float resultMetric;
 
-        public Interview() {
-            foundation = new InterviewFoundationInstance(new InterviewFoundation());
+        public String Feedback { get; set; }
+
+        public Interview(int id, InterviewFoundation foundation) {
+            this.id = id;
+            this.foundation = new InterviewFoundationInstance(foundation);
         }
 
         public Interview SetResultMetric(float metric) {
@@ -35,6 +37,12 @@ namespace Mod003263.interview {
         public InterviewFoundationInstance GetFoundationInstance() {
             return this.foundation;
         }
+
+        public Applicant Subject { get; set; }
+
+        public int Flag { get; set; }
+
+        public int ID => id;
 
         public static class Flags {
             public const int COMPLETE = 1;

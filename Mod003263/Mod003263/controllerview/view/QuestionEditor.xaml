@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Mod003263.controllerview.view"
              mc:Ignorable="d" xmlns:controls="clr-namespace:Mod003263.wpf.controls"
+             xmlns:wpf="clr-namespace:Mod003263.wpf"
              d:DesignHeight="300" d:DesignWidth="300" Width="965.589" Height="338">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,31 +15,77 @@
             <RowDefinition Height="49*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="185*"/>
-            <ColumnDefinition Width="89*"/>
-            <ColumnDefinition Width="692*"/>
+            <ColumnDefinition Width="179*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="782*"/>
         </Grid.ColumnDefinitions>
-        <TreeView x:Name="tr_Questions" Margin="10" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="3" SelectedItemChanged="tr_Questions_OnSelectedItemChanged"/>
-        <TextBox x:Name="txt_Category" Margin="5,10,10,10" TextWrapping="Wrap" Text="/" Grid.Column="2"/>
-        <Label x:Name="lbl_Category" Content="Category" Margin="10,10,5,10" Grid.Column="1" FontSize="14" BorderThickness="0"/>
-        <Label x:Name="lbl_Question" Content="Question" Grid.Column="1" Margin="10,10,5,10" Grid.Row="1" FontSize="14" BorderThickness="0"/>
-        <TextBox x:Name="txt_Question" Margin="5,10,10,10" TextWrapping="Wrap" Grid.Column="2" Grid.Row="1" SpellCheck.IsEnabled="True"/>
-        <Button x:Name="btn_SaveExit" Content="Save and exit" Grid.Column="2" Margin="0,10,135,10" Grid.Row="3" HorizontalAlignment="Right" Width="100"/>
-        <Button x:Name="btn_AddQuestion" Content="New Question" Margin="10" Grid.Row="3"/>
-        <Button x:Name="btn_Save" Content="Save changes" Grid.Column="2" Margin="0,10,240,10" Grid.Row="3" HorizontalAlignment="Right" Width="100"/>
-        <Button x:Name="btn_Exit" Content="Exit without saving" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,10" Grid.Row="3" Width="120"/>
-        <ListView x:Name="tbl_AnswerTable" Grid.Column="1" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <ContentControl>
-                            <controls:AnswerRow/>
-                        </ContentControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+        <ListView x:Name="tbl_AnswerTable" Grid.Column="2" Margin="10" Grid.Row="2" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="{Binding ElementName=helper_col1, Path=ActualWidth}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="local:AnswerRowData">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="X" Click="ButtonBase_OnClick" Width="32" Height="32"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Grade" Width="{Binding ElementName=helper_col2, Path=ActualWidth}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="local:AnswerRowData">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBox Text="{Binding Text}" Width="{Binding ElementName=helper_col2, Path=ActualWidth,
+                                        Converter={wpf:MathsConverter}, ConverterParameter=x-12}" TextChanged="TextBoxBase_OnTextChanged"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Weight" Width="{Binding ElementName=helper_col3, Path=ActualWidth}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="local:AnswerRowData">
+                                <StackPanel Orientation="Vertical" >
+                                    <Slider Value="{Binding Weight}" Width="{Binding ElementName=helper_col3, Path=ActualWidth,
+                                        Converter={wpf:MathsConverter}, ConverterParameter=x-12}" ValueChanged="RangeBase_OnValueChanged" SmallChange="1" Maximum="100"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="" Width="{Binding ElementName=helper_col4, Path=ActualWidth}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="local:AnswerRowData">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Weight}" Width="{Binding ElementName=helper_col4, Path=ActualWidth,
+                                        Converter={wpf:MathsConverter}, ConverterParameter=x-12}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
         </ListView>
-        <Button x:Name="btn_AddAnswer" Content="Add Answer" Grid.Column="2" Margin="5,10,0,10" Grid.Row="3" HorizontalAlignment="Left" Width="100.001" Click="addAnsBtn_Click"/>
-
+        <Button x:Name="btn_AddQuestion" Content="New Question" Margin="10,10,4,10" Grid.Row="3" Click="Btn_AddQuestion_OnClick"/>
+        <GridSplitter x:Name="gridSplitter" Grid.Column="1" Margin="0" Grid.RowSpan="4" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        <TreeView x:Name="tr_Questions" Margin="10,10,4,10" Grid.RowSpan="3" SelectedItemChanged="tr_Questions_OnSelectedItemChanged"/>
+        <TextBox x:Name="txt_Category" Margin="95,10,10,10" TextWrapping="Wrap" Text="/" Grid.Column="2"/>
+        <Label x:Name="lbl_Category" Content="Category" Margin="10,10,0,10" Grid.Column="2" FontSize="14" BorderThickness="0" HorizontalAlignment="Left" Width="75"/>
+        <Label x:Name="lbl_Question" Content="Question" Grid.Column="2" Margin="10,10,0,10" Grid.Row="1" FontSize="14" BorderThickness="0" HorizontalAlignment="Left" Width="75"/>
+        <TextBox x:Name="txt_Question" Margin="95,10,10,10" TextWrapping="Wrap" Grid.Column="2" Grid.Row="1" SpellCheck.IsEnabled="True"/>
+        <Grid Grid.Column="2" Grid.Row="3">
+            <Button x:Name="btn_AddAnswer" Content="Add Answer" Margin="10,10,0,10" HorizontalAlignment="Left" Width="100" Click="addAnsBtn_Click"/>
+            <Button x:Name="btn_Save" Content="Save Changes" Margin="0,10,10,10" HorizontalAlignment="Right" Width="100" Click="btn_Save_Click"/>
+        </Grid>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=tbl_AnswerTable, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+            <Grid Grid.Column="2" x:Name="helper_col3"/>
+            <Grid Grid.Column="3" x:Name="helper_col4"/>
+        </Grid>
     </Grid>
 </UserControl>

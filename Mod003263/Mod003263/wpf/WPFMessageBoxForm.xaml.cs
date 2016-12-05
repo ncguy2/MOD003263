@@ -52,6 +52,16 @@ namespace Mod003263.wpf {
             return this;
         }
 
+        public void SetLeftBtnText(string text) {
+            btnLeft.Content = text;
+        }
+        public void SetMidBtnText(string text) {
+            btnMid.Content = text;
+        }
+        public void SetRightBtnText(string text) {
+            btnRight.Content = text;
+        }
+
         public void SetBtnActions(Action<WPFMessageBoxForm> left, Action<WPFMessageBoxForm> mid,
             Action<WPFMessageBoxForm> right) {
             SetOnLeftBtnClick(left);

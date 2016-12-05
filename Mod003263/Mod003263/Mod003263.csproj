@@ -52,16 +52,43 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="LiteDB">
       <HintPath>..\libs\LiteDB.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
       <HintPath>..\libs\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="SQLite.Interop, PublicKeyToken=null">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.103\build\net45\x86\SQLite.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.103\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.103\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.103\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
@@ -92,6 +119,9 @@
     <Compile Include="controllerview\ControllerViewManager.cs" />
     <Compile Include="controllerview\controller\BaseController.cs" />
     <Compile Include="controllerview\controller\TemplateSelectionController.cs" />
+    <Compile Include="controllerview\view\ApplicantEntry.xaml.cs">
+      <DependentUpon>ApplicantEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\ApplicantSummary.xaml.cs">
       <DependentUpon>ApplicantSummary.xaml</DependentUpon>
     </Compile>
@@ -102,8 +132,14 @@
     <Compile Include="controllerview\view\InterviewSub.xaml.cs">
       <DependentUpon>InterviewSub.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controllerview\view\Leaderboard.xaml.cs">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controllerview\view\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controllerview\view\Positions.xaml.cs">
+      <DependentUpon>Positions.xaml</DependentUpon>
     </Compile>
     <Compile Include="controllerview\view\QuestionEditor.xaml.cs">
       <DependentUpon>QuestionEditor.xaml</DependentUpon>
@@ -119,42 +155,73 @@
     <Compile Include="controllerview\view\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db\DatabaseAccessorListeners.cs" />
     <Compile Include="db\DatabaseConnection.cs" />
     <Compile Include="db\DbFactory.cs" />
     <Compile Include="email\EmailHandler.cs" />
     <Compile Include="events\AbstractEvent.cs" />
-    <Compile Include="events\db\SaveInterviewEvent.cs" />
-    <Compile Include="events\db\SaveQuestionEvent.cs" />
-    <Compile Include="events\db\SaveTemplateEvent.cs" />
+    <Compile Include="events\DenyEvent.cs" />
+    <Compile Include="events\email\EmailEvent.cs" />
+    <Compile Include="events\email\EmailSuccessEvent.cs" />
     <Compile Include="events\EventAttribute.cs" />
     <Compile Include="events\EventBus.cs" />
+    <Compile Include="events\HireEvent.cs" />
+    <Compile Include="events\io\DeleteFoundationEvent.cs" />
+    <Compile Include="events\io\DeletePositionEvent.cs" />
+    <Compile Include="events\io\DeleteQuestionEvent.cs" />
+    <Compile Include="events\io\SaveApplicantEvent.cs" />
+    <Compile Include="events\io\SaveFoundationEvent.cs" />
+    <Compile Include="events\io\SaveInterviewEvent.cs" />
+    <Compile Include="events\io\SavePositionEvent.cs" />
+    <Compile Include="events\io\SaveQuestionEvent.cs" />
     <Compile Include="events\test\StringPayloadEvent.cs" />
     <Compile Include="events\ui\BackEvent.cs" />
+    <Compile Include="events\ui\InterviewToApplicantEvent.cs" />
+    <Compile Include="events\ui\InterviewToTemplateEvent.cs" />
+    <Compile Include="events\ui\OpenLeaderboardEvent.cs" />
     <Compile Include="events\ui\SelectApplicantEvent.cs" />
     <Compile Include="events\ui\SelectQuestionEvent.cs" />
     <Compile Include="events\ui\SelectTemplateEvent.cs" />
     <Compile Include="interview\Answer.cs" />
+    <Compile Include="interview\FeedbackFactory.cs" />
     <Compile Include="interview\InterviewFoundation.cs" />
     <Compile Include="interview\InterviewFoundationInstance.cs" />
     <Compile Include="interview\metric\MetricCalculator.cs" />
     <Compile Include="interview\metric\MetricException.cs" />
+    <Compile Include="interview\AvailablePosition.cs" />
     <Compile Include="interview\Question.cs" />
+    <Compile Include="macro\MacroAttribute.cs" />
+    <Compile Include="macro\MacroManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="interview\Interview.cs" />
     <Compile Include="model\FlagManager.cs" />
     <Compile Include="PropertiesManager.cs" />
+    <Compile Include="macro\MacroTemplate.cs" />
     <Compile Include="threading\ThreadFactory.cs" />
+    <Compile Include="utils\ConversionUtils.cs" />
+    <Compile Include="utils\FixedSizedQueue.cs" />
+    <Compile Include="utils\RegexUtilities.cs" />
+    <Compile Include="utils\SearchUtils.cs" />
+    <Compile Include="visitor\TreeViewPopulator.cs" />
     <Compile Include="wpf\Base64Converter.cs" />
     <Compile Include="wpf\controls\AnswerRow.xaml.cs">
       <DependentUpon>AnswerRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpf\controls\ApplicantDetails.xaml.cs">
+      <DependentUpon>ApplicantDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="wpf\controls\ApplicantRow.xaml.cs">
       <DependentUpon>ApplicantRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="wpf\controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpf\IInitializable.cs" />
+    <Compile Include="wpf\MathsConverter.cs" />
+    <Compile Include="wpf\WPFMessageBoxErrorForm.xaml.cs">
+      <DependentUpon>WPFMessageBoxErrorForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="wpf\WPFMessageBoxFactory.cs" />
     <Compile Include="wpf\WPFMessageBoxForm.xaml.cs">
@@ -166,6 +233,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controllerview\view\ApplicantEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controllerview\view\Interview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,6 +244,10 @@
     <Page Include="controllerview\view\InterviewSub.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="controllerview\view\Leaderboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controllerview\view\MainMenu.xaml">
       <SubType>Designer</SubType>
@@ -183,6 +258,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="controllerview\view\ApplicantSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controllerview\view\Positions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,11 +289,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="wpf\controls\ApplicantDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="wpf\controls\ApplicantRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpf\controls\Spinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpf\WPFMessageBoxErrorForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

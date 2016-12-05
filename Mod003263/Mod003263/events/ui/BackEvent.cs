@@ -10,8 +10,7 @@ using System.Threading.Tasks;
  *  Contains: BackEvent, BackListener
  */
 
-namespace Mod003263.events.ui
-{
+namespace Mod003263.events.ui {
     public class BackEvent : AbstractEvent {
 
         public interface BackListener {

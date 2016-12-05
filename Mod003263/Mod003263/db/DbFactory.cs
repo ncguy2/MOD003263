@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data.Common;
 using System.Data.OleDb;
+using System.Data.SqlClient;
+using System.Data.SQLite;
+using System.IO;
 using System.Text;
 using MySql.Data.MySqlClient;
 
@@ -25,6 +28,7 @@ namespace Mod003263.db {
             switch (provider.ToLower()) {
                 case "mysql": return CreateMySQLConnectionString();
                 case "microsoft.ace.oledb.15.0": return CreateOleConnectionString();
+                case "sqlite": return CreateSQLiteConnectionString();
             }
             return "";
         }
@@ -40,6 +44,8 @@ namespace Mod003263.db {
                 return new MySqlCommand(query, (MySqlConnection) conn);
             if(conn is OleDbConnection)
                 return new OleDbCommand(query, (OleDbConnection) conn);
+            if (conn is SQLiteConnection)
+                return new SQLiteCommand(query, (SQLiteConnection) conn);
             return null;
         }
 
@@ -53,6 +59,7 @@ namespace Mod003263.db {
             switch (provider.ToLower()) {
                 case "mysql": return new MySqlConnection(connectionString);
                 case "microsoft.ace.oledb.15.0": return new OleDbConnection(connectionString);
+                case "sqlite": return new SQLiteConnection(connectionString);
             }
             return null;
         }
@@ -62,8 +69,10 @@ namespace Mod003263.db {
             string database = PropertiesManager.GetInstance().GetPropertyOrDefault("database.schema", "Applicant");
             string uid = PropertiesManager.GetInstance().GetPropertyOrDefault("database.username", "admin");
             string password = PropertiesManager.GetInstance().GetPropertyOrDefault("database.password", "123");
+            string port = PropertiesManager.GetInstance().GetPropertyOrDefault("database.port", "3306");
 
             return "SERVER=" + server + ";" +
+                   "PORT=" + port + ";" +
                    "DATABASE=" + database + ";" +
                    "UserID=" + uid + ";" +
                    "PASSWORD=" + password+";";
@@ -80,6 +89,20 @@ namespace Mod003263.db {
                    "User ID="+uid+";" +
                    "Password=\""+password+"\";";
         }
+        private string CreateSQLiteConnectionString() {
+            string host = PropertiesManager.GetInstance().GetPropertyOrDefault("database.hostname", "db.sqlite");
 
+            return "Data Source=" + host + ";Version=3";
+        }
+
+        public DbParameter CreateParameter(string name, object o, DbConnection conn) {
+            if (conn is MySqlConnection)
+                return new MySqlParameter(name, o);
+            if(conn is OleDbConnection)
+                return new OleDbParameter(name, o);
+            if (conn is SQLiteConnection)
+                return new SQLiteParameter(name, o);
+            return null;
+        }
     }
 }

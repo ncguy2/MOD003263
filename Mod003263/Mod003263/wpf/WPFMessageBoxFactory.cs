@@ -20,7 +20,16 @@ namespace Mod003263.wpf {
             WPFMessageBoxForm form = new WPFMessageBoxForm();
             form.SetHeader(data.Header).SetContent(data.Content).SetBtnMask(data.Mask);
             form.SetBtnActions(data.OnLeft, data.OnMid, data.OnRight);
+            form.SetLeftBtnText(data.Left);
+            form.SetMidBtnText(data.Mid);
+            form.SetRightBtnText(data.Right);
             return form;
+        }
+
+        public static WPFMessageBoxForm CreateAndShow(WPFMessageBoxFactoryData data) {
+            WPFMessageBoxForm f = Create(data);
+            f.Show();
+            return f;
         }
 
         /// <summary>
@@ -32,6 +41,22 @@ namespace Mod003263.wpf {
         /// <returns>The message box instance, for action binding</returns>
         public static WPFMessageBoxForm Create(String header, String content, int mask) {
             return Create(new WPFMessageBoxFactoryData{Header = header, Content = content, Mask = mask});
+        }
+
+        public static WPFMessageBoxForm CreateAndShow(String header, String content, int mask) {
+            WPFMessageBoxForm f = Create(new WPFMessageBoxFactoryData{Header = header, Content = content, Mask = mask});
+            f.Show();
+            return f;
+        }
+
+        public static WPFMessageBoxErrorForm CreateError(Exception exception) {
+            return new WPFMessageBoxErrorForm().SetException(exception);
+        }
+
+        public static WPFMessageBoxErrorForm CreateErrorAndShow(Exception exception) {
+            WPFMessageBoxErrorForm f = CreateError(exception);
+            f.Show();
+            return f;
         }
 
     }
@@ -46,6 +71,9 @@ namespace Mod003263.wpf {
         public Action<WPFMessageBoxForm> OnLeft { get; set; }
         public Action<WPFMessageBoxForm> OnMid { get; set; }
         public Action<WPFMessageBoxForm> OnRight { get; set; }
+        public string Left { get; set; }
+        public string Mid { get; set; }
+        public string Right { get; set; }
     }
 
 }

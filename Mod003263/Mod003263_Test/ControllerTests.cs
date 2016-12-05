@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization.Formatters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mod003263;
@@ -65,40 +67,69 @@ namespace Mod003263_Test {
 
         }
 
+        /// <summary>
+        /// Feedback generation is accurate
+        /// </summary>
+        [TestMethod]
+        public void Test4() {
+            FeedbackFactory ff = FeedbackFactory.GetInstance();
+            Dictionary<Question, String> perfect = ff.GenerateMassFeedback(PerfectSet());
+            Dictionary<Question, String> imperfect = ff.GenerateMassFeedback(ImperfectSet());
+            Dictionary<Question, String> wrong = ff.GenerateMassFeedback(WrongSet());
+
+            String file = "feedback.txt";
+            if(File.Exists(file))
+                File.Delete(file);
+            StreamWriter sw = File.CreateText(file);
+            sw.Write("Perfect\n");
+            foreach (KeyValuePair<Question, String> pair in perfect)
+                sw.Write($"\t{pair.Key} => {pair.Value}\n");
+            sw.Write("\n\n\n");
+            sw.Write("Imperfect\n");
+            foreach (KeyValuePair<Question, String> pair in imperfect)
+                sw.Write($"\t{pair.Key} => {pair.Value}\n");
+            sw.Write("\n\n\n");
+            sw.Write("Wrong\n");
+            foreach (KeyValuePair<Question, String> pair in wrong)
+                sw.Write($"\t{pair.Key} => {pair.Value}\n");
+            sw.Close();
+        }
+
+
         private static Interview PerfectSet() {
-            Interview interview = new Interview();
+            Interview interview = new Interview(-1, new InterviewFoundation());
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
-            questions.Add(new Question(0).AddAnswers(new Answer().SetWeight(100)), 5);
-            questions.Add(new Question(1).AddAnswers(new Answer().SetWeight(100)), 7);
-            questions.Add(new Question(2).AddAnswers(new Answer().SetWeight(100)), 15);
-            questions.Add(new Question(3).AddAnswers(new Answer().SetWeight(100)), 71);
-            questions.Add(new Question(4).AddAnswers(new Answer().SetWeight(100)), 2);
+            questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(100)), 5);
+            questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(100)), 7);
+            questions.Add(new Question(2).AddAnswers(new Answer(-1).SetWeight(100)), 15);
+            questions.Add(new Question(3).AddAnswers(new Answer(-1).SetWeight(100)), 71);
+            questions.Add(new Question(4).AddAnswers(new Answer(-1).SetWeight(100)), 2);
             foreach (Question q in questions.Keys)
                 interview.GetFoundationInstance().GetAnswerMap().Add(q, q.GetAnswers()[0]);
             return interview;
         }
 
         private static Interview ImperfectSet() {
-            Interview interview = new Interview();
+            Interview interview = new Interview(-1, new InterviewFoundation());
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
-            questions.Add(new Question(0).AddAnswers(new Answer().SetWeight(50)), 5);
-            questions.Add(new Question(1).AddAnswers(new Answer().SetWeight(50)), 7);
-            questions.Add(new Question(2).AddAnswers(new Answer().SetWeight(50)), 15);
-            questions.Add(new Question(3).AddAnswers(new Answer().SetWeight(50)), 71);
-            questions.Add(new Question(4).AddAnswers(new Answer().SetWeight(50)), 2);
+            questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(50)), 5);
+            questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(50)), 7);
+            questions.Add(new Question(2).AddAnswers(new Answer(-1).SetWeight(50)), 15);
+            questions.Add(new Question(3).AddAnswers(new Answer(-1).SetWeight(50)), 71);
+            questions.Add(new Question(4).AddAnswers(new Answer(-1).SetWeight(50)), 2);
             foreach (Question q in questions.Keys)
                 interview.GetFoundationInstance().GetAnswerMap().Add(q, q.GetAnswers()[0]);
             return interview;
         }
 
         private static Interview WrongSet() {
-            Interview interview = new Interview();
+            Interview interview = new Interview(-1, new InterviewFoundation());
             Dictionary<Question, int> questions = interview.GetFoundationInstance().GetFoundation().GetQuestions();
-            questions.Add(new Question(0).AddAnswers(new Answer().SetWeight(0)), 5);
-            questions.Add(new Question(1).AddAnswers(new Answer().SetWeight(0)), 7);
-            questions.Add(new Question(2).AddAnswers(new Answer().SetWeight(0)), 15);
-            questions.Add(new Question(3).AddAnswers(new Answer().SetWeight(0)), 71);
-            questions.Add(new Question(4).AddAnswers(new Answer().SetWeight(0)), 2);
+            questions.Add(new Question(0).AddAnswers(new Answer(-1).SetWeight(0)), 5);
+            questions.Add(new Question(1).AddAnswers(new Answer(-1).SetWeight(0)), 7);
+            questions.Add(new Question(2).AddAnswers(new Answer(-1).SetWeight(0)), 15);
+            questions.Add(new Question(3).AddAnswers(new Answer(-1).SetWeight(0)), 71);
+            questions.Add(new Question(4).AddAnswers(new Answer(-1).SetWeight(0)), 2);
             foreach (Question q in questions.Keys)
                 interview.GetFoundationInstance().GetAnswerMap().Add(q, q.GetAnswers()[0]);
             return interview;

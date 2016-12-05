@@ -93,20 +93,23 @@ namespace Mod003263.wpf.controls {
         public static readonly DependencyProperty MaxValueProperty = DependencyProperty.Register("MaximumValue", typeof(int), typeof(Spinner));
         public event EventHandler SpinnerValueChanged;
 
-        public int StartValue
-        {
+        public int StartValue {
             get { return (int)GetValue(StartValueProperty); }
             set { SetValue(StartValueProperty, value); }
         }
-        public int MinValue
-        {
+        public int MinValue {
             get { return (int)GetValue(MinValueProperty); }
             set { SetValue(MinValueProperty, value); }
         }
-        public int MaxValue
-        {
+        public int MaxValue {
             get { return (int)GetValue(MaxValueProperty); }
             set { SetValue(MaxValueProperty, value); }
         }
+
+        public string Display {
+            get { return NUDTextBox.Text;  }
+            set { NUDTextBox.Text = value; }
+        }
+
     }
 }

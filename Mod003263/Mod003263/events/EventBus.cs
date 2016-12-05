@@ -13,6 +13,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Threading;
 using Mod003263.threading;
 using Expression = System.Linq.Expressions.Expression;
 
@@ -70,7 +71,13 @@ namespace Mod003263.events {
                 if (info.GetParameters().Length != 1) continue;
                 Type paramType = info.GetParameters()[0].ParameterType;
                 if (!paramType.IsSubclassOf(typeof(AbstractEvent))) continue;
-                Action<AbstractEvent> e = evt => info.Invoke(subscriber, new object[] {evt});
+                Action<AbstractEvent> e = evt =>{
+                    if (threaded)
+                        Application.Current.Dispatcher.Invoke(() => {
+                            info.Invoke(subscriber, new object[] {evt});
+                        });
+                    else info.Invoke(subscriber, new object[] {evt});
+                };
                 AddSubscriber(paramType, subscriber, e);
             }
         }

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Mod003263.wpf.controls.ApplicantDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mod003263.wpf.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="336" d:DesignWidth="786">
+    <Grid Background="#FFAAAAAA">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="351*"/>
+            <ColumnDefinition Width="355*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="bdr_Picture" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="128" Margin="10,10,0,0" VerticalAlignment="Top" Width="128" Grid.Column="1">
+            <Border.Background>
+                <ImageBrush/>
+            </Border.Background>
+        </Border>
+        <Label x:Name="lbl_FullName" Content="{}{Full__Name}" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="128" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Height="26"/>
+        <Button x:Name="btn_callback" Content="Back" Margin="10,10,10,0" Height="23" VerticalAlignment="Top" Click="btn_callback_Click"/>
+        <Button x:Name="btn_hire" Content="Hire" Margin="10,43,10,0" Height="23" VerticalAlignment="Top" Click="Btn_hire_OnClick"/>
+        <Button x:Name="btn_deny" Content="Deny" Margin="10,76,10,0" Height="23" VerticalAlignment="Top" Click="Btn_deny_OnClick"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,0,0,136" VerticalAlignment="Bottom" Width="209">
+            <Label x:Name="label" Content="Applying for the position of" Margin="0,0,52.315,0" d:LayoutOverrides="Width, Height"/>
+            <Label x:Name="lbl_position" Content="{}{Position}" HorizontalAlignment="Right" d:LayoutOverrides="Height"/>
+        </Grid>
+        <Label x:Name="lbl_decision" Content="{}{Decision}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" Width="279" Height="34"/>
+        <ListView x:Name="lst_Answers" Grid.Column="2" Margin="10,43,10,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Question" DisplayMemberBinding="{Binding Question}" Width="{Binding ElementName=helper_col1, Path=ActualWidth}" />
+                    <GridViewColumn Header="Grade"    DisplayMemberBinding="{Binding Grade}" Width="{Binding ElementName=helper_col2, Path=ActualWidth}" />
+                    <GridViewColumn Header="Score"    DisplayMemberBinding="{Binding Score}" Width="{Binding ElementName=helper_col3, Path=ActualWidth}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="lbl_templateName" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Height="26" Width="38"/>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lst_Answers, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+            <Grid Grid.Column="2" x:Name="helper_col3"/>
+        </Grid>
+    </Grid>
+</UserControl>

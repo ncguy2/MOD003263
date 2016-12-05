@@ -37,6 +37,7 @@ namespace Mod003263.interview.metric {
             if (metric > 0)
                 metric = metric / maxMetric;
 
+            metric *= 100;
             CleanValues();
             return i.SetResultMetric(metric).GetResultMetric();
         }
@@ -80,6 +81,11 @@ namespace Mod003263.interview.metric {
         private float CalculateLocalMetric(Question question, Answer answer) {
             float weight = interview.GetFoundationInstance().GetQuestionWeight(question);
             float w = (weight * (answer.Weight / 100f));
+            return w;
+        }
+        public float CalculateLocalMetric(Interview i, Question question, Answer answer) {
+            float weight = i.GetFoundationInstance().GetQuestionWeight(question);
+            float w = weight * (answer.Weight / 100f);
             return w;
         }
 

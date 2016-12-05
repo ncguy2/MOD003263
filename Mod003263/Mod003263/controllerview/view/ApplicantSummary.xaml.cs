@@ -75,13 +75,11 @@ namespace Mod003263.controllerview.view
 
             matches.ForEach(pair => {
                 ApplicantRow row = pair.Value;
-                row.DebugText.Content = 0;
                 listBox.Items.Add(row);
             });
 
             distanced.ForEach(pair => {
                 ApplicantRow row = pair.Pair.Value;
-                row.DebugText.Content = pair.Distance;
                 listBox.Items.Add(row);
             });
         }

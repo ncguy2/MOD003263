@@ -1,0 +1,229 @@
+﻿<UserControl x:Class="Mod003263.controllerview.view.Leaderboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mod003263.controllerview.view"
+        xmlns:db="clr-namespace:Mod003263.db"
+             xmlns:controls="clr-namespace:Mod003263.wpf.controls"
+             mc:Ignorable="d"
+        Height="336" Width="965.589" Foreground="{x:Null}" BorderBrush="Black" >
+    <UserControl.Resources>
+        <Storyboard x:Key="app_details_show">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-791.399">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.255">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_underlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-791.399">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_underlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.255">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grd_underlay">
+                <EasingColorKeyFrame KeyTime="0" Value="Black"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF8D8D8D"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="app_details_hide">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-791.399">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_overlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.255">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grd_underlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-791.399">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grd_underlay">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.255">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.GiveFeedback">
+            <BeginStoryboard x:Name="app_details_show_BeginStoryboard" Storyboard="{StaticResource app_details_show}"/>
+            <BeginStoryboard x:Name="app_details_hide_BeginStoryboard" Storyboard="{StaticResource app_details_hide}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Canvas>
+        <Grid Height="336" Width="966">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="786"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="lst_positions" Margin="10,10,5,35" Grid.RowSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Position}" Width="{Binding ElementName=helperLeft_col1, Path=ActualWidth}"/>
+                        <GridViewColumn Header="Seats" DisplayMemberBinding="{Binding Seats}" Width="{Binding ElementName=helperLeft_col2, Path=ActualWidth}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="lst_appSummary" Grid.Column="1" Margin="5,5,10,10" SelectionChanged="Lst_appSummary_OnSelectionChanged" Grid.Row="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Image" Width="{Binding ElementName=helper_col1, Path=ActualWidth}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate DataType="db:ApplicantRowData">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Image}" Width="32" Height="32"></Image>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Full_Name}" Width="{Binding ElementName=helper_col2, Path=ActualWidth}"/>
+                        <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Applying_Position}" Width="{Binding ElementName=helper_col3, Path=ActualWidth}"/>
+                        <GridViewColumn Header="Metric" DisplayMemberBinding="{Binding Metric}" Width="{Binding ElementName=helper_col4, Path=ActualWidth}"/>
+                    </GridView>
+                </ListView.View>
+                <TextBox x:Name="textBox" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120"/>
+            </ListView>
+            <Button x:Name="btn_init" Content="Finish" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top" Width="165" Click="btn_init_Click" Grid.Row="1"/>
+            <TextBox x:Name="txt_search" Grid.Column="1" Margin="5,10,10,5" TextWrapping="Wrap" TextChanged="Txt_search_OnTextChanged">
+                <TextBox.ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Margin="0,0,0,5">Smart Search</TextBlock>
+                        <TextBlock>Use key prefixes to search specific properties</TextBlock>
+                        <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                        <TextBlock><TextBlock FontWeight="Bold">name:</TextBlock> searches for your query in the full name of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">forename:</TextBlock> searches for your query in the first name of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">surname:</TextBlock> searches for your query in the last name of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">position:</TextBlock> searches for your query in the applying position of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">email:</TextBlock> searches for your query in the email address of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">address:</TextBlock> searches for your query in the address of the applicant</TextBlock>
+                        <TextBlock><TextBlock FontWeight="Bold">phone:</TextBlock> searches for your query in the phone number of the applicant</TextBlock>
+                    </StackPanel>
+                </TextBox.ToolTip>
+            </TextBox>
+        </Grid>
+        <Grid x:Name="grd_underlay" Height="418.5" Width="786" Canvas.Left="971" RenderTransformOrigin="0.5,0.5" Background="Black" Canvas.Top="-37.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="5" Direction="180" BlurRadius="10"/>
+            </Grid.Effect>
+        </Grid>
+        <Grid x:Name="grd_overlay" Height="336" Width="786" Canvas.Left="971" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="117*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <controls:ApplicantDetails x:Name="app_details" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top"
+                Width="786" Grid.ColumnSpan="2" CallbackButtonClicked="app_details_CallbackButtonClicked"
+                HireButtonClicked="App_details_OnHireButtonClicked" DenyButtonClicked="App_details_OnDenyButtonClicked" d:IsHidden="True" />
+        </Grid>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lst_appSummary, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helper_col1"/>
+            <Grid Grid.Column="1" x:Name="helper_col2"/>
+            <Grid Grid.Column="2" x:Name="helper_col3"/>
+            <Grid Grid.Column="3" x:Name="helper_col4"/>
+        </Grid>
+        <Grid Visibility="Hidden" Width="{Binding ElementName=lst_positions, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="helperLeft_col1"/>
+            <Grid Grid.Column="1" x:Name="helperLeft_col2"/>
+        </Grid>
+    </Canvas>
+</UserControl>
