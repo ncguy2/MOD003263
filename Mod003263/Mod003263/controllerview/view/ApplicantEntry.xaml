@@ -22,15 +22,20 @@
         <TextBox x:Name="txt_FileName" HorizontalAlignment="Left" Margin="1,-165,0,0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" Height="23" VerticalAlignment="Top" Grid.Column="2" Visibility="Hidden"/>
         <Button x:Name="btn_SelectPicture" Content="Select Picture" HorizontalAlignment="Left" Margin="10,133,0,0" Width="120" Height="24" VerticalAlignment="Top" Grid.Column="2" Click="btn_SelectPicture_Click"/>
         <TextBox x:Name="txt_FirstName" Margin="10,14,151,0" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Top" Grid.Column="4"/>
+        <TextBox x:Name="txt_LastName" Margin="10,49,151,0" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Top" Grid.Column="4"/>
         <TextBox x:Name="txt_Email" Margin="10,84,151,0" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Top" Grid.Column="4"/>
+        <ComboBox x:Name="sel_ApplyingPosition" Grid.Column="4" Margin="10,119,151,0" VerticalAlignment="Top" Height="30"/>
         <TextBox x:Name="txt_PhoneNumber" Margin="10,154,151,0" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Top" Grid.Column="4"/>
+        <TextBox x:Name="txt_Address" Margin="10,189,151,119" TextWrapping="Wrap" FontSize="14" Grid.Column="4"/>
+        <DatePicker x:Name="dat_DoB" Grid.Column="4" Margin="10,224,151,0" VerticalAlignment="Top" Height="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Button x:Name="btn_Save" Content="Save Applicant" Margin="10,0,151,10" Height="31" VerticalAlignment="Bottom" Grid.Column="4" Click="Btn_Save_OnClick"/>
         <Label x:Name="lbl_FirstName" Content="First Name" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="67"/>
+        <Label x:Name="lbl_LastName" Content="Last Name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="67"/>
         <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="38" RenderTransformOrigin="-0.084,0.072"/>
+        <Label x:Name="lbl_ApplyingPosition" Content="Applying Position&#xA;" Margin="10,119,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Grid.Column="3" Width="103"/>
         <Label x:Name="lbl_PhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="90"/>
         <Label x:Name="lbl_Address" Content="Address" HorizontalAlignment="Left" Margin="10,193,0,119" Grid.Column="3" Width="53"/>
         <Label x:Name="lbl_BirthDate" Content="Date of Birth" HorizontalAlignment="Left" Margin="10,0,0,83" VerticalAlignment="Bottom" Grid.Column="3" Height="26" Width="77"/>
-        <TextBox x:Name="txt_Address" Margin="10,189,151,119" TextWrapping="Wrap" FontSize="14" Grid.Column="4"/>
-        <Button x:Name="btn_Save" Content="Save Applicant" Margin="10,0,151,10" Height="31" VerticalAlignment="Bottom" Grid.Column="4" Click="Btn_Save_OnClick"/>
         <ListView x:Name="lv_Applicant" Margin="10,76,0,42" Width="240" SelectionChanged="lv_Applicant_SelectionChanged" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch">
             <ListView.View>
                 <GridView>
@@ -56,12 +61,7 @@
             </TextBox.ToolTip>
         </TextBox>
         <Label x:Name="lbl_Search" Content="Applicant Search" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Height="26" Width="99"/>
-        <Label x:Name="lbl_ApplyingPosition" Content="Applying Position&#xD;&#xA;" Margin="10,119,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Grid.Column="3" Width="103"/>
-        <Label x:Name="lbl_LastName" Content="Last Name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="67"/>
-        <TextBox x:Name="txt_LastName" Margin="10,49,151,0" TextWrapping="Wrap" FontSize="14" Height="30" VerticalAlignment="Top" Grid.Column="4"/>
-        <DatePicker x:Name="dat_DoB" Grid.Column="4" Margin="10,224,151,0" VerticalAlignment="Top" Height="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
         <Button x:Name="btn_newApp" Content="New Applicant" Margin="10,0,5,10" VerticalAlignment="Bottom" Height="27" Click="btn_newApp_Click"/>
-        <ComboBox x:Name="sel_ApplyingPosition" Grid.Column="4" Margin="10,119,151,0" VerticalAlignment="Top" Height="30"/>
         <Button x:Name="btn_refresh" Content="Refresh" Margin="5,0,5,10" VerticalAlignment="Bottom" Height="27" Grid.Column="1" Click="btn_refresh_Click"/>
         <Grid Visibility="Hidden" Width="{Binding ElementName=lv_Applicant, Path=ActualWidth}">
             <Grid.ColumnDefinitions>
