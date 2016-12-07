@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mod003263.wpf"
         mc:Ignorable="d"
-        Title="WPFMessageBoxFactory" Height="128" Width="300">
+        Title="WPFMessageBoxFactory" Height="174.5" Width="372">
     <Grid Margin="0,0,0,0.572">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnLeft" Content="Button" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Click="btnLeft_Click"/>
-        <Button x:Name="btnMid" Content="Button" Margin="108.571,0,108.429,10" VerticalAlignment="Bottom" Click="btnMid_Click"/>
-        <Button x:Name="btnRight" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="btnRight_Click"/>
+        <Button x:Name="btnLeft" Content="Button" Margin="10,0,10,56.5" Click="btnLeft_Click" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnMid" Content="Button" Margin="10,0,10,31.54" Click="btnMid_Click" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnRight" Content="Button" Margin="10,0,10,6.58" VerticalAlignment="Bottom" Click="btnRight_Click"/>
         <TextBlock x:Name="txtContent" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="51.468"/>
     </Grid>
 </Window>

@@ -62,15 +62,5 @@
             <Grid Grid.Column="0" x:Name="helper_col1"/>
             <Grid Grid.Column="1" x:Name="helper_col2"/>
         </Grid>
-        <Button x:Name="btn_Back" Content="Back" Margin="8.658,-49.97,4.9,0" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Height="100" Grid.Row="1" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="Btn_Back_OnClick">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
     </Grid>
 </UserControl>

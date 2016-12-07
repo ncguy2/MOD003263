@@ -1161,6 +1161,17 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="positions_Open">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tmp_canvas2">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-748"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="positions_Close">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tmp_canvas2">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
 
 
 
@@ -1203,6 +1214,12 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_LeaderboardBack">
             <BeginStoryboard x:Name="tmp_canvasOverlay_Reverse_BeginStoryboard" Storyboard="{StaticResource tmp_canvasOverlay_Reverse}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_PositionsBack">
+            <BeginStoryboard x:Name="positions_Open_BeginStoryboard" Storyboard="{StaticResource positions_Close}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_Positions">
+            <BeginStoryboard x:Name="positions_Open_BeginStoryboard1" Storyboard="{StaticResource positions_Open}"/>
         </EventTrigger>
     </UserControl.Triggers>
 
@@ -1488,8 +1505,26 @@
             </Grid>
         </Canvas>
         <local:TemplateSelection x:Name="templateSelection" Margin="100.598,-4.45,398.313,33.45" Opacity="0" Visibility="Hidden"/>
-        <Canvas x:Name="tmp_canvas2" HorizontalAlignment="Left" Height="371" Margin="7,-4,0,0" VerticalAlignment="Top" Width="1457" Background="#FF979797" Visibility="Hidden">
+        <Canvas x:Name="tmp_canvas2" HorizontalAlignment="Left" Height="371" Margin="0,749,0,-753" VerticalAlignment="Top" Width="1464.5" Background="#FF979797" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
             <local:Positions x:Name="positions" Canvas.Left="0" Canvas.Top="0"/>
+            <Button x:Name="btn_PositionsBack" Content="Back" Width="100" Background="#FF363636" BorderBrush="#FF363636" RenderTransformOrigin="0.5,0.5" Height="100" Canvas.Left="10" Canvas.Top="10">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
         </Canvas>
     </Grid>
 </UserControl>

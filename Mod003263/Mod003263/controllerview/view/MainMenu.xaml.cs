@@ -58,7 +58,7 @@ namespace Mod003263.controllerview.view{
         }
 
         private void button_Click(object sender, RoutedEventArgs e) {
-            tmp_canvas2.Visibility = Visibility.Visible;
+            
             InitializeObject(positions);
         }
 
