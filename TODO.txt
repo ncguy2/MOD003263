@@ -1,0 +1,42 @@
+Report {
+	Problem Definition {
+		Case study description
+		Current Systems description
+		Project Aims
+		Project Plan {
+			Introduction
+			Resources required to complete project
+			Management control - Gantt chart
+			Configuration management
+		}
+	}
+	User and System Requirements
+	Software maintenance plan {
+		Bug tracking
+		MSCW
+	}
+	VCS evidence
+	Coding standards
+}
+
+Logbook {
+	All personal work
+	Implementation docs {
+		Own implementation details {
+			Code listing reference
+			Brief description for each
+		}
+	}
+	Test plans
+	Design docs {
+		Use case
+		Class diagram
+		Sequence diagrams
+		Narrative for each
+	}
+}
+
+Disk {
+	Entire project
+	Digital copies of docs
+}
