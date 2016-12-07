@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="ControllerTests.cs" />
     <Compile Include="DataModelTests.cs" />
+    <Compile Include="MiscTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelTests.cs" />
   </ItemGroup>

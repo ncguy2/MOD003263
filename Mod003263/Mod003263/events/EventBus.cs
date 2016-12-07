@@ -31,22 +31,29 @@ namespace Mod003263.events {
 
         private static EventBus instance;
         public static EventBus GetInstance() {
-            return instance ?? (instance = new EventBus());
+            return instance ?? (instance = new EventBus(factoryThreaded));
         }
+
+        public static void SetFactoryThreaded(bool threaded) {
+            factoryThreaded = threaded;
+        }
+
+        private static bool factoryThreaded = true;
 
         /// <summary>
         /// Allows for the event tasks to be executed on a different thread (doesn't function correctly when working with UI)
         /// </summary>
-        private bool threaded = false;
+        private readonly bool threaded;
         private List<ThreadStart> eventTasks;
         private Dictionary<Type, List<KeyValuePair<Object, Action<AbstractEvent>>>>  eventSubscribers;
         private Thread eventThread;
         private bool eventThreadActive;
 
-        private EventBus() {
+        private EventBus(bool threaded) {
+            this.threaded = threaded;
             this.eventSubscribers = new Dictionary<Type, List<KeyValuePair<object, Action<AbstractEvent>>>>();
             this.eventTasks = new List<ThreadStart>();
-            if (!threaded) return;
+            if (!this.threaded) return;
             this.eventThread = ThreadFactory.GetInstance().CreateManagedThread(ThreadLoop, "Event Bus");
             this.eventThreadActive = true;
             this.eventThread.Start();
