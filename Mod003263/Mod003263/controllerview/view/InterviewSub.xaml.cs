@@ -25,7 +25,7 @@ using Mod003263.wpf;
 using Mod003263.wpf.controls;
 
 /**
- * Author: Ryan Cowell
+ * Author: Callum Highly
  * Date: 01/12/2016
  * Contains: InterviewSub
  */
