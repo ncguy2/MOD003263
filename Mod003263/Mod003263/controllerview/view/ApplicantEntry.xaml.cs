@@ -25,7 +25,7 @@ using Mod003263.wpf.controls;
 using Utils.Difference;
 
 /**
- * Author: Ryan Cowell, Nick Guy
+ * Author: Ryan Cowell
  * Date: 30/11/2016
  * Contains: ApplicantEntry
  */
