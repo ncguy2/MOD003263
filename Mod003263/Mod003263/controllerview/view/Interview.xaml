@@ -17,8 +17,8 @@
         <Label x:Name="lbl_AnswersList" Content="Answers" HorizontalAlignment="Left" Margin="10,77.382,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Question" Content="Question" HorizontalAlignment="Left" Margin="10,2.5,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Confirm" Content="Confirm Selected Answer" Margin="373.5,99.842,10,0" Height="39.96" VerticalAlignment="Top" Click="btn_Confirm_Click"/>
-        <TextBox x:Name="txt_Feedback" Height="89.419" Margin="373.5,0,10,10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="txt_Question" Height="48.922" Margin="10,28.46,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_Feedback" Height="89.419" Margin="373.5,0,10,10" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txt_Question" Height="48.922" Margin="10,28.46,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" IsReadOnly="True"/>
         <Grid Visibility="Hidden" Width="{Binding ElementName=lv_Answers, Path=ActualWidth}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="95*"/>
@@ -27,5 +27,6 @@
             <Grid Grid.Column="0" x:Name="helper_col1"/>
             <Grid Grid.Column="1" x:Name="helper_col2"/>
         </Grid>
+        <Label x:Name="label" Content="Additional Information" Margin="373.5,0,0,99.419" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
     </Grid>
 </UserControl>
